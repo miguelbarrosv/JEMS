@@ -1,0 +1,38 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<liga cod="">
+	<jornada cod="" fecha="">
+		<partidos>
+			<partido cod="">
+				<equipoA>
+					<codigoEquipo></codigoEquipo>
+				</equipoA>
+				<equipoB>
+					<codigoEquipo></codigoEquipo>
+				</equipoB>
+			</partido>
+		</partidos>
+	</jornada>
+	<equipos>
+		<equipo cod="">
+			<nombre></nombre>
+			<presupuesto></presupuesto>
+			<localidad></localidad>
+		</equipo>
+	</equipos>
+	<jugadores>
+		<jugador cod="">
+			<nombre></nombre>
+			<apellido></apellido>
+			<nickname></nickname>
+			<sueldo></sueldo>
+			<nacionalidad></nacionalidad>
+			<estado></estado>
+		<jugador>
+	<jugadores>
+	<dueños>
+		<dueño cod="">
+			<nombre></nombre>
+			<apellido></apellido>
+		</dueño>
+	</dueños>
+</liga>
