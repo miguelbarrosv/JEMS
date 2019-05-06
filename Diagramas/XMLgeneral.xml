@@ -1,17 +1,20 @@
 <?xml version="1.0"  encoding="UTF-8"?>
+<!DOCTYPE DTD_E_Sports SYSTEM "DTD_E_Sports.dtd">
 <liga cod="">
-	<jornada cod="" fecha="">
-		<partidos>
-			<partido cod="">
-				<equipoA>
-					<codigoEquipo></codigoEquipo>
-				</equipoA>
-				<equipoB>
-					<codigoEquipo></codigoEquipo>
-				</equipoB>
-			</partido>
-		</partidos>
-	</jornada>
+	<jornadas>
+		<jornada cod="" fecha="">
+			<partidos>
+				<partido cod="">
+					<equipoA>
+						<codigoEquipo></codigoEquipo>
+					</equipoA>
+					<equipoB>
+						<codigoEquipo></codigoEquipo>
+					</equipoB>
+				</partido>
+			</partidos>
+		</jornada>
+	</jornadas>
 	<equipos>
 		<equipo cod="">
 			<nombre></nombre>
