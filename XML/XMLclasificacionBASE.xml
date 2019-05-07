@@ -1,15 +1,15 @@
 <?xml version="1.0"  encoding="UTF-8"?> 
 <!DOCTYPE DTD_LIGA SYSTEM "DTD_LIGA.dtd">
 <liga>
-	<equipo>
+	<equipo cod="01">
         <nombre></nombre>
         <puntos>0</puntos>
     </equipo>
-    <equipo>
+    <equipo cod="02">
         <nombre></nombre>
         <puntos>0</puntos>
     </equipo>
-    <equipo>
+    <equipo cod="03">
         <nombre></nombre>
         <puntos>0</puntos>
     </equipo>
