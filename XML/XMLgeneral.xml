@@ -3,6 +3,7 @@
 <liga cod="">
 	<jornadas>
 		<jornada cod="" fecha="">
+			<fecha></fecha>
 			<partidos>
 				<partido cod="">
 					<equipoA>
