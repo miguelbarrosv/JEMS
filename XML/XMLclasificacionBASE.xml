@@ -1,0 +1,16 @@
+<?xml version="1.0"  encoding="UTF-8"?> 
+<!DOCTYPE DTD_LIGA SYSTEM "DTD_LIGA.dtd">
+<liga>
+	<equipo>
+        <nombre></nombre>
+        <puntos>0</puntos>
+    </equipo>
+    <equipo>
+        <nombre></nombre>
+        <puntos>0</puntos>
+    </equipo>
+    <equipo>
+        <nombre></nombre>
+        <puntos>0</puntos>
+    </equipo>
+</liga>
