@@ -1,0 +1,46 @@
+<!ELEMENT jornadas (jornada+)>
+<!ELEMENT jornada (partidos,fecha)>
+	<!ATTLIST jornada cod #CDATA #REQUIRED>
+	<!ATTLIST jornada fecha #CDATA #REQUIRED>
+	<!ELEMENT partidos (partido+)>
+		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+			<!ATTLIST partido cod #CDATA #REQUIRED>
+			<!ELEMENT equipoA (#PCDATA)>
+			<!ELEMENT equipoB (#PCDATA)>
+			<!ELEMENT puntuacionA (#PCDATA)>
+			<!ELEMENT puntuacionB (#PCDATA)>
+		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+			<!ATTLIST partido cod #CDATA #REQUIRED>
+			<!ELEMENT equipoA (#PCDATA)>
+			<!ELEMENT equipoB (#PCDATA)>
+			<!ELEMENT puntuacionA (#PCDATA)>
+			<!ELEMENT puntuacionB (#PCDATA)>
+		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+			<!ATTLIST partido cod #CDATA #REQUIRED>
+			<!ELEMENT equipoA (#PCDATA)>
+			<!ELEMENT equipoB (#PCDATA)>
+			<!ELEMENT puntuacionA (#PCDATA)>
+			<!ELEMENT puntuacionB (#PCDATA)>
+			<!ELEMENT jornada (partidos,fecha)>
+<!ELEMENT jornada (partidos,fecha)>	
+	<!ATTLIST jornada cod #CDATA #REQUIRED>
+	<!ATTLIST jornada fecha #CDATA #REQUIRED>
+	<!ELEMENT partidos (partido+)>
+		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+			<!ATTLIST partido cod #CDATA #REQUIRED>
+			<!ELEMENT equipoA (#PCDATA)>
+			<!ELEMENT equipoB (#PCDATA)>
+			<!ELEMENT puntuacionA (#PCDATA)>
+			<!ELEMENT puntuacionB (#PCDATA)>
+		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+			<!ATTLIST partido cod #CDATA #REQUIRED>
+			<!ELEMENT equipoA (#PCDATA)>
+			<!ELEMENT equipoB (#PCDATA)>
+			<!ELEMENT puntuacionA (#PCDATA)>
+			<!ELEMENT puntuacionB (#PCDATA)>
+		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+			<!ATTLIST partido cod #CDATA #REQUIRED>
+			<!ELEMENT equipoA (#PCDATA)>
+			<!ELEMENT equipoB (#PCDATA)>
+			<!ELEMENT puntuacionA (#PCDATA)>
+			<!ELEMENT puntuacionB (#PCDATA)>
