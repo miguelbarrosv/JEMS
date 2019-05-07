@@ -1,8 +1,9 @@
 <!ELEMENT liga (jornadas,equipos,jugadores,dueños)>
 	<!ATTLIST liga cod #CDATA #REQUIRED>
-	<!ELEMENT jornadas (jornada)>
-		<!ELEMENT jornada (partidos)>
+	<!ELEMENT jornadas (jornada+)>
+		<!ELEMENT jornada (partidos,fecha)>
 			<!ATTLIST jornada cod #CDATA #REQUIRED>
+			<!ELEMTENT fecha (#PCDATA)>
 			<!ELEMENT partidos (partido+)>
 				<!ELEMENT partido (equipoA, equipoB)>
 					<!ATTLIST partido cod #CDATA #REQUIRED>
@@ -24,7 +25,7 @@
 			<!ELEMENT nickname (#PCDATA)>
 			<!ELEMENT sueldo (#PCDATA)>
 			<!ELEMENT nacionalidad (#PCDATA)>
-			<!ELEMENT estado (#PCDATA)>
+			<!ELEMENT estado (vacante|contratado)>
 	<!ELEMENT dueños (dueño+)>
 		<!ELEMENT dueño (nombre,apellido)>
 			<!ATTLIST dueño cod #CDATA #REQUIRED>
