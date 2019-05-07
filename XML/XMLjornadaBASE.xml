@@ -1,58 +1,47 @@
 <?xml version="1.0"  encoding="UTF-8"?>
+<!DOCTYPE DTD_Jornada SYSTEM "DTD_Jornada.dtd">
 	<jornadas>
-		<jornada cod="01" fecha="07/05/2019">
+		<jornada cod="02" fecha="07/05/2019">
 			<partidos>
 				<partido cod="01">
-					<equipoA>
-						<nombre></nombre>
-					</equipoA>
-					<equipoB>
-						<nombre></nombre>
-					</equipoB>
+					<equipoA></equipoA>				
+					<equipoB></equipoB>
+					<puntuacionA>0</puntuacionB>
+					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="02">
-					<equipoA>
-						<nombre></nombre>
-					</equipoA>
-					<equipoB>
-						<nombre></nombre>
-					</equipoB>
+					<equipoA></equipoA>				
+					<equipoB></equipoB>
+					<puntuacionA>0</puntuacionB>
+					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="03">
-					<equipoA>
-						<nombre></nombre>
-					</equipoA>
-					<equipoB>
-						<nombre></nombre>
-					</equipoB>
+					<equipoA></equipoA>				
+					<equipoB></equipoB>
+					<puntuacionA>0</puntuacionB>
+					<puntuacionB>0</puntuacionB>
 				</partido>
 			</partidos>
 		</jornada>		
-		<jornada cod="02" fecha="08/05/2019">
+		<jornada cod="01" fecha="06/05/2019">
 			<partidos>
 				<partido cod="01">
-					<equipoA>
-						<nombre></nombre>
-					</equipoA>
-					<equipoB>
-						<nombre></nombre>
-					</equipoB>
+					<equipoA></equipoA>				
+					<equipoB></equipoB>
+					<puntuacionA>0</puntuacionB>
+					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="02">
-					<equipoA>
-						<nombre></nombre>
-					</equipoA>
-					<equipoB>
-						<nombre></nombre>
-					</equipoB>
+					<equipoA></equipoA>				
+					<equipoB></equipoB>
+					<puntuacionA>0</puntuacionB>
+					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="03">
-					<equipoA>
-						<nombre></nombre>
-					</equipoA>
-					<equipoB>
-						<nombre></nombre>
-					</equipoB>
+					<equipoA></equipoA>				
+					<equipoB></equipoB>
+					<puntuacionA>0</puntuacionB>
+					<puntuacionB>0</puntuacionB>
 				</partido>
 			</partidos>
 		</jornada>
