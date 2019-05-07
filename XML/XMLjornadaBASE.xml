@@ -6,19 +6,19 @@
 				<partido cod="01">
 					<equipoA></equipoA>				
 					<equipoB></equipoB>
-					<puntuacionA>0</puntuacionB>
+					<puntuacionA>0</puntuacionA>
 					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="02">
 					<equipoA></equipoA>				
 					<equipoB></equipoB>
-					<puntuacionA>0</puntuacionB>
+					<puntuacionA>0</puntuacionA>
 					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="03">
 					<equipoA></equipoA>				
 					<equipoB></equipoB>
-					<puntuacionA>0</puntuacionB>
+					<puntuacionA>0</puntuacionA>
 					<puntuacionB>0</puntuacionB>
 				</partido>
 			</partidos>
@@ -28,19 +28,19 @@
 				<partido cod="01">
 					<equipoA></equipoA>				
 					<equipoB></equipoB>
-					<puntuacionA>0</puntuacionB>
+					<puntuacionA>0</puntuacionA>
 					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="02">
 					<equipoA></equipoA>				
 					<equipoB></equipoB>
-					<puntuacionA>0</puntuacionB>
+					<puntuacionA>0</puntuacionA>
 					<puntuacionB>0</puntuacionB>
 				</partido>
 				<partido cod="03">
 					<equipoA></equipoA>				
 					<equipoB></equipoB>
-					<puntuacionA>0</puntuacionB>
+					<puntuacionA>0</puntuacionA>
 					<puntuacionB>0</puntuacionB>
 				</partido>
 			</partidos>
