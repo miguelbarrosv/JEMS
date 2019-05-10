@@ -1,0 +1,7 @@
+Todo lo de sql escrito en mayusculas.
+Nombre de los archivos: notacion camel.
+Triggers: iniciados en trig_
+Procedimientos: iniciados en proc_
+Funciones: iniciados en fun_
+Paquetes: inciados en paq_
+Errores personalizados: ORA 20000 +
