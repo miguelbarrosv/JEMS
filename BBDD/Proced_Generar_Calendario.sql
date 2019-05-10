@@ -13,6 +13,7 @@ BEGIN
 	v_dia := v_dias_diferencia / 10;
 	v_fecha := fecha_Inicio + v_dia;
         INSERT INTO JORNADA (FECHA_INICIO) VALUES(v_fecha);
+        DBMS_OUTPUT.PUT_LINE('-20001',v_fecha);
 	v_contador + 1;
 	EXIT WHEN v_contador = 10;
     END LOOP;
