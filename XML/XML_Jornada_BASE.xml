@@ -1,0 +1,42 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<!DOCTYPE DTD_Jornada SYSTEM "DTD_Jornada.dtd">
+	<jornadas>
+		<jornada cod="" fecha_inicio="" fecha_fin="">
+			<partidos>
+				<partido cod="" fecha_partido="">
+					<equipo_local></equipo_local>				
+					<equipo_visitante></equipo_visitante>
+					<resultado cod_equipo=""></resultado>
+				</partido>
+				<partido cod="" fecha_partido="">
+					<equipo_local></equipo_local>				
+					<equipo_visitante></equipo_visitante>
+					<resultado cod_equipo=""></resultado>
+				</partido>
+				<partido cod="" fecha_partido="">
+					<equipo_local></equipo_local>				
+					<equipo_visitante></equipo_visitante>
+					<resultado cod_equipo=""></resultado>
+				</partido>
+			</partidos>
+		</jornada>		
+		<jornada cod="" fecha_inicio="" fecha_fin="">
+			<partidos>
+				<partido cod="" fecha_partido="">
+					<equipo_local></equipo_local>				
+					<equipo_visitante></equipo_visitante>
+					<resultado cod_equipo=""></resultado>
+				</partido>
+				<partido cod="" fecha_partido="">
+					<equipo_local></equipo_local>				
+					<equipo_visitante></equipo_visitante>
+					<resultado cod_equipo=""></resultado>
+				</partido>
+				<partido cod="" fecha_partido="">
+					<equipo_local></equipo_local>				
+					<equipo_visitante></equipo_visitante>
+					<resultado cod_equipo=""></resultado>
+				</partido>
+			</partidos>
+		</jornada>
+	</jornadas>

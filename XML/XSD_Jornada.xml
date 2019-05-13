@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="jornadas" type="jornadasType"/>
+  <xs:complexType name="resultadoType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="cod_equipo"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="partidoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="equipo_local"/>
+      <xs:element type="xs:string" name="equipo_visitante"/>
+      <xs:element type="resultadoType" name="resultado"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="cod"/>
+    <xs:attribute type="xs:string" name="fecha_partido"/>
+  </xs:complexType>
+  <xs:complexType name="partidosType">
+    <xs:sequence>
+      <xs:element type="partidoType" name="partido" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="jornadaType">
+    <xs:sequence>
+      <xs:element type="partidosType" name="partidos"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="cod"/>
+    <xs:attribute type="xs:string" name="fecha_inicio"/>
+    <xs:attribute type="xs:string" name="fecha_fin"/>
+  </xs:complexType>
+  <xs:complexType name="jornadasType">
+    <xs:sequence>
+      <xs:element type="jornadaType" name="jornada" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
