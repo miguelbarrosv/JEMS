@@ -5,8 +5,12 @@
  */
 package BD;
 
+import UML.Jugador; 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
- * Clase de cuentas de base de datos
+ * Clase de jugador de base de datos
  *
  * @author Joel Encinas
  * 
@@ -19,5 +23,8 @@ package BD;
  * 
  */
 public class JugadorBD {
-    
+    private Jugador j;
+    private Connection con;
+    private PreparedStatement ps;
+    // private BaseDatos bd = new BaseDatos();
 }
