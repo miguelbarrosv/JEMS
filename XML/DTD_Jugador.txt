@@ -1,0 +1,11 @@
+<!ELEMENT jugadores (jugador)+>
+<!ELEMENT jugador (nombre, apellido, nickname, sueldo, nacionalidad, estado, telefono)>
+	<!ELEMENT nombre (#PCDATA)>
+	<!ELEMENT apellido (#PCDATA)>
+	<!ELEMENT nickname (#PCDATA)>
+	<!ELEMENT sueldo (#PCDATA)>
+	<!ELEMENT nacionalidad (#PCDATA)>
+	<!ELEMENT estado (contratado|vacante)>
+	<!ELEMENT telefono (#PCDATA)>
+	<!ATTLIST jugador cod_jugador CDATA #REQUIRED>
+	

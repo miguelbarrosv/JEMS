@@ -6,16 +6,36 @@
 package jems;
 
 /**
+ * Controladora de nuestro proyecto JEMS
  *
- * @author steel
+ * @author Sergio Zulueta
+ * @author Miguel Barros
+ * @author Joel Encinas
+ * @author Eric Muñoz
+ * 
+ * @see JEMS
+ * 
+ * @version %I%, %G%
+ * @since 1.0
+ * 
+ * 
+ * 
  */
+
+import Vistas.VLogin;
+
 public class JEMS {
 
+    static VLogin v = new VLogin();
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        v.setVisible(true);
+        
     }
     
 }
