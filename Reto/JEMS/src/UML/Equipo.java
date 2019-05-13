@@ -5,6 +5,8 @@
  */
 package UML;
 
+import java.util.ArrayList;
+
 /**
  * @author Sergio Zulueta
  *
@@ -12,16 +14,16 @@ package UML;
  * @version %I%, %G%
  * @since 1.0
  */
-public class Jugador {
+public class Equipo {
 
-    private int cod_jugador;
+    private int cod_equipo;
     private String nombre;
-    private String apellido;
-    private String nickname;
-    private int sueldo;
     private String nacionalidad;
-    private int telefono;
-
-    private Equipo equipo;
+    private int presupuesto;
+    private int puntuacion;
+    
+    private ArrayList<Partido> lista_partidos;
+    private ArrayList<Jugador> lista_jugadores;
+    private Dueño dueño;
 
 }

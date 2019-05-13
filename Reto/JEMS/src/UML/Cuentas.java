@@ -12,16 +12,12 @@ package UML;
  * @version %I%, %G%
  * @since 1.0
  */
-public class Jugador {
-
-    private int cod_jugador;
+public class Cuentas {
+    
+    private int cod_cuenta;
     private String nombre;
     private String apellido;
-    private String nickname;
-    private int sueldo;
-    private String nacionalidad;
-    private int telefono;
-
-    private Equipo equipo;
-
+    private String usuario;
+    private String contraseña;
+    
 }
