@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="liga" type="ligaType"/>
+  <xs:complexType name="equipoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nombre"/>
+      <xs:element type="xs:string" name="puntos"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="cod"/>
+  </xs:complexType>
+  <xs:complexType name="equiposType">
+    <xs:sequence>
+      <xs:element type="equipoType" name="equipo" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ligaType">
+    <xs:sequence>
+      <xs:element type="equiposType" name="equipos"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="cod"/>
+    <xs:attribute type="xs:string" name="fecha_inicio"/>
+    <xs:attribute type="xs:string" name="fecha_fin"/>
+    <xs:attribute type="xs:string" name="estado_liga"/>
+  </xs:complexType>
+</xs:schema>
