@@ -1,0 +1,18 @@
+<?xml version="1.0"  encoding="UTF-8"?> 
+<!DOCTYPE DTD_LIGA SYSTEM "DTD_LIGA.dtd">
+<liga cod="" fecha_inicio="" fecha_fin="" estado_liga="">
+    <equipos>
+        <equipo cod="">
+            <nombre></nombre>
+            <puntos></puntos>
+        </equipo>
+        <equipo cod="">
+            <nombre></nombre>
+            <puntos></puntos>
+        </equipo>
+        <equipo cod="">
+            <nombre></nombre>
+            <puntos></puntos>
+        </equipo>
+    </equipos>
+</liga>

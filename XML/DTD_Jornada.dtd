@@ -1,12 +1,14 @@
 <!ELEMENT jornadas (jornada+)>
-<!ELEMENT jornada (partidos,fecha)>
+	<!ELEMENT jornada (partidos)>
 	<!ATTLIST jornada cod #CDATA #REQUIRED>
-	<!ATTLIST jornada fecha #CDATA #REQUIRED>
+	<!ATTLIST jornada fecha_inicio #CDATA #REQUIRED>
+	<!ATTLIST jornada fecha_fin #CDATA #REQUIRED>
 	<!ELEMENT partidos (partido+)>
-		<!ELEMENT partido (equipoA, equipoB, puntuacionA,puntuacionB)>
+		<!ELEMENT partido (equipo_local, equipo_visitante, resultado)>
 			<!ATTLIST partido cod #CDATA #REQUIRED>
-			<!ELEMENT equipoA (#PCDATA)>
-			<!ELEMENT equipoB (#PCDATA)>
-			<!ELEMENT puntuacionA (#PCDATA)>
-			<!ELEMENT puntuacionB (#PCDATA)>
+			<!ATTLIST partido fecha_partido #CDATA #REQUIRED>
+			<!ELEMENT equipo_local (#PCDATA)>
+			<!ELEMENT equipo_visitante (#PCDATA)>
+			<!ELEMENT resultado (#PCDATA)>
+				<!ATTLIST resultado cod_equipo #CDATA #REQUIRED>
 		

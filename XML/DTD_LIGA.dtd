@@ -1,5 +1,10 @@
-<!ELEMENT liga (equipo)+>
-<!ELEMENT equipo (nombre, puntos)>
+<!ELEMENT liga (equipos)>
+<!ATTLIST liga cod #CDATA #REQUIRED>
+<!ATTLIST liga fecha_inicio #CDATA #REQUIRED>
+<!ATTLIST liga fecha__fin #CDATA #REQUIRED>
+<!ATTLIST liga estado_liga #CDATA #REQUIRED>
+<!ELEMENT equipos (equipo+)>
+	<!ELEMENT equipo (nombre, puntos)>
 	<!ATTLIST equipo cod #CDATA #REQUIRED>
 	<!ELEMENT nombre (#PCDATA)>
 	<!ELEMENT puntos (#PCDATA)>

@@ -6,8 +6,20 @@
 package jems;
 
 /**
+ * Controladora de nuestro proyecto JEMS
  *
- * @author steel
+ * @author Sergio Zulueta
+ * @author Miguel Barros
+ * @author Joel Encinas
+ * @author Eric Muñoz
+ * 
+ * @see JEMS
+ * 
+ * @version %I%, %G%
+ * @since 1.0
+ * 
+ * 
+ * 
  */
 public class JEMS {
 
