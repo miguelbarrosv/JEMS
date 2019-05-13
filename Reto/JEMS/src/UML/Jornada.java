@@ -5,13 +5,23 @@
  */
 package UML;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * @author Sergio Zulueta
  *
- * @see Administrador
+ * @see Jornada
  * @version %I%, %G%
  * @since 1.0
  */
-public class Administrador extends Cuentas{
-    
+public class Jornada {
+
+    private int cod_jornada;
+    private Date fecha_inicio;
+    private Date fecha_fin;
+
+    private Liga liga;
+    private ArrayList<Partido> partidos;
+
 }
