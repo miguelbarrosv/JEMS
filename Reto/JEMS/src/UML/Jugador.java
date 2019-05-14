@@ -100,7 +100,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el nombre del jugador.
      *
-     * @return
+     * @return nombre devuelve el nombre del jugador
      */
     public String getNombre() {
         return nombre;
@@ -109,7 +109,7 @@ public class Jugador {
     /**
      * Es un Set que establece el nombre del jugador.
      *
-     * @param nombre
+     * @param nombre establece el nombre del jugador
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -118,7 +118,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el apellido del jugador.
      *
-     * @return
+     * @return apellido devuelve el apellido del jugador
      */
     public String getApellido() {
         return apellido;
@@ -127,7 +127,7 @@ public class Jugador {
     /**
      * Es un Set que establece el apellido del jugador.
      *
-     * @param apellido
+     * @param apellido establece el apellido del jugador
      */
     public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -136,7 +136,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el nickname del jugador.
      *
-     * @return
+     * @return nickname devuelve el nickname del jugador
      */
     public String getNickname() {
         return nickname;
@@ -145,7 +145,7 @@ public class Jugador {
     /**
      * Es un Set que establece el nickname del jugador.
      *
-     * @param nickname
+     * @param nickname establece el nickname del jugador
      */
     public void setNickname(String nickname) {
         this.nickname = nickname;
@@ -154,7 +154,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el sueldo del jugador.
      *
-     * @return
+     * @return sueldo devuelve el sueldo del jugador
      */
     public int getSueldo() {
         return sueldo;
@@ -163,7 +163,7 @@ public class Jugador {
     /**
      * Es un Set que establece el sueldo del jugador.
      *
-     * @param sueldo
+     * @param sueldo establece el sueldo del jugador
      */
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
@@ -172,7 +172,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve la nacionalidad del jugador.
      *
-     * @return
+     * @return nacionalidad devuelve la nacionalidad del jugador
      */
     public String getNacionalidad() {
         return nacionalidad;
@@ -181,7 +181,7 @@ public class Jugador {
     /**
      * Es un Set que establece la nacionalidad del jugador.
      *
-     * @param nacionalidad
+     * @param nacionalidad establece la nacionalidad del jugador
      */
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
@@ -190,7 +190,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el telefono del jugador.
      *
-     * @return
+     * @return telefono devuelve el telefono del jugador
      */
     public String getTelefono() {
         return telefono;
@@ -199,7 +199,7 @@ public class Jugador {
     /**
      * Es un Set que establece el telefono del jugador.
      *
-     * @param telefono
+     * @param telefono establece el telefono del jugador
      */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
@@ -208,7 +208,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el equipo del jugador.
      *
-     * @return
+     * @return equipo devuelve el equipo del jugador
      */
     public Equipo getEquipo() {
         return equipo;
@@ -217,7 +217,7 @@ public class Jugador {
     /**
      * Es un Set que establece el equipo del jugador.
      *
-     * @param equipo
+     * @param equipo establece el equipo del jugador
      */
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
