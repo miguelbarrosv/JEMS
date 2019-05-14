@@ -105,11 +105,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el nombre del jugador.
      *
-<<<<<<< Updated upstream
-     * @return nombre devuelve el nombre del jugador
-=======
      * @return nombre devuelve el nombre del jugador.
->>>>>>> Stashed changes
      */
     public String getNombre() {
         return nombre;
@@ -118,11 +114,7 @@ public class Jugador {
     /**
      * Es un Set que establece el nombre del jugador.
      *
-<<<<<<< Updated upstream
-     * @param nombre establece el nombre del jugador
-=======
      * @param nombre establece el nombre del jugador.
->>>>>>> Stashed changes
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -131,11 +123,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el apellido del jugador.
      *
-<<<<<<< Updated upstream
-     * @return apellido devuelve el apellido del jugador
-=======
      * @return apellido devuelve el apellido del jugador.
->>>>>>> Stashed changes
      */
     public String getApellido() {
         return apellido;
@@ -144,11 +132,7 @@ public class Jugador {
     /**
      * Es un Set que establece el apellido del jugador.
      *
-<<<<<<< Updated upstream
-     * @param apellido establece el apellido del jugador
-=======
      * @param apellido establece el apellido del jugador.
->>>>>>> Stashed changes
      */
     public void setApellido(String apellido) {
         this.apellido = apellido;
@@ -157,11 +141,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el nickname del jugador.
      *
-<<<<<<< Updated upstream
-     * @return nickname devuelve el nickname del jugador
-=======
      * @return nickname devuelve el nickname del jugador.
->>>>>>> Stashed changes
      */
     public String getNickname() {
         return nickname;
@@ -170,11 +150,7 @@ public class Jugador {
     /**
      * Es un Set que establece el nickname del jugador.
      *
-<<<<<<< Updated upstream
-     * @param nickname establece el nickname del jugador
-=======
      * @param nickname establece el nickname del jugador.
->>>>>>> Stashed changes
      */
     public void setNickname(String nickname) {
         this.nickname = nickname;
@@ -183,11 +159,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el sueldo del jugador.
      *
-<<<<<<< Updated upstream
-     * @return sueldo devuelve el sueldo del jugador
-=======
      * @return sueldo devuelve el sueldo del jugador.
->>>>>>> Stashed changes
      */
     public int getSueldo() {
         return sueldo;
@@ -196,11 +168,7 @@ public class Jugador {
     /**
      * Es un Set que establece el sueldo del jugador.
      *
-<<<<<<< Updated upstream
-     * @param sueldo establece el sueldo del jugador
-=======
      * @param sueldo establece el sueldo del jugador.
->>>>>>> Stashed changes
      */
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
@@ -209,11 +177,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve la nacionalidad del jugador.
      *
-<<<<<<< Updated upstream
-     * @return nacionalidad devuelve la nacionalidad del jugador
-=======
      * @return nacionalidad devuelve la nacionalidad del jugador.
->>>>>>> Stashed changes
      */
     public String getNacionalidad() {
         return nacionalidad;
@@ -222,11 +186,7 @@ public class Jugador {
     /**
      * Es un Set que establece la nacionalidad del jugador.
      *
-<<<<<<< Updated upstream
-     * @param nacionalidad establece la nacionalidad del jugador
-=======
      * @param nacionalidad establece el nacionalidad del jugador.
->>>>>>> Stashed changes
      */
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
@@ -235,11 +195,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el telefono del jugador.
      *
-<<<<<<< Updated upstream
-     * @return telefono devuelve el telefono del jugador
-=======
      * @return telefono devuelve el telefono del jugador.
->>>>>>> Stashed changes
      */
     public String getTelefono() {
         return telefono;
@@ -248,11 +204,7 @@ public class Jugador {
     /**
      * Es un Set que establece el telefono del jugador.
      *
-<<<<<<< Updated upstream
-     * @param telefono establece el telefono del jugador
-=======
      * @param telefono establece el telefono del jugador.
->>>>>>> Stashed changes
      */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
@@ -261,11 +213,7 @@ public class Jugador {
     /**
      * Es un Get que devuelve el equipo del jugador.
      *
-<<<<<<< Updated upstream
-     * @return equipo devuelve el equipo del jugador
-=======
      * @return equipo devuelve el equipo del jugador.
->>>>>>> Stashed changes
      */
     public Equipo getEquipo() {
         return equipo;
@@ -274,11 +222,7 @@ public class Jugador {
     /**
      * Es un Set que establece el equipo del jugador.
      *
-<<<<<<< Updated upstream
-     * @param equipo establece el equipo del jugador
-=======
      * @param equipo establece el equipo del jugador.
->>>>>>> Stashed changes
      */
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
