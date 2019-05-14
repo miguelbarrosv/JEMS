@@ -5,10 +5,20 @@
  */
 package UML;
 
+import java.util.Date;
+
 /**
+ * @author Sergio Zulueta
  *
- * @author 1gdaw05
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class Partido {
-    
+
+    private int resultado;
+    private Date fecha_partido;
+
+    private Equipo equipo_local;
+    private Equipo equipo_visitante;
+    private Jornada jornada;
 }
