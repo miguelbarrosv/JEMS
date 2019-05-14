@@ -11,7 +11,6 @@ import java.util.Date;
 /**
  * @author Sergio Zulueta
  *
- * @see Jornada
  * @version %I%, %G%
  * @since 1.0
  */

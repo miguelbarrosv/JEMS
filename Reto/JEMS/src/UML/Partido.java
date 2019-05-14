@@ -10,7 +10,6 @@ import java.util.Date;
 /**
  * @author Sergio Zulueta
  *
- * @see Partido
  * @version %I%, %G%
  * @since 1.0
  */

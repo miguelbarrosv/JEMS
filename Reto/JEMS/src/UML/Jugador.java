@@ -8,7 +8,6 @@ package UML;
 /**
  * @author Sergio Zulueta
  *
- * @see Jugador
  * @version %I%, %G%
  * @since 1.0
  */
@@ -37,7 +36,7 @@ public class Jugador {
     }
 
     /**
-     * Constructor lleno, solo parametros del jugador.
+     * Constructor lleno, solo atributos del jugador.
      *
      * @param cod_jugador (requerido) El codigo del jugador.
      * @param nombre (requerido) El nombre del jugador.
@@ -58,7 +57,7 @@ public class Jugador {
     }
 
     /**
-     * Costructor lleno, incluyendo su equipo.
+     * Costructor lleno, incluyendo relaciones.
      *
      * @param cod_jugador (requerido) El codigo del jugador.
      * @param nombre (requerido) El nombre del jugador.
