@@ -21,13 +21,21 @@ package jems;
  * 
  * 
  */
+
+import Vistas.VLogin;
+
 public class JEMS {
 
+    static VLogin v = new VLogin();
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        v.setVisible(true);
+        
     }
     
 }
