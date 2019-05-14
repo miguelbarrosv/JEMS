@@ -6,9 +6,12 @@
 package UML;
 
 /**
+ * @author Sergio Zulueta
  *
- * @author 1gdaw05
+ * @see Usuario
+ * @version %I%, %G%
+ * @since 1.0
  */
-public class Usuario {
+public class Usuario extends Cuentas{
     
 }

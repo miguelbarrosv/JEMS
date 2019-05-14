@@ -8,7 +8,7 @@ package UML;
 /**
  * @author Sergio Zulueta
  *
- * @see Jugador
+ * @see Cuentas
  * @version %I%, %G%
  * @since 1.0
  */
