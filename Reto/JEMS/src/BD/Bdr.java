@@ -10,18 +10,27 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author 1gdaw06
+ * @author Eric Muñoz
+ * 
+ * @version %I%, %G%
+ * @since 1.0
+ * 
  */
 public class Bdr {
     
+    /**
+     * Creacion de atributo con
+     */    
     private Connection con;
-    
+    /**
+     * Función para conectarse a la base de datos
+     */
     public void conectar(){
         try
         {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://localhost:3307/"+"gabinete";
-            con = DriverManager.getConnection(url,"root","usbw");
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String url="jdbc:oracle:thin:@SrvOracle:1521:orcl";
+            con = DriverManager.getConnection(url,"eqdaw02","eqdaw02");
         }
         catch(Exception e)
         {
@@ -29,11 +38,19 @@ public class Bdr {
             System.exit(0);
         }
     }
-    
+    /**
+     * Es un Get que que devuelve la conexcion a la base de datos
+     * 
+     * @return
+     */
     public Connection getCon(){
         return con;
     }
-    
+    /**
+     * Funcion para cerrar la conexion a la base de datos
+     * 
+     * @throws Exception hereda excepciones
+     */
     public void cerrarCon()throws Exception{
         con.close();
     }
