@@ -7,7 +7,7 @@ package Vistas;
 
 /**
  *
- * @author 1gdaw01
+ * @author Miguel Barros
  */
 public class V_Inicio extends javax.swing.JFrame {
 
@@ -34,32 +34,32 @@ public class V_Inicio extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        miModificarJugador = new javax.swing.JMenuItem();
+        miAltaJugador = new javax.swing.JMenuItem();
+        miBajaJugador = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        miModificarEquipo = new javax.swing.JMenuItem();
+        miAltaEquipo = new javax.swing.JMenuItem();
+        miBajaEquipo = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        miModificarDueño = new javax.swing.JMenuItem();
+        miAltaDueño = new javax.swing.JMenuItem();
+        miBajaDueño = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        miModificarUsuario = new javax.swing.JMenuItem();
+        miAltaUsuario = new javax.swing.JMenuItem();
+        miBajaUsuario = new javax.swing.JMenuItem();
+        mIntroducirResultado = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        miVisualizarLiga = new javax.swing.JMenuItem();
+        miVisualizarClasificacion = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        jMenu8 = new javax.swing.JMenu();
+        mLogOut = new javax.swing.JMenu();
 
         jMenuItem15.setText("jMenuItem15");
 
@@ -72,52 +72,60 @@ public class V_Inicio extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         jMenu1.setBorder(null);
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
         jMenu1.setText("BBDD");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
 
         jMenu3.setText("Jugador");
         jMenu3.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem1.setText("Modificar");
-        jMenuItem1.setIconTextGap(1);
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        miModificarJugador.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miModificarJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
+        miModificarJugador.setText("Modificar");
+        miModificarJugador.setIconTextGap(1);
+        miModificarJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                miModificarJugadorActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        jMenu3.add(miModificarJugador);
 
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem2.setText("Alta");
-        jMenu3.add(jMenuItem2);
+        miAltaJugador.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miAltaJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
+        miAltaJugador.setText("Alta");
+        jMenu3.add(miAltaJugador);
 
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem3.setText("Baja");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        miBajaJugador.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miBajaJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar_opt.png"))); // NOI18N
+        miBajaJugador.setText("Baja");
+        miBajaJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                miBajaJugadorActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(miBajaJugador);
 
         jMenu1.add(jMenu3);
         jMenu1.add(jSeparator2);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/equipo_opt.jpg"))); // NOI18N
         jMenu4.setText("Equipo");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
 
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem4.setText("Modificar");
-        jMenu4.add(jMenuItem4);
+        miModificarEquipo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miModificarEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
+        miModificarEquipo.setText("Modificar");
+        jMenu4.add(miModificarEquipo);
 
-        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem5.setText("Alta");
-        jMenu4.add(jMenuItem5);
+        miAltaEquipo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miAltaEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
+        miAltaEquipo.setText("Alta");
+        jMenu4.add(miAltaEquipo);
 
-        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem6.setText("Baja");
-        jMenu4.add(jMenuItem6);
+        miBajaEquipo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miBajaEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar_opt.png"))); // NOI18N
+        miBajaEquipo.setText("Baja");
+        jMenu4.add(miBajaEquipo);
 
         jMenu1.add(jMenu4);
         jMenu1.add(jSeparator3);
@@ -125,71 +133,85 @@ public class V_Inicio extends javax.swing.JFrame {
         jMenu5.setText("Dueño");
         jMenu5.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
 
-        jMenuItem7.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem7.setText("Modificar");
-        jMenu5.add(jMenuItem7);
+        miModificarDueño.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miModificarDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
+        miModificarDueño.setText("Modificar");
+        jMenu5.add(miModificarDueño);
 
-        jMenuItem8.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem8.setText("Alta");
-        jMenu5.add(jMenuItem8);
+        miAltaDueño.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miAltaDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
+        miAltaDueño.setText("Alta");
+        jMenu5.add(miAltaDueño);
 
-        jMenuItem9.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem9.setText("Baja");
-        jMenu5.add(jMenuItem9);
+        miBajaDueño.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miBajaDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar_opt.png"))); // NOI18N
+        miBajaDueño.setText("Baja");
+        jMenu5.add(miBajaDueño);
 
         jMenu1.add(jMenu5);
         jMenu1.add(jSeparator4);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Usuario_opt.png"))); // NOI18N
         jMenu6.setText("Usuario");
         jMenu6.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
 
-        jMenuItem10.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem10.setText("Modificar");
-        jMenu6.add(jMenuItem10);
+        miModificarUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
+        miModificarUsuario.setText("Modificar");
+        jMenu6.add(miModificarUsuario);
 
-        jMenuItem11.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem11.setText("Alta");
-        jMenu6.add(jMenuItem11);
+        miAltaUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miAltaUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
+        miAltaUsuario.setText("Alta");
+        jMenu6.add(miAltaUsuario);
 
-        jMenuItem12.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jMenuItem12.setText("Baja");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        miBajaUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        miBajaUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar_opt.png"))); // NOI18N
+        miBajaUsuario.setText("Baja");
+        miBajaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                miBajaUsuarioActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem12);
+        jMenu6.add(miBajaUsuario);
 
         jMenu1.add(jMenu6);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Introducir Resultado");
-        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jMenu2.add(jSeparator1);
-        jMenu2.add(jSeparator5);
+        mIntroducirResultado.setText("Introducir Resultado");
+        mIntroducirResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mIntroducirResultado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        mIntroducirResultado.setIconTextGap(10);
+        mIntroducirResultado.add(jSeparator1);
+        mIntroducirResultado.add(jSeparator5);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(mIntroducirResultado);
 
+        jMenu7.setBorder(null);
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ojos_opt.png"))); // NOI18N
         jMenu7.setText("Visualizar");
         jMenu7.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jMenu7.setIconTextGap(7);
 
-        jMenuItem13.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jMenuItem13.setText("Liga");
-        jMenu7.add(jMenuItem13);
+        miVisualizarLiga.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        miVisualizarLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/SLO_opt.png"))); // NOI18N
+        miVisualizarLiga.setText("Liga");
+        jMenu7.add(miVisualizarLiga);
 
-        jMenuItem14.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jMenuItem14.setText("Clasificacion");
-        jMenu7.add(jMenuItem14);
+        miVisualizarClasificacion.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        miVisualizarClasificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/clasificacion_opt.jpg"))); // NOI18N
+        miVisualizarClasificacion.setText("Clasificacion");
+        jMenu7.add(miVisualizarClasificacion);
         jMenu7.add(jSeparator6);
 
         jMenuBar1.add(jMenu7);
 
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
-        jMenu8.setText("LogOut");
-        jMenu8.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jMenuBar1.add(jMenu8);
+        mLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout_opt.png"))); // NOI18N
+        mLogOut.setText("LogOut");
+        mLogOut.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        mLogOut.setIconTextGap(7);
+        jMenuBar1.add(mLogOut);
 
         setJMenuBar(jMenuBar1);
 
@@ -201,23 +223,23 @@ public class V_Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 926, Short.MAX_VALUE)
+            .addGap(0, 912, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void miModificarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarJugadorActionPerformed
+        ControladorVistas.modificarJugador();
+    }//GEN-LAST:event_miModificarJugadorActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void miBajaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaJugadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_miBajaJugadorActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void miBajaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }//GEN-LAST:event_miBajaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,30 +279,14 @@ public class V_Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -288,5 +294,21 @@ public class V_Inicio extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JMenu mIntroducirResultado;
+    private javax.swing.JMenu mLogOut;
+    private javax.swing.JMenuItem miAltaDueño;
+    private javax.swing.JMenuItem miAltaEquipo;
+    private javax.swing.JMenuItem miAltaJugador;
+    private javax.swing.JMenuItem miAltaUsuario;
+    private javax.swing.JMenuItem miBajaDueño;
+    private javax.swing.JMenuItem miBajaEquipo;
+    private javax.swing.JMenuItem miBajaJugador;
+    private javax.swing.JMenuItem miBajaUsuario;
+    private javax.swing.JMenuItem miModificarDueño;
+    private javax.swing.JMenuItem miModificarEquipo;
+    private javax.swing.JMenuItem miModificarJugador;
+    private javax.swing.JMenuItem miModificarUsuario;
+    private javax.swing.JMenuItem miVisualizarClasificacion;
+    private javax.swing.JMenuItem miVisualizarLiga;
     // End of variables declaration//GEN-END:variables
 }
