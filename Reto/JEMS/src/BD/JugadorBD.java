@@ -13,8 +13,7 @@ import java.sql.PreparedStatement;
  * Clase de jugador de base de datos
  *
  * @author Joel Encinas
- * 
- * @see AdministradorBD
+ *
  * 
  * @version %I%, %G%
  * @since 1.0

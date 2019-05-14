@@ -10,7 +10,6 @@ package BD;
  *
  * @author Joel Encinas
  * 
- * @see AdministradorBD
  * 
  * @version %I%, %G%
  * @since 1.0
