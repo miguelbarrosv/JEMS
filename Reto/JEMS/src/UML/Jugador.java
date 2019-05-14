@@ -7,6 +7,7 @@ package UML;
 
 /**
  * @author Sergio Zulueta
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
