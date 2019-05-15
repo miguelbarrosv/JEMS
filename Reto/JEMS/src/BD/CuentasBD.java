@@ -11,6 +11,8 @@ package BD;
  * @author Joel Encinas
  * 
  * @see AdministradorBD
+ * @see DueñoBD
+ * @see UsuarioBD
  * 
  * @version %I%, %G%
  * @since 1.0

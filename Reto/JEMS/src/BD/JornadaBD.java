@@ -5,19 +5,25 @@
  */
 package BD;
 
+import java.sql.ResultSet;
+
 /**
- * Clase de usuario de base de datos
- *
- * @author Joel Encinas
+ *Clase de jornada de base de datos.
  * 
- * @see CuentasBD
+ * @author Eric Muñoz
  * 
  * @version %I%, %G%
  * @since 1.0
  * 
- * 
- * 
  */
-public class UsuarioBD {
+public class JornadaBD {
+    /**
+     * Creacion de los atributos bdr.
+     */
+    private static Bdr bdr;
+    
+    public JornadaBD() {
+        bdr = new Bdr();
+    }
     
 }

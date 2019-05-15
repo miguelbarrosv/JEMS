@@ -5,10 +5,19 @@
  */
 package UML;
 
+import java.util.ArrayList;
+
 /**
+ * @author Sergio Zulueta
  *
- * @author 1gdaw05
+ * @see Dueño
+ * @version %I%, %G%
+ * @since 1.0
  */
-public class Dueño {
+public class Dueño extends Cuentas{
+    
+    private String telefono;
+    
+    private ArrayList<Equipo>lista_equipos;
     
 }
