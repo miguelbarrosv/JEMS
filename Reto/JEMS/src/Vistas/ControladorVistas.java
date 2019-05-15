@@ -83,7 +83,7 @@ public class ControladorVistas {
  * Funcion que nos dirije a la clase altaJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi dar de alta a un jugador nuevo
  * 
  */
-    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, int estado,String telefono, int equipo) {
+    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo) {
         JEMS.altaJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
     }
     /**
