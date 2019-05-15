@@ -14,6 +14,9 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ligaType">
+	<xs:sequence>
+      <xs:element type="xs:date" name="fecha_actualizacion"/>
+    </xs:sequence>
     <xs:sequence>
       <xs:element type="equiposType" name="equipos"/>
     </xs:sequence>

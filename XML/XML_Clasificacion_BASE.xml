@@ -1,6 +1,7 @@
 <?xml version="1.0"  encoding="UTF-8"?> 
 <!DOCTYPE DTD_LIGA SYSTEM "DTD_LIGA.dtd">
 <liga cod="" fecha_inicio="" fecha_fin="" estado_liga="">
+	<fecha_actualizacion></fecha_actualizacion>
     <equipos>
         <equipo cod="">
             <nombre></nombre>

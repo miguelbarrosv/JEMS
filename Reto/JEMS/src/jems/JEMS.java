@@ -7,7 +7,7 @@ package jems;
 
 /**
  * Controladora de nuestro proyecto JEMS
- *https://www.oracle.com/technetwork/articles/java/index-137868.html
+ * https://www.oracle.com/technetwork/articles/java/index-137868.html
  * @author Sergio Zulueta
  * @author Miguel Barros
  * @author Joel Encinas
@@ -16,9 +16,7 @@ package jems;
  * @see JEMS
  * 
  * @version %I%, %G%
- * @since 1.0
- * 
- * 
+ * @since 1.0 
  * 
  */
 
