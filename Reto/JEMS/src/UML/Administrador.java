@@ -8,10 +8,15 @@ package UML;
 /**
  * @author Sergio Zulueta
  *
- * @see Administrador
  * @version %I%, %G%
  * @since 1.0
  */
-public class Administrador extends Cuentas{
+public class Administrador{
+    /**
+     * Creacion de los atributos cod_admin
+     */
+    private int cod_admin;
+    private String usuario;
+    private String contraseña;
     
 }
