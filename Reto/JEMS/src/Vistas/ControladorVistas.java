@@ -24,7 +24,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaJugador(String operacion) {
-        vJugador = new V_Jugador(operacion);
+        //vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
     /**
@@ -32,7 +32,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaEquipo(String operacion) {
-        vEquipo = new V_Equipo(operacion);
+        //vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }
     /**
@@ -40,7 +40,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaDueño(String operacion) {
-        vDueño = new V_Dueño(operacion);
+        //vDueño = new V_Dueño(operacion);
         vDueño.setVisible(true);
     }
     /**
@@ -48,7 +48,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaUsuario(String operacion) {
-        vUsuario = new V_Usuario(operacion);
+        //vUsuario = new V_Usuario(operacion);
         vUsuario.setVisible(true);
     }
     

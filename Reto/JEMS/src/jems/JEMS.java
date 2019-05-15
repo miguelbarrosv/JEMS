@@ -20,11 +20,11 @@ package jems;
  * 
  */
 
-import Vistas.VLogin;
+import Vistas.*;
 
 public class JEMS {
 
-    static VLogin v = new VLogin();
+    static V_Registrar v = new V_Registrar();
     
     /**
      * @param args the command line arguments

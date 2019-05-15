@@ -18,13 +18,19 @@ Resolucion ventana principal: 1280x720
 Estilo ventanas:
 	-Color principal fondo> #0D0920 / rgb(13, 9, 32)
 	-Color secundario fondo / boton > #565895 / rgb(86, 88, 149)	 
+	-Color link> rgb(51, 153, 255)
 	-Color p> #FFFFFF / rgb(255, 255, 255)
 	-Color letra boton> #FFFFFF / rgb(255, 255, 255)
 
 	-Font h1> bahnschrift 24px bold
 	-Font p> bahnschrift 18px plain
+	-Font link> sans-serif 14px plain
 Ventanas nombre:
-	-JLabel: jl_
-	-JTextfield: jt_
-	-Boton: b_
-	-PasswordField: pf_
+	-JLabel: lb
+	-JTextfield: tf
+	-Boton: b
+	-PasswordField: pf
+	-Textarea: ta
+
+joel: mostrar jugadores, equipo, dueño, usuario
+v_registrar

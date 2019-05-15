@@ -16,7 +16,7 @@ public class V_Usuario extends javax.swing.JFrame {
      */
     public V_Usuario() {
         initComponents();
-    }
+    } /*
     public V_Usuario(String operacion) {
         initComponents();
         
@@ -39,7 +39,7 @@ public class V_Usuario extends javax.swing.JFrame {
             return true;
         else 
             return false;
-    }
+    } */
     public boolean validarNombre(String nombre) {
         return true;
     }

@@ -17,7 +17,7 @@ public class V_Dueño extends javax.swing.JFrame {
     public V_Dueño() {
         initComponents();
     }
-    
+    /*
     public V_Dueño(String operacion) {
         initComponents();
         if (operacion == "modificar") 
@@ -40,7 +40,7 @@ public class V_Dueño extends javax.swing.JFrame {
             return true;
         else 
             return false;
-    }
+    } */
     public boolean validarNombre(String nombre) {
         return true;
     }
