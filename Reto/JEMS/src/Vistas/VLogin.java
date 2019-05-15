@@ -5,7 +5,10 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+
 
 /**
  *
@@ -20,12 +23,19 @@ public class VLogin extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }
 
     public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+        jt_usuario.setBorder(BorderFactory.createCompoundBorder(
+        jt_usuario.getBorder(), 
+        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        pf_contraseña.setBorder(BorderFactory.createCompoundBorder(
+        pf_contraseña.getBorder(), 
+        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         // showOnTop();
-
     }
 
     /*
@@ -34,7 +44,6 @@ public class VLogin extends javax.swing.JFrame {
             getParent().setComponentZOrder(background, -99);
         }
     } */
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,85 +53,122 @@ public class VLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bSalir = new javax.swing.JButton();
-        background = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jl_background = new javax.swing.JLabel();
+        b_salir = new javax.swing.JButton();
+        b_acceder = new javax.swing.JButton();
+        jl_titulo_jems = new javax.swing.JLabel();
+        jl_crear_cuenta = new javax.swing.JLabel();
+        jl_usuario = new javax.swing.JLabel();
+        jl_subtitulo = new javax.swing.JLabel();
+        jt_usuario = new javax.swing.JTextField();
+        jl_contraseña = new javax.swing.JLabel();
+        pf_contraseña = new javax.swing.JPasswordField();
+        jl_background_sesion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(null);
 
-        bSalir.setBackground(new java.awt.Color(255, 255, 255));
-        bSalir.setForeground(new java.awt.Color(255, 255, 255));
-        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
-        bSalir.setBorderPainted(false);
-        bSalir.setContentAreaFilled(false);
-        bSalir.setFocusPainted(false);
-        bSalir.addActionListener(new java.awt.event.ActionListener() {
+        jl_background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_fullsize.jpg"))); // NOI18N
+        getContentPane().add(jl_background);
+        jl_background.setBounds(0, 0, 880, 720);
+
+        b_salir.setBackground(new java.awt.Color(255, 255, 255));
+        b_salir.setForeground(new java.awt.Color(255, 255, 255));
+        b_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        b_salir.setBorderPainted(false);
+        b_salir.setContentAreaFilled(false);
+        b_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_salir.setFocusPainted(false);
+        b_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSalirActionPerformed(evt);
+                b_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(bSalir);
-        bSalir.setBounds(1290, 0, 90, 60);
+        getContentPane().add(b_salir);
+        b_salir.setBounds(1230, 10, 40, 40);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/bitRush.jpg"))); // NOI18N
-        getContentPane().add(background);
-        background.setBounds(0, 0, 970, 770);
+        b_acceder.setBackground(new java.awt.Color(86, 88, 149));
+        b_acceder.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        b_acceder.setForeground(new java.awt.Color(255, 255, 255));
+        b_acceder.setText("ACCEDER");
+        b_acceder.setToolTipText("");
+        b_acceder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        b_acceder.setBorderPainted(false);
+        b_acceder.setContentAreaFilled(false);
+        b_acceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        b_acceder.setOpaque(true);
+        b_acceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_accederActionPerformed(evt);
+            }
+        });
+        getContentPane().add(b_acceder);
+        b_acceder.setBounds(940, 550, 280, 50);
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("ACCEDER");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(1030, 610, 310, 60);
+        jl_titulo_jems.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jl_titulo_jems.setForeground(new java.awt.Color(255, 255, 255));
+        jl_titulo_jems.setText("JEMS E-SPORTS");
+        getContentPane().add(jl_titulo_jems);
+        jl_titulo_jems.setBounds(940, 110, 300, 60);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel2.setText("JEMS E-SPORTS");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(1040, 140, 300, 70);
+        jl_crear_cuenta.setBackground(new java.awt.Color(153, 153, 153));
+        jl_crear_cuenta.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jl_crear_cuenta.setForeground(new java.awt.Color(51, 153, 255));
+        jl_crear_cuenta.setText("Crear una cuenta →");
+        jl_crear_cuenta.setToolTipText("");
+        jl_crear_cuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jl_crear_cuenta);
+        jl_crear_cuenta.setBounds(940, 620, 130, 20);
 
-        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 153, 255));
-        jLabel3.setText("Crear una cuenta  →");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(1080, 690, 220, 20);
+        jl_usuario.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jl_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        jl_usuario.setText("Usuario");
+        getContentPane().add(jl_usuario);
+        jl_usuario.setBounds(940, 310, 220, 40);
 
-        jLabel4.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel4.setText("Usuario");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(1040, 350, 220, 40);
+        jl_subtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        jl_subtitulo.setForeground(new java.awt.Color(86, 88, 149));
+        jl_subtitulo.setText("INICIO DE SESION");
+        getContentPane().add(jl_subtitulo);
+        jl_subtitulo.setBounds(930, 240, 220, 40);
 
-        jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 1, 18)); // NOI18N
-        jLabel5.setText("INICIO DE SESION");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(1030, 290, 220, 40);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(1040, 500, 280, 30);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(1040, 400, 280, 30);
+        jt_usuario.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jt_usuario.setForeground(new java.awt.Color(0, 0, 0));
+        jt_usuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jt_usuario.setBorder(null);
+        getContentPane().add(jt_usuario);
+        jt_usuario.setBounds(940, 350, 280, 30);
 
-        jLabel6.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("Contraseña");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(1040, 450, 220, 40);
+        jl_contraseña.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        jl_contraseña.setForeground(new java.awt.Color(255, 255, 255));
+        jl_contraseña.setText("Contraseña");
+        getContentPane().add(jl_contraseña);
+        jl_contraseña.setBounds(940, 400, 220, 40);
+
+        pf_contraseña.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        pf_contraseña.setForeground(new java.awt.Color(0, 0, 0));
+        pf_contraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        pf_contraseña.setBorder(null);
+        getContentPane().add(pf_contraseña);
+        pf_contraseña.setBounds(940, 440, 280, 30);
+
+        jl_background_sesion.setBackground(new java.awt.Color(13, 9, 32));
+        jl_background_sesion.setForeground(new java.awt.Color(13, 9, 32));
+        jl_background_sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(jl_background_sesion);
+        jl_background_sesion.setBounds(880, 0, 400, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+    private void b_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_salirActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_bSalirActionPerformed
+    }//GEN-LAST:event_b_salirActionPerformed
+
+    private void b_accederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_accederActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_accederActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,15 +207,16 @@ public class VLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bSalir;
-    private javax.swing.JLabel background;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton b_acceder;
+    private javax.swing.JButton b_salir;
+    private javax.swing.JLabel jl_background;
+    private javax.swing.JLabel jl_background_sesion;
+    private javax.swing.JLabel jl_contraseña;
+    private javax.swing.JLabel jl_crear_cuenta;
+    private javax.swing.JLabel jl_subtitulo;
+    private javax.swing.JLabel jl_titulo_jems;
+    private javax.swing.JLabel jl_usuario;
+    private javax.swing.JTextField jt_usuario;
+    private javax.swing.JPasswordField pf_contraseña;
     // End of variables declaration//GEN-END:variables
 }
