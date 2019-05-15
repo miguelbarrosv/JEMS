@@ -20,10 +20,12 @@ public class VLogin extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
     }
 
     public void myInitComponents() {
+        setSize(1217, 726);
+        setLocationRelativeTo(null);
         // showOnTop();
 
     }
@@ -71,51 +73,51 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bSalir);
-        bSalir.setBounds(1290, 0, 90, 60);
+        bSalir.setBounds(1170, 0, 40, 40);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/bitRush.jpg"))); // NOI18N
         getContentPane().add(background);
-        background.setBounds(0, 0, 970, 770);
+        background.setBounds(-10, 0, 870, 730);
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Book", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 204, 204));
         jButton1.setText("ACCEDER");
         getContentPane().add(jButton1);
-        jButton1.setBounds(1030, 610, 310, 60);
+        jButton1.setBounds(890, 580, 310, 60);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel2.setText("JEMS E-SPORTS");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(1040, 140, 300, 70);
+        jLabel2.setBounds(890, 100, 300, 130);
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 153, 255));
         jLabel3.setText("Crear una cuenta  →");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(1080, 690, 220, 20);
+        jLabel3.setBounds(950, 660, 220, 20);
 
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Usuario");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(1040, 350, 220, 40);
+        jLabel4.setBounds(900, 320, 220, 40);
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Book", 1, 18)); // NOI18N
         jLabel5.setText("INICIO DE SESION");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(1030, 290, 220, 40);
+        jLabel5.setBounds(890, 260, 220, 40);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(1040, 500, 280, 30);
+        jTextField1.setBounds(900, 470, 280, 30);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(1040, 400, 280, 30);
+        jTextField2.setBounds(900, 370, 280, 30);
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("Contraseña");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(1040, 450, 220, 40);
+        jLabel6.setBounds(900, 420, 220, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
