@@ -138,14 +138,14 @@ public class ControladorVistas {
     }
     
     /**
- * Funcion que nos dirije a la ventana V_Dueño para añadir a un nuevo dueño
+ * Funcion que nos dirije a la clase altaDueño situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi dar de alta a un nuevo dueño
  * 
  */
     public static void altaDueño(String nombre, String apellido, String telefono) {
         JEMS.altaDueño(nombre,apellido,telefono);
     }
     /**
- * Funcion que nos dirije a la ventana V_Dueño para borrar a un dueño
+ * Funcion que nos dirije a la clase borrarDueño situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi borrar a un dueño ya existente
  * 
  */
     public static void bajaDueño(String codDueño) {
@@ -159,24 +159,27 @@ public class ControladorVistas {
         vDueño.dispose();
     }
   /**
- * Funcion que nos dirije a la ventana V_Admin_Usuario para modificar un usuario
+ * Funcion que nos dirije a la clase modificacionUsuario situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi modificar un usuario ya existente
  * 
  */
     public static void modificarUsuario() {
-        
+        JEMS.modificacionUsuario();
     }
     /**
- * Funcion que nos dirije a la ventana V_Admin_Usuario para añadir un nuevo usuario
+ * Funcion que nos dirije a la clase altaUsuario situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi dar de alta a un nuevo usuario
  * 
  */
     public static void altaUsuario() {
-        
+        JEMS.altaUsuario();
     }
     /**
- * Funcion que nos dirije a la ventana V_Admin_Usuario para borrar a un usuario
+ * Funcion que nos dirije a la clase borrarDueño situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi borrar a un usuario ya existente
  * 
  */
-    public static void borrarUsuario() {
-        
+    public static void bajaUsuario() {
+        JEMS.borrarUsuario();
+    }
+    public static void cerrarVentanaUsuario() {
+        vUsuario.dispose();
     }
 }
