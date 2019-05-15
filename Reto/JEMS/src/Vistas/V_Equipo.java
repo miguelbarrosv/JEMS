@@ -16,7 +16,7 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     public V_Equipo() {
         initComponents();
-    }
+    } /*
     public V_Equipo(String operacion) {
         initComponents();
         operacion = ope;
@@ -44,7 +44,7 @@ public class V_Equipo extends javax.swing.JFrame {
             return true;
         else 
             return false;
-    }
+    } */
     public boolean validarNombre(String nombre) {
         return true;
     }

@@ -16,7 +16,7 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     public V_Jugador() {
         initComponents();
-    }
+    } /*
     public V_Jugador(String operacion) {
         initComponents();
         operacion = ope;
@@ -48,7 +48,7 @@ public class V_Jugador extends javax.swing.JFrame {
             return true;
         else 
             return false;
-    }
+    } */
     public boolean validarNombre(String nombre) {
         return true;
     }

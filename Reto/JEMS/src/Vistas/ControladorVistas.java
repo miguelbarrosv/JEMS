@@ -28,7 +28,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaJugador(String operacion) {
-        vJugador = new V_Jugador(operacion);
+        //vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
     /**
@@ -36,7 +36,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaEquipo(String operacion) {
-        vEquipo = new V_Equipo(operacion);
+        //vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }
     /**
@@ -44,7 +44,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaDueño(String operacion) {
-        vDueño = new V_Dueño(operacion);
+        //vDueño = new V_Dueño(operacion);
         vDueño.setVisible(true);
     }
     /**
@@ -52,6 +52,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaUsuario(String operacion) {
+
         vUsuario = new V_Admin_Usuario(operacion);
         vUsuario.setVisible(true);
     }
@@ -83,7 +84,7 @@ public class ControladorVistas {
  * Funcion que nos dirije a la clase altaJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi dar de alta a un jugador nuevo
  * 
  */
-    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, int estado,String telefono, int equipo) {
+    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo) {
         JEMS.altaJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
     }
     /**

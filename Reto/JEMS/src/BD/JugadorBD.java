@@ -107,7 +107,7 @@ public class JugadorBD {
         j.setTelefono(resultado.getString("TELEFONO"));
         int cod_equipo = resultado.getInt("EQUIPO_COD_EQUIPO");
 
-        j.setEquipo(resultado.getInt("EQUIPO_COD_EQUIPO"));
+        //j.setEquipo(resultado.getInt("EQUIPO_COD_EQUIPO"));
 
         return j;
     }
@@ -139,12 +139,12 @@ public class JugadorBD {
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception hereda excepciones.
      */
-    public void borrarJugador(Jugador j) throws Exception {
+    public void borrarJugador(String codJugador) throws Exception {
         bdr.conectar();
 
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, j.getCod_jugador());
+        sentenciaPre.setInt(1, Integer.parseInt(codJugador));
 
         sentenciaPre.executeUpdate();
 

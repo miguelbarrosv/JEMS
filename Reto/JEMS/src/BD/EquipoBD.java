@@ -53,7 +53,7 @@ public class EquipoBD {
         sentenciaPre.setString(1, e.getNombre());
         sentenciaPre.setString(2, e.getNacionalidad());
         sentenciaPre.setInt(3, e.getPresupuesto());
-        sentenciaPre.setString(4, e.getDueño().getCod_dueño());
+        //sentenciaPre.setString(4, e.getDueño().getCod_dueño());
         sentenciaPre.setInt(5, e.getPresupuesto());
         bdr.cerrarCon();
 
@@ -91,7 +91,7 @@ public class EquipoBD {
         sentenciaPre.setString(1, e.getNombre());
         sentenciaPre.setString(2, e.getNacionalidad());
         sentenciaPre.setInt(3, e.getPresupuesto());
-        sentenciaPre.setString(4, e.getDueño().getCod_dueño());
+        //sentenciaPre.setString(4, e.getDueño().getCod_dueño());
         sentenciaPre.setInt(5, e.getPresupuesto());
         sentenciaPre.setInt(6, e.getCod_equipo());
 
@@ -139,9 +139,9 @@ public class EquipoBD {
         e.setNacionalidad(resultado.getString("NACIONALIDAD"));
         e.setPresupuesto(Integer.parseInt(resultado.getString("PRESUPUESTO")));
         e.setPuntuacion(Integer.parseInt(resultado.getString("PUNTUACION")));
-        e.setDueño(dueño);
-        e.setLista_jugadores(lista_jugadores);
-        e.setLista_partidos(lista_partidos);
+        //e.setDueño(dueño);
+        //e.setLista_jugadores(lista_jugadores);
+        //e.setLista_partidos(lista_partidos);
 
         return e;
     }
