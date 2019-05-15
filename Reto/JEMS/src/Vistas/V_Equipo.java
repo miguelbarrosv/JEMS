@@ -7,7 +7,7 @@ package Vistas;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
  */
 public class V_Equipo extends javax.swing.JFrame {
 
@@ -16,6 +16,51 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     public V_Equipo() {
         initComponents();
+    }
+    public V_Equipo(String operacion) {
+        initComponents();
+        if (operacion == "modificar") 
+            tfNombre.setEditable(false);
+            tfPuntuacion.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfPresupuesto.setEditable(false);
+            cbDueño
+            bAceptar.setEditable(false);
+            
+        if (operacion == "baja") 
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfPresupuesto.setEditable(false);
+            cbDueño
+            bAceptar.setEditable(false);
+        if (operacion == "alta")   
+            tfCodigoEquipo.setVisible(false);
+            bAceptar.setEditable(false);
+    }
+    public boolean validarDatos() {
+        if (validarNombre(tfNombre.getText()) && validarPuntuacion(tfPuntuacion.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarPresupuesto(tfPresupuesto.getText()) && validarDueño(cbDueño.getSelectedIndex()) )
+            return true;
+        else 
+            return false;
+    }
+    public boolean validarNombre(String nombre) {
+        return true;
+    }
+    public boolean validarPuntuacion(String puntuacion) {
+        return true;
+    }
+    public boolean validarNacionalidad(String nacionalidad) {
+        return true;
+    }
+    public boolean validarPresupuesto(String presupuesto) {
+        return true;
+    }
+    public boolean validarDueño(int posicion) {
+        if (posicion == -1)
+            return false;
+        else
+            return true;
     }
 
     /**

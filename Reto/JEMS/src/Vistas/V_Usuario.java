@@ -7,7 +7,7 @@ package Vistas;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
  */
 public class V_Usuario extends javax.swing.JFrame {
 
@@ -17,7 +17,42 @@ public class V_Usuario extends javax.swing.JFrame {
     public V_Usuario() {
         initComponents();
     }
-
+    public V_Usuario(String operacion) {
+        initComponents();
+        
+        if (operacion == "modificar") 
+            tfUsuario.setEditable(false);
+            tfContraseña.setEditable(false);
+            bAceptar.setEditable(false);
+            
+        if (operacion == "baja") 
+         
+            tfUsuario.setEditable(false);
+            tfContraseña.setEditable(false);
+            bAceptar.setEditable(false);
+        if (operacion == "alta")   
+            tfCodigoUsuario.setVisible(false);
+            bAceptar.setEditable(false);
+    }
+    public boolean validarDatos() {
+        if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText()) )
+            return true;
+        else 
+            return false;
+    }
+    public boolean validarNombre(String nombre) {
+        return true;
+    }
+    public boolean validarApellido(String apellido) {
+        return true;
+    }
+    public boolean validarUsuario(String usuario) {
+        return true;
+    }
+    public boolean validarContraseña(String contraseña) {
+        return true;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

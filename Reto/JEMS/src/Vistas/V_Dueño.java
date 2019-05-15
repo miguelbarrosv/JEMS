@@ -7,7 +7,7 @@ package Vistas;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
  */
 public class V_Dueño extends javax.swing.JFrame {
 
@@ -17,7 +17,36 @@ public class V_Dueño extends javax.swing.JFrame {
     public V_Dueño() {
         initComponents();
     }
-
+    
+    public V_Dueño(String operacion) {
+        initComponents();
+        if (operacion == "modificar") 
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfTelefono.setEditable(false);
+            bAceptar.setEditable(false);
+            
+        if (operacion == "baja") 
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfTelefono.setEditable(false);
+            bAceptar.setEditable(false);
+        if (operacion == "alta")   
+            tfCodigoDueño.setVisible(false);
+            bAceptar.setEditable(false);
+    }
+    public boolean validarDatos() {
+        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText()))
+            return true;
+        else 
+            return false;
+    }
+    public boolean validarNombre(String nombre) {
+        return true;
+    }
+    public boolean validarApellido(String apellido) {
+        return true;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
