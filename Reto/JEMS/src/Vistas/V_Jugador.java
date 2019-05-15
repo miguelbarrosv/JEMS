@@ -7,7 +7,7 @@ package Vistas;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
  */
 public class V_Jugador extends javax.swing.JFrame {
 
@@ -16,6 +16,64 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     public V_Jugador() {
         initComponents();
+    }
+    public V_Jugador(String operacion) {
+        initComponents();
+        if (operacion == "modificar") 
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfSueldo.setEditable(false);
+            tfTelefono.setEditable(false);
+            rbEstado
+            cbEquipo
+            bAceptar.setEditable(false);
+            
+        if (operacion == "baja") 
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfSueldo.setEditable(false);
+            tfTelefono.setEditable(false);
+            rbEstado
+            cbEquipo
+            bAceptar.setEditable(false);
+        if (operacion == "alta")     
+            tfCodigoJugador.setVisible(false);
+            bAceptar.setEditable(false);
+    }
+    public boolean validarDatos() {
+        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarSueldo(tfSueldo.getText()) && validarTelefono(tfTelefono.getText()) && validarEstado(rbEstado.getSelectedIndex()) && validarEquipo(cbEquipo.getSelectedIndex()))
+            return true;
+        else 
+            return false;
+    }
+    public boolean validarNombre(String nombre) {
+        return true;
+    }
+    public boolean validarApellido(String apellido) {
+        return true;
+    }
+    public boolean validarNacionalidad(String nacionalidad) {
+        return true;
+    }
+    public boolean validarSueldo(String sueldo) {
+        return true;
+    }
+    public boolean validarTelefono(String telefono) {
+        return true;
+    }
+    public boolean validarEstado(int posicion) {
+        if (posicion == -1)
+            return false;
+        else
+            return true;
+    }
+    public boolean validarEquipo(int posicion) {
+        if (posicion == -1)
+            return false;
+        else
+            return true;
     }
 
     /**
