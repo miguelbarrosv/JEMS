@@ -15,36 +15,40 @@ public class ControladorVistas {
  * Creacion de los atributos
  * 
  */
-    private  V_Equipo vEquipo;
-    private  V_Dueño vDueño;
-    private  V_Jugador vJugador;
-    private  V_Usuario vUsuario;
+    private static V_Equipo vEquipo;
+    private static V_Dueño vDueño;
+    private static V_Jugador vJugador;
+    private static V_Usuario vUsuario;
  /**
  * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o dar de alta a un jugador
  * 
  */
-    public void mostrarVentanaJugador() {
-        
+    public static void mostrarVentanaJugador(String operacion) {
+        vJugador = new V_Jugador(operacion);
+        vJugador.setVisible(true);
     }
     /**
  * Funcion que nos dirije a la ventana V_Equipo para modificar, borrar o dar de alta a un equipo
  * 
  */
-    public void mostrarVentanaEquipo() {
+    public static void mostrarVentanaEquipo(String operacion) {
+        vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }
     /**
  * Funcion que nos dirije a la ventana V_Dueño para modificar, borrar o dar de alta a un dueño
  * 
  */
-    public void mostrarVentanaDueño() {
+    public static void mostrarVentanaDueño(String operacion) {
+        vDueño = new V_Dueño(operacion);
         vDueño.setVisible(true);
     }
     /**
  * Funcion que nos dirije a la ventana V_Usuario para modificar, borrar o dar de alta a un usuario
  * 
  */
-    public void mostrarVentanaUsuario() {
+    public static void mostrarVentanaUsuario(String operacion) {
+        vUsuario = new V_Usuario(operacion);
         vUsuario.setVisible(true);
     }
     

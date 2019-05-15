@@ -17,6 +17,7 @@ public class V_Inicio extends javax.swing.JFrame {
     public V_Inicio() {
         initComponents();
     }
+    private static String operacion;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,6 +94,11 @@ public class V_Inicio extends javax.swing.JFrame {
         miAltaJugador.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miAltaJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
         miAltaJugador.setText("Alta");
+        miAltaJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaJugadorActionPerformed(evt);
+            }
+        });
         jMenu3.add(miAltaJugador);
 
         miBajaJugador.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -115,16 +121,31 @@ public class V_Inicio extends javax.swing.JFrame {
         miModificarEquipo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miModificarEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
         miModificarEquipo.setText("Modificar");
+        miModificarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarEquipoActionPerformed(evt);
+            }
+        });
         jMenu4.add(miModificarEquipo);
 
         miAltaEquipo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miAltaEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
         miAltaEquipo.setText("Alta");
+        miAltaEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaEquipoActionPerformed(evt);
+            }
+        });
         jMenu4.add(miAltaEquipo);
 
         miBajaEquipo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miBajaEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar_opt.png"))); // NOI18N
         miBajaEquipo.setText("Baja");
+        miBajaEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaEquipoActionPerformed(evt);
+            }
+        });
         jMenu4.add(miBajaEquipo);
 
         jMenu1.add(jMenu4);
@@ -136,16 +157,31 @@ public class V_Inicio extends javax.swing.JFrame {
         miModificarDueño.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miModificarDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
         miModificarDueño.setText("Modificar");
+        miModificarDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarDueñoActionPerformed(evt);
+            }
+        });
         jMenu5.add(miModificarDueño);
 
         miAltaDueño.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miAltaDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
         miAltaDueño.setText("Alta");
+        miAltaDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaDueñoActionPerformed(evt);
+            }
+        });
         jMenu5.add(miAltaDueño);
 
         miBajaDueño.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miBajaDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar_opt.png"))); // NOI18N
         miBajaDueño.setText("Baja");
+        miBajaDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miBajaDueñoActionPerformed(evt);
+            }
+        });
         jMenu5.add(miBajaDueño);
 
         jMenu1.add(jMenu5);
@@ -158,11 +194,21 @@ public class V_Inicio extends javax.swing.JFrame {
         miModificarUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/modificar_opt.png"))); // NOI18N
         miModificarUsuario.setText("Modificar");
+        miModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miModificarUsuarioActionPerformed(evt);
+            }
+        });
         jMenu6.add(miModificarUsuario);
 
         miAltaUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         miAltaUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/alta_opt.jpg"))); // NOI18N
         miAltaUsuario.setText("Alta");
+        miAltaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAltaUsuarioActionPerformed(evt);
+            }
+        });
         jMenu6.add(miAltaUsuario);
 
         miBajaUsuario.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -230,16 +276,64 @@ public class V_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miModificarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarJugadorActionPerformed
-        ControladorVistas.modificarJugador();
+        operacion = "modificar";
+        ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miModificarJugadorActionPerformed
 
     private void miBajaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaJugadorActionPerformed
-        // TODO add your handling code here:
+        operacion = "baja";
+        ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miBajaJugadorActionPerformed
 
     private void miBajaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaUsuarioActionPerformed
-        // TODO add your handling code here:
+        operacion = "baja";
+        ControladorVistas.mostrarVentanaUsuario(operacion);
     }//GEN-LAST:event_miBajaUsuarioActionPerformed
+
+    private void miAltaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaJugadorActionPerformed
+        operacion = "alta";
+        ControladorVistas.mostrarVentanaJugador(operacion);
+    }//GEN-LAST:event_miAltaJugadorActionPerformed
+
+    private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
+         operacion = "modificar";
+        ControladorVistas.mostrarVentanaEquipo(operacion);
+    }//GEN-LAST:event_miModificarEquipoActionPerformed
+
+    private void miAltaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaEquipoActionPerformed
+        operacion = "alta";
+        ControladorVistas.mostrarVentanaEquipo(operacion);
+    }//GEN-LAST:event_miAltaEquipoActionPerformed
+
+    private void miBajaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaEquipoActionPerformed
+         operacion = "baja";
+        ControladorVistas.mostrarVentanaEquipo(operacion);
+    }//GEN-LAST:event_miBajaEquipoActionPerformed
+
+    private void miModificarDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarDueñoActionPerformed
+        operacion = "modificar";
+        ControladorVistas.mostrarVentanaDueño(operacion);
+    }//GEN-LAST:event_miModificarDueñoActionPerformed
+
+    private void miAltaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaDueñoActionPerformed
+        
+        ControladorVistas.mostrarVentanaDueño(operacion);
+    }//GEN-LAST:event_miAltaDueñoActionPerformed
+
+    private void miBajaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaDueñoActionPerformed
+        operacion = "baja";
+        ControladorVistas.mostrarVentanaDueño(operacion);
+    }//GEN-LAST:event_miBajaDueñoActionPerformed
+
+    private void miModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarUsuarioActionPerformed
+        operacion = "modificar";
+        ControladorVistas.mostrarVentanaUsuario(operacion);
+    }//GEN-LAST:event_miModificarUsuarioActionPerformed
+
+    private void miAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaUsuarioActionPerformed
+       
+        ControladorVistas.mostrarVentanaUsuario(operacion);
+    }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
