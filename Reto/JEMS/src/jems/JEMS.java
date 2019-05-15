@@ -20,11 +20,15 @@ package jems;
  * 
  */
 
-import Vistas.VLogin;
+
+import Vistas.*;
+import BD.*;
+import UML.*;
+
 
 public class JEMS {
 
-    static VLogin v = new VLogin();
+    static V_Registrar v = new V_Registrar();
     
     /**
      * @param args the command line arguments
@@ -34,6 +38,20 @@ public class JEMS {
         
         v.setVisible(true);
         
+    }
+    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo)throws Exception
+    {
+        JugadorBD jBD = new JugadorBD();
+        Jugador j = new Jugador();
+        j.setNombre(nombre);
+        j.setApellido(apellido);
+        j.setNickname(nick);
+        j.setSueldo(sueldo);
+        j.setNacionalidad(nacionalidad);
+        j.setEstado(estado);
+        j.setTelefono(telefono);
+        j.setEquipo(equipo);
+        jBD.insertarJugador(j);
     }
     
 }

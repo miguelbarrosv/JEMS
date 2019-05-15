@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 /**
  * @author Sergio Zulueta
- *
+ * @author Eric Muñoz
+ * 
  * @version %I%, %G%
  * @since 1.0
  */
@@ -86,7 +87,7 @@ public class Dueño {
     /**
      * Es un Get que devuelve el nombre del dueño.
      *
-     * @return getNombre devuelve el nombre del dueño.
+     * @return getNombre devuelve el nombre del dueño
      */
     public String getNombre() {
         return nombre;

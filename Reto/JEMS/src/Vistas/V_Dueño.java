@@ -17,9 +17,10 @@ public class V_Dueño extends javax.swing.JFrame {
     public V_Dueño() {
         initComponents();
     }
-    
+    /*
     public V_Dueño(String operacion) {
         initComponents();
+        operacion = ope;
         if (operacion == "modificar") 
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
@@ -40,13 +41,14 @@ public class V_Dueño extends javax.swing.JFrame {
             return true;
         else 
             return false;
-    }
+    } */
     public boolean validarNombre(String nombre) {
         return true;
     }
     public boolean validarApellido(String apellido) {
         return true;
     }
+    private static String ope;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,21 +58,62 @@ public class V_Dueño extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bAceptar = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+
+        bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(bAceptar)
+                .addGap(71, 71, 71)
+                .addComponent(bVolver)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(253, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bAceptar)
+                    .addComponent(bVolver))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        if(validarDatos())
+            if (ope == "modificar")
+                ControladorVistas.modificarDueño(tfNombre.getText(),tfApellido.getText(),tfTelefono.getText());
+            if (ope == "alta")
+                ControladorVistas.altaDueño(tfNombre.getText(),tfApellido.getText(),tfTelefono.getText());
+            if (ope == "baja")
+                ControladorVistas.bajaDueño(tfCodDueño.getText());
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        ControladorVistas.cerrarVentanaDueño();
+    }//GEN-LAST:event_bVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,5 +151,7 @@ public class V_Dueño extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bVolver;
     // End of variables declaration//GEN-END:variables
 }

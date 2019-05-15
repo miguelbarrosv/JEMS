@@ -16,9 +16,10 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     public V_Equipo() {
         initComponents();
-    }
+    } /*
     public V_Equipo(String operacion) {
         initComponents();
+        operacion = ope;
         if (operacion == "modificar") 
             tfNombre.setEditable(false);
             tfPuntuacion.setEditable(false);
@@ -43,7 +44,7 @@ public class V_Equipo extends javax.swing.JFrame {
             return true;
         else 
             return false;
-    }
+    } */
     public boolean validarNombre(String nombre) {
         return true;
     }
@@ -62,7 +63,7 @@ public class V_Equipo extends javax.swing.JFrame {
         else
             return true;
     }
-
+    private static String ope;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,21 +73,62 @@ public class V_Equipo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bAceptar = new javax.swing.JButton();
+        bVolver = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
+
+        bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(bAceptar)
+                .addGap(79, 79, 79)
+                .addComponent(bVolver)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(251, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bAceptar)
+                    .addComponent(bVolver))
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        if (validarDatos())
+            if(ope == "modificar")
+                ControladorVistas.modificarEquipo(tfNombre.getText(),tfNacionalidad.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntuacion.getText()),cbDueño.getSelectedItem());
+            else if (ope == "alta")
+                ControladorVistas.altaEquipo(tfNombre.getText(),tfNacionalidad.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntuacion.getText()),cbDueño.getSelectedItem());
+            else if (ope == "baja")
+                ControladorVistas.bajaEquipo(tfCodigoEquipo.getText());
+    }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        ControladorVistas.cerrarVentanaEquipo();
+    }//GEN-LAST:event_bVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,5 +166,7 @@ public class V_Equipo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bVolver;
     // End of variables declaration//GEN-END:variables
 }

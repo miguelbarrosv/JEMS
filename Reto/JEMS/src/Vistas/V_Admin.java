@@ -32,6 +32,7 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem16 = new javax.swing.JMenuItem();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
+        bCrearLiga = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -71,6 +72,14 @@ public class V_Admin extends javax.swing.JFrame {
         jToggleButton1.setText("jToggleButton1");
 
         jButton1.setText("jButton1");
+
+        bCrearLiga.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        bCrearLiga.setText("CREAR LIGA");
+        bCrearLiga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCrearLigaActionPerformed(evt);
+            }
+        });
 
         jMenu1.setBorder(null);
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
@@ -265,11 +274,17 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 826, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(335, Short.MAX_VALUE)
+                .addComponent(bCrearLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(299, 299, 299))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 912, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(241, Short.MAX_VALUE)
+                .addComponent(bCrearLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
         );
 
         pack();
@@ -335,6 +350,10 @@ public class V_Admin extends javax.swing.JFrame {
         ControladorVistas.mostrarVentanaUsuario(operacion);
     }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
+    private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bCrearLigaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -372,6 +391,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCrearLiga;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
