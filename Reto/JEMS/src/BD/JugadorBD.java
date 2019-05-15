@@ -107,7 +107,7 @@ public class JugadorBD {
         j.setTelefono(resultado.getString("TELEFONO"));
         int cod_equipo = resultado.getInt("EQUIPO_COD_EQUIPO");
 
-        j.setEquipo(resultado.getInt("EQUIPO_COD_EQUIPO"));
+        //j.setEquipo(resultado.getInt("EQUIPO_COD_EQUIPO"));
 
         return j;
     }
