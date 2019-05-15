@@ -17,42 +17,7 @@ public class V_Usuario extends javax.swing.JFrame {
     public V_Usuario() {
         initComponents();
     }
-    public V_Usuario(String operacion) {
-        initComponents();
-        
-        if (operacion == "modificar") 
-            tfUsuario.setEditable(false);
-            tfContraseña.setEditable(false);
-            bAceptar.setEditable(false);
-            
-        if (operacion == "baja") 
-         
-            tfUsuario.setEditable(false);
-            tfContraseña.setEditable(false);
-            bAceptar.setEditable(false);
-        if (operacion == "alta")   
-            tfCodigoUsuario.setVisible(false);
-            bAceptar.setEditable(false);
-    }
-    public boolean validarDatos() {
-        if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText()) )
-            return true;
-        else 
-            return false;
-    }
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
-    public boolean validarApellido(String apellido) {
-        return true;
-    }
-    public boolean validarUsuario(String usuario) {
-        return true;
-    }
-    public boolean validarContraseña(String contraseña) {
-        return true;
-    }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,21 +27,67 @@ public class V_Usuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bLiga = new javax.swing.JButton();
+        bJornadas = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bLiga.setText("LIGA");
+        bLiga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLigaActionPerformed(evt);
+            }
+        });
+
+        bJornadas.setText("JORNADAS");
+        bJornadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bJornadasActionPerformed(evt);
+            }
+        });
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(bLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addComponent(bJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(135, 135, 135))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
+        ControladorVistas.mostrarVentanaLiga();
+    }//GEN-LAST:event_bLigaActionPerformed
+
+    private void bJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadasActionPerformed
+        ControladorVistas.mostrarVentanaJornadas();
+    }//GEN-LAST:event_bJornadasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,5 +125,10 @@ public class V_Usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bJornadas;
+    private javax.swing.JButton bLiga;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
