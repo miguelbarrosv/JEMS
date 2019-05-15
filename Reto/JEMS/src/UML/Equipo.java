@@ -10,7 +10,6 @@ import java.util.ArrayList;
 /**
  * @author Sergio Zulueta
  *
- * @see Jugador
  * @version %I%, %G%
  * @since 1.0
  */
