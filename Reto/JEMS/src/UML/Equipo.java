@@ -10,41 +10,27 @@ import java.util.ArrayList;
 /**
  * @author Sergio Zulueta
  *
-<<<<<<< HEAD
  * @see Jugador
  * @version %I%, %G%
  * @since 1.0
  */
 public class Equipo {
-
-=======
- * @version %I%, %G%
- * @since 1.0
- */
-
-public class Equipo {
-
+    
     /**
      * Creacion de los atributos cod_equipo, nombre, nacionalidad, presupuesto,
      * puntuacion, lista_partidos, lista_jugadores, dueño
      */
->>>>>>> master
+
     private int cod_equipo;
     private String nombre;
     private String nacionalidad;
     private int presupuesto;
     private int puntuacion;
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> master
     private ArrayList<Partido> lista_partidos;
     private ArrayList<Jugador> lista_jugadores;
     private Dueño dueño;
 
-<<<<<<< HEAD
-=======
+
     /**
      * Constructor vacio. (Para invocación por constructores de subclases,
      * típicamente implícito.)
@@ -237,5 +223,5 @@ public class Equipo {
         this.dueño = dueño;
     }
 
->>>>>>> master
+
 }
