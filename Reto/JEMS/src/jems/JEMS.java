@@ -27,6 +27,9 @@ import java.util.ArrayList;
 
 public class JEMS {
 
+    static V_Registrar v = new V_Registrar();
+    private static ArrayList<Equipo> listaEquipos;
+    
     private static DueñoBD dBD;
     private static JugadorBD jBD;
     private static EquipoBD eBD;
@@ -67,6 +70,21 @@ public class JEMS {
         j.setEquipo(equipo);
         jBD.insertarJugador(j);
     }
+    public static int getNumeroEquipos()
+    {
+        return listaEquipos.size();
+    }
+    public static String getNombreEquipo(int x)
+    {
+        return listaEquipos.get(x).getNombre();
+    }
+
+    public static ArrayList<Equipo> rellenarListaEquipos()throws Exception {
+        EquipoBD e= new EquipoBD();
+        listaEquipos= e.consultaEquipos();
+        return listaEquipos;
+    }
+    
     public static ArrayList<Dueño> getListaDueños() throws Exception {
         dueños = new ArrayList<Dueño>();
         dueños = dBD.consultaTodosDueños();
@@ -108,11 +126,11 @@ public class JEMS {
      * equipo
      *
      */
-    public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) {
+    public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño)throws Exception {
         Dueño d = new Dueño();
-        d = dBD.consultarDueño(dueño);
+        d = dBD.consultarDueñoCodigo(dueño);
         Equipo e = new Equipo(nombre, nacionalidad, presupuesto, puntuacion, d);
-        eBD.modificacionEquipo();
+        eBD.modificarEquipo(e);
     }
 
     /**
