@@ -88,7 +88,7 @@ public class V_Login extends javax.swing.JFrame {
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
 
-        bAcceder.setBackground(new java.awt.Color(86, 88, 149));
+        bAcceder.setBackground(new java.awt.Color(252, 124, 0));
         bAcceder.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         bAcceder.setForeground(new java.awt.Color(255, 255, 255));
         bAcceder.setText("ACCEDER");
