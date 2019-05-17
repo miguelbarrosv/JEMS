@@ -126,11 +126,11 @@ public class JEMS {
      * equipo
      *
      */
-    public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) {
+    public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño)throws Exception {
         Dueño d = new Dueño();
-        d = dBD.consultarDueño(dueño);
+        d = dBD.consultarDueñoCodigo(dueño);
         Equipo e = new Equipo(nombre, nacionalidad, presupuesto, puntuacion, d);
-        eBD.modificacionEquipo();
+        eBD.modificarEquipo(e);
     }
 
     /**
