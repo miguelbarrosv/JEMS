@@ -86,15 +86,55 @@ public class DueñoBD {
      * @throws Exception herada excepciones.
      */
     public Dueño crearObjeto() throws Exception {
-        ArrayList<Equipo> lista_equipos;
         Dueño d = new Dueño();
 
         d.setNombre(resultado.getString("NOMBRE"));
         d.setApellido(resultado.getString("APELLIDO"));
         d.setTelefono(resultado.getString("TELEFONO"));
-        //lista_equipos = resultado.getObject();
+        return d;
+    }
+    
 
-        //d.setLista_equipos(lista_equipos);
+    /**
+     * Función que rellena un objeto dueño desde los datos de la base de datos y los equipos que es dueño.
+     *
+     * @return devuelve un objeto de clase Dueño.
+     * @throws Exception herada excepciones.
+     */
+    public Dueño crearObjetoConListaEquipos() throws Exception {
+        ArrayList<Dueño> lista_equipos;
+        Dueño d = new Dueño();
+
+        d.setNombre(resultado.getString("NOMBRE"));
+        d.setApellido(resultado.getString("APELLIDO"));
+        d.setTelefono(resultado.getString("TELEFONO"));
+        EquipoBD eBD= new EquipoBD();
+        ArrayList<Equipo>listaEquipos=eBD.consultaEquipos();
+        d.setLista_equipos(listaEquipos);
+        return d;
+    }
+    
+    /**
+     * Funcion para buscar un dueño mediante el codigo.
+     * @param cod_dueño codigo del dueño
+     * @return d objeto de clase Dueño
+     * @throws Exception hereda excepciones
+     */
+    public Dueño consultarDueñoCodigo(int cod_dueño)throws Exception{
+        bdr.conectar();
+        String plantilla = "SELECT * FROM DUEÑO WHERE COD_DUEÑO= ?"; 
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, cod_dueño);
+        resultado = sentenciaPre.executeQuery();
+        Dueño d;
+        if (resultado.next()) {
+            d = crearObjeto();
+        } else {
+            d = null;
+        }
+
+        // Cerrar la conexión
+        bdr.cerrarCon();
         return d;
     }
 
