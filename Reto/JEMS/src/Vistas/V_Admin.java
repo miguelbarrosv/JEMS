@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import javax.swing.JOptionPane;
+import jems.JEMS;
+
 /**
  *
  * @author Miguel Barros
@@ -46,6 +49,8 @@ public class V_Admin extends javax.swing.JFrame {
         miModificarEquipo = new javax.swing.JMenuItem();
         miAltaEquipo = new javax.swing.JMenuItem();
         miBajaEquipo = new javax.swing.JMenuItem();
+        miConsultarEquipo = new javax.swing.JMenuItem();
+        miConsultarEquipos = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
         miModificarDueño = new javax.swing.JMenuItem();
@@ -174,6 +179,17 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         jMenu4.add(miBajaEquipo);
+
+        miConsultarEquipo.setText("ConsultarEquipo");
+        miConsultarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarEquipoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(miConsultarEquipo);
+
+        miConsultarEquipos.setText("ConsultarEquipos");
+        jMenu4.add(miConsultarEquipos);
 
         jMenu1.add(jMenu4);
         jMenu1.add(jSeparator3);
@@ -329,7 +345,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miAltaJugadorActionPerformed
 
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
-         operacion = "modificar";
+        operacion = "modificar";
         ControladorVistas.mostrarVentanaEquipo(operacion);
     }//GEN-LAST:event_miModificarEquipoActionPerformed
 
@@ -339,7 +355,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miAltaEquipoActionPerformed
 
     private void miBajaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaEquipoActionPerformed
-         operacion = "baja";
+        operacion = "baja";
         ControladorVistas.mostrarVentanaEquipo(operacion);
     }//GEN-LAST:event_miBajaEquipoActionPerformed
 
@@ -349,7 +365,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miModificarDueñoActionPerformed
 
     private void miAltaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaDueñoActionPerformed
-        
+
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miAltaDueñoActionPerformed
 
@@ -364,7 +380,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miModificarUsuarioActionPerformed
 
     private void miAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaUsuarioActionPerformed
-       
+
         ControladorVistas.mostrarVentanaUsuario(operacion);
     }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
@@ -373,14 +389,31 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bCrearLigaActionPerformed
 
     private void miConsultarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadorActionPerformed
-        operacion="consulta";
+        operacion = "consulta";
         ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miConsultarJugadorActionPerformed
 
     private void miConsultarJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadoresActionPerformed
-        operacion="lista";
-        ControladorVistas.mostrarVentanaJugador(operacion);
+        try{
+            String listaJugadores=JEMS.crearListaJugadores();
+            ControladorVistas.mostrarVentanaLista(listaJugadores);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error: "+e.getClass());
+        }
     }//GEN-LAST:event_miConsultarJugadoresActionPerformed
+
+    private void miConsultarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarEquipoActionPerformed
+        try{
+            String listaJugadores=JEMS.crearListaEquipos();
+            ControladorVistas.mostrarVentanaLista(listaJugadores);
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error: "+e.getClass());
+        }
+    }//GEN-LAST:event_miConsultarEquipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -447,6 +480,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miBajaEquipo;
     private javax.swing.JMenuItem miBajaJugador;
     private javax.swing.JMenuItem miBajaUsuario;
+    private javax.swing.JMenuItem miConsultarEquipo;
+    private javax.swing.JMenuItem miConsultarEquipos;
     private javax.swing.JMenuItem miConsultarJugador;
     private javax.swing.JMenuItem miConsultarJugadores;
     private javax.swing.JMenuItem miModificarDueño;

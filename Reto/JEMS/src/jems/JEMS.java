@@ -165,7 +165,20 @@ public class JEMS {
     public static void borrarJugador(int codJugador) throws Exception {
         jBD.borrarJugador(codJugador);
     }
-
+    /**
+     * Funcion para poner todos los jugadores en una lista.
+     * 
+     * @return listaJugadores lista de todos los jugadores
+     * @throws Exception hereda excepciones
+     */
+    public static String crearListaJugadores()throws Exception{
+        listaJugadores=jBD.consultaTodosJugadores();
+        String stringJugadores="";
+        for(int x=0;x<listaJugadores.size();x++){
+            listaJugadores.get(x).toString();
+        }
+        return stringJugadores;
+    }
     /**
      * Funcion para consultar un jugador mediante su codigo.
      *

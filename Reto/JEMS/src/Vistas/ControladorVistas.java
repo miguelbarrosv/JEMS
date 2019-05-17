@@ -15,12 +15,12 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  */
-
 public class ControladorVistas {
+
     /**
- * Creacion de los atributos
- * 
- */
+     * Creacion de los atributos
+     *
+     */
     private static V_Login vLogin;
     private static V_Registrar vRegistrar;
     private static V_Equipo vEquipo;
@@ -28,136 +28,173 @@ public class ControladorVistas {
     private static V_Jugador vJugador;
     private static V_Admin_Usuario vUsuario;
     private static V_Liga vLiga;
-    private static V_Jornadas vJornadas;    
-    
- /**
- * Funcion que nos dirije a la ventana V_Login para acceder al sistema
- * 
- */
+    private static V_Jornadas vJornadas;
+    private static V_Lista vListaJugadores;
+
+    /**
+     * Funcion que nos dirije a la ventana V_Login para acceder al sistema.
+     *
+     */
     public static void mostrarVentanaLogin() {
         vLogin.setVisible(true);
     }
+
     /**
- * Funcion que cierra la ventana V_Login
- * 
- */
+     * Funcion que cierra la ventana V_Login.
+     *
+     */
     public static void cerrarVentanaLogin() {
         vLogin.dispose();
-    }    
- /**
- * Funcion que nos dirije a la ventana V_Registrar para crear una nueva cuenta
- * 
- */
+    }
+
+    /**
+     * Funcion que nos dirije a la ventana V_Registrar para crear una nueva
+     * cuenta.
+     *
+     */
     public static void mostrarVentanaRegistrar() {
         vRegistrar.setVisible(true);
     }
+
     /**
- * Funcion que cierra la ventana V_Registrar
- * 
- */
+     * Funcion que cierra la ventana V_Registrar.
+     *
+     */
     public static void cerrarVentanaRegistrar() {
         vRegistrar.dispose();
     }
- /**
- * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o dar de alta a un jugador
- * 
- */
+
+    /**
+     * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o
+     * dar de alta a un jugador.
+     *
+     * @param operacion tipo de operacion
+     */
     public static void mostrarVentanaJugador(String operacion) {
         vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
+
     /**
- * Funcion que nos dirije a la ventana V_Equipo para modificar, borrar o dar de alta a un equipo
- * 
- */
+     * Funcion para mostrar ventana con la lista de los jugadores,equipos,dueños
+     * o usuarios.
+     *
+     * @param lista lista de todos los jugadores, equipos, dueños o usuarios
+     */
+    public static void mostrarVentanaLista(String lista) {
+        vListaJugadores = new V_Lista(lista);
+        vListaJugadores.setVisible(true);
+    }
+
+    /**
+     * Funcion que nos dirije a la ventana V_Equipo para modificar, borrar o dar
+     * de alta a un equipo.
+     *
+     * @param operacion tipo de operacion
+     */
     public static void mostrarVentanaEquipo(String operacion) throws Exception {
         vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }
+
     /**
- * Funcion que nos dirije a la ventana V_Dueño para modificar, borrar o dar de alta a un dueño
- * 
- */
+     * Funcion que nos dirije a la ventana V_Dueño para modificar, borrar o dar
+     * de alta a un dueño.
+     *
+     * @param operacion tipo de operacion
+     */
     public static void mostrarVentanaDueño(String operacion) {
         vDueño = new V_Dueño(operacion);
         vDueño.setVisible(true);
     }
+
     /**
- * Funcion que nos dirije a la ventana V_Admin_Usuario para modificar, borrar o dar de alta a un usuario
- * 
- */
+     * Funcion que nos dirije a la ventana V_Admin_Usuario para modificar,
+     * borrar o dar de alta a un usuario.
+     *
+     * @param operacion tipo de operacion
+     */
     public static void mostrarVentanaUsuario(String operacion) {
 
         vUsuario = new V_Admin_Usuario(operacion);
         vUsuario.setVisible(true);
     }
+
     /**
- * Funcion que muestra la ventana V_Liga
- * 
- */
+     * Funcion que muestra la ventana V_Liga.
+     *
+     */
     public static void mostrarVentanaLiga() {
-        vLiga= new V_Liga();
+        vLiga = new V_Liga();
         vUsuario.setVisible(true);
     }
+
     /**
- * Funcion que muestra la ventana V_Jornadas
- * 
- */
+     * Funcion que muestra la ventana V_Jornadas.
+     *
+     */
     public static void mostrarVentanaJornadas() {
         vJornadas = new V_Jornadas();
         vUsuario.setVisible(true);
     }
+
     /**
- * Funcion que cierra la ventana vJornadas
- * 
- */
+     * Funcion que cierra la ventana vJornadas.
+     *
+     */
     public static void cerrarVentanaJornadas() {
         vJornadas.dispose();
     }
+
     /**
- * Funcion que cierra la ventana vLiga
- * 
- */
+     * Funcion que cierra la ventana vLiga.
+     *
+     */
     public static void cerrarVentanaLiga() {
         vLiga.dispose();
     }
-    
+
     /**
- * Funcion que cierra la ventana V_Jugador
- * 
- */
+     * Funcion que cierra la ventana V_Jugador.
+     *
+     */
     public static void cerrarVentanaJugador() {
         vJugador.dispose();
     }
-    
+
     /**
- * Funcion que cierra la ventana V_Equipo
- * 
- */
+     * Funcion que cierra la ventana V_Equipo.
+     *
+     */
     public static void cerrarVentanaEquipo() {
         vEquipo.dispose();
     }
+
     /**
- * Funcion que cierra la ventana V_Dueño
- * 
- */
+     * Funcion que cierra la ventana V_Dueño.
+     *
+     */
     public static void cerrarVentanaDueño() {
         vDueño.dispose();
     }
-  
+
     /**
- * Funcion que cierra la ventana vUsuario
- * 
- */
+     * Funcion que cierra la ventana vUsuario.
+     *
+     */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
     }
+
     /**
- * Funcion que abre la ventana V_Liga para mostrar la clasificacion de la liga
- * 
- */
-    public static void abrirVentanaLiga(Liga liga,ArrayList<Equipo>equipos) {
-        vLiga = new V_Liga(liga,equipos);
+     * Funcion que abre la ventana V_Liga para mostrar la clasificacion de la
+     * liga.
+     *
+     * @param liga (requerido) la liga
+     * @param equipos (requerido) lista de equipos
+     */
+    public static void abrirVentanaLiga(Liga liga, ArrayList<Equipo> equipos) {
+        vLiga = new V_Liga(liga, equipos);
         vLiga.setVisible(true);
     }
 }
