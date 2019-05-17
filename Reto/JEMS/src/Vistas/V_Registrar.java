@@ -203,7 +203,7 @@ public class V_Registrar extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-        
+
     }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**

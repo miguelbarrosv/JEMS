@@ -19,16 +19,17 @@ public class V_Liga extends javax.swing.JFrame {
      */
     public V_Liga() {
         initComponents();
-        
+
     }
-    public V_Liga(Liga liga, ArrayList<Equipo>equipos) {
+
+    public V_Liga(Liga liga, ArrayList<Equipo> equipos) {
         tfNombreLiga.setText(liga.getNombre());
-        for (int x = 0;x < equipos.size(); x++ ) {
+        for (int x = 0; x < equipos.size(); x++) {
             taPosicion.setText(String.valueOf(x));
             taEquipos.setText(equipos.get(x).getNombre());
             taPuntos.setText(String.valueOf(equipos.get(x).getPuntuacion()));
         }
-        
+
     }
 
     /**

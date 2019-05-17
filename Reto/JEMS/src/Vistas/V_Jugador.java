@@ -74,7 +74,16 @@ public class V_Jugador extends javax.swing.JFrame {
                 break;
             case "consulta":
                 tfCodigoJugador.setVisible(true);
-                bAceptar.setEnabled(true);
+                tfNombre.setEditable(false);
+                tfApellido.setEditable(false);
+                tfNickname.setEditable(false);
+                tfNacionalidad.setEditable(false);
+                tfSueldo.setEditable(false);
+                tfTelefono.setEditable(false);
+                rbOcupado.setEnabled(false);
+                rbVacante.setEnabled(false);
+                cbEquipo.setEnabled(false);
+                bAceptar.setEnabled(false);
 
         }
     }
@@ -444,53 +453,42 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     private void tfCodigoJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoJugadorActionPerformed
         validarJugador();
-        if (ope.compareToIgnoreCase("modificar") != 0) {
-            tfNombre.setEditable(true);
-            tfApellido.setEditable(true);
-            tfNacionalidad.setEditable(true);
-            tfSueldo.setEditable(true);
-            tfTelefono.setEditable(true);
-            rbOcupado.setEnabled(true);
-            rbVacante.setEnabled(true);
-            cbEquipo.setEnabled(true);
-            bAceptar.setEnabled(true);
-            tfCodigoJugador.setEditable(false);
-            tfNombre.setText(jugador.getNombre());
-            tfApellido.setText(jugador.getApellido());
-            tfNickname.setText(jugador.getNickname());
-            tfNacionalidad.setText(jugador.getNacionalidad());
-            tfSueldo.setText(String.valueOf(jugador.getSueldo()));
-            tfTelefono.setText(jugador.getTelefono());
-            //mirar todos los nombres de los equipos en la combobox
-            cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
-            //otra posible solucion
-            /* for (int x=0;x<cbEquipo.getItemCount();x++)
-           {
-               //si el nombre del equipo del jugador es igual al nombre del equipo de la combobox en esa posicion
-              if (jugador.getEquipo().getNombre().compareToIgnoreCase(cbEquipo.getItemAt(x))!=0)
-                   {
+        switch (ope) {
+            case "modificar":
+                tfNombre.setEditable(true);
+                tfApellido.setEditable(true);
+                tfNacionalidad.setEditable(true);
+                tfSueldo.setEditable(true);
+                tfTelefono.setEditable(true);
+                rbOcupado.setEnabled(true);
+                rbVacante.setEnabled(true);
+                cbEquipo.setEnabled(true);
+                bAceptar.setEnabled(true);
+                tfCodigoJugador.setEditable(false);
+                tfNombre.setText(jugador.getNombre());
+                tfApellido.setText(jugador.getApellido());
+                tfNickname.setText(jugador.getNickname());
+                tfNacionalidad.setText(jugador.getNacionalidad());
+                tfSueldo.setText(String.valueOf(jugador.getSueldo()));
+                tfTelefono.setText(jugador.getTelefono());
+                //mirar todos los nombres de los equipos en la combobox
+                cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
+                //otra posible solucion
+                /*for (int x = 0; x < cbEquipo.getItemCount(); x++) {
+                    //si el nombre del equipo del jugador es igual al nombre del equipo de la combobox en esa posicion
+                    if (jugador.getEquipo().getNombre().compareToIgnoreCase(cbEquipo.getItemAt(x)) != 0) {
                         //se pone como principal el nombre del equipo de esa posicion
                         cbEquipo.setSelectedIndex(x);
-                   } 
-           }*/
-            if (jugador.getEstado().compareToIgnoreCase("vacante") != 0) {
-                rbVacante.isSelected();
-            } else {
-                rbOcupado.isSelected();
-            }
-
-        } else {
-            if (ope.compareToIgnoreCase("baja") != 0) {
-                tfNombre.setEditable(false);
-                tfApellido.setEditable(false);
-                tfNickname.setEditable(false);
-                tfNacionalidad.setEditable(false);
-                tfSueldo.setEditable(false);
-                tfTelefono.setEditable(false);
-                rbOcupado.setEnabled(false);
-                rbVacante.setEnabled(false);
-                cbEquipo.setEnabled(false);
-                tfCodigoJugador.setEditable(false);
+                    }
+                }*/
+                if (jugador.getEstado().compareToIgnoreCase("vacante") != 0) {
+                    rbVacante.isSelected();
+                } else {
+                    rbOcupado.isSelected();
+                }
+                break;
+            case "baja":
+                bAceptar.setEnabled(true);
                 tfNombre.setText(jugador.getNombre());
                 tfApellido.setText(jugador.getApellido());
                 tfNickname.setText(jugador.getNickname());
@@ -503,10 +501,22 @@ public class V_Jugador extends javax.swing.JFrame {
                 } else {
                     rbOcupado.isSelected();
                 }
-                tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
-            }
+                break;
+            case "consulta":
+                tfNombre.setText(jugador.getNombre());
+                tfApellido.setText(jugador.getApellido());
+                tfNickname.setText(jugador.getNickname());
+                tfNacionalidad.setText(jugador.getNacionalidad());
+                tfSueldo.setText(String.valueOf(jugador.getSueldo()));
+                tfTelefono.setText(jugador.getTelefono());
+                cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
+                if (jugador.getEstado().compareToIgnoreCase("vacante") != 0) {
+                    rbVacante.isSelected();
+                } else {
+                    rbOcupado.isSelected();
+                }
+                break;
         }
-
     }//GEN-LAST:event_tfCodigoJugadorActionPerformed
 
     /**

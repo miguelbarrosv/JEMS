@@ -124,15 +124,17 @@ public class EquipoBD {
         bdr.cerrarCon();
         return e;
     }
+
     /**
      * Funcion para buscar un equipo mediante el codigo.
+     *
      * @param cod_equipo codigo del equipo
      * @return e objeto de clase Equipo
      * @throws Exception hereda excepciones
      */
-    public Equipo consultarEquipoCodigo(int cod_equipo)throws Exception{
+    public Equipo consultarEquipoCodigo(int cod_equipo) throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT * FROM EQUIPO WHERE COD_EQUIPO= ?"; 
+        String plantilla = "SELECT * FROM EQUIPO WHERE COD_EQUIPO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_equipo);
         resultado = sentenciaPre.executeQuery();
@@ -161,15 +163,14 @@ public class EquipoBD {
         e.setNacionalidad(resultado.getString("NACIONALIDAD"));
         e.setPresupuesto(Integer.parseInt(resultado.getString("PRESUPUESTO")));
         e.setPuntuacion(Integer.parseInt(resultado.getString("PUNTUACION")));
-        DueñoBD dBD=new DueñoBD();
-        Dueño d=dBD.consultarDueñoCodigo(resultado.getInt("DUEÑO_COD_DUEÑO"));
+        DueñoBD dBD = new DueñoBD();
+        Dueño d = dBD.consultarDueñoCodigo(resultado.getInt("DUEÑO_COD_DUEÑO"));
         e.setDueño(d);
         //e.setLista_jugadores(lista_jugadores);
         //e.setLista_partidos(lista_partidos);
 
         return e;
     }
-    
 
     /**
      * Función que rellena un objeto equipo desde los datos de la base de datos.
@@ -178,19 +179,19 @@ public class EquipoBD {
      * @throws Exception hereda excepciones.
      */
     public Equipo crearObjetoConListas() throws Exception {
-        ArrayList<Jugador>listaJugadoresEquipo= new ArrayList();
-        ArrayList<Partido>listaPartidos= new ArrayList();
+        ArrayList<Jugador> listaJugadoresEquipo = new ArrayList();
+        ArrayList<Partido> listaPartidos = new ArrayList();
         Equipo e = new Equipo();
 
         e.setNombre(resultado.getString("NOMBRE"));
         e.setNacionalidad(resultado.getString("NACIONALIDAD"));
         e.setPresupuesto(Integer.parseInt(resultado.getString("PRESUPUESTO")));
         e.setPuntuacion(Integer.parseInt(resultado.getString("PUNTUACION")));
-        DueñoBD dBD=new DueñoBD();
-        Dueño d=dBD.consultarDueñoCodigo(resultado.getInt("DUEÑO_COD_DUEÑO"));
+        DueñoBD dBD = new DueñoBD();
+        Dueño d = dBD.consultarDueñoCodigo(resultado.getInt("DUEÑO_COD_DUEÑO"));
         e.setDueño(d);
-        JugadorBD jBD= new JugadorBD();
-        listaJugadoresEquipo=jBD.consultaTodosJugadores();
+        JugadorBD jBD = new JugadorBD();
+        listaJugadoresEquipo = jBD.consultaTodosJugadores();
         e.setLista_jugadores(listaJugadoresEquipo);
         //e.setLista_partidos(lista_partidos);
 
@@ -203,7 +204,7 @@ public class EquipoBD {
      * @return devuelve un ArrayList de Equipo.
      * @throws Exception hereda excepciones.
      */
-       public ArrayList<Equipo> consultaEquipos() throws Exception {
+    public ArrayList<Equipo> consultaEquipos() throws Exception {
         ArrayList<Equipo> listaEquipos = new ArrayList();
 
         bdr.conectar();
@@ -216,7 +217,7 @@ public class EquipoBD {
         bdr.cerrarCon();
         return listaEquipos;
     }
-     
+
     /**
      * Funcion que ejecuta el procedimiento PROC_REF_EQUIPO
      *

@@ -29,7 +29,7 @@ public class ControladorVistas {
     private static V_Admin_Usuario vUsuario;
     private static V_Liga vLiga;
     private static V_Jornadas vJornadas;
-    private static V_Lista vListaJugadores;
+    private static V_Lista vLista;
 
     /**
      * Funcion que nos dirije a la ventana V_Login para acceder al sistema.
@@ -82,8 +82,8 @@ public class ControladorVistas {
      * @param lista lista de todos los jugadores, equipos, dueños o usuarios
      */
     public static void mostrarVentanaLista(String lista) {
-        vListaJugadores = new V_Lista(lista);
-        vListaJugadores.setVisible(true);
+        vLista = new V_Lista(lista);
+        vLista.setVisible(true);
     }
 
     /**

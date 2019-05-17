@@ -39,30 +39,36 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     public boolean validarDatos() {
-        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword())))
+        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()))) {
             return true;
-        else 
+        } else {
             return false;
-    } 
+        }
+    }
+
     public boolean validarNombre(String nombre) {
         return true;
     }
+
     public boolean validarContraseña(String contraseña) {
         return true;
-    }    
+    }
+
     public String convertirContraseña(char[] contraseña) {
-        String contraseñaConvertida = new String(contraseña);               
+        String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
-    
+
     public void comprobarDatos(ArrayList<Usuario> listaUsuarios) throws Exception {
-        ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios(); 
+        ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios();
         try {
-            while(listaUsuariosAComprobar.)
-        } catch (Exception e) {            
+            while (listaUsuariosAComprobar.) {
+                
+            }
+        } catch (Exception e) {
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -194,7 +200,7 @@ public class V_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAccederActionPerformed
-        if(validarDatos()){
+        if (validarDatos()) {
             comprobarDatos();
         }
     }//GEN-LAST:event_bAccederActionPerformed

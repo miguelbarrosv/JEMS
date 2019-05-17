@@ -189,6 +189,11 @@ public class V_Admin extends javax.swing.JFrame {
         jMenu4.add(miConsultarEquipo);
 
         miConsultarEquipos.setText("ConsultarEquipos");
+        miConsultarEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarEquiposActionPerformed(evt);
+            }
+        });
         jMenu4.add(miConsultarEquipos);
 
         jMenu1.add(jMenu4);
@@ -345,18 +350,31 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miAltaJugadorActionPerformed
 
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
-        operacion = "modificar";
-        ControladorVistas.mostrarVentanaEquipo(operacion);
+        try {
+            operacion = "modificar";
+
+            ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miModificarEquipoActionPerformed
 
     private void miAltaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaEquipoActionPerformed
-        operacion = "alta";
-        ControladorVistas.mostrarVentanaEquipo(operacion);
+        try {
+            operacion = "alta";
+            ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miAltaEquipoActionPerformed
 
     private void miBajaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaEquipoActionPerformed
-        operacion = "baja";
-        ControladorVistas.mostrarVentanaEquipo(operacion);
+        try {
+            operacion = "baja";
+            ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miBajaEquipoActionPerformed
 
     private void miModificarDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarDueñoActionPerformed
@@ -394,26 +412,31 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsultarJugadorActionPerformed
 
     private void miConsultarJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadoresActionPerformed
-        try{
-            String listaJugadores=JEMS.crearListaJugadores();
+        try {
+            String listaJugadores = JEMS.crearListaJugadores();
             ControladorVistas.mostrarVentanaLista(listaJugadores);
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Error: "+e.getClass());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarJugadoresActionPerformed
 
     private void miConsultarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarEquipoActionPerformed
-        try{
-            String listaJugadores=JEMS.crearListaEquipos();
-            ControladorVistas.mostrarVentanaLista(listaJugadores);
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Error: "+e.getClass());
+        try {
+            operacion = "consulta";
+            ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarEquipoActionPerformed
+
+    private void miConsultarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarEquiposActionPerformed
+        try {
+            String listaEquipos = JEMS.crearListaEquipos();
+            ControladorVistas.mostrarVentanaLista(listaEquipos);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
+    }//GEN-LAST:event_miConsultarEquiposActionPerformed
 
     /**
      * @param args the command line arguments

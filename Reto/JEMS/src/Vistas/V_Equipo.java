@@ -19,6 +19,11 @@ import jems.JEMS;
  */
 public class V_Equipo extends javax.swing.JFrame {
 
+    private String dueño;
+    private static String ope;
+    private static Equipo equipo;
+    private static ArrayList<Dueño> dueños;
+
     /**
      * Creates new form V_Equipo
      */
@@ -26,6 +31,12 @@ public class V_Equipo extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Creacion de la ventana equipo dependiendo de la operacion.
+     *
+     * @param operacion (requerido) tipo de operacion
+     * @throws Exception hereda excepciones
+     */
     public V_Equipo(String operacion) throws Exception {
         initComponents();
         operacion = ope;
@@ -33,22 +44,37 @@ public class V_Equipo extends javax.swing.JFrame {
         for (int i = 0; i < dueños.size(); i++) {
             cbDueño.insertItemAt(dueños.get(i).getNombre(), i);
         }
-        if (ope.compareToIgnoreCase("modificar") == 0) {
-            tfNombre.setEditable(false);
-            tfPuntuacion.setEditable(false);
-            tfNacionalidad.setEditable(false);
-            tfPresupuesto.setEditable(false);
-            cbDueño.setEnabled(false);
-            bAceptar.setEnabled(false);
-        } else if (ope.compareToIgnoreCase("baja") == 0) {
-            tfNombre.setEditable(false);
-            tfNacionalidad.setEditable(false);
-            tfPresupuesto.setEditable(false);
-            cbDueño.setEnabled(false);
-            bAceptar.setEnabled(false);
-        } else if (ope.compareToIgnoreCase("alta") == 0) {
-            tfCodigoEquipo.setVisible(false);
-            bAceptar.setEnabled(false);
+        switch (ope) {
+            case "modificar":
+                tfCodigoEquipo.setVisible(true);
+                tfNombre.setEditable(false);
+                tfPuntuacion.setEditable(false);
+                tfNacionalidad.setEditable(false);
+                tfPresupuesto.setEditable(false);
+                cbDueño.setEnabled(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "baja":
+                tfCodigoEquipo.setVisible(true);
+                tfNombre.setEditable(false);
+                tfNacionalidad.setEditable(false);
+                tfPresupuesto.setEditable(false);
+                cbDueño.setEnabled(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "alta":
+                tfCodigoEquipo.setVisible(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "consulta":
+                tfCodigoEquipo.setVisible(true);
+                tfNombre.setEditable(false);
+                tfPuntuacion.setEditable(false);
+                tfNacionalidad.setEditable(false);
+                tfPresupuesto.setEditable(false);
+                cbDueño.setEnabled(false);
+                bAceptar.setEnabled(false);
+                break;
         }
     }
 
@@ -84,12 +110,10 @@ public class V_Equipo extends javax.swing.JFrame {
         }
     }
 
-    public static void rellenarcb() {
-
+    public String buscarDueño(int codigoEquipo) throws Exception {
+        dueño = JEMS.buscarDueño(codigoEquipo);
+        return dueño;
     }
-    private static String ope;
-    private static Equipo equipo;
-    private static ArrayList<Dueño> dueños;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -222,59 +246,82 @@ public class V_Equipo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Funcion para saber que opcion escojer dependiendo de la operacion al
+     * pulsar aceptar.
+     *
+     * @param evt pulsar el boton
+     */
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        try{
+        try {
             if (validarDatos()) {
-            if (ope.compareToIgnoreCase("modificar") == 0) {
-                
-                JEMS.modificarEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
-            } else if (ope.compareToIgnoreCase("alta") == 0) {
-                JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
-            } else if (ope.compareToIgnoreCase("baja") == 0) {
-                JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
+                if (ope.compareToIgnoreCase("modificar") != 0) {
+                    JEMS.modificarEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                } else if (ope.compareToIgnoreCase("alta") != 0) {
+                    JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                } else if (ope.compareToIgnoreCase("baja") != 0) {
+                    JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
+                }
             }
-        }
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Error: "+e.getClass());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaEquipo();
     }//GEN-LAST:event_bVolverActionPerformed
-
+    /**
+     * Funcion para saber que pasa y con que operacion al pulsar enter en
+     * codigo_equipo.
+     *
+     * @param evt pulsar enter
+     */
     private void tfCodigoEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoEquipoActionPerformed
-        if (ope.compareToIgnoreCase("modificar") == 0) {
-            tfNombre.setEditable(false);
-            tfPuntuacion.setEditable(true);
-            tfNacionalidad.setEditable(true);
-            tfPresupuesto.setEditable(true);
-            cbDueño.setEnabled(true);
-            bAceptar.setEnabled(true);
-            tfCodigoEquipo.setEditable(false);
-            tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
-            tfNombre.setText(equipo.getNombre());
-            tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
-            tfNacionalidad.setText(equipo.getNacionalidad());
-            tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
-            cbDueño.setSelectedItem(dueños.get().getNombre());
-        } else if (ope.compareToIgnoreCase("baja") == 0) {
-            tfNombre.setEditable(false);
-            tfPuntuacion.setEditable(false);
-            tfNacionalidad.setEditable(false);
-            tfPresupuesto.setEditable(false);
-            cbDueño.setEnabled(false);
-            bAceptar.setEnabled(true);
-            tfCodigoEquipo.setEditable(false);
-            tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
-            tfNombre.setText(equipo.getNombre());
-            tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
-            tfNacionalidad.setText(equipo.getNacionalidad());
-            tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
-            cbDueño.setSelectedItem(dueños.get().getNombre());
+        try {
+            dueño = buscarDueño(equipo.getCod_equipo());
+            switch (ope) {
+                case "modificar":
+                    tfNombre.setEditable(false);
+                    tfPuntuacion.setEditable(true);
+                    tfNacionalidad.setEditable(true);
+                    tfPresupuesto.setEditable(true);
+                    cbDueño.setEnabled(true);
+                    bAceptar.setEnabled(true);
+                    tfCodigoEquipo.setEditable(false);
+                    tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
+                    tfNombre.setText(equipo.getNombre());
+                    tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
+                    tfNacionalidad.setText(equipo.getNacionalidad());
+                    tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
+                    cbDueño.setSelectedItem(dueño);
+                    break;
+                case "baja":
+                    tfNombre.setEditable(false);
+                    tfPuntuacion.setEditable(false);
+                    tfNacionalidad.setEditable(false);
+                    tfPresupuesto.setEditable(false);
+                    cbDueño.setEnabled(false);
+                    bAceptar.setEnabled(true);
+                    tfCodigoEquipo.setEditable(false);
+                    tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
+                    tfNombre.setText(equipo.getNombre());
+                    tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
+                    tfNacionalidad.setText(equipo.getNacionalidad());
+                    tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
+                    cbDueño.setSelectedItem(dueño);
+                    break;
+                case "consulta":
+                    tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
+                    tfNombre.setText(equipo.getNombre());
+                    tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
+                    tfNacionalidad.setText(equipo.getNacionalidad());
+                    tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
+                    cbDueño.setSelectedItem(dueño);
+                    break;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
 
     }//GEN-LAST:event_tfCodigoEquipoActionPerformed

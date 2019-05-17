@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * @author Sergio Zulueta
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -66,7 +67,7 @@ public class Jornada {
 
     /**
      * Es un Get que devuelve el codgo de la jornada.
-     * 
+     *
      * @return cod_jornada devuelve el codigo de la jornada
      */
     public int getCod_jornada() {
@@ -75,8 +76,8 @@ public class Jornada {
 
     /**
      * Es un Set que establece el codigo de la jornada.
-     * 
-     * @param cod_jornada  establece el codigo de la jornada
+     *
+     * @param cod_jornada establece el codigo de la jornada
      */
     public void setCod_jornada(int cod_jornada) {
         this.cod_jornada = cod_jornada;
@@ -84,7 +85,7 @@ public class Jornada {
 
     /**
      * Es un Get que devuelve la fecha inicio de la jornada.
-     * 
+     *
      * @return fecha_inicio devuelve la fecha inicio de la jornada
      */
     public Date getFecha_inicio() {
@@ -93,7 +94,7 @@ public class Jornada {
 
     /**
      * Es un Set que establece la fecha inicio de la jornada.
-     * 
+     *
      * @param fecha_inicio establece la fecha inicio de la jornada
      */
     public void setFecha_inicio(Date fecha_inicio) {
@@ -102,7 +103,7 @@ public class Jornada {
 
     /**
      * Es un Get que devuelve la fecha final de la jornada.
-     * 
+     *
      * @return fecha_fin devuelve la fecha final de la jornada
      */
     public Date getFecha_fin() {
@@ -111,7 +112,7 @@ public class Jornada {
 
     /**
      * Es un Set que establece la fecha final de la jornada.
-     * 
+     *
      * @param fecha_fin establece la fecha final de la jornada
      */
     public void setFecha_fin(Date fecha_fin) {
@@ -120,7 +121,7 @@ public class Jornada {
 
     /**
      * Es un Get que devuelve la liga de la jornada.
-     * 
+     *
      * @return liga devuelve la liga de la jornada
      */
     public Liga getLiga() {
@@ -129,7 +130,7 @@ public class Jornada {
 
     /**
      * Es un Set que establece la liga de la jornada.
-     * 
+     *
      * @param liga establece la liga de la jornada
      */
     public void setLiga(Liga liga) {
@@ -138,7 +139,7 @@ public class Jornada {
 
     /**
      * Es un Get que devuelve los partidos de la jornada.
-     * 
+     *
      * @return partidos devuelve los partidos de la jornada
      */
     public ArrayList<Partido> getPartidos() {
@@ -147,13 +148,11 @@ public class Jornada {
 
     /**
      * Es un Set que establece los partidos de la jornada.
-     * 
+     *
      * @param partidos establece los partidos de la jornada
      */
     public void setPartidos(ArrayList<Partido> partidos) {
         this.partidos = partidos;
     }
-    
-    
 
 }

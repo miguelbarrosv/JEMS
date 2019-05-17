@@ -165,20 +165,22 @@ public class JEMS {
     public static void borrarJugador(int codJugador) throws Exception {
         jBD.borrarJugador(codJugador);
     }
+
     /**
      * Funcion para poner todos los jugadores en una lista.
-     * 
+     *
      * @return listaJugadores lista de todos los jugadores
      * @throws Exception hereda excepciones
      */
-    public static String crearListaJugadores()throws Exception{
-        listaJugadores=jBD.consultaTodosJugadores();
-        String stringJugadores="";
-        for(int x=0;x<listaJugadores.size();x++){
+    public static String crearListaJugadores() throws Exception {
+        listaJugadores = jBD.consultaTodosJugadores();
+        String stringJugadores = "";
+        for (int x = 0; x < listaJugadores.size(); x++) {
             listaJugadores.get(x).toString();
         }
         return stringJugadores;
     }
+
     /**
      * Funcion para consultar un jugador mediante su codigo.
      *
@@ -187,7 +189,7 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static Jugador consultarJugador(int cod_jugador) throws Exception {
-        j=jBD.consultarJugadorCodigo(cod_jugador);
+        j = jBD.consultarJugadorCodigo(cod_jugador);
         return j;
     }
 
@@ -201,7 +203,7 @@ public class JEMS {
     public static boolean consultarJugadorLista(int cod_jugador) throws Exception {
         listaJugadores = jBD.consultaTodosJugadores();
         boolean mensaje;
-        mensaje = listaJugadores.indexOf(cod_jugador)!=0;
+        mensaje = listaJugadores.indexOf(cod_jugador) != 0;
         return mensaje;
     }
 
@@ -251,6 +253,29 @@ public class JEMS {
      */
     public static void bajaEquipo(int codEquipo) throws Exception {
         eBD.borrarEquipo(codEquipo);
+    }
+
+    /**
+     * Funcion para poner todos los equipos en una lista.
+     *
+     * @return listaequipos lista de todos los equipos
+     * @throws Exception hereda excepciones
+     */
+    public static String crearListaEquipos() throws Exception {
+        String stringEquipos = eBD.consultarTodosEquipos();
+        return stringEquipos;
+    }
+
+    /**
+     * Funcion para buscar el dueño en un equipo.
+     *
+     * @param codigoEquipo codigo del equipo
+     * @return nombre del dueño
+     * @throws Exception hereda excepciones
+     */
+    public static String buscarDueño(int codigoEquipo) throws Exception {
+        e = eBD.consultarEquipoCodigo(codigoEquipo);
+        return e.getDueño().getNombre();
     }
 
     /**

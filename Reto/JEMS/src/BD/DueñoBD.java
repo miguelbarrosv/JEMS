@@ -94,10 +94,10 @@ public class DueñoBD {
         d.setTelefono(resultado.getString("TELEFONO"));
         return d;
     }
-    
 
     /**
-     * Función que rellena un objeto dueño desde los datos de la base de datos y los equipos que es dueño.
+     * Función que rellena un objeto dueño desde los datos de la base de datos y
+     * los equipos que es dueño.
      *
      * @return devuelve un objeto de clase Dueño.
      * @throws Exception herada excepciones.
@@ -109,21 +109,22 @@ public class DueñoBD {
         d.setNombre(resultado.getString("NOMBRE"));
         d.setApellido(resultado.getString("APELLIDO"));
         d.setTelefono(resultado.getString("TELEFONO"));
-        EquipoBD eBD= new EquipoBD();
-        ArrayList<Equipo>listaEquipos=eBD.consultaEquipos();
+        EquipoBD eBD = new EquipoBD();
+        ArrayList<Equipo> listaEquipos = eBD.consultaEquipos();
         d.setLista_equipos(listaEquipos);
         return d;
     }
-    
+
     /**
      * Funcion para buscar un dueño mediante el codigo.
+     *
      * @param cod_dueño codigo del dueño
      * @return d objeto de clase Dueño
      * @throws Exception hereda excepciones
      */
-    public Dueño consultarDueñoCodigo(int cod_dueño)throws Exception{
+    public Dueño consultarDueñoCodigo(int cod_dueño) throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT * FROM DUEÑO WHERE COD_DUEÑO= ?"; 
+        String plantilla = "SELECT * FROM DUEÑO WHERE COD_DUEÑO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_dueño);
         resultado = sentenciaPre.executeQuery();
@@ -194,5 +195,5 @@ public class DueñoBD {
 
         bdr.cerrarCon();
     }
-    
+
 }
