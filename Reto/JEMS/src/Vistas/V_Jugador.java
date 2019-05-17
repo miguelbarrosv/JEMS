@@ -32,7 +32,7 @@ public class V_Jugador extends javax.swing.JFrame {
     public V_Jugador(String operacion) {
         initComponents();
         operacion = ope;
-
+    }
     private boolean validarDatos() {
 
         try{
@@ -168,9 +168,18 @@ public class V_Jugador extends javax.swing.JFrame {
             bAceptar.setEnabled(false);
         }
     }
-    public void rellenarCb(Equipo equipo) {
-
+    /**
+     * Funcion que se usa para llenar la combobox.
+     */
+    public void llenarCombo()
+    {
+        //el numero de equipos presentes
+        int numero=JEMS.getNumeroEquipos();
+        for(int x=0;x<numero;x++)
+            //insertamos todos los equipos en la combobox
+            cbEquipo.insertItemAt(JEMS.getNombreEquipo(x), x);
     }
+
     private static String ope;
     private static String estado;
     private static Jugador jugador;
@@ -407,8 +416,19 @@ public class V_Jugador extends javax.swing.JFrame {
             tfNickname.setText(jugador.getNickname());
             tfNacionalidad.setText(jugador.getNacionalidad());
             tfSueldo.setText(String.valueOf(jugador.getSueldo()));
-            tfTelefono.setText(jugador.getTelefono());
-            if (jugador.getEstado() == "vacante") {
+            tfTelefono.setText(jugador.getTelefono());        
+            cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
+            //mirar todos los nombres de los equipos en la combobox
+           /* for (int x=0;x<cbEquipo.getItemCount();x++)
+           {
+               //si el nombre del equipo del jugador es igual al nombre del equipo de la combobox en esa posicion
+              if (jugador.getEquipo().getNombre().compareToIgnoreCase(cbEquipo.getItemAt(x))!=0)
+                   {
+                        //se pone como principal el nombre del equipo de esa posicion
+                        cbEquipo.setSelectedIndex(x);
+                   } 
+           }        */   
+            if (jugador.getEstado() == "vacante"){
                 rbVacante.isSelected();
             } else {
                 rbOcupado.isSelected();
@@ -432,7 +452,8 @@ public class V_Jugador extends javax.swing.JFrame {
             tfNacionalidad.setText(jugador.getNacionalidad());
             tfSueldo.setText(String.valueOf(jugador.getSueldo()));
             tfTelefono.setText(jugador.getTelefono());
-            if (jugador.getEstado() == "vacante") {
+            cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
+            if (jugador.getEstado() == "vacante"){
                 rbVacante.isSelected();
             } else {
                 rbOcupado.isSelected();
