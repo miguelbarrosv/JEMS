@@ -5,11 +5,20 @@
  */
 package Vistas;
 
-import UML.Jugador;
+
+import Excepciones.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import UML.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jems.JEMS;
 
 /**
  *
  * @author Miguel Barros
+ * @author Sergio Zulueta
+ *
  */
 public class V_Jugador extends javax.swing.JFrame {
 
@@ -18,23 +27,121 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     public V_Jugador() {
         initComponents();
-    } 
+    }
+
     public V_Jugador(String operacion) {
         initComponents();
         operacion = ope;
-        if (operacion == "modificar") 
-            tfNombre.setEditable(false);
-            tfApellido.setEditable(false);
-            tfNickname.setEditable(false);
-            tfNacionalidad.setEditable(false);
-            tfSueldo.setEditable(false);
-            tfTelefono.setEditable(false);
-            rbOcupado.setEnabled(false);
-            rbVacante.setEnabled(false);
-            cbEquipo.setEnabled(false);
-            bAceptar.setEnabled(false);
+
+    private boolean validarDatos() {
+
+        try{
+            validarNombre();
+            validarApellido();
+            validarNickName();
+            validarNacionalidad();
+            validarSueldo();
+            validarTelefono();
+            validarEstado();
+            validarEquipo();
             
-        if (operacion == "baja") 
+            
+            return true;
+        }catch(Exception e){
+            
+        }
+        return true;
+    }
+
+    private void validarNombre() throws Exception {
+        if (tfNombre.getText().isEmpty()) {
+            throw new CampoVacio("El nombre del jugador es obligatorio*.");
+        }
+
+        //En la bdd tenemos el nombre como varchar 20
+        //Consideramos que no deba ser mayor a 20 el nombre
+        if (tfNombre.getText().length() > 20) {
+            throw new DatoNoValido("El nombre no puede ser superior a 20 caracteres.");
+        }
+
+    }
+
+    private void validarApellido() throws Exception {
+        if (tfApellido.getText().isEmpty()) {
+            throw new CampoVacio("El apellido del jugador es obligatorio*");
+        }
+
+        //En la bdd tenemos el apellido como varchar 20
+        //Consideramos que no deba ser mayor a 20
+        if (tfApellido.getText().length() > 20) {
+            throw new DatoNoValido("El apellido no puede ser superior a 20 caracteres.");
+        }
+    }
+
+    private void validarNickName() throws Exception {
+        if (tfNickname.getText().isEmpty()) {
+            throw new CampoVacio("El nick del jugador es obligatorio*");
+        }
+
+        //En la bdd tenemos el nick como varchar 20
+        //Consideramos que no deba ser mayor a 20
+        if (tfNickname.getText().length() > 20) {
+            throw new DatoNoValido("El Nick no puede ser superior a 20 caracteres.");
+        }
+    }
+
+    private void validarNacionalidad() throws Exception {
+        if (tfNacionalidad.getText().isEmpty()) {
+            throw new CampoVacio("La nacionalidad del jugador es obligatoria*");
+        }
+
+        //En la bdd tenemos la nacionalidad como varchar 20
+        //Consideramos que no deba ser mayor a 20
+        if (tfNacionalidad.getText().length() > 20) {
+            throw new DatoNoValido("La nacionalidad no puede ser superior a 20 datos");
+        }
+    }
+
+    private void validarSueldo() throws Exception {
+        if (tfNacionalidad.getText().isEmpty()) {
+            throw new CampoVacio("El sueldo del jugador es obligatorio*.");
+        }
+        //En la bdd tenemos el sueldo como number 6
+        //Consideramos que no deba ser mayor a 6
+        if (tfNacionalidad.getText().length() > 6) {
+            throw new DatoNoValido("El sueldo no puede ser mayor a 6 digitos");
+        }
+    }
+
+    private void validarTelefono() throws Exception {
+        String cadena = null;
+        if (tfTelefono.getText().isEmpty()) {
+            throw new CampoVacio("El telefono del jugador es obligatorio");
+        }
+
+        //En la bdd tenemos el telefono como varchar 9
+        //Consideramos que no deba ser mayor a 9
+        if (tfNacionalidad.getText().length() > 6) {
+            throw new DatoNoValido("El sueldo no puede ser mayor a 6 digitos");
+        }
+
+        Pattern pat = Pattern.compile("^[6,7,8,9]");
+        Matcher mat = pat.matcher(cadena);
+        if (mat.matches()) {
+        } else {
+            throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7 8 o 9.");
+        }
+    }
+
+    private boolean validarEstado() {
+        return false;
+        
+    }
+
+    private boolean validarEquipo() {
+        return false;
+
+        if (operacion == "modificar") {
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfNickname.setEditable(false);
@@ -45,46 +152,29 @@ public class V_Jugador extends javax.swing.JFrame {
             rbVacante.setEnabled(false);
             cbEquipo.setEnabled(false);
             bAceptar.setEnabled(false);
-        if (operacion == "alta")     
+        } else if (operacion == "baja") {
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNickname.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfSueldo.setEditable(false);
+            tfTelefono.setEditable(false);
+            rbOcupado.setEnabled(false);
+            rbVacante.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            bAceptar.setEnabled(false);
+        } else if (operacion == "alta") {
             tfCodigoJugador.setVisible(false);
             bAceptar.setEnabled(false);
+        }
     }
-    public boolean validarDatos() {
-        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarSueldo(tfSueldo.getText()) && validarTelefono(tfTelefono.getText()) && validarEstado(rbEstado.getSelectedIndex()) && validarEquipo(cbEquipo.getSelectedIndex()))
-            return true;
-        else 
-            return false;
-    } 
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
-    public boolean validarApellido(String apellido) {
-        return true;
-    }
-    public boolean validarNacionalidad(String nacionalidad) {
-        return true;
-    }
-    public boolean validarSueldo(String sueldo) {
-        return true;
-    }
-    public boolean validarTelefono(String telefono) {
-        return true;
-    }
-    public boolean validarEstado(int posicion) {
-        if (posicion == -1)
-            return false;
-        else
-            return true;
-    }
-    public boolean validarEquipo(int posicion) {
-        if (posicion == -1)
-            return false;
-        else
-            return true;
+    public void rellenarCb(Equipo equipo) {
+
     }
     private static String ope;
     private static String estado;
     private static Jugador jugador;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -269,17 +359,29 @@ public class V_Jugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (rbOcupado.isSelected())
+        if (rbOcupado.isSelected()) {
             estado = "ocupado";
-        else if(rbVacante.isSelected())
+        } else if (rbVacante.isSelected()) {
             estado = "vacante";
+        }
         if (validarDatos()) {
-        if (ope == "modificar")
-            ControladorVistas.modificarJugador(tfNombre.getText(),tfApellido.getText(),tfNickname.getText(),Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(),estado,tfTelefono.getText(),cbEquipo.getSelectedIndex());
-        else if (ope == "alta")
-            ControladorVistas.altaJugador(tfNombre.getText(),tfApellido.getText(),tfNickname.getText(),Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(),estado,tfTelefono.getText(),cbEquipo.getSelectedIndex()); 
-        else if (ope == "baja")
-            ControladorVistas.borrarJugador(tfCodigoJugador.getText());
+            if (ope == "modificar") {
+                try {
+                    
+                    JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                } catch (Exception e) {
+                }
+            } else if (ope == "alta") {
+                try {
+                    JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                } catch (Exception e) {
+                }
+            } else if (ope == "baja") {
+                try {
+                    JEMS.borrarJugador(tfCodigoJugador.getText());
+                } catch (Exception e) {
+                }
+            }
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -289,7 +391,7 @@ public class V_Jugador extends javax.swing.JFrame {
 
     private void tfCodigoJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoJugadorActionPerformed
         jugador = buscarJugadorPorCodigo(tfCodigoJugador.getText());
-        if (ope == "modificar")
+        if (ope.compareToIgnoreCase("modificar") == 0) {
             tfNombre.setEditable(true);
             tfApellido.setEditable(true);
             tfNacionalidad.setEditable(true);
@@ -306,12 +408,14 @@ public class V_Jugador extends javax.swing.JFrame {
             tfNacionalidad.setText(jugador.getNacionalidad());
             tfSueldo.setText(String.valueOf(jugador.getSueldo()));
             tfTelefono.setText(jugador.getTelefono());
-            if (jugador.getEstado() == "vacante")
+            if (jugador.getEstado() == "vacante") {
                 rbVacante.isSelected();
-            else 
-                rbOcupado.isSelected();  
-            tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
-        if (ope == "baja")
+            } else {
+                rbOcupado.isSelected();
+                tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
+            }
+
+        } else if (ope.compareToIgnoreCase("baja") == 0) {
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfNickname.setEditable(false);
@@ -328,12 +432,14 @@ public class V_Jugador extends javax.swing.JFrame {
             tfNacionalidad.setText(jugador.getNacionalidad());
             tfSueldo.setText(String.valueOf(jugador.getSueldo()));
             tfTelefono.setText(jugador.getTelefono());
-            if (jugador.getEstado() == "vacante")
+            if (jugador.getEstado() == "vacante") {
                 rbVacante.isSelected();
-            else 
-                rbOcupado.isSelected();  
+            } else {
+                rbOcupado.isSelected();
+            }
             tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
-            
+        }
+
     }//GEN-LAST:event_tfCodigoJugadorActionPerformed
 
     /**
