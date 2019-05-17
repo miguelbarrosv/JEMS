@@ -32,7 +32,7 @@ public class V_Jugador extends javax.swing.JFrame {
     public V_Jugador(String operacion) {
         initComponents();
         operacion = ope;
-
+    }
     private boolean validarDatos() {
 
         try{
@@ -179,15 +179,7 @@ public class V_Jugador extends javax.swing.JFrame {
             //insertamos todos los equipos en la combobox
             cbEquipo.insertItemAt(JEMS.getNombreEquipo(x), x);
     }
-    public boolean validarDatos() {
-        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarSueldo(tfSueldo.getText()) && validarTelefono(tfTelefono.getText()) && validarEstado(rbEstado.getSelectedIndex()) && validarEquipo(cbEquipo.getSelectedIndex()))
-            return true;
-        else 
-            return false;
-    } 
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
+
     private static String ope;
     private static String estado;
     private static Jugador jugador;
@@ -436,7 +428,7 @@ public class V_Jugador extends javax.swing.JFrame {
                         cbEquipo.setSelectedIndex(x);
                    } 
            }        */   
-            if (jugador.getEstado() == "vacante")
+            if (jugador.getEstado() == "vacante"){
                 rbVacante.isSelected();
             } else {
                 rbOcupado.isSelected();
@@ -461,7 +453,7 @@ public class V_Jugador extends javax.swing.JFrame {
             tfSueldo.setText(String.valueOf(jugador.getSueldo()));
             tfTelefono.setText(jugador.getTelefono());
             cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
-            if (jugador.getEstado() == "vacante")
+            if (jugador.getEstado() == "vacante"){
                 rbVacante.isSelected();
             } else {
                 rbOcupado.isSelected();
