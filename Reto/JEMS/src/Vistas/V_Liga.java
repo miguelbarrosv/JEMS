@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import UML.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Miguel Barros
@@ -16,6 +19,15 @@ public class V_Liga extends javax.swing.JFrame {
      */
     public V_Liga() {
         initComponents();
+        
+    }
+    public V_Liga(Liga liga, ArrayList<Equipo>equipos) {
+        tfNombreLiga.setText(liga.getNombre());
+        for (int x = 0;x < equipos.size(); x++ ) {
+            taPosicion.setText(String.valueOf(x));
+            taEquipos.setText(equipos.get(x).getNombre());
+            taPuntos.setText(String.valueOf(equipos.get(x).getPuntuacion()));
+        }
         
     }
 
@@ -31,13 +43,13 @@ public class V_Liga extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         tfNombreLiga = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        eEquipo = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         bVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         taPosicion = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        ta_Equipo = new javax.swing.JTextArea();
+        taEquipos = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         taPuntos = new javax.swing.JTextArea();
 
@@ -51,8 +63,8 @@ public class V_Liga extends javax.swing.JFrame {
         jTextField2.setText("Posicion");
         jTextField2.setEnabled(false);
 
-        jTextField3.setText("Equipo");
-        jTextField3.setEnabled(false);
+        eEquipo.setText("Equipo");
+        eEquipo.setEnabled(false);
 
         jTextField4.setText("Puntos");
         jTextField4.setEnabled(false);
@@ -69,10 +81,10 @@ public class V_Liga extends javax.swing.JFrame {
         taPosicion.setEnabled(false);
         jScrollPane1.setViewportView(taPosicion);
 
-        ta_Equipo.setColumns(20);
-        ta_Equipo.setRows(5);
-        ta_Equipo.setEnabled(false);
-        jScrollPane2.setViewportView(ta_Equipo);
+        taEquipos.setColumns(20);
+        taEquipos.setRows(5);
+        taEquipos.setEnabled(false);
+        jScrollPane2.setViewportView(taEquipos);
 
         taPuntos.setColumns(20);
         taPuntos.setRows(5);
@@ -105,7 +117,7 @@ public class V_Liga extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
+                                    .addComponent(eEquipo, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE))
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -126,7 +138,7 @@ public class V_Liga extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(eEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
@@ -181,16 +193,16 @@ public class V_Liga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bVolver;
+    private javax.swing.JTextField eEquipo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextArea taEquipos;
     private javax.swing.JTextArea taPosicion;
     private javax.swing.JTextArea taPuntos;
-    private javax.swing.JTextArea ta_Equipo;
     private javax.swing.JTextField tfNombreLiga;
     // End of variables declaration//GEN-END:variables
 }

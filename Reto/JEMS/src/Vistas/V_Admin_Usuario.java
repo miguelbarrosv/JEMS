@@ -23,16 +23,16 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         if (operacion == "modificar") 
             tfUsuario.setEditable(false);
             tfContraseña.setEditable(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
             
         if (operacion == "baja") 
          
             tfUsuario.setEditable(false);
             tfContraseña.setEditable(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
         if (operacion == "alta")   
             tfCodigoUsuario.setVisible(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
     }
     public boolean validarDatos() {
         if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText()) )
@@ -64,6 +64,12 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
+        tfUsuario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tfContraseña = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfCodigoUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,21 +82,52 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
         bVolver.setText("Volver");
 
+        jLabel1.setText("Usuario");
+
+        jLabel2.setText("Contraseña");
+
+        jLabel3.setText("Codigo Usuario");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(bAceptar)
-                .addGap(80, 80, 80)
-                .addComponent(bVolver)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bAceptar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel1)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(bVolver))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfContraseña, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCodigoUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tfCodigoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAceptar)
                     .addComponent(bVolver))
@@ -103,7 +140,11 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         if (validarDatos())
             if (ope == "modificacion")
-                ControladorVistas.modificarUsuario();
+                ControladorVistas.modificarUsuario(tfUsuario.getText(),tfContraseña.getText());
+            else if (ope == "alta")
+                ControladorVistas.altaUsuario(tfUsuario.getText(),tfContraseña.getText());
+            else if (ope == "baja")
+                ControladorVistas.bajaUsuario(tfCodigoUsuario.getText());
             
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -146,5 +187,11 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
     private javax.swing.JButton bVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField tfCodigoUsuario;
+    private javax.swing.JTextField tfContraseña;
+    private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
 }
