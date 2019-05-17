@@ -67,7 +67,6 @@ public class JEMS {
         j.setEquipo(equipo);
         jBD.insertarJugador(j);
     }
-
     public static ArrayList<Dueño> getListaDueños() throws Exception {
         dueños = new ArrayList<Dueño>();
         dueños = dBD.consultaTodosDueños();
@@ -194,6 +193,11 @@ public class JEMS {
      */
     public static void bajaUsuario(String codUsuario) {
         uBD.borrarUsuario(codUsuario);
-    }
+    }    
+    public static ArrayList<Usuario> conseguirDatosUsuarios() throws Exception {
+        UsuarioBD ubd = new UsuarioBD();
+        ArrayList<Usuario> listaUsuariosTemp = ubd.consultaTodosUsuarios();
+        return listaUsuariosTemp;
+    }  
 
 }

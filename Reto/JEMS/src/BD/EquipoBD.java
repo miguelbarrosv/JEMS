@@ -10,9 +10,9 @@ import UML.Jugador;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.Types;
-import java.util.ArrayList;
+//import java.sql.Statement;
+//import java.sql.Types;
+//import java.util.ArrayList;
 import oracle.jdbc.OracleTypes;
 
 /**
@@ -43,7 +43,7 @@ public class EquipoBD {
 
     /**
      *
-     * @param e objeto de clase Equiipo.
+     * @param e objeto de clase Equipo.
      * @throws Exception hereda excepciones
      */
     public void insertarEquipo(Equipo e) throws Exception {
@@ -62,15 +62,15 @@ public class EquipoBD {
     /**
      * Función que borra un equipo de la base de datos.
      *
-     * @param e (requerido) objeto de clase Equipo.
+     * @param cod_equipo (requerido) codigo del Equipo.
      * @throws Exception hereda excepciones.
      */
-    public void borrarEquipo(Equipo e) throws Exception {
+    public void borrarEquipo(int cod_equipo) throws Exception {
         bdr.conectar();
 
         String plantilla = "DELETE FROM EQUIPO WHERE COD_EQUIPO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, e.getCod_equipo());
+        sentenciaPre.setInt(1, cod_equipo);
 
         sentenciaPre.executeUpdate();
 
@@ -101,7 +101,7 @@ public class EquipoBD {
     }
 
     /**
-     * Función que busca un jugador en la base de datos.
+     * Función que busca un Equipo en la base de datos.
      *
      * @param e objeto de clase Equipo.
      * @return devuelve un objeto de clase Equipo.
@@ -110,7 +110,7 @@ public class EquipoBD {
     public Equipo consultarEquipo(Equipo e) throws Exception {
         bdr.conectar();
 
-        String plantilla = "SELECT * FROM JUGADOR WHERE COD_JUGADOR= ?";
+        String plantilla = "SELECT * FROM EQUIPO WHERE COD_EQUIPO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, e.getCod_equipo());
 
@@ -180,14 +180,14 @@ public class EquipoBD {
         ResultSet rs = (ResultSet) cStmt.getObject(1);
         while (rs.next());
         {
-            listaEquipos = "Codigo: "+rs.getString("COD_EQUIPO");
+            listaEquipos = "Codigo: " + rs.getString("COD_EQUIPO");
             listaEquipos += "Nombre: " + rs.getString("NOMBRE");
             listaEquipos += "Nacionalidad: " + rs.getString("NACIONALIDAD");
             listaEquipos += "Presupuesto: " + rs.getString("PRESUPUESTO");
             listaEquipos += "Puntuacion: " + rs.getString("PUNTUACION");
             listaEquipos += "Codigo dueño: " + rs.getString("CODIGO_DUEÑO");
             listaEquipos += "Nombre dueño: " + rs.getString("NOMBRE_DUEÑO");
-            listaEquipos += "Numero jugadores " + rs.getString("NUM_JUGADORES")+"\n";
+            listaEquipos += "Numero jugadores " + rs.getString("NUM_JUGADORES") + "\n";
         }
         rs.close();
         cStmt.close();

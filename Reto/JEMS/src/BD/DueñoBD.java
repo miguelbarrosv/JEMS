@@ -81,10 +81,9 @@ public class DueñoBD {
     }
 
     /**
-     * Función que rellena un objeto jugador desde los datos de la base de
-     * datos.
+     * Función que rellena un objeto dueño desde los datos de la base de datos.
      *
-     * @return devuelve un objeto de clase Jugador.
+     * @return devuelve un objeto de clase Dueño.
      * @throws Exception herada excepciones.
      */
     public Dueño crearObjeto() throws Exception {
@@ -123,15 +122,15 @@ public class DueñoBD {
     /**
      * Función que borra un Dueño de la base de datos.
      *
-     * @param d (requerido) objeto de clase Dueño
+     * @param cod_dueño (requerido) codigo del Dueño
      * @throws Exception hereda de excepciones
      */
-    public void borrarDueño(Dueño d) throws Exception {
+    public void borrarDueño(int cod_dueño) throws Exception {
         bdr.conectar();
 
         String plantilla = "DELETE FROM DUEÑO WHERE COD_DUEÑO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, d.getCod_dueño());
+        sentenciaPre.setInt(1, cod_dueño);
 
         sentenciaPre.executeUpdate();
 
