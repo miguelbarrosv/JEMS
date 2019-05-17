@@ -27,6 +27,9 @@ import java.util.ArrayList;
  */
 public class UsuarioBD {
 
+    /**
+     * Creacion de los atributos bdr y resultado.
+     */
     private static Bdr bdr;
     private ResultSet resultado;
 
