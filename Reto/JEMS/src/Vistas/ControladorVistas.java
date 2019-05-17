@@ -21,12 +21,44 @@ public class ControladorVistas {
  * Creacion de los atributos
  * 
  */
+    private static V_Login vLogin;
+    private static V_Registrar vRegistrar;
     private static V_Equipo vEquipo;
     private static V_Dueño vDueño;
     private static V_Jugador vJugador;
     private static V_Admin_Usuario vUsuario;
     private static V_Liga vLiga;
     private static V_Jornadas vJornadas;
+    
+    
+ /**
+ * Funcion que nos dirije a la ventana V_Login para acceder al sistema
+ * 
+ */
+    public static void mostrarVentanaLogin() {
+        vLogin.setVisible(true);
+    }
+    /**
+ * Funcion que cierra la ventana V_Login
+ * 
+ */
+    public static void cerrarVentanaLogin() {
+        vLogin.dispose();
+    }    
+ /**
+ * Funcion que nos dirije a la ventana V_Registrar para crear una nueva cuenta
+ * 
+ */
+    public static void mostrarVentanaRegistrar() {
+        vRegistrar.setVisible(true);
+    }
+    /**
+ * Funcion que cierra la ventana V_Registrar
+ * 
+ */
+    public static void cerrarVentanaRegistrar() {
+        vRegistrar.dispose();
+    }
  /**
  * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o dar de alta a un jugador
  * 

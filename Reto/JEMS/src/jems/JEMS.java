@@ -24,6 +24,7 @@ package jems;
 import Vistas.*;
 import BD.*;
 import UML.*;
+import java.util.ArrayList;
 
 
 public class JEMS {
@@ -52,6 +53,12 @@ public class JEMS {
         j.setTelefono(telefono);
         j.setEquipo(equipo);
         jBD.insertarJugador(j);
+    }
+    
+    public static ArrayList<Usuario> conseguirDatosUsuarios() throws Exception {
+        UsuarioBD ubd = new UsuarioBD();
+        ArrayList<Usuario> listaUsuariosTemp = ubd.consultaTodosUsuarios();
+        return listaUsuariosTemp;
     }
     
 }
