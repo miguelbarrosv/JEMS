@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Dueño;
+import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -164,14 +165,18 @@ public class V_Dueño extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (validarDatos()) {
-            if (ope.compareToIgnoreCase("modificar") == 0) {
-                JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
-            } else if (ope.compareToIgnoreCase("alta") == 0) {
-                JEMS.altaDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
-            } else if (ope.compareToIgnoreCase("baja") == 0) {
-                JEMS.bajaDueño(tfCodigoDueño.getText());
+        try {
+            if (validarDatos()) {
+                if (ope.compareToIgnoreCase("modificar") == 0) {
+                    JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                } else if (ope.compareToIgnoreCase("alta") == 0) {
+                    JEMS.altaDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                } else if (ope.compareToIgnoreCase("baja") == 0) {
+                    JEMS.bajaDueño(Integer.parseInt(tfCodigoDueño.getText()));
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 

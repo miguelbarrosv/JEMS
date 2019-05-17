@@ -10,6 +10,7 @@ import UML.Equipo;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -223,15 +224,21 @@ public class V_Equipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (validarDatos()) {
+        try{
+            if (validarDatos()) {
             if (ope.compareToIgnoreCase("modificar") == 0) {
                 
                 JEMS.modificarEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
             } else if (ope.compareToIgnoreCase("alta") == 0) {
                 JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
             } else if (ope.compareToIgnoreCase("baja") == 0) {
-                JEMS.bajaEquipo(tfCodigoEquipo.getText());
+                JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
             }
+        }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Error: "+e.getClass());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 

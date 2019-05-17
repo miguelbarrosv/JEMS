@@ -30,12 +30,13 @@ public class Equipo {
     private Dueño dueño;
 
     /**
-     * Constructor vacio. 
+     * Constructor si el codigo del equipo. 
      * 
      * @param nombre (requerido) El nombre del jugador.
      * @param nacionalidad (requerido) La nacionalidad del equipo.
      * @param presupuesto (requerido) El presupuesto del equipo.
      * @param puntuacion (requerido) La puntuacion del equipo.
+     * @param dueño (requerido) el dueño del equipo.
      */
     public Equipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, Dueño dueño) {
         this.nombre = nombre;
@@ -44,7 +45,9 @@ public class Equipo {
         this.puntuacion = puntuacion;
         this.dueño = dueño;
     }
-
+    /**
+     * Constructor vacio. 
+     */
     public Equipo() {
     }
 

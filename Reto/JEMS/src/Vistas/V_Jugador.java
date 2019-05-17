@@ -387,7 +387,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 }
             } else if (ope == "baja") {
                 try {
-                    JEMS.borrarJugador(tfCodigoJugador.getText());
+                    JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
                 } catch (Exception e) {
                 }
             }

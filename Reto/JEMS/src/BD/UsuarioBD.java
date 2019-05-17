@@ -120,12 +120,12 @@ public class UsuarioBD {
      * @param codUsuario (requerido) codigo del Usuario.
      * @throws Exception hereda excepciones.
      */
-    public void borrarUsuario(String codUsuario) throws Exception {
+    public void borrarUsuario(int codUsuario) throws Exception {
         bdr.conectar();
 
         String plantilla = "DELETE FROM USUARIO WHERE COD_USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, Integer.parseInt(codUsuario));
+        sentenciaPre.setInt(1, codUsuario);
 
         sentenciaPre.executeUpdate();
 

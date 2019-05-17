@@ -161,12 +161,12 @@ public class JugadorBD {
      * @param codJugador (requerido) codigo del Jugador.
      * @throws Exception hereda excepciones.
      */
-    public void borrarJugador(String codJugador) throws Exception {
+    public void borrarJugador(int codJugador) throws Exception {
         bdr.conectar();
 
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, Integer.parseInt(codJugador));
+        sentenciaPre.setInt(1,codJugador);
 
         sentenciaPre.executeUpdate();
 

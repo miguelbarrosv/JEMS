@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -148,14 +149,18 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (validarDatos()) {
-            if (ope == "modificacion") {
-                JEMS.modificarUsuario(tfUsuario.getText(), tfContraseña.getText());
-            } else if (ope == "alta") {
-                JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());
-            } else if (ope == "baja") {
-                JEMS.bajaUsuario(tfCodigoUsuario.getText());
+        try {
+            if (validarDatos()) {
+                if (ope == "modificacion") {
+                    JEMS.modificarUsuario(tfUsuario.getText(), tfContraseña.getText());
+                } else if (ope == "alta") {
+                    JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());
+                } else if (ope == "baja") {
+                    JEMS.bajaUsuario(Integer.parseInt(tfCodigoUsuario.getText()));
+                }
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
