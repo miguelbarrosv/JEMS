@@ -17,12 +17,12 @@ import java.util.ArrayList;
  *
  * @author Joel Encinas
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
- *
+ * @see Jugador
+ * 
  * @version %I%, %G%
  * @since 1.0
- *
- *
  *
  */
 public class JugadorBD {
