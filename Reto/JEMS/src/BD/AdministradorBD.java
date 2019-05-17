@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
  *
  * @author Joel Encinas
  * @author Sergio Zulueta
+ * @author Eric Muñoz
  *
  * @see Administrador
  *

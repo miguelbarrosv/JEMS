@@ -9,8 +9,6 @@ import Excepciones.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import UML.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 

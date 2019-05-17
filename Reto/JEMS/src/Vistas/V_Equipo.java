@@ -8,14 +8,16 @@ package Vistas;
 import UML.Dueño;
 import UML.Equipo;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
  *
  * @author Miguel Barros
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Equipo extends javax.swing.JFrame {
 

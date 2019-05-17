@@ -11,6 +11,9 @@ import java.util.ArrayList;
 /**
  *
  * @author Miguel Barros
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Liga extends javax.swing.JFrame {
 

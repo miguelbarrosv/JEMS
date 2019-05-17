@@ -11,6 +11,10 @@ import jems.JEMS;
 /**
  *
  * @author Miguel Barros
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Admin extends javax.swing.JFrame {
 

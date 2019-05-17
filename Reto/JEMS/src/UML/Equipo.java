@@ -8,7 +8,9 @@ package UML;
 import java.util.ArrayList;
 
 /**
- * @author Sergio Zulueta, Miguel Barros
+ * @author Sergio Zulueta
+ * @author Miguel Barros
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0

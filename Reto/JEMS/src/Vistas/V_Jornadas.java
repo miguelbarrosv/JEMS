@@ -10,6 +10,9 @@ import UML.*;
 /**
  *
  * @author Miguel Barros
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Jornadas extends javax.swing.JFrame {
 

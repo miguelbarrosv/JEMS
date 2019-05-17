@@ -7,7 +7,10 @@ package Vistas;
 
 /**
  *
- * @author Usuario
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Lista extends javax.swing.JFrame {
 

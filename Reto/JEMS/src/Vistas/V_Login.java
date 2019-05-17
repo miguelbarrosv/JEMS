@@ -14,6 +14,9 @@ import jems.JEMS;
 /**
  *
  * @author Joel Encinas
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Login extends javax.swing.JFrame {
 
@@ -63,7 +66,7 @@ public class V_Login extends javax.swing.JFrame {
         ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios();
         try {
             while (listaUsuariosAComprobar.) {
-                
+
             }
         } catch (Exception e) {
         }
