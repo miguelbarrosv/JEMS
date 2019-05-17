@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import UML.Dueño;
+
 /**
  *
  * @author Miguel Barros
@@ -17,7 +19,7 @@ public class V_Dueño extends javax.swing.JFrame {
     public V_Dueño() {
         initComponents();
     }
-    /*
+    
     public V_Dueño(String operacion) {
         initComponents();
         operacion = ope;
@@ -25,23 +27,23 @@ public class V_Dueño extends javax.swing.JFrame {
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfTelefono.setEditable(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
             
         if (operacion == "baja") 
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfTelefono.setEditable(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
         if (operacion == "alta")   
             tfCodigoDueño.setVisible(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
     }
     public boolean validarDatos() {
         if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText()))
             return true;
         else 
             return false;
-    } */
+    } 
     public boolean validarNombre(String nombre) {
         return true;
     }
@@ -49,6 +51,7 @@ public class V_Dueño extends javax.swing.JFrame {
         return true;
     }
     private static String ope;
+    private static Dueño dueño;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +63,14 @@ public class V_Dueño extends javax.swing.JFrame {
 
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        tfCodigoDueño = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfApellido = new javax.swing.JTextField();
+        tfTelefono = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,21 +88,66 @@ public class V_Dueño extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Codigo Dueño: ");
+
+        tfCodigoDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodigoDueñoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Nombre: ");
+
+        jLabel3.setText("Apellido: ");
+
+        jLabel4.setText("Telefono: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(bAceptar)
-                .addGap(71, 71, 71)
-                .addComponent(bVolver)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(bAceptar)
+                        .addGap(71, 71, 71)
+                        .addComponent(bVolver))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                            .addComponent(tfCodigoDueño)
+                            .addComponent(tfNombre)
+                            .addComponent(tfApellido))))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(tfCodigoDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAceptar)
                     .addComponent(bVolver))
@@ -108,12 +164,37 @@ public class V_Dueño extends javax.swing.JFrame {
             if (ope == "alta")
                 ControladorVistas.altaDueño(tfNombre.getText(),tfApellido.getText(),tfTelefono.getText());
             if (ope == "baja")
-                ControladorVistas.bajaDueño(tfCodDueño.getText());
+                ControladorVistas.bajaDueño(tfCodigoDueño.getText());
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaDueño();
     }//GEN-LAST:event_bVolverActionPerformed
+
+    private void tfCodigoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoDueñoActionPerformed
+        dueño = ControladorVistas.buscarDueñoPorCodigo(tfCodigoDueño.getText());
+        if (ope == "modificar")
+            tfNombre.setEditable(true);
+            tfApellido.setEditable(true);
+            tfTelefono.setEditable(true);
+            bAceptar.setEnabled(true);
+            tfNombre.setText(dueño.getNombre());
+            tfApellido.setText(dueño.getApellido());
+            tfTelefono.setText(dueño.getTelefono());
+            tfCodigoDueño.setText(String.valueOf(dueño.getCod_dueño()));
+            tfCodigoDueño.setEditable(false);
+        if (ope == "baja")
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfTelefono.setEditable(false);
+            bAceptar.setEnabled(true);
+            tfCodigoDueño.setEditable(false);
+            tfNombre.setText(dueño.getNombre());
+            tfApellido.setText(dueño.getApellido());
+            tfTelefono.setText(dueño.getTelefono());
+            tfCodigoDueño.setText(String.valueOf(dueño.getCod_dueño()));
+            
+    }//GEN-LAST:event_tfCodigoDueñoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,5 +234,13 @@ public class V_Dueño extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
     private javax.swing.JButton bVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField tfApellido;
+    private javax.swing.JTextField tfCodigoDueño;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfTelefono;
     // End of variables declaration//GEN-END:variables
 }

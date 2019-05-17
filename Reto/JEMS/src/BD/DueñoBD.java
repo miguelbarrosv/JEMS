@@ -17,6 +17,8 @@ import java.util.ArrayList;
  * @author Joel Encinas
  * @author Sergio Zulueta
  *
+ * @see Jugador
+ *
  * @version %I%, %G%
  * @since 1.0
  *
@@ -119,7 +121,7 @@ public class DueñoBD {
 
     /**
      * Función que borra un Dueño de la base de datos.
-     * 
+     *
      * @param d (requerido) objeto de clase Dueño
      * @throws Exception hereda de excepciones
      */
@@ -135,15 +137,22 @@ public class DueñoBD {
         bdr.cerrarCon();
     }
 
-    public void modificarDueño(Dueño d) throws Exception{
+    /**
+     * Funcion que modifica un Dueño.
+     *
+     * @param d (requerido) objeto de clase Dueño
+     * @throws Exception hereda de excepciones
+     */
+    public void modificarDueño(Dueño d) throws Exception {
         bdr.conectar();
-        
-        String plantilla = "UPDATE DUEÑO SET NOMBRE=?, APELLIDO=?, TELEFONO=?, LISTA_EQUIPOS= WHERE COD_DUEÑO=? ";
+
+        String plantilla = "UPDATE DUEÑO SET NOMBRE=?, APELLIDO=?, TELEFONO=? WHERE COD_DUEÑO=? ";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.
-        
-        
+        sentenciaPre.setString(1, d.getNombre());
+        sentenciaPre.setString(2, d.getApellido());
+        sentenciaPre.setString(3, d.getTelefono());
+
         bdr.cerrarCon();
     }
-    
+
 }

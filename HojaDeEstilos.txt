@@ -7,11 +7,12 @@ Paquetes: inciados en paq_
 Errores personalizados: ORA 20000+
   Err1(20001): No puede haber mas de 6 jugadores por equipo
   Err2(20002): El presupuesto del equipo no puede ser mayor de 200000
-  Err2(20003): No puede tener un jugador un sueldo menor que el SMI
-  Err2(20004): Una vez inicializada la liga no se pueden modificar los equipos y jugadores
-  Err2(20005): No puede haber mas de 6 equipos en la liga
-  Err2(20006): No puede haber equipos sin jugadores
-  Err2(20007): La suma de los salarios de los jugadores no puede ser mayor de 200000
+  Err3(20003): No puede tener un jugador un sueldo menor que el SMI
+  Err4(20004): Una vez inicializada la liga no se pueden modificar los equipos y jugadores
+  Err5(20005): No puede haber mas de 6 equipos en la liga
+  Err6(20006): No puede haber equipos sin jugadores
+  Err7(20007): La suma de los salarios de los jugadores no puede ser mayor de 200000
+  Err8(20008): La liga no puede empezar antes del dia de hoy
 Final de cada END: nombre de la operacion.
 
 Resolucion ventana principal: 1280x720

@@ -20,12 +20,12 @@ import oracle.jdbc.OracleTypes;
  *
  * @author Joel Encinas
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
+ * @see Jugador
  *
  * @version %I%, %G%
  * @since 1.0
- *
- *
  *
  */
 public class EquipoBD {
@@ -180,14 +180,14 @@ public class EquipoBD {
         ResultSet rs = (ResultSet) cStmt.getObject(1);
         while (rs.next());
         {
-            listaEquipos = rs.getString("COD_EQUIPO");
-            listaEquipos += " | " + rs.getString("NOMBRE");
-            listaEquipos += " | " + rs.getString("NACIONALIDAD");
-            listaEquipos += " | " + rs.getString("PRESUPUESTO");
-            listaEquipos += " | " + rs.getString("PUNTUACION");
-            listaEquipos += " | " + rs.getString("CODIGO_DUEÑO");
-            listaEquipos += " | " + rs.getString("NOMBRE_DUEÑO");
-            listaEquipos += " | " + rs.getString("NUM_JUGADORES");
+            listaEquipos = "Codigo: "+rs.getString("COD_EQUIPO");
+            listaEquipos += "Nombre: " + rs.getString("NOMBRE");
+            listaEquipos += "Nacionalidad: " + rs.getString("NACIONALIDAD");
+            listaEquipos += "Presupuesto: " + rs.getString("PRESUPUESTO");
+            listaEquipos += "Puntuacion: " + rs.getString("PUNTUACION");
+            listaEquipos += "Codigo dueño: " + rs.getString("CODIGO_DUEÑO");
+            listaEquipos += "Nombre dueño: " + rs.getString("NOMBRE_DUEÑO");
+            listaEquipos += "Numero jugadores " + rs.getString("NUM_JUGADORES")+"\n";
         }
         rs.close();
         cStmt.close();
