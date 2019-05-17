@@ -8,7 +8,7 @@ package UML;
 import java.util.ArrayList;
 
 /**
- * @author Sergio Zulueta
+ * @author Sergio Zulueta, Miguel Barros
  *
  * @version %I%, %G%
  * @since 1.0
@@ -29,11 +29,22 @@ public class Equipo {
     private ArrayList<Jugador> lista_jugadores;
     private Dueño dueño;
 
-
     /**
-     * Constructor vacio. (Para invocación por constructores de subclases,
-     * típicamente implícito.)
+     * Constructor vacio. 
+     * 
+     * @param nombre (requerido) El nombre del jugador.
+     * @param nacionalidad (requerido) La nacionalidad del equipo.
+     * @param presupuesto (requerido) El presupuesto del equipo.
+     * @param puntuacion (requerido) La puntuacion del equipo.
      */
+    public Equipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, Dueño dueño) {
+        this.nombre = nombre;
+        this.nacionalidad = nacionalidad;
+        this.presupuesto = presupuesto;
+        this.puntuacion = puntuacion;
+        this.dueño = dueño;
+    }
+
     public Equipo() {
     }
 
