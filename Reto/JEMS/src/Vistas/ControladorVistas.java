@@ -40,7 +40,7 @@ public class ControladorVistas {
  * Funcion que nos dirije a la ventana V_Equipo para modificar, borrar o dar de alta a un equipo
  * 
  */
-    public static void mostrarVentanaEquipo(String operacion) {
+    public static void mostrarVentanaEquipo(String operacion) throws Exception {
         vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }

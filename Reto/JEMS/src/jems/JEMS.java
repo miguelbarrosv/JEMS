@@ -80,8 +80,17 @@ public class JEMS {
      * asi modificar aun jugador ya existente
      *
      */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, int equipo) {
-        jBD.modificacionJugador(nombre, apellido, nick, sueldo, nacionalidad, estado, telefono, equipo);
+    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, int equipo) throws Exception {
+        Jugador j = new Jugador();
+        j.setNombre(nombre);
+        j.setApellido(apellido);
+        j.setNickname(nick);
+        j.setSueldo(sueldo);
+        j.setNacionalidad(nacionalidad);
+        j.setEstado(estado);
+        j.setTelefono(telefono);
+        j.setEquipo(equipo);
+        jBD.modificarJugador(j);
     }
 
     /**
@@ -90,8 +99,8 @@ public class JEMS {
      * baja a un jugador
      *
      */
-    public static void borrarJugador(String codJugador) {
-        jBD.bajaJugador(codJugador);
+    public static void borrarJugador(String codJugador) throws Exception {
+        jBD.borrarJugador(codJugador);
     }
 
     /**
@@ -101,7 +110,10 @@ public class JEMS {
      *
      */
     public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) {
-        eBD.modificacionEquipo(nombre, nacionalidad, presupuesto, puntuacion, dueño);
+        Dueño d = new Dueño();
+        d = dBD.consultarDueño(dueño);
+        Equipo e = new Equipo(nombre, nacionalidad, presupuesto, puntuacion, d);
+        eBD.modificacionEquipo();
     }
 
     /**

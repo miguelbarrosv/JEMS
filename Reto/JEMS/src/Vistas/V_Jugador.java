@@ -6,6 +6,8 @@
 package Vistas;
 
 import UML.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jems.JEMS;
 
 /**
@@ -291,11 +293,21 @@ public class V_Jugador extends javax.swing.JFrame {
         }
         if (validarDatos()) {
             if (ope == "modificar") {
-                JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                try {
+                    
+                    JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                } catch (Exception e) {
+                }
             } else if (ope == "alta") {
-                JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                try {
+                    JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                } catch (Exception e) {
+                }
             } else if (ope == "baja") {
-                JEMS.borrarJugador(tfCodigoJugador.getText());
+                try {
+                    JEMS.borrarJugador(tfCodigoJugador.getText());
+                } catch (Exception e) {
+                }
             }
         }
     }//GEN-LAST:event_bAceptarActionPerformed
