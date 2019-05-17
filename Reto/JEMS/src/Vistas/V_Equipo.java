@@ -5,7 +5,12 @@
  */
 package Vistas;
 
+import UML.Dueño;
 import UML.Equipo;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jems.JEMS;
 
 /**
  *
@@ -18,58 +23,73 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     public V_Equipo() {
         initComponents();
-    } 
+    }
+
     public V_Equipo(String operacion) {
         initComponents();
         operacion = ope;
-        rellenarcb();
-        if (operacion == "modificar") 
+        dueños = ControladorVistas.getListaDueños();
+        for (int i = 0; i < dueños.size(); i++) {
+            cbDueño.insertItemAt(dueños.get(i).getNombre(), i);
+        }
+        if (ope.compareToIgnoreCase("modificar") == 0) {
             tfNombre.setEditable(false);
             tfPuntuacion.setEditable(false);
             tfNacionalidad.setEditable(false);
             tfPresupuesto.setEditable(false);
             cbDueño.setEnabled(false);
             bAceptar.setEnabled(false);
-            
-        if (operacion == "baja") 
+        } else if (ope.compareToIgnoreCase("baja") == 0) {
             tfNombre.setEditable(false);
             tfNacionalidad.setEditable(false);
             tfPresupuesto.setEditable(false);
             cbDueño.setEnabled(false);
             bAceptar.setEnabled(false);
-        if (operacion == "alta")   
+        } else if (ope.compareToIgnoreCase("alta") == 0) {
             tfCodigoEquipo.setVisible(false);
             bAceptar.setEnabled(false);
+        }
     }
+
     public boolean validarDatos() {
-        if (validarNombre(tfNombre.getText()) && validarPuntuacion(tfPuntuacion.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarPresupuesto(tfPresupuesto.getText()) && validarDueño(cbDueño.getSelectedIndex()) )
+        if (validarNombre(tfNombre.getText()) && validarPuntuacion(tfPuntuacion.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarPresupuesto(tfPresupuesto.getText()) && validarDueño(cbDueño.getSelectedIndex())) {
             return true;
-        else 
+        } else {
             return false;
-    } 
+        }
+    }
+
     public boolean validarNombre(String nombre) {
         return true;
     }
+
     public boolean validarPuntuacion(String puntuacion) {
         return true;
     }
+
     public boolean validarNacionalidad(String nacionalidad) {
         return true;
     }
+
     public boolean validarPresupuesto(String presupuesto) {
         return true;
     }
+
     public boolean validarDueño(int posicion) {
-        if (posicion == -1)
+        if (posicion == -1) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
+
     public static void rellenarcb() {
-        
+
     }
     private static String ope;
     private static Equipo equipo;
+    private static ArrayList<Dueño> dueños;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -197,13 +217,15 @@ public class V_Equipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (validarDatos())
-            if(ope == "modificar")
-                ControladorVistas.modificarEquipo(tfNombre.getText(),tfNacionalidad.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntuacion.getText()),cbDueño.getSelectedItem());
-            else if (ope == "alta")
-                ControladorVistas.altaEquipo(tfNombre.getText(),tfNacionalidad.getText(),Integer.parseInt(tfPresupuesto.getText()),Integer.parseInt(tfPuntuacion.getText()),cbDueño.getSelectedItem());
-            else if (ope == "baja")
-                ControladorVistas.bajaEquipo(tfCodigoEquipo.getText());
+        if (validarDatos()) {
+            if (ope.compareToIgnoreCase("modificar") == 0) {
+                JEMS.modificarEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), cbDueño.getSelectedIndex());
+            } else if (ope.compareToIgnoreCase("alta") == 0) {
+                JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), cbDueño.getSelectedIndex());
+            } else if (ope.compareToIgnoreCase("baja") == 0) {
+                JEMS.bajaEquipo(tfCodigoEquipo.getText());
+            }
+        }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
@@ -211,9 +233,9 @@ public class V_Equipo extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void tfCodigoEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoEquipoActionPerformed
-        if(ope == "modificar" )
-            equipo = ControladorVistas.buscarPorCodEquipo(tfCodigoEquipo.getText());
-            tfNombre.setEditable(true);
+        equipo = ControladorVistas.buscarPorCodEquipo(tfCodigoEquipo.getText());
+        if (ope.compareToIgnoreCase("modificar") == 0) {
+            tfNombre.setEditable(false);
             tfPuntuacion.setEditable(true);
             tfNacionalidad.setEditable(true);
             tfPresupuesto.setEditable(true);
@@ -225,7 +247,8 @@ public class V_Equipo extends javax.swing.JFrame {
             tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
             tfNacionalidad.setText(equipo.getNacionalidad());
             tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
-        if (ope == "baja")
+            cbDueño.setSelectedItem(equipo.getDueño().getNombre());
+        } else if (ope.compareToIgnoreCase("baja") == 0) {
             tfNombre.setEditable(false);
             tfPuntuacion.setEditable(false);
             tfNacionalidad.setEditable(false);
@@ -238,6 +261,9 @@ public class V_Equipo extends javax.swing.JFrame {
             tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
             tfNacionalidad.setText(equipo.getNacionalidad());
             tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
+            cbDueño.setSelectedItem(equipo.getDueño().getNombre());
+        }
+
     }//GEN-LAST:event_tfCodigoEquipoActionPerformed
 
     /**

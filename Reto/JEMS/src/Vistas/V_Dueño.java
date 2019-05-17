@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Dueño;
+import jems.JEMS;
 
 /**
  *
@@ -19,39 +20,44 @@ public class V_Dueño extends javax.swing.JFrame {
     public V_Dueño() {
         initComponents();
     }
-    
+
     public V_Dueño(String operacion) {
         initComponents();
         operacion = ope;
-        if (operacion == "modificar") 
+        if (operacion == "modificar") {
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfTelefono.setEditable(false);
             bAceptar.setEnabled(false);
-            
-        if (operacion == "baja") 
+        } else if (operacion == "baja") {
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfTelefono.setEditable(false);
             bAceptar.setEnabled(false);
-        if (operacion == "alta")   
+        } else if (operacion == "alta") {
             tfCodigoDueño.setVisible(false);
             bAceptar.setEnabled(false);
+        }
     }
+
     public boolean validarDatos() {
-        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText()))
+        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText())) {
             return true;
-        else 
+        } else {
             return false;
-    } 
+        }
+    }
+
     public boolean validarNombre(String nombre) {
         return true;
     }
+
     public boolean validarApellido(String apellido) {
         return true;
     }
     private static String ope;
     private static Dueño dueño;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,13 +164,15 @@ public class V_Dueño extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if(validarDatos())
-            if (ope == "modificar")
-                ControladorVistas.modificarDueño(tfNombre.getText(),tfApellido.getText(),tfTelefono.getText());
-            if (ope == "alta")
-                ControladorVistas.altaDueño(tfNombre.getText(),tfApellido.getText(),tfTelefono.getText());
-            if (ope == "baja")
-                ControladorVistas.bajaDueño(tfCodigoDueño.getText());
+        if (validarDatos()) {
+            if (ope.compareToIgnoreCase("modificar") == 0) {
+                JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+            } else if (ope.compareToIgnoreCase("alta") == 0) {
+                JEMS.altaDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+            } else if (ope.compareToIgnoreCase("baja") == 0) {
+                JEMS.bajaDueño(tfCodigoDueño.getText());
+            }
+        }
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
@@ -173,7 +181,7 @@ public class V_Dueño extends javax.swing.JFrame {
 
     private void tfCodigoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoDueñoActionPerformed
         dueño = ControladorVistas.buscarDueñoPorCodigo(tfCodigoDueño.getText());
-        if (ope == "modificar")
+        if (ope.compareToIgnoreCase("modificar") == 0) {
             tfNombre.setEditable(true);
             tfApellido.setEditable(true);
             tfTelefono.setEditable(true);
@@ -183,7 +191,7 @@ public class V_Dueño extends javax.swing.JFrame {
             tfTelefono.setText(dueño.getTelefono());
             tfCodigoDueño.setText(String.valueOf(dueño.getCod_dueño()));
             tfCodigoDueño.setEditable(false);
-        if (ope == "baja")
+        } else if (ope.compareToIgnoreCase("baja") == 0) {
             tfNombre.setEditable(false);
             tfApellido.setEditable(false);
             tfTelefono.setEditable(false);
@@ -193,7 +201,7 @@ public class V_Dueño extends javax.swing.JFrame {
             tfApellido.setText(dueño.getApellido());
             tfTelefono.setText(dueño.getTelefono());
             tfCodigoDueño.setText(String.valueOf(dueño.getCod_dueño()));
-            
+        }
     }//GEN-LAST:event_tfCodigoDueñoActionPerformed
 
     /**

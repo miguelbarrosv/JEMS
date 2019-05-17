@@ -41,23 +41,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-              <Component id="bLiga" min="-2" pref="179" max="-2" attributes="0"/>
-              <EmptySpace pref="212" max="32767" attributes="0"/>
-              <Component id="bJornadas" min="-2" pref="170" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+              <Component id="bLiga" min="-2" pref="116" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <Component id="bJornada" min="-2" pref="107" max="-2" attributes="0"/>
+              <EmptySpace pref="160" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bLiga" alignment="3" min="-2" pref="110" max="-2" attributes="0"/>
-                  <Component id="bJornadas" alignment="3" min="-2" pref="110" max="-2" attributes="0"/>
+                  <Component id="bLiga" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="bJornada" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="170" max="32767" attributes="0"/>
+              <EmptySpace pref="169" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,18 +65,18 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="bLiga">
       <Properties>
-        <Property name="text" type="java.lang.String" value="LIGA"/>
+        <Property name="text" type="java.lang.String" value=" Clasificacion"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bLigaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bJornadas">
+    <Component class="javax.swing.JButton" name="bJornada">
       <Properties>
-        <Property name="text" type="java.lang.String" value="JORNADAS"/>
+        <Property name="text" type="java.lang.String" value="Jornadas"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bJornadasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bJornadaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

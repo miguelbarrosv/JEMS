@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import jems.JEMS;
+
 /**
  *
  * @author Miguel Barros
@@ -17,42 +19,50 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     public V_Admin_Usuario() {
         initComponents();
     }
+
     public V_Admin_Usuario(String operacion) {
         initComponents();
         operacion = ope;
-        if (operacion == "modificar") 
+        if (operacion.compareToIgnoreCase("modificar") == 0) {
             tfUsuario.setEditable(false);
             tfContraseña.setEditable(false);
             bAceptar.setEnabled(false);
-            
-        if (operacion == "baja") 
-         
+        } else if (operacion.compareToIgnoreCase("baja") == 0) {
             tfUsuario.setEditable(false);
             tfContraseña.setEditable(false);
             bAceptar.setEnabled(false);
-        if (operacion == "alta")   
+        } else if (operacion.compareToIgnoreCase("alta") == 0) {
             tfCodigoUsuario.setVisible(false);
             bAceptar.setEnabled(false);
+        }
+
     }
+
     public boolean validarDatos() {
-        if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText()) )
+        if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText())) {
             return true;
-        else 
+        } else {
             return false;
+        }
     }
+
     public boolean validarNombre(String nombre) {
         return true;
     }
+
     public boolean validarApellido(String apellido) {
         return true;
     }
+
     public boolean validarUsuario(String usuario) {
         return true;
     }
+
     public boolean validarContraseña(String contraseña) {
         return true;
     }
     private static String ope;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,14 +148,16 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        if (validarDatos())
-            if (ope == "modificacion")
-                ControladorVistas.modificarUsuario(tfUsuario.getText(),tfContraseña.getText());
-            else if (ope == "alta")
-                ControladorVistas.altaUsuario(tfUsuario.getText(),tfContraseña.getText());
-            else if (ope == "baja")
-                ControladorVistas.bajaUsuario(tfCodigoUsuario.getText());
-            
+        if (validarDatos()) {
+            if (ope == "modificacion") {
+                JEMS.modificarUsuario(tfUsuario.getText(), tfContraseña.getText());
+            } else if (ope == "alta") {
+                JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());
+            } else if (ope == "baja") {
+                JEMS.bajaUsuario(tfCodigoUsuario.getText());
+            }
+        }
+
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**

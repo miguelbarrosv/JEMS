@@ -27,12 +27,13 @@ public class ControladorVistas {
     private static V_Admin_Usuario vUsuario;
     private static V_Liga vLiga;
     private static V_Jornadas vJornadas;
+    private static ArrayList<Dueño> dueños ;
  /**
  * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o dar de alta a un jugador
  * 
  */
     public static void mostrarVentanaJugador(String operacion) {
-        //vJugador = new V_Jugador(operacion);
+        vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
     /**
@@ -40,7 +41,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaEquipo(String operacion) {
-        //vEquipo = new V_Equipo(operacion);
+        vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }
     /**
@@ -48,7 +49,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaDueño(String operacion) {
-        //vDueño = new V_Dueño(operacion);
+        vDueño = new V_Dueño(operacion);
         vDueño.setVisible(true);
     }
     /**
@@ -60,48 +61,37 @@ public class ControladorVistas {
         vUsuario = new V_Admin_Usuario(operacion);
         vUsuario.setVisible(true);
     }
-    
+    /**
+ * Funcion que muestra la ventana V_Liga
+ * 
+ */
     public static void mostrarVentanaLiga() {
         vLiga= new V_Liga();
         vUsuario.setVisible(true);
     }
-    
+    /**
+ * Funcion que muestra la ventana V_Jornadas
+ * 
+ */
     public static void mostrarVentanaJornadas() {
         vJornadas = new V_Jornadas();
         vUsuario.setVisible(true);
     }
-    
+    /**
+ * Funcion que cierra la ventana vJornadas
+ * 
+ */
     public static void cerrarVentanaJornadas() {
         vJornadas.dispose();
     }
+    /**
+ * Funcion que cierra la ventana vLiga
+ * 
+ */
     public static void cerrarVentanaLiga() {
         vLiga.dispose();
     }
-    /**
- * Funcion que nos dirije a la clase modificacionJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi modificar aun jugador ya existente
- * 
- */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo) {
-       JEMS.modificacionJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
-    }
-    /**
- * Funcion que nos dirije a la clase altaJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi dar de alta a un jugador nuevo
- * 
- */
-    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo) {
-        try {
-            JEMS.altaJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
-        } catch (Exception e) {
-            
-        }
-    }
-    /**
- * Funcion que nos dirije a la clase bajaJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi dar de baja a un jugador
- * 
- */
-    public static void borrarJugador(String codJugador) {
-        JEMS.bajaJugador(codJugador);
-    }
+    
     /**
  * Funcion que cierra la ventana V_Jugador
  * 
@@ -109,56 +99,13 @@ public class ControladorVistas {
     public static void cerrarVentanaJugador() {
         vJugador.dispose();
     }
-    /**
- * Funcion que nos dirije a la clase modificacionEquipo situado en el controlador general para pasarle los parametros de la ventana V_Equipo y asi modificar un equipo 
- * 
- */
-    public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion,int dueño) {
-        JEMS.modificacionEquipo(nombre,nacionalidad,presupuesto,puntuacion,dueño);
-    }
-    /**
- * Funcion que nos dirije a la clase altaEquipo situada en el controlador general para pasarle los parametros de la ventana V_Equipo y asi añadir un equipo nuevo
- * 
- */
-    public static void altaEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion,int dueño) {
-         JEMS.altaEquipo(nombre,nacionalidad,presupuesto,puntuacion,dueño);
-    }
     
-    /**
- * Funcion que nos dirije a la clase borrarEquipo situada en el controlador general para pasarle los parametros de la ventana V_Equipo y asi borrar a un equipo ya existente
- * 
- */
-    public static void bajaEquipo(String codJugador){
-         JEMS.borrarEquipo(codJugador);
-    }
     /**
  * Funcion que cierra la ventana V_Equipo
  * 
  */
     public static void cerrarVentanaEquipo() {
         vEquipo.dispose();
-    }
-   /**
- * Funcion que nos dirije a la clase modificacionDueño situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi modificar un dueño ya existente
- * 
- */ 
-    public static void modificarDueño(String nombre, String apellido, String telefono) {
-         JEMS.modificacionDueño(nombre,apellido,telefono);
-    }
-    
-    /**
- * Funcion que nos dirije a la clase altaDueño situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi dar de alta a un nuevo dueño
- * 
- */
-    public static void altaDueño(String nombre, String apellido, String telefono) {
-        JEMS.altaDueño(nombre,apellido,telefono);
-    }
-    /**
- * Funcion que nos dirije a la clase borrarDueño situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi borrar a un dueño ya existente
- * 
- */
-    public static void bajaDueño(String codDueño) {
-        JEMS.borrarDueño(codDueño);
     }
     /**
  * Funcion que cierra la ventana V_Dueño
@@ -167,27 +114,7 @@ public class ControladorVistas {
     public static void cerrarVentanaDueño() {
         vDueño.dispose();
     }
-  /**
- * Funcion que nos dirije a la clase modificacionUsuario situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi modificar un usuario ya existente
- * 
- */
-    public static void modificarUsuario(String usuario, String contraseña) {
-        JEMS.modificacionUsuario(usuario,contraseña);
-    }
-    /**
- * Funcion que nos dirije a la clase altaUsuario situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi dar de alta a un nuevo usuario
- * 
- */
-    public static void altaUsuario(String usuario,String contraseña) {
-        JEMS.altaUsuario(usuario,contraseña);
-    }
-    /**
- * Funcion que nos dirije a la clase borrarUsuario situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi borrar a un usuario ya existente
- * 
- */
-    public static void bajaUsuario(String codUsuario) {
-        JEMS.borrarUsuario(codUsuario);
-    }
+  
     /**
  * Funcion que cierra la ventana vUsuario
  * 
@@ -195,6 +122,10 @@ public class ControladorVistas {
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
     }
+    /**
+ * Funcion que abre la ventana V_Liga para mostrar la clasificacion de la liga
+ * 
+ */
     public static void abrirVentanaLiga(Liga liga,ArrayList<Equipo>equipos) {
         vLiga = new V_Liga(liga,equipos);
         vLiga.setVisible(true);
