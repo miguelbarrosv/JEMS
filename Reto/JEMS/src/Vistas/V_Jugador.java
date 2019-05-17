@@ -5,10 +5,14 @@
  */
 package Vistas;
 
+
 import Excepciones.*;
-import UML.Jugador;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import UML.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jems.JEMS;
 
 /**
  *
@@ -28,36 +32,6 @@ public class V_Jugador extends javax.swing.JFrame {
     public V_Jugador(String operacion) {
         initComponents();
         operacion = ope;
-        if (operacion == "modificar") {
-            tfNombre.setEditable(false);
-        }
-        tfApellido.setEditable(false);
-        tfNickname.setEditable(false);
-        tfNacionalidad.setEditable(false);
-        tfSueldo.setEditable(false);
-        tfTelefono.setEditable(false);
-        rbOcupado.setEnabled(false);
-        rbVacante.setEnabled(false);
-        cbEquipo.setEnabled(false);
-        bAceptar.setEnabled(false);
-
-        if (operacion == "baja") {
-            tfNombre.setEditable(false);
-        }
-        tfApellido.setEditable(false);
-        tfNickname.setEditable(false);
-        tfNacionalidad.setEditable(false);
-        tfSueldo.setEditable(false);
-        tfTelefono.setEditable(false);
-        rbOcupado.setEnabled(false);
-        rbVacante.setEnabled(false);
-        cbEquipo.setEnabled(false);
-        bAceptar.setEnabled(false);
-        if (operacion == "alta") {
-            tfCodigoJugador.setVisible(false);
-        }
-        bAceptar.setEnabled(false);
-    }
 
     private boolean validarDatos() {
 
@@ -166,6 +140,36 @@ public class V_Jugador extends javax.swing.JFrame {
 
     private boolean validarEquipo() {
         return false;
+
+        if (operacion == "modificar") {
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNickname.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfSueldo.setEditable(false);
+            tfTelefono.setEditable(false);
+            rbOcupado.setEnabled(false);
+            rbVacante.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            bAceptar.setEnabled(false);
+        } else if (operacion == "baja") {
+            tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNickname.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfSueldo.setEditable(false);
+            tfTelefono.setEditable(false);
+            rbOcupado.setEnabled(false);
+            rbVacante.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            bAceptar.setEnabled(false);
+        } else if (operacion == "alta") {
+            tfCodigoJugador.setVisible(false);
+            bAceptar.setEnabled(false);
+        }
+    }
+    public void rellenarCb(Equipo equipo) {
+
     }
     private static String ope;
     private static String estado;
@@ -362,11 +366,21 @@ public class V_Jugador extends javax.swing.JFrame {
         }
         if (validarDatos()) {
             if (ope == "modificar") {
-                ControladorVistas.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                try {
+                    
+                    JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                } catch (Exception e) {
+                }
             } else if (ope == "alta") {
-                ControladorVistas.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                try {
+                    JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                } catch (Exception e) {
+                }
             } else if (ope == "baja") {
-                ControladorVistas.borrarJugador(tfCodigoJugador.getText());
+                try {
+                    JEMS.borrarJugador(tfCodigoJugador.getText());
+                } catch (Exception e) {
+                }
             }
         }
     }//GEN-LAST:event_bAceptarActionPerformed
@@ -377,54 +391,54 @@ public class V_Jugador extends javax.swing.JFrame {
 
     private void tfCodigoJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoJugadorActionPerformed
         jugador = buscarJugadorPorCodigo(tfCodigoJugador.getText());
-        if (ope == "modificar") {
+        if (ope.compareToIgnoreCase("modificar") == 0) {
             tfNombre.setEditable(true);
-        }
-        tfApellido.setEditable(true);
-        tfNacionalidad.setEditable(true);
-        tfSueldo.setEditable(true);
-        tfTelefono.setEditable(true);
-        rbOcupado.setEnabled(true);
-        rbVacante.setEnabled(true);
-        cbEquipo.setEnabled(true);
-        bAceptar.setEnabled(true);
-        tfCodigoJugador.setEditable(false);
-        tfNombre.setText(jugador.getNombre());
-        tfApellido.setText(jugador.getApellido());
-        tfNickname.setText(jugador.getNickname());
-        tfNacionalidad.setText(jugador.getNacionalidad());
-        tfSueldo.setText(String.valueOf(jugador.getSueldo()));
-        tfTelefono.setText(jugador.getTelefono());
-        if (jugador.getEstado() == "vacante") {
-            rbVacante.isSelected();
-        } else {
-            rbOcupado.isSelected();
-        }
-        tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
-        if (ope == "baja") {
+            tfApellido.setEditable(true);
+            tfNacionalidad.setEditable(true);
+            tfSueldo.setEditable(true);
+            tfTelefono.setEditable(true);
+            rbOcupado.setEnabled(true);
+            rbVacante.setEnabled(true);
+            cbEquipo.setEnabled(true);
+            bAceptar.setEnabled(true);
+            tfCodigoJugador.setEditable(false);
+            tfNombre.setText(jugador.getNombre());
+            tfApellido.setText(jugador.getApellido());
+            tfNickname.setText(jugador.getNickname());
+            tfNacionalidad.setText(jugador.getNacionalidad());
+            tfSueldo.setText(String.valueOf(jugador.getSueldo()));
+            tfTelefono.setText(jugador.getTelefono());
+            if (jugador.getEstado() == "vacante") {
+                rbVacante.isSelected();
+            } else {
+                rbOcupado.isSelected();
+                tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
+            }
+
+        } else if (ope.compareToIgnoreCase("baja") == 0) {
             tfNombre.setEditable(false);
+            tfApellido.setEditable(false);
+            tfNickname.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfSueldo.setEditable(false);
+            tfTelefono.setEditable(false);
+            rbOcupado.setEnabled(false);
+            rbVacante.setEnabled(false);
+            cbEquipo.setEnabled(false);
+            tfCodigoJugador.setEditable(false);
+            tfNombre.setText(jugador.getNombre());
+            tfApellido.setText(jugador.getApellido());
+            tfNickname.setText(jugador.getNickname());
+            tfNacionalidad.setText(jugador.getNacionalidad());
+            tfSueldo.setText(String.valueOf(jugador.getSueldo()));
+            tfTelefono.setText(jugador.getTelefono());
+            if (jugador.getEstado() == "vacante") {
+                rbVacante.isSelected();
+            } else {
+                rbOcupado.isSelected();
+            }
+            tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
         }
-        tfApellido.setEditable(false);
-        tfNickname.setEditable(false);
-        tfNacionalidad.setEditable(false);
-        tfSueldo.setEditable(false);
-        tfTelefono.setEditable(false);
-        rbOcupado.setEnabled(false);
-        rbVacante.setEnabled(false);
-        cbEquipo.setEnabled(false);
-        tfCodigoJugador.setEditable(false);
-        tfNombre.setText(jugador.getNombre());
-        tfApellido.setText(jugador.getApellido());
-        tfNickname.setText(jugador.getNickname());
-        tfNacionalidad.setText(jugador.getNacionalidad());
-        tfSueldo.setText(String.valueOf(jugador.getSueldo()));
-        tfTelefono.setText(jugador.getTelefono());
-        if (jugador.getEstado() == "vacante") {
-            rbVacante.isSelected();
-        } else {
-            rbOcupado.isSelected();
-        }
-        tfCodigoJugador.setText(String.valueOf(jugador.getCod_jugador()));
 
     }//GEN-LAST:event_tfCodigoJugadorActionPerformed
 

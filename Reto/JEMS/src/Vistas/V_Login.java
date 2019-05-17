@@ -5,14 +5,15 @@
  */
 package Vistas;
 
-import java.awt.Color;
 import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-
+import UML.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import jems.JEMS;
 
 /**
  *
- * @author Jowii
+ * @author Joel Encinas
  */
 public class V_Login extends javax.swing.JFrame {
 
@@ -30,20 +31,38 @@ public class V_Login extends javax.swing.JFrame {
         setSize(1280, 720);
         setLocationRelativeTo(null);
         tfUsuario.setBorder(BorderFactory.createCompoundBorder(
-        tfUsuario.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+                tfUsuario.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         pfContraseña.setBorder(BorderFactory.createCompoundBorder(
-        pfContraseña.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        // showOnTop();
+                pfContraseña.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    /*
-    public void showOnTop() {
-        if (getParent() != null) {
-            getParent().setComponentZOrder(background, -99);
+    public boolean validarDatos() {
+        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword())))
+            return true;
+        else 
+            return false;
+    } 
+    public boolean validarNombre(String nombre) {
+        return true;
+    }
+    public boolean validarContraseña(String contraseña) {
+        return true;
+    }    
+    public String convertirContraseña(char[] contraseña) {
+        String contraseñaConvertida = new String(contraseña);               
+        return contraseñaConvertida;
+    }
+    
+    public void comprobarDatos(ArrayList<Usuario> listaUsuarios) throws Exception {
+        ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios(); 
+        try {
+            while(listaUsuariosAComprobar.)
+        } catch (Exception e) {            
         }
-    } */
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,7 +81,7 @@ public class V_Login extends javax.swing.JFrame {
         tfUsuario = new javax.swing.JTextField();
         lbContraseña = new javax.swing.JLabel();
         pfContraseña = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        bCrearCuenta = new javax.swing.JButton();
         lbBackgroundSesion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -145,16 +164,21 @@ public class V_Login extends javax.swing.JFrame {
         getContentPane().add(pfContraseña);
         pfContraseña.setBounds(940, 440, 280, 30);
 
-        jButton1.setBackground(new java.awt.Color(13, 9, 32));
-        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 153, 255));
-        jButton1.setText("Crear una cuenta →");
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusPainted(false);
-        getContentPane().add(jButton1);
-        jButton1.setBounds(930, 600, 150, 35);
+        bCrearCuenta.setBackground(new java.awt.Color(13, 9, 32));
+        bCrearCuenta.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        bCrearCuenta.setForeground(new java.awt.Color(51, 153, 255));
+        bCrearCuenta.setText("Crear una cuenta →");
+        bCrearCuenta.setBorder(null);
+        bCrearCuenta.setContentAreaFilled(false);
+        bCrearCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCrearCuenta.setFocusPainted(false);
+        bCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCrearCuentaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bCrearCuenta);
+        bCrearCuenta.setBounds(930, 600, 150, 35);
 
         lbBackgroundSesion.setBackground(new java.awt.Color(13, 9, 32));
         lbBackgroundSesion.setForeground(new java.awt.Color(13, 9, 32));
@@ -170,8 +194,15 @@ public class V_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAccederActionPerformed
-        // TODO add your handling code here:
+        if(validarDatos()){
+            comprobarDatos();
+        }
     }//GEN-LAST:event_bAccederActionPerformed
+
+    private void bCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearCuentaActionPerformed
+        ControladorVistas.cerrarVentanaLogin();
+        ControladorVistas.mostrarVentanaRegistrar();
+    }//GEN-LAST:event_bCrearCuentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,8 +243,8 @@ public class V_Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAcceder;
+    private javax.swing.JButton bCrearCuenta;
     private javax.swing.JButton bSalir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbBackgroundSesion;
     private javax.swing.JLabel lbContraseña;
