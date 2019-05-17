@@ -9,7 +9,7 @@ import javax.swing.BorderFactory;
 
 /**
  *
- * @author Jowii
+ * @author Joel Encinas
  */
 public class V_Registrar extends javax.swing.JFrame {
 
@@ -21,19 +21,19 @@ public class V_Registrar extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
         tfUsuarioRegistrase.setBorder(BorderFactory.createCompoundBorder(
-        tfUsuarioRegistrase.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+                tfUsuarioRegistrase.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         pfContraseñaRegistrase.setBorder(BorderFactory.createCompoundBorder(
-        pfContraseñaRegistrase.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+                pfContraseñaRegistrase.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         pfContraseñaRepetidaRegistrase.setBorder(BorderFactory.createCompoundBorder(
-        pfContraseñaRepetidaRegistrase.getBorder(), 
-        BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+                pfContraseñaRepetidaRegistrase.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         // showOnTop();
     }
 
@@ -199,11 +199,11 @@ public class V_Registrar extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        // TODO add your handling code here:
+        ControladorVistas.cerrarVentanaRegistrar();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
