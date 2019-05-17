@@ -23,7 +23,7 @@ import java.sql.PreparedStatement;
 public class AdministradorBD {
 
     /**
-     * Creacion de los atributos resultado y bdr.
+     * Creacion de los atributos bdr.
      */
     private static Bdr bdr;
 
@@ -42,24 +42,30 @@ public class AdministradorBD {
      */
     public void insertarAdministrador(Administrador a) throws Exception {
         bdr.conectar();
-        
-        String plantilla = "INSERT INTO Administrador(USUARIO, CONTRASEÑA) VALUES (?,?)";
+
+        String plantilla = "INSERT INTO ADMINISTRADOR(USUARIO, CONTRASEÑA) VALUES (?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, a.getUsuario());
         sentenciaPre.setString(2, a.getContraseña());
-        
+
         bdr.cerrarCon();
     }
-    
-    public void borrarAdministrador(Administrador a) throws Exception {
+
+    /**
+     * Función para borrar un Administrador.
+     *
+     * @param cod_admin (requerido) codigo del administrador
+     * @throws Exception
+     */
+    public void borrarAdministrador(int cod_admin) throws Exception {
         bdr.conectar();
-        
-        String plantilla = "DELETE FROM Administrador WHERE COD_ADMIN =?";
+
+        String plantilla = "DELETE FROM ADMINISTRADOR WHERE COD_ADMIN =?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, a.getCod_admin());
-        
+        sentenciaPre.setInt(1, cod_admin);
+
         sentenciaPre.executeUpdate();
-        
+
         bdr.cerrarCon();
     }
 

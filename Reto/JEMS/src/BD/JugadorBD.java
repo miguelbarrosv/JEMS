@@ -6,7 +6,6 @@
 package BD;
 
 import UML.Jugador;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
  * @author Sergio Zulueta
  *
  * @see Jugador
- * 
+ *
  * @version %I%, %G%
  * @since 1.0
  *
@@ -108,7 +107,6 @@ public class JugadorBD {
         int cod_equipo = resultado.getInt("EQUIPO_COD_EQUIPO");
 
         //j.setEquipo(resultado.getInt("EQUIPO_COD_EQUIPO"));
-
         return j;
     }
 
@@ -136,7 +134,7 @@ public class JugadorBD {
     /**
      * Función que borra un jugador de la base de datos.
      *
-     * @param j (requerido) objeto de clase Jugador.
+     * @param codJugador (requerido) codigo del Jugador.
      * @throws Exception hereda excepciones.
      */
     public void borrarJugador(String codJugador) throws Exception {
