@@ -5,6 +5,10 @@
  */
 package Vistas;
 
+import UML.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jems.JEMS;
 
 /**
@@ -77,7 +81,7 @@ public class ControladorVistas {
  * Funcion que nos dirije a la clase modificacionJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi modificar aun jugador ya existente
  * 
  */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, int estado,String telefono, int equipo) {
+    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo) {
        JEMS.modificacionJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
     }
     /**
@@ -85,7 +89,11 @@ public class ControladorVistas {
  * 
  */
     public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado,String telefono, int equipo) {
-        JEMS.altaJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
+        try {
+            JEMS.altaJugador(nombre,apellido,nick,sueldo,nacionalidad,estado,telefono,equipo);
+        } catch (Exception e) {
+            
+        }
     }
     /**
  * Funcion que nos dirije a la clase bajaJugador situado en el controlador pricipal para pasarle los`parametros recogidos de la ventana V_Jugador y asi dar de baja a un jugador
@@ -163,24 +171,32 @@ public class ControladorVistas {
  * Funcion que nos dirije a la clase modificacionUsuario situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi modificar un usuario ya existente
  * 
  */
-    public static void modificarUsuario() {
-        JEMS.modificacionUsuario();
+    public static void modificarUsuario(String usuario, String contraseña) {
+        JEMS.modificacionUsuario(usuario,contraseña);
     }
     /**
  * Funcion que nos dirije a la clase altaUsuario situada en el controlador general para pasarle los parametros de la ventana V_Dueño y asi dar de alta a un nuevo usuario
  * 
  */
-    public static void altaUsuario() {
-        JEMS.altaUsuario();
+    public static void altaUsuario(String usuario,String contraseña) {
+        JEMS.altaUsuario(usuario,contraseña);
     }
     /**
- * Funcion que nos dirije a la clase borrarDueño situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi borrar a un usuario ya existente
+ * Funcion que nos dirije a la clase borrarUsuario situada en el controlador general para pasarle los parametros de la ventana V_Usuario y asi borrar a un usuario ya existente
  * 
  */
-    public static void bajaUsuario() {
-        JEMS.borrarUsuario();
+    public static void bajaUsuario(String codUsuario) {
+        JEMS.borrarUsuario(codUsuario);
     }
+    /**
+ * Funcion que cierra la ventana vUsuario
+ * 
+ */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
+    }
+    public static void abrirVentanaLiga(Liga liga,ArrayList<Equipo>equipos) {
+        vLiga = new V_Liga(liga,equipos);
+        vLiga.setVisible(true);
     }
 }

@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import UML.Equipo;
+
 /**
  *
  * @author Miguel Barros
@@ -16,35 +18,35 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     public V_Equipo() {
         initComponents();
-    } /*
+    } 
     public V_Equipo(String operacion) {
         initComponents();
         operacion = ope;
+        rellenarcb();
         if (operacion == "modificar") 
             tfNombre.setEditable(false);
             tfPuntuacion.setEditable(false);
             tfNacionalidad.setEditable(false);
             tfPresupuesto.setEditable(false);
-            cbDueño
-            bAceptar.setEditable(false);
+            cbDueño.setEnabled(false);
+            bAceptar.setEnabled(false);
             
         if (operacion == "baja") 
             tfNombre.setEditable(false);
-            tfApellido.setEditable(false);
             tfNacionalidad.setEditable(false);
             tfPresupuesto.setEditable(false);
-            cbDueño
-            bAceptar.setEditable(false);
+            cbDueño.setEnabled(false);
+            bAceptar.setEnabled(false);
         if (operacion == "alta")   
             tfCodigoEquipo.setVisible(false);
-            bAceptar.setEditable(false);
+            bAceptar.setEnabled(false);
     }
     public boolean validarDatos() {
         if (validarNombre(tfNombre.getText()) && validarPuntuacion(tfPuntuacion.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarPresupuesto(tfPresupuesto.getText()) && validarDueño(cbDueño.getSelectedIndex()) )
             return true;
         else 
             return false;
-    } */
+    } 
     public boolean validarNombre(String nombre) {
         return true;
     }
@@ -63,7 +65,11 @@ public class V_Equipo extends javax.swing.JFrame {
         else
             return true;
     }
+    public static void rellenarcb() {
+        
+    }
     private static String ope;
+    private static Equipo equipo;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,6 +81,18 @@ public class V_Equipo extends javax.swing.JFrame {
 
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        tfCodigoEquipo = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfNombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfPuntuacion = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tfNacionalidad = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tfPresupuesto = new javax.swing.JTextField();
+        cbDueño = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,25 +110,87 @@ public class V_Equipo extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Codigo Equipo: ");
+
+        tfCodigoEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodigoEquipoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Nombre: ");
+
+        jLabel3.setText("Puntuacion: ");
+
+        jLabel4.setText("Nacionalidad: ");
+
+        jLabel5.setText("Presupuesto: ");
+
+        jLabel6.setText("Dueño");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(bAceptar)
-                .addGap(79, 79, 79)
-                .addComponent(bVolver)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bAceptar)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel6))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(bVolver))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbDueño, 0, 77, Short.MAX_VALUE)
+                                    .addComponent(tfNacionalidad)
+                                    .addComponent(tfPuntuacion)
+                                    .addComponent(tfNombre)
+                                    .addComponent(tfCodigoEquipo)
+                                    .addComponent(tfPresupuesto))))))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bAceptar)
-                    .addComponent(bVolver))
-                .addGap(26, 26, 26))
+                    .addComponent(jLabel1)
+                    .addComponent(tfCodigoEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tfPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tfNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bVolver)
+                    .addComponent(bAceptar))
+                .addContainerGap())
         );
 
         pack();
@@ -129,6 +209,36 @@ public class V_Equipo extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaEquipo();
     }//GEN-LAST:event_bVolverActionPerformed
+
+    private void tfCodigoEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoEquipoActionPerformed
+        if(ope == "modificar" )
+            equipo = ControladorVistas.buscarPorCodEquipo(tfCodigoEquipo.getText());
+            tfNombre.setEditable(true);
+            tfPuntuacion.setEditable(true);
+            tfNacionalidad.setEditable(true);
+            tfPresupuesto.setEditable(true);
+            cbDueño.setEnabled(true);
+            bAceptar.setEnabled(true);
+            tfCodigoEquipo.setEditable(false);
+            tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
+            tfNombre.setText(equipo.getNombre());
+            tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
+            tfNacionalidad.setText(equipo.getNacionalidad());
+            tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
+        if (ope == "baja")
+            tfNombre.setEditable(false);
+            tfPuntuacion.setEditable(false);
+            tfNacionalidad.setEditable(false);
+            tfPresupuesto.setEditable(false);
+            cbDueño.setEnabled(false);
+            bAceptar.setEnabled(true);
+            tfCodigoEquipo.setEditable(false);
+            tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
+            tfNombre.setText(equipo.getNombre());
+            tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
+            tfNacionalidad.setText(equipo.getNacionalidad());
+            tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
+    }//GEN-LAST:event_tfCodigoEquipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,5 +278,17 @@ public class V_Equipo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
     private javax.swing.JButton bVolver;
+    private javax.swing.JComboBox<String> cbDueño;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField tfCodigoEquipo;
+    private javax.swing.JTextField tfNacionalidad;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfPresupuesto;
+    private javax.swing.JTextField tfPuntuacion;
     // End of variables declaration//GEN-END:variables
 }

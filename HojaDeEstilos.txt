@@ -18,9 +18,9 @@ Final de cada END: nombre de la operacion.
 Resolucion ventana principal: 1280x720
 Estilo ventanas:
 	-Color principal fondo> #0D0920 / rgb(13, 9, 32)
-	-Color secundario fondo / boton > #565895 / rgb(86, 88, 149)	 
+	-Color secundario fondo / boton secundario > #565895 / rgb(86, 88, 149)	 
 	-Color link> rgb(51, 153, 255)
-	-Color botonCancelar > #fc7c00 > rgb(252,124,0)
+	-Color boton de accion > #fc7c00 > rgb(252,124,0)
 	-Color p> #FFFFFF / rgb(255, 255, 255)
 	-Color letra boton> #FFFFFF / rgb(255, 255, 255)
 
