@@ -28,6 +28,7 @@ import java.util.ArrayList;
 public class JEMS {
 
     static V_Registrar v = new V_Registrar();
+    private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> dueños;
     private static DueñoBD dBD;
@@ -163,6 +164,32 @@ public class JEMS {
      */
     public static void borrarJugador(int codJugador) throws Exception {
         jBD.borrarJugador(codJugador);
+    }
+
+    /**
+     * Funcion para consultar un jugador mediante su codigo.
+     *
+     * @param cod_jugador (requerido) codigo del jugador
+     * @return j objeto de un jugador
+     * @throws Exception hereda excepciones
+     */
+    public static Jugador consultarJugador(int cod_jugador) throws Exception {
+        j=jBD.consultarJugadorCodigo(cod_jugador);
+        return j;
+    }
+
+    /**
+     * Funcion para consultar si existe este codigo de jugador.
+     *
+     * @param cod_jugador (requerido) codigo de jugador
+     * @return mensaje mensaje con el resultado de la busqueda
+     * @throws Exception hereda excepciones
+     */
+    public static boolean consultarJugadorLista(int cod_jugador) throws Exception {
+        listaJugadores = jBD.consultaTodosJugadores();
+        boolean mensaje;
+        mensaje = listaJugadores.indexOf(cod_jugador)!=0;
+        return mensaje;
     }
 
     /**

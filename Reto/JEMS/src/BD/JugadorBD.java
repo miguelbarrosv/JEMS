@@ -87,6 +87,32 @@ public class JugadorBD {
         bdr.cerrarCon();
         return j;
     }
+    
+
+    /**
+     * Función que busca un jugador en la base de datos.
+     *
+     * @param cod_jugador (requerido) codigo de clase Jugador.
+     * @return devuelve un objeto clase jugador.
+     * @throws Exception hewreda excepciones.
+     */
+    public Jugador consultarJugadorCodigo(int cod_jugador) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "SELECT * FROM JUGADOR WHERE COD_JUGADOR= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, cod_jugador);
+        Jugador j;
+        resultado = sentenciaPre.executeQuery();
+        if (resultado.next()) {
+            j = crearObjeto();
+        } else {
+            j = null;
+        }
+
+        bdr.cerrarCon();
+        return j;
+    }
 
     /**
      * Función que rellena un objeto jugador desde los datos de la base de

@@ -39,6 +39,8 @@ public class V_Admin extends javax.swing.JFrame {
         miModificarJugador = new javax.swing.JMenuItem();
         miAltaJugador = new javax.swing.JMenuItem();
         miBajaJugador = new javax.swing.JMenuItem();
+        miConsultarJugador = new javax.swing.JMenuItem();
+        miConsultarJugadores = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu4 = new javax.swing.JMenu();
         miModificarEquipo = new javax.swing.JMenuItem();
@@ -119,6 +121,22 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         jMenu3.add(miBajaJugador);
+
+        miConsultarJugador.setText("ConsultarJugador");
+        miConsultarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarJugadorActionPerformed(evt);
+            }
+        });
+        jMenu3.add(miConsultarJugador);
+
+        miConsultarJugadores.setText("ConsultarJugadores");
+        miConsultarJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarJugadoresActionPerformed(evt);
+            }
+        });
+        jMenu3.add(miConsultarJugadores);
 
         jMenu1.add(jMenu3);
         jMenu1.add(jSeparator2);
@@ -354,6 +372,16 @@ public class V_Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bCrearLigaActionPerformed
 
+    private void miConsultarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadorActionPerformed
+        operacion="consulta";
+        ControladorVistas.mostrarVentanaJugador(operacion);
+    }//GEN-LAST:event_miConsultarJugadorActionPerformed
+
+    private void miConsultarJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadoresActionPerformed
+        operacion="lista";
+        ControladorVistas.mostrarVentanaJugador(operacion);
+    }//GEN-LAST:event_miConsultarJugadoresActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -419,6 +447,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miBajaEquipo;
     private javax.swing.JMenuItem miBajaJugador;
     private javax.swing.JMenuItem miBajaUsuario;
+    private javax.swing.JMenuItem miConsultarJugador;
+    private javax.swing.JMenuItem miConsultarJugadores;
     private javax.swing.JMenuItem miModificarDueño;
     private javax.swing.JMenuItem miModificarEquipo;
     private javax.swing.JMenuItem miModificarJugador;
