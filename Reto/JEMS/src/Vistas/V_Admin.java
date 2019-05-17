@@ -56,6 +56,8 @@ public class V_Admin extends javax.swing.JFrame {
         miModificarDueño = new javax.swing.JMenuItem();
         miAltaDueño = new javax.swing.JMenuItem();
         miBajaDueño = new javax.swing.JMenuItem();
+        miConsultarDueño = new javax.swing.JMenuItem();
+        miConsultarDueños = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenu6 = new javax.swing.JMenu();
         miModificarUsuario = new javax.swing.JMenuItem();
@@ -231,6 +233,22 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         jMenu5.add(miBajaDueño);
+
+        miConsultarDueño.setText("ConsultarDueño");
+        miConsultarDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarDueñoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(miConsultarDueño);
+
+        miConsultarDueños.setText("ConsultarDueños");
+        miConsultarDueños.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarDueñosActionPerformed(evt);
+            }
+        });
+        jMenu5.add(miConsultarDueños);
 
         jMenu1.add(jMenu5);
         jMenu1.add(jSeparator4);
@@ -438,6 +456,20 @@ public class V_Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miConsultarEquiposActionPerformed
 
+    private void miConsultarDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarDueñoActionPerformed
+        operacion = "consulta";
+        ControladorVistas.mostrarVentanaDueño(operacion);
+    }//GEN-LAST:event_miConsultarDueñoActionPerformed
+
+    private void miConsultarDueñosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarDueñosActionPerformed
+        try {
+            String listaDueños = JEMS.crearListaDueños();
+            ControladorVistas.mostrarVentanaLista(listaDueños);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
+    }//GEN-LAST:event_miConsultarDueñosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -503,6 +535,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miBajaEquipo;
     private javax.swing.JMenuItem miBajaJugador;
     private javax.swing.JMenuItem miBajaUsuario;
+    private javax.swing.JMenuItem miConsultarDueño;
+    private javax.swing.JMenuItem miConsultarDueños;
     private javax.swing.JMenuItem miConsultarEquipo;
     private javax.swing.JMenuItem miConsultarEquipos;
     private javax.swing.JMenuItem miConsultarJugador;

@@ -30,7 +30,7 @@ public class JEMS {
     static V_Registrar v = new V_Registrar();
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
-    private static ArrayList<Dueño> dueños;
+    private static ArrayList<Dueño> listaDueños;
     private static DueñoBD dBD;
     private static JugadorBD jBD;
     private static EquipoBD eBD;
@@ -120,8 +120,8 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static ArrayList<Dueño> getListaDueños() throws Exception {
-        dueños = dBD.consultaTodosDueños();
-        return dueños;
+        listaDueños = dBD.consultaTodosDueños();
+        return listaDueños;
     }
 
     /**
@@ -324,6 +324,28 @@ public class JEMS {
      */
     public static void bajaDueño(int codDueño) throws Exception {
         dBD.borrarDueño(codDueño);
+    }
+
+    /**
+     * Funcion para sacar los datos de un dueño de la base de datos mediante su
+     * codigo.
+     *
+     * @param codDueño codigo del dueño
+     * @return objeto dueño
+     * @throws Exception hereda excepciones
+     */
+    public static Dueño consultarDueño(int codDueño) throws Exception {
+        d = dBD.consultarDueñoCodigo(codDueño);
+        return d;
+    }
+
+    public static String crearListaDueños() throws Exception {
+        listaDueños = dBD.consultaTodosDueños();
+        String stringDueños = "";
+        for (int x = 0; x < listaDueños.size(); x++) {
+            listaDueños.get(x).toString();
+        }
+        return stringDueños;
     }
 
     /**

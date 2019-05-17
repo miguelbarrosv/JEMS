@@ -17,8 +17,8 @@ import java.util.ArrayList;
 public class Dueño {
 
     /**
-     * Creacion de los atributos cod_dueño, nombre, apellido, telefono y
-     * lista_equipos
+     * Creacion de los atributos cod_dueño, nombre, apellido, telefono,
+     * lista_equipos y equipos
      */
     private int cod_dueño;
     private String nombre;
@@ -26,6 +26,7 @@ public class Dueño {
     private String telefono;
 
     private ArrayList<Equipo> lista_equipos;
+    private String equipos;//para usar a la hora de sobre escribir el toString de Dueño
 
     /**
      * Constructor vacio. (Para invocación por constructores de subclases,
@@ -154,6 +155,14 @@ public class Dueño {
      */
     public void setLista_equipos(ArrayList<Equipo> lista_equipos) {
         this.lista_equipos = lista_equipos;
+        for (int x = 0; x < lista_equipos.size(); x++) {
+            equipos = lista_equipos.get(x).getNombre() + ", ";
+        }
     }
 
+    @Override
+    public String toString() {
+        String mensaje = "codigo: " + cod_dueño + " nombre: " + nombre + " apellido: " + apellido + " telefono: " + telefono + " equipos: " + equipos + "\n";
+        return mensaje;
+    }
 }

@@ -39,7 +39,7 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     public V_Equipo(String operacion) throws Exception {
         initComponents();
-        operacion = ope;
+        ope = operacion;
         dueños = JEMS.getListaDueños();
         for (int i = 0; i < dueños.size(); i++) {
             cbDueño.insertItemAt(dueños.get(i).getNombre(), i);

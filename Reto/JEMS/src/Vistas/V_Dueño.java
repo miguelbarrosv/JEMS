@@ -24,20 +24,30 @@ public class V_Dueño extends javax.swing.JFrame {
 
     public V_Dueño(String operacion) {
         initComponents();
-        operacion = ope;
-        if (operacion == "modificar") {
-            tfNombre.setEditable(false);
-            tfApellido.setEditable(false);
-            tfTelefono.setEditable(false);
-            bAceptar.setEnabled(false);
-        } else if (operacion == "baja") {
-            tfNombre.setEditable(false);
-            tfApellido.setEditable(false);
-            tfTelefono.setEditable(false);
-            bAceptar.setEnabled(false);
-        } else if (operacion == "alta") {
-            tfCodigoDueño.setVisible(false);
-            bAceptar.setEnabled(false);
+        ope = operacion;
+        switch (ope) {
+            case "modificar":
+                tfNombre.setEditable(false);
+                tfApellido.setEditable(false);
+                tfTelefono.setEditable(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "baja":
+                tfNombre.setEditable(false);
+                tfApellido.setEditable(false);
+                tfTelefono.setEditable(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "alta":
+                tfCodigoDueño.setVisible(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "consulta":
+                tfNombre.setEditable(false);
+                tfApellido.setEditable(false);
+                tfTelefono.setEditable(false);
+                bAceptar.setEnabled(false);
+                break;
         }
     }
 
@@ -163,16 +173,25 @@ public class V_Dueño extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Funcion para ver que pasa al accionar el boton aceptar en diferentes
+     * operaciones.
+     *
+     * @param evt accionar el boton
+     */
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try {
             if (validarDatos()) {
-                if (ope.compareToIgnoreCase("modificar") == 0) {
-                    JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
-                } else if (ope.compareToIgnoreCase("alta") == 0) {
-                    JEMS.altaDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
-                } else if (ope.compareToIgnoreCase("baja") == 0) {
-                    JEMS.bajaDueño(Integer.parseInt(tfCodigoDueño.getText()));
+                switch (ope) {
+                    case "modificar":
+                        JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                        break;
+                    case "alta":
+                        JEMS.altaDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                        break;
+                    case "baja":
+                        JEMS.bajaDueño(Integer.parseInt(tfCodigoDueño.getText()));
+                        break;
                 }
             }
         } catch (Exception e) {
@@ -185,27 +204,41 @@ public class V_Dueño extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void tfCodigoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoDueñoActionPerformed
-        dueño = ControladorVistas.buscarDueñoPorCodigo(tfCodigoDueño.getText());
-        if (ope.compareToIgnoreCase("modificar") == 0) {
-            tfNombre.setEditable(true);
-            tfApellido.setEditable(true);
-            tfTelefono.setEditable(true);
-            bAceptar.setEnabled(true);
-            tfNombre.setText(dueño.getNombre());
-            tfApellido.setText(dueño.getApellido());
-            tfTelefono.setText(dueño.getTelefono());
-            tfCodigoDueño.setText(String.valueOf(dueño.getCod_dueño()));
-            tfCodigoDueño.setEditable(false);
-        } else if (ope.compareToIgnoreCase("baja") == 0) {
-            tfNombre.setEditable(false);
-            tfApellido.setEditable(false);
-            tfTelefono.setEditable(false);
-            bAceptar.setEnabled(true);
-            tfCodigoDueño.setEditable(false);
-            tfNombre.setText(dueño.getNombre());
-            tfApellido.setText(dueño.getApellido());
-            tfTelefono.setText(dueño.getTelefono());
-            tfCodigoDueño.setText(String.valueOf(dueño.getCod_dueño()));
+        try {
+            dueño = JEMS.consultarDueño(Integer.parseInt(tfCodigoDueño.getText()));
+            switch (ope) {
+                case "modificar":
+                    tfNombre.setEditable(true);
+                    tfApellido.setEditable(true);
+                    tfTelefono.setEditable(true);
+                    bAceptar.setEnabled(true);
+                    tfNombre.setText(dueño.getNombre());
+                    tfApellido.setText(dueño.getApellido());
+                    tfTelefono.setText(dueño.getTelefono());
+                    tfCodigoDueño.setEditable(false);
+                    break;
+                case "baja":
+                    tfNombre.setEditable(false);
+                    tfApellido.setEditable(false);
+                    tfTelefono.setEditable(false);
+                    bAceptar.setEnabled(true);
+                    tfCodigoDueño.setEditable(false);
+                    tfNombre.setText(dueño.getNombre());
+                    tfApellido.setText(dueño.getApellido());
+                    tfTelefono.setText(dueño.getTelefono());
+                    break;
+                case "consulta":
+                    tfNombre.setEditable(false);
+                    tfApellido.setEditable(false);
+                    tfTelefono.setEditable(false);
+                    tfCodigoDueño.setEditable(false);
+                    tfNombre.setText(dueño.getNombre());
+                    tfApellido.setText(dueño.getApellido());
+                    tfTelefono.setText(dueño.getTelefono());
+                    break;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_tfCodigoDueñoActionPerformed
 
