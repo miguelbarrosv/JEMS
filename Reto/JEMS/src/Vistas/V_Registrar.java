@@ -46,6 +46,7 @@ public class V_Registrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbBackgroundRegistrarse = new javax.swing.JLabel();
         lbSubtitulo = new javax.swing.JLabel();
         lbUsuarioRegistrase = new javax.swing.JLabel();
         tfUsuarioRegistrase = new javax.swing.JTextField();
@@ -54,10 +55,16 @@ public class V_Registrar extends javax.swing.JFrame {
         pfContraseñaRepetidaRegistrase = new javax.swing.JPasswordField();
         lbContraseñaRepetidaRegistrase = new javax.swing.JLabel();
         bVolver = new javax.swing.JButton();
-        bRegistrarse1 = new javax.swing.JButton();
+        bRegistrarse = new javax.swing.JButton();
         bSalir = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        lbBackgroundRegistrarse = new javax.swing.JLabel();
+        cbTerminos = new javax.swing.JCheckBox();
+        lbFiller = new javax.swing.JLabel();
+        lbFiller2 = new javax.swing.JLabel();
+        lbBackgroundRegistro = new javax.swing.JLabel();
+
+        lbBackgroundRegistrarse.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundRegistrarse.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -107,7 +114,7 @@ public class V_Registrar extends javax.swing.JFrame {
         getContentPane().add(lbContraseñaRepetidaRegistrase);
         lbContraseñaRepetidaRegistrase.setBounds(520, 400, 220, 40);
 
-        bVolver.setBackground(new java.awt.Color(252, 124, 0));
+        bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         bVolver.setForeground(new java.awt.Color(255, 255, 255));
         bVolver.setText("VOLVER");
@@ -126,24 +133,24 @@ public class V_Registrar extends javax.swing.JFrame {
         getContentPane().add(bVolver);
         bVolver.setBounds(580, 630, 170, 30);
 
-        bRegistrarse1.setBackground(new java.awt.Color(86, 88, 149));
-        bRegistrarse1.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bRegistrarse1.setForeground(new java.awt.Color(255, 255, 255));
-        bRegistrarse1.setText("REGISTRARSE");
-        bRegistrarse1.setToolTipText("");
-        bRegistrarse1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        bRegistrarse1.setBorderPainted(false);
-        bRegistrarse1.setContentAreaFilled(false);
-        bRegistrarse1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bRegistrarse1.setFocusPainted(false);
-        bRegistrarse1.setOpaque(true);
-        bRegistrarse1.addActionListener(new java.awt.event.ActionListener() {
+        bRegistrarse.setBackground(new java.awt.Color(252, 124, 0));
+        bRegistrarse.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
+        bRegistrarse.setText("REGISTRARSE");
+        bRegistrarse.setToolTipText("");
+        bRegistrarse.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bRegistrarse.setBorderPainted(false);
+        bRegistrarse.setContentAreaFilled(false);
+        bRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bRegistrarse.setFocusPainted(false);
+        bRegistrarse.setOpaque(true);
+        bRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bRegistrarse1ActionPerformed(evt);
+                bRegistrarseActionPerformed(evt);
             }
         });
-        getContentPane().add(bRegistrarse1);
-        bRegistrarse1.setBounds(520, 540, 280, 50);
+        getContentPane().add(bRegistrarse);
+        bRegistrarse.setBounds(520, 540, 280, 50);
 
         bSalir.setBackground(new java.awt.Color(255, 255, 255));
         bSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,21 +167,29 @@ public class V_Registrar extends javax.swing.JFrame {
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
 
-        jCheckBox1.setBackground(new java.awt.Color(13, 9, 32));
-        jCheckBox1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(51, 153, 255));
-        jCheckBox1.setText("Acepto los Terminos y Condiciones");
-        jCheckBox1.setBorder(null);
-        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jCheckBox1.setFocusPainted(false);
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(530, 490, 260, 20);
+        cbTerminos.setBackground(new java.awt.Color(13, 9, 32));
+        cbTerminos.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        cbTerminos.setForeground(new java.awt.Color(51, 153, 255));
+        cbTerminos.setText("Acepto los Terminos y Condiciones");
+        cbTerminos.setBorder(null);
+        cbTerminos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbTerminos.setFocusPainted(false);
+        getContentPane().add(cbTerminos);
+        cbTerminos.setBounds(530, 490, 260, 20);
 
-        lbBackgroundRegistrarse.setBackground(new java.awt.Color(13, 9, 32));
-        lbBackgroundRegistrarse.setForeground(new java.awt.Color(13, 9, 32));
-        lbBackgroundRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
-        getContentPane().add(lbBackgroundRegistrarse);
-        lbBackgroundRegistrarse.setBounds(10, 0, 1280, 720);
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/constellation2.png"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(740, 0, 540, 720);
+
+        lbFiller2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/constellation1.png"))); // NOI18N
+        getContentPane().add(lbFiller2);
+        lbFiller2.setBounds(30, 0, 500, 720);
+
+        lbBackgroundRegistro.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundRegistro.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundRegistro);
+        lbBackgroundRegistro.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,9 +202,9 @@ public class V_Registrar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bVolverActionPerformed
 
-    private void bRegistrarse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarse1ActionPerformed
+    private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bRegistrarse1ActionPerformed
+    }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,13 +242,16 @@ public class V_Registrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bRegistrarse1;
+    private javax.swing.JButton bRegistrarse;
     private javax.swing.JButton bSalir;
     private javax.swing.JButton bVolver;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox cbTerminos;
     private javax.swing.JLabel lbBackgroundRegistrarse;
+    private javax.swing.JLabel lbBackgroundRegistro;
     private javax.swing.JLabel lbContraseñaRegistrase;
     private javax.swing.JLabel lbContraseñaRepetidaRegistrase;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbFiller2;
     private javax.swing.JLabel lbSubtitulo;
     private javax.swing.JLabel lbUsuarioRegistrase;
     private javax.swing.JPasswordField pfContraseñaRegistrase;
