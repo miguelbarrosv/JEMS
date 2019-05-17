@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import UML.Usuario;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
@@ -23,18 +24,27 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
     public V_Admin_Usuario(String operacion) {
         initComponents();
-        operacion = ope;
-        if (operacion.compareToIgnoreCase("modificar") == 0) {
-            tfUsuario.setEditable(false);
-            tfContraseña.setEditable(false);
-            bAceptar.setEnabled(false);
-        } else if (operacion.compareToIgnoreCase("baja") == 0) {
-            tfUsuario.setEditable(false);
-            tfContraseña.setEditable(false);
-            bAceptar.setEnabled(false);
-        } else if (operacion.compareToIgnoreCase("alta") == 0) {
-            tfCodigoUsuario.setVisible(false);
-            bAceptar.setEnabled(false);
+        ope = operacion;
+        switch (ope) {
+            case "modificar":
+                tfUsuario.setEditable(false);
+                tfContraseña.setEditable(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "baja":
+                tfUsuario.setEditable(false);
+                tfContraseña.setEditable(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "alta":
+                tfCodigoUsuario.setVisible(false);
+                bAceptar.setEnabled(false);
+                break;
+            case "consulta":
+                tfUsuario.setEditable(false);
+                tfContraseña.setEditable(false);
+                bAceptar.setEnabled(false);
+                break;
         }
 
     }
@@ -99,6 +109,12 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
         jLabel3.setText("Codigo Usuario");
 
+        tfCodigoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodigoUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,12 +167,16 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try {
             if (validarDatos()) {
-                if (ope == "modificacion") {
-                    JEMS.modificarUsuario(tfUsuario.getText(), tfContraseña.getText());
-                } else if (ope == "alta") {
-                    JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());
-                } else if (ope == "baja") {
-                    JEMS.bajaUsuario(Integer.parseInt(tfCodigoUsuario.getText()));
+                switch (ope) {
+                    case "modificar":
+                        JEMS.modificarUsuario(tfUsuario.getText(), tfContraseña.getText());
+                        break;
+                    case "alta":
+                        JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());
+                        break;
+                    case "baja":
+                        JEMS.bajaUsuario(Integer.parseInt(tfCodigoUsuario.getText()));
+                        break;
                 }
             }
         } catch (Exception e) {
@@ -164,6 +184,38 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
+
+    private void tfCodigoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoUsuarioActionPerformed
+        try {
+            Usuario usuario = JEMS.consultarUsuario(Integer.parseInt(tfCodigoUsuario.getText()));
+            switch (ope) {
+                case "modificar":
+                    tfUsuario.setEditable(true);
+                    tfContraseña.setEditable(true);
+                    bAceptar.setEnabled(true);
+                    tfUsuario.setText(usuario.getUsuario());
+                    tfContraseña.setText(usuario.getContraseña());
+                    tfCodigoUsuario.setEditable(false);
+                    break;
+                case "baja":
+                    tfUsuario.setEditable(false);
+                    tfContraseña.setEditable(false);
+                    bAceptar.setEnabled(true);
+                    tfUsuario.setText(usuario.getUsuario());
+                    tfContraseña.setText(usuario.getContraseña());
+                    break;
+                case "consulta":
+                    tfUsuario.setEditable(false);
+                    tfContraseña.setEditable(false);
+                    bAceptar.setEnabled(true);
+                    tfUsuario.setText(usuario.getUsuario());
+                    tfContraseña.setText(usuario.getContraseña());
+                    break;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
+    }//GEN-LAST:event_tfCodigoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

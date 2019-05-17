@@ -31,6 +31,7 @@ public class JEMS {
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
+    private static ArrayList<Usuario> listaUsuarios;
     private static DueñoBD dBD;
     private static JugadorBD jBD;
     private static EquipoBD eBD;
@@ -339,6 +340,12 @@ public class JEMS {
         return d;
     }
 
+    /**
+     * Funcion que crea una lista de todos los dueños.
+     *
+     * @return lista de dueños
+     * @throws Exception hereda excepciones
+     */
     public static String crearListaDueños() throws Exception {
         listaDueños = dBD.consultaTodosDueños();
         String stringDueños = "";
@@ -390,6 +397,34 @@ public class JEMS {
      */
     public static void bajaUsuario(int codUsuario) throws Exception {
         uBD.borrarUsuario(codUsuario);
+    }
+
+    /**
+     * Funcion para sacar los datos de un usuario desde la base de datos
+     * mediante un codigo del usuario.
+     *
+     * @param codUsuario(requerido) codigo del usuario
+     * @return objeto de la clase Usuario
+     * @throws Exception hereda excepciones
+     */
+    public static Usuario consultarUsuario(int codUsuario) throws Exception {
+        u = uBD.consultarUsuarioCodigo(codUsuario);
+        return u;
+    }
+
+    /**
+     * Funcion que crea una lista de usuarios.
+     *
+     * @return devuelve una lista de usuarios
+     * @throws Exception hereda excepciones
+     */
+    public static String crearListaUsuarios() throws Exception {
+        listaUsuarios = uBD.consultaTodosUsuarios();
+        String stringUsuarios = "";
+        for (int x = 0; x < listaUsuarios.size(); x++) {
+            listaUsuarios.get(x).toString();
+        }
+        return stringUsuarios;
     }
 
     /**

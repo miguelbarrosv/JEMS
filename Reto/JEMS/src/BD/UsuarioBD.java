@@ -78,6 +78,32 @@ public class UsuarioBD {
         bdr.cerrarCon();
         return u;
     }
+    
+
+    /**
+     * Función que busca un usuario en la base de datos.
+     *
+     * @param codUsuario (requerido) codigo del Usuario.
+     * @return devuelve un objeto clase usuario.
+     * @throws Exception hereda excepciones.
+     */
+    public Usuario consultarUsuarioCodigo(int codUsuario) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "SELECT * FROM USUARIO WHERE COD_USUARIO= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, codUsuario);
+        Usuario u;
+        resultado = sentenciaPre.executeQuery();
+        if (resultado.next()) {
+            u = crearObjeto();
+        } else {
+            u = null;
+        }
+
+        bdr.cerrarCon();
+        return u;
+    }
 
     /**
      * Función que rellena un objeto usuario desde los datos de la base de

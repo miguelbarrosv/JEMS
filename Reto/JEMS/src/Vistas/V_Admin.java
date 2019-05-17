@@ -63,6 +63,8 @@ public class V_Admin extends javax.swing.JFrame {
         miModificarUsuario = new javax.swing.JMenuItem();
         miAltaUsuario = new javax.swing.JMenuItem();
         miBajaUsuario = new javax.swing.JMenuItem();
+        miConsultarUsuario = new javax.swing.JMenuItem();
+        miConsultarUsuarios = new javax.swing.JMenuItem();
         mIntroducirResultado = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
@@ -287,6 +289,22 @@ public class V_Admin extends javax.swing.JFrame {
         });
         jMenu6.add(miBajaUsuario);
 
+        miConsultarUsuario.setText("ConsultarUsuario");
+        miConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu6.add(miConsultarUsuario);
+
+        miConsultarUsuarios.setText("ConsultarUsuarios");
+        miConsultarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarUsuariosActionPerformed(evt);
+            }
+        });
+        jMenu6.add(miConsultarUsuarios);
+
         jMenu1.add(jMenu6);
 
         jMenuBar1.add(jMenu1);
@@ -359,7 +377,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miBajaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaUsuarioActionPerformed
         operacion = "baja";
-        ControladorVistas.mostrarVentanaUsuario(operacion);
+        ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miBajaUsuarioActionPerformed
 
     private void miAltaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaJugadorActionPerformed
@@ -412,12 +430,12 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarUsuarioActionPerformed
         operacion = "modificar";
-        ControladorVistas.mostrarVentanaUsuario(operacion);
+        ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miModificarUsuarioActionPerformed
 
     private void miAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaUsuarioActionPerformed
 
-        ControladorVistas.mostrarVentanaUsuario(operacion);
+        ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
@@ -469,6 +487,20 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarDueñosActionPerformed
+
+    private void miConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarUsuarioActionPerformed
+        operacion = "consulta";
+        ControladorVistas.mostrarVentanaAdminUsuario(operacion);
+    }//GEN-LAST:event_miConsultarUsuarioActionPerformed
+
+    private void miConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarUsuariosActionPerformed
+        try {
+            String listaUsuarios = JEMS.crearListaUsuarios();
+            ControladorVistas.mostrarVentanaLista(listaUsuarios);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_miConsultarUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,6 +573,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarEquipos;
     private javax.swing.JMenuItem miConsultarJugador;
     private javax.swing.JMenuItem miConsultarJugadores;
+    private javax.swing.JMenuItem miConsultarUsuario;
+    private javax.swing.JMenuItem miConsultarUsuarios;
     private javax.swing.JMenuItem miModificarDueño;
     private javax.swing.JMenuItem miModificarEquipo;
     private javax.swing.JMenuItem miModificarJugador;

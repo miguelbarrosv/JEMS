@@ -95,4 +95,9 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    @Override
+    public String toString() {
+        String mensaje = "codigo: " + cod_usuario + " usuario: " + usuario + " contraseña: " + contraseña+"\n";
+        return mensaje;
+    }
 }

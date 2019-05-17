@@ -114,7 +114,7 @@ public class ControladorVistas {
      *
      * @param operacion tipo de operacion
      */
-    public static void mostrarVentanaUsuario(String operacion) {
+    public static void mostrarVentanaAdminUsuario(String operacion) {
 
         vUsuario = new V_Admin_Usuario(operacion);
         vUsuario.setVisible(true);
