@@ -10,14 +10,14 @@ package BD;
  *
  * @author Joel Encinas
  * @author Eric Muñoz
- * 
- * 
+ *
+ *
  * @version %I%, %G%
  * @since 1.0
- * 
- * 
- * 
+ *
+ *
+ *
  */
 public class PartidoBD {
-    
+
 }

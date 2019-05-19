@@ -89,6 +89,31 @@ public class JugadorBD {
     }
 
     /**
+     * Función que busca un jugador en la base de datos.
+     *
+     * @param cod_jugador (requerido) codigo de clase Jugador.
+     * @return devuelve un objeto clase jugador.
+     * @throws Exception hewreda excepciones.
+     */
+    public Jugador consultarJugadorCodigo(int cod_jugador) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "SELECT * FROM JUGADOR WHERE COD_JUGADOR= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, cod_jugador);
+        Jugador j;
+        resultado = sentenciaPre.executeQuery();
+        if (resultado.next()) {
+            j = crearObjeto();
+        } else {
+            j = null;
+        }
+
+        bdr.cerrarCon();
+        return j;
+    }
+
+    /**
      * Función que rellena un objeto jugador desde los datos de la base de
      * datos.
      *
@@ -105,8 +130,8 @@ public class JugadorBD {
         j.setNacionalidad(resultado.getString("NACIONALIDAD"));
         j.setEstado(resultado.getString("ESTADO"));
         j.setTelefono(resultado.getString("TELEFONO"));
-        EquipoBD eBD= new EquipoBD();
-        Equipo e=eBD.consultarEquipoCodigo(resultado.getInt("EQUIPO_COD_EQUIPO"));
+        EquipoBD eBD = new EquipoBD();
+        Equipo e = eBD.consultarEquipoCodigo(resultado.getInt("EQUIPO_COD_EQUIPO"));
         j.setEquipo(e);
         return j;
     }
@@ -131,7 +156,6 @@ public class JugadorBD {
         bdr.cerrarCon();
         return listaJugadores;
     }
-    
 
     /**
      * Función que crea un ArrayList con todos los jugadores de la base de
@@ -145,7 +169,7 @@ public class JugadorBD {
 
         bdr.conectar();
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
-        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);        
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(3, cod_equipo);
         sentenciaPre.executeUpdate();
         while (resultado.next()) {
@@ -161,12 +185,12 @@ public class JugadorBD {
      * @param codJugador (requerido) codigo del Jugador.
      * @throws Exception hereda excepciones.
      */
-    public void borrarJugador(String codJugador) throws Exception {
+    public void borrarJugador(int codJugador) throws Exception {
         bdr.conectar();
 
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, Integer.parseInt(codJugador));
+        sentenciaPre.setInt(1, codJugador);
 
         sentenciaPre.executeUpdate();
 

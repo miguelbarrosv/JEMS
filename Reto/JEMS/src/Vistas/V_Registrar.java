@@ -10,6 +10,10 @@ import javax.swing.BorderFactory;
 /**
  *
  * @author Joel Encinas
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Registrar extends javax.swing.JFrame {
 
@@ -203,7 +207,7 @@ public class V_Registrar extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-        
+
     }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**

@@ -6,8 +6,11 @@
 package Vistas;
 
 /**
+ * @author Miguel Barros
+ * @author Eric Muñoz
  *
- * @author 1gdaw01
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Usuario extends javax.swing.JFrame {
 
