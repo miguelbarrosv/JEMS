@@ -66,7 +66,7 @@ public class V_Equipo extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoEquipo.setVisible(false);
-                bAceptar.setEnabled(false);
+                bAceptar.setEnabled(true);
                 break;
             case "consulta":
                 tfCodigoEquipo.setVisible(true);
@@ -257,11 +257,11 @@ public class V_Equipo extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try {
             if (validarDatos()) {
-                if (ope.compareToIgnoreCase("modificar") != 0) {
+                if (ope.compareToIgnoreCase("modificar") == 0) {
                     JEMS.modificarEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
-                } else if (ope.compareToIgnoreCase("alta") != 0) {
+                } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
-                } else if (ope.compareToIgnoreCase("baja") != 0) {
+                } else if (ope.compareToIgnoreCase("baja") == 0) {
                     JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
                 }
             }
