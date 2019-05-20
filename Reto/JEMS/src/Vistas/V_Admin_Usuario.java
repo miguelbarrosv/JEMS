@@ -42,7 +42,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoUsuario.setVisible(false);
-                bAceptar.setEnabled(false);
+                bAceptar.setEnabled(true);
                 break;
             case "consulta":
                 tfUsuario.setEditable(false);
@@ -106,6 +106,11 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         });
 
         bVolver.setText("Volver");
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Usuario");
 
@@ -220,6 +225,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_tfCodigoUsuarioActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        ControladorVistas.cerrarVentanaAdminUsuario();
+    }//GEN-LAST:event_bVolverActionPerformed
 
     /**
      * @param args the command line arguments

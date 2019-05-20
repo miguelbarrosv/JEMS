@@ -38,6 +38,7 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     public V_Jugador(String operacion) {
         initComponents();
+        llenarCombo();
         ope = operacion;
         switch (ope) {
             case "modificar":
@@ -68,7 +69,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoJugador.setVisible(false);
-                bAceptar.setEnabled(false);
+                bAceptar.setEnabled(true);
                 break;
             case "consulta":
                 tfCodigoJugador.setVisible(true);
