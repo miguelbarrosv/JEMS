@@ -32,13 +32,15 @@ public class ControladorVistas {
     private static V_Jornadas vJornadas; 
     private static V_Admin vAdmin;
     private static V_Usuario vUsuario;
-    private static V_Lista vLista;  
-  
+    private static V_Lista vLista;
+    
+
  /**
  * Funcion que nos dirije a la ventana V_Login para acceder al sistema
  * 
  */
     public static void mostrarVentanaLogin() {
+        vLogin = new V_Login();
         vLogin.setVisible(true);
     }
 
@@ -223,6 +225,7 @@ public class ControladorVistas {
  * 
  */
     public static void mostrarVentanaUsuario() {
+        vUsuario = new V_Usuario();
         vUsuario.setVisible(true);
     }
     /**
@@ -231,6 +234,6 @@ public class ControladorVistas {
  */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
-    }
-
+    }    
+    
 }
