@@ -5,7 +5,14 @@
  */
 package Vistas;
 
+import UML.Administrador;
+import UML.Usuario;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import jems.JEMS;
 
 /**
  *
@@ -39,6 +46,51 @@ public class V_Registrar extends javax.swing.JFrame {
                 pfContraseñaRepetidaRegistrase.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         // showOnTop();
+    }
+    
+    public boolean validarDatos() {
+        if (validarNombre(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword())) && validarContraseñaRepetida(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())))
+            return true;
+        else 
+            return false;
+    } 
+    public boolean validarNombre(String nombre) {
+        return true;
+    }
+    public boolean validarContraseña(String contraseña) {
+        return true;
+    }  
+    public boolean validarContraseñaRepetida(String contraseña) {
+        return true;
+    } 
+    public String convertirContraseña(char[] contraseña) {
+        String contraseñaConvertida = new String(contraseña);               
+        return contraseñaConvertida;
+    }
+    
+    public boolean comprobarDatos() throws Exception {
+        ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios(); 
+        boolean flag = true;
+        try {
+            for (int i = 0; i < listaUsuariosAComprobar.size(); i++) {
+                if (tfUsuarioRegistrase.getText().equals(listaUsuariosAComprobar.get(i).getUsuario())) {                    
+                    tfUsuarioRegistrase.setForeground(Color.red);  
+                    flag = false;
+                    // mensaje de que el usuario ya esta cogido
+                }
+            }   
+            
+            if(convertirContraseña(pfContraseñaRegistrase.getPassword()) != convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) {
+                    pfContraseñaRegistrase.setForeground(Color.red);                    
+                    pfContraseñaRepetidaRegistrase.setForeground(Color.red);
+                    flag = false;
+                    // mensaje de que la contraseña no es la misma en ambos campos
+                }
+        } catch (Exception e) {     
+            System.out.println("problemas");
+        }
+        
+        return flag;
     }
 
     /**
@@ -83,7 +135,7 @@ public class V_Registrar extends javax.swing.JFrame {
         lbUsuarioRegistrase.setForeground(new java.awt.Color(255, 255, 255));
         lbUsuarioRegistrase.setText("Usuario");
         getContentPane().add(lbUsuarioRegistrase);
-        lbUsuarioRegistrase.setBounds(520, 220, 220, 40);
+        lbUsuarioRegistrase.setBounds(520, 220, 70, 40);
 
         tfUsuarioRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         tfUsuarioRegistrase.setForeground(new java.awt.Color(0, 0, 0));
@@ -96,7 +148,7 @@ public class V_Registrar extends javax.swing.JFrame {
         lbContraseñaRegistrase.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseñaRegistrase.setText("Contraseña");
         getContentPane().add(lbContraseñaRegistrase);
-        lbContraseñaRegistrase.setBounds(520, 310, 220, 40);
+        lbContraseñaRegistrase.setBounds(520, 310, 100, 40);
 
         pfContraseñaRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         pfContraseñaRegistrase.setForeground(new java.awt.Color(0, 0, 0));
@@ -116,7 +168,7 @@ public class V_Registrar extends javax.swing.JFrame {
         lbContraseñaRepetidaRegistrase.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseñaRepetidaRegistrase.setText("Repetir Contraseña");
         getContentPane().add(lbContraseñaRepetidaRegistrase);
-        lbContraseñaRepetidaRegistrase.setBounds(520, 400, 220, 40);
+        lbContraseñaRepetidaRegistrase.setBounds(520, 400, 160, 40);
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -204,10 +256,23 @@ public class V_Registrar extends javax.swing.JFrame {
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaRegistrar();
+        ControladorVistas.mostrarVentanaLogin();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-
+        if(validarDatos()){            
+            try {
+                if(comprobarDatos()){
+                    //insertar usuario en bd
+                    JEMS.altaUsuario(tfUsuarioRegistrase.getText(), convertirContraseña(pfContraseñaRegistrase.getPassword()));
+                    //mensaje de que el usuario ha sido creado
+                    ControladorVistas.cerrarVentanaRegistrar();
+                    ControladorVistas.mostrarVentanaLogin();
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(V_Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_bRegistrarseActionPerformed
 
     /**
