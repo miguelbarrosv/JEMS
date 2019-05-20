@@ -69,18 +69,15 @@ public class V_Registrar extends javax.swing.JFrame {
     }
     
     public boolean comprobarDatos() throws Exception {
-        ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios(); 
         boolean flag = true;
         try {
-            for (int i = 0; i < listaUsuariosAComprobar.size(); i++) {
-                if (tfUsuarioRegistrase.getText().equals(listaUsuariosAComprobar.get(i).getUsuario())) {                    
+                if(JEMS.conseguirDatosUsuariosReg(lbUsuarioRegistrase.getText())){                    
                     tfUsuarioRegistrase.setForeground(Color.red);  
                     flag = false;
                     // mensaje de que el usuario ya esta cogido
-                }
-            }   
+                }             
             
-            if(convertirContraseña(pfContraseñaRegistrase.getPassword()) != convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) {
+            if(convertirContraseña(pfContraseñaRegistrase.getPassword()).compareToIgnoreCase(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword()))!=0) {
                     pfContraseñaRegistrase.setForeground(Color.red);                    
                     pfContraseñaRepetidaRegistrase.setForeground(Color.red);
                     flag = false;

@@ -48,13 +48,14 @@ public class EquipoBD {
      */
     public void insertarEquipo(Equipo e) throws Exception {
         bdr.conectar();
-        String plantilla = "INSERT INTO EQUIPO (NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_CUENTA,PUNTUACION)VALUES(?,?,?,?,?)";
+        String plantilla = "INSERT INTO EQUIPO (NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_DUEÑO,PUNTUACION)VALUES(?,?,?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, e.getNombre());
         sentenciaPre.setString(2, e.getNacionalidad());
         sentenciaPre.setInt(3, e.getPresupuesto());
         sentenciaPre.setInt(4, e.getDueño().getCod_dueño());
-        sentenciaPre.setInt(5, e.getPresupuesto());
+        sentenciaPre.setInt(5, e.getPuntuacion());
+        sentenciaPre.executeUpdate();
         bdr.cerrarCon();
 
     }
@@ -86,7 +87,7 @@ public class EquipoBD {
     public void modificarEquipo(Equipo e) throws Exception {
         bdr.conectar();
 
-        String plantilla = "UPDATE EQUIPO SET NOMBRE=?, NACIONALIDAD=?, PRESUPUESTO=?, DUEÑO_COD_CUENTA=?, PUNTUACION=? WHERE COD_EQUIPO=?";
+        String plantilla = "UPDATE EQUIPO SET NOMBRE=?, NACIONALIDAD=?, PRESUPUESTO=?, DUEÑO_COD_DUEÑO=?, PUNTUACION=? WHERE COD_EQUIPO=?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, e.getNombre());
         sentenciaPre.setString(2, e.getNacionalidad());
@@ -98,32 +99,6 @@ public class EquipoBD {
         sentenciaPre.executeUpdate();
 
         bdr.cerrarCon();
-    }
-
-    /**
-     * Función que busca un Equipo en la base de datos.
-     *
-     * @param e objeto de clase Equipo.
-     * @return devuelve un objeto de clase Equipo.
-     * @throws Exception hereda excepciones.
-     */
-    public Equipo consultarEquipo(Equipo e) throws Exception {
-        bdr.conectar();
-
-        String plantilla = "SELECT * FROM EQUIPO WHERE COD_EQUIPO= ?";
-        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, e.getCod_equipo());
-
-        resultado = sentenciaPre.executeQuery();
-        if (resultado.next()) {
-            e = crearObjeto();
-        } else {
-            e = null;
-        }
-
-        // Cerrar la conexión
-        bdr.cerrarCon();
-        return e;
     }
 
     /**
@@ -159,7 +134,7 @@ public class EquipoBD {
      */
     public Equipo crearObjeto() throws Exception {
         Equipo e = new Equipo();
-
+        e.setCod_equipo(resultado.getInt("COD_EQUIPO"));
         e.setNombre(resultado.getString("NOMBRE"));
         e.setNacionalidad(resultado.getString("NACIONALIDAD"));
         e.setPresupuesto(Integer.parseInt(resultado.getString("PRESUPUESTO")));
@@ -220,6 +195,29 @@ public class EquipoBD {
     }
 
     /**
+     * Función que crea un ArrayList con todos los equipos de la base de datos
+     * de un dueño.
+     *
+     * @param cod_dueño codigo del dueño
+     * @return devuelve un ArrayList de Equipo.
+     * @throws Exception hereda excepciones.
+     */
+    public ArrayList<Equipo> consultaEquiposCodDueño(int cod_dueño) throws Exception {
+        ArrayList<Equipo> listaEquipos = new ArrayList();
+
+        bdr.conectar();
+        String plantilla = "SELECT * FORM EQUIPO WHERE DUEÑO_COD_DUEÑO=?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, cod_dueño);
+        sentenciaPre.executeUpdate();
+        while (resultado.next()) {
+            listaEquipos.add(crearObjeto());
+        }
+        bdr.cerrarCon();
+        return listaEquipos;
+    }
+
+    /**
      * Funcion que ejecuta el procedimiento PROC_REF_EQUIPO.
      *
      * @return devuelve un string con todos los equipos con el nombre de su
@@ -232,22 +230,25 @@ public class EquipoBD {
         cStmt.registerOutParameter(1, OracleTypes.CURSOR);
         cStmt.executeUpdate();
         ResultSet rs = (ResultSet) cStmt.getObject(1);
+        
         while (rs.next());
         {
-            listaEquipos = "Codigo: " + rs.getString("COD_EQUIPO");
+            listaEquipos += "Codigo: " + rs.getInt("COD_EQUIPO");
             listaEquipos += "Nombre: " + rs.getString("NOMBRE");
             listaEquipos += "Nacionalidad: " + rs.getString("NACIONALIDAD");
-            listaEquipos += "Presupuesto: " + rs.getString("PRESUPUESTO");
-            listaEquipos += "Puntuacion: " + rs.getString("PUNTUACION");
-            listaEquipos += "Codigo dueño: " + rs.getString("CODIGO_DUEÑO");
+            listaEquipos += "Presupuesto: " + rs.getInt("PRESUPUESTO");
+            listaEquipos += "Puntuacion: " + rs.getInt("PUNTUACION");
+            listaEquipos += "Codigo dueño: " + rs.getInt("CODIGO_DUEÑO");
             listaEquipos += "Nombre dueño: " + rs.getString("NOMBRE_DUEÑO");
-            listaEquipos += "Numero jugadores " + rs.getString("NUM_JUGADORES") + "\n";
+            listaEquipos += "Numero jugadores " + rs.getInt("NUM_JUGADORES") + "\n";
         }
+        
         rs.close();
         cStmt.close();
         bdr.cerrarCon();
         return listaEquipos;
     }
+
     /**
      * Funcion para buscar todos los equipos por orden de puntuacion.
      *
@@ -272,7 +273,8 @@ public class EquipoBD {
         bdr.cerrarCon();
         return listaEquipos;
     }
-    public String rellenarLigaEquipos() throws Exception{
+
+    public String rellenarLigaEquipos() throws Exception {
         bdr.conectar();
         CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.PROC_REF_EQUIPO(?)}");
         cStmt.registerOutParameter(1, OracleTypes.CURSOR);
@@ -281,12 +283,12 @@ public class EquipoBD {
         while (rs.next());
         {
             listaEquipos += "Nombre: " + rs.getString("NOMBRE");
-            listaEquipos += "Puntuacion: " + rs.getString("PUNTUACION")+ "\n";
+            listaEquipos += "Puntuacion: " + rs.getString("PUNTUACION") + "\n";
         }
         rs.close();
         cStmt.close();
         bdr.cerrarCon();
         return listaEquipos;
-        
+
     }
 }
