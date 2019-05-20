@@ -68,7 +68,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoJugador.setVisible(false);
-                bAceptar.setEnabled(false);
+                bAceptar.setEnabled(true);
                 break;
             case "consulta":
                 tfCodigoJugador.setVisible(true);
