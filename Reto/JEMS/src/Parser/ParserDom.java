@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
  *
  * @author 1gdaw05
  */
-public class ParserDom {
+/*public class ParserDom {
     public static void main(String[] args) throws SAXException, IOException {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -42,4 +42,4 @@ public class ParserDom {
             
         }
     }
-}
+}*/
