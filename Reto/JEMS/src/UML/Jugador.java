@@ -68,7 +68,8 @@ public class Jugador {
      * @param apellido (requerido) El apellido del jugador.
      * @param nickname (requerido) El nickname del jugador.
      * @param sueldo (requerido) El sueldo del jugador.
-     * @param nacionalidad (requerido) La nacionalidad del jugador.     * 
+     * @param nacionalidad (requerido) La nacionalidad del jugador.
+     *
      * @param estado (requerido) El estado del jugador.
      * @param telefono (requerido) El telefono del jugador.
      * @param equipo (requerido) El equipo del jugador.
@@ -228,21 +229,29 @@ public class Jugador {
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
+
     /**
      * Es un Get que devuelve el estado del jugador.
-     * 
+     *
      * @return estado devuelve el estado del jugador
      */
     public String getEstado() {
         return estado;
     }
+
     /**
      * Es un Set que establece el estado del jugador.
-     * 
+     *
      * @param estado establece el estado del jugador
      */
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        String mensaje = "codigo: " + cod_jugador + " nombre: " + nombre + " apellido: " + apellido + " nickname: " + nickname + " sueldo: " + sueldo + " nacionalidad: " + nacionalidad + " estado: " + estado + " telefono: " + telefono + " equipo: " + equipo.getNombre() + "\n";
+        return mensaje;
     }
 
 }

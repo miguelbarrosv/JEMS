@@ -17,6 +17,10 @@ import jems.JEMS;
 /**
  *
  * @author Joel Encinas
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Registrar extends javax.swing.JFrame {
 

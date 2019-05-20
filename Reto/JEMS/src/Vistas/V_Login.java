@@ -16,6 +16,9 @@ import jems.JEMS;
 /**
  *
  * @author Joel Encinas
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Login extends javax.swing.JFrame {
 
@@ -41,19 +44,23 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     public boolean validarDatos() {
-        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword())))
+        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()))) {
             return true;
-        else 
+        } else {
             return false;
-    } 
+        }
+    }
+
     public boolean validarNombre(String nombre) {
         return true;
     }
+
     public boolean validarContraseña(String contraseña) {
         return true;
-    }    
+    }
+
     public String convertirContraseña(char[] contraseña) {
-        String contraseñaConvertida = new String(contraseña);               
+        String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
     
@@ -87,7 +94,7 @@ public class V_Login extends javax.swing.JFrame {
         }
         return comp;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

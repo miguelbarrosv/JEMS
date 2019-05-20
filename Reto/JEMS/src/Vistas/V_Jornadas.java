@@ -10,6 +10,9 @@ import UML.*;
 /**
  *
  * @author Miguel Barros
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Jornadas extends javax.swing.JFrame {
 
@@ -19,6 +22,7 @@ public class V_Jornadas extends javax.swing.JFrame {
     public V_Jornadas() {
         initComponents();
     }
+
     public V_Jornadas(Jornada jornada) {
         tfNumJornada.setText(String.valueOf(jornada.getCod_jornada()));
         tfEquipoLocal.setText(jornada.getPartidos().get(x).getEquipo_local().getNombre());
@@ -31,6 +35,7 @@ public class V_Jornadas extends javax.swing.JFrame {
     private static int x = 0;
     private static int i = 1;
     private static int e = 2;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

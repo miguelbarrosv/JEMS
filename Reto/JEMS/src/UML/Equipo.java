@@ -8,18 +8,19 @@ package UML;
 import java.util.ArrayList;
 
 /**
- * @author Sergio Zulueta, Miguel Barros
+ * @author Sergio Zulueta
+ * @author Miguel Barros
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
  */
 public class Equipo {
-    
+
     /**
      * Creacion de los atributos cod_equipo, nombre, nacionalidad, presupuesto,
      * puntuacion, lista_partidos, lista_jugadores, dueño
      */
-
     private int cod_equipo;
     private String nombre;
     private String nacionalidad;
@@ -30,12 +31,13 @@ public class Equipo {
     private Dueño dueño;
 
     /**
-     * Constructor vacio. 
-     * 
+     * Constructor si el codigo del equipo.
+     *
      * @param nombre (requerido) El nombre del jugador.
      * @param nacionalidad (requerido) La nacionalidad del equipo.
      * @param presupuesto (requerido) El presupuesto del equipo.
      * @param puntuacion (requerido) La puntuacion del equipo.
+     * @param dueño (requerido) el dueño del equipo.
      */
     public Equipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, Dueño dueño) {
         this.nombre = nombre;
@@ -45,6 +47,9 @@ public class Equipo {
         this.dueño = dueño;
     }
 
+    /**
+     * Constructor vacio.
+     */
     public Equipo() {
     }
 
@@ -108,7 +113,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve el nombre del equipo.
-     * 
+     *
      * @return nombre devuelve el nombre del equipo
      */
     public String getNombre() {
@@ -117,7 +122,7 @@ public class Equipo {
 
     /**
      * Es un Set que establece el nombre del equipo.
-     * 
+     *
      * @param nombre establece el nombre del equipo
      */
     public void setNombre(String nombre) {
@@ -126,7 +131,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve la nacionalidad del equipo.
-     * 
+     *
      * @return nacionalidad devuelve la nacionalidad del equipo
      */
     public String getNacionalidad() {
@@ -135,8 +140,8 @@ public class Equipo {
 
     /**
      * Es un Set que establece la nacionalidad del equipo.
-     * 
-     * 
+     *
+     *
      * @param nacionalidad establece la nacionalidad del equipo
      */
     public void setNacionalidad(String nacionalidad) {
@@ -145,7 +150,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve el presupuesto del equipo.
-     * 
+     *
      * @return presupuesto devuelve el presupuesto del equipo
      */
     public int getPresupuesto() {
@@ -154,7 +159,7 @@ public class Equipo {
 
     /**
      * Es un Set que establece el presupuesto del equipo.
-     * 
+     *
      * @param presupuesto establece el presupuesto del equipo
      */
     public void setPresupuesto(int presupuesto) {
@@ -163,7 +168,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve la puntuacion del equipo.
-     * 
+     *
      * @return puntuacion devuelve la puntuacion del equipo
      */
     public int getPuntuacion() {
@@ -172,7 +177,7 @@ public class Equipo {
 
     /**
      * Es un Set que establece la puntuacion del equipo.
-     * 
+     *
      * @param puntuacion establece la puntuacion del equipo
      */
     public void setPuntuacion(int puntuacion) {
@@ -181,7 +186,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve la lista de partidos del equipo.
-     * 
+     *
      * @return lista_partidos devuelve la lista de partidos del equipo
      */
     public ArrayList<Partido> getLista_partidos() {
@@ -190,7 +195,7 @@ public class Equipo {
 
     /**
      * Es un Set que establece la lista de partidos del equipo.
-     * 
+     *
      * @param lista_partidos establece la lista de partidos del equipo
      */
     public void setLista_partidos(ArrayList<Partido> lista_partidos) {
@@ -199,7 +204,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve lista de jugadores del equipo.
-     * 
+     *
      * @return lista_jugadores devuelve la lista de jugadores del equipo
      */
     public ArrayList<Jugador> getLista_jugadores() {
@@ -208,7 +213,7 @@ public class Equipo {
 
     /**
      * Es un Set que establece la lista de jugadores del equipo.
-     * 
+     *
      * @param lista_jugadores establece la lista de jugadores del equipo
      */
     public void setLista_jugadores(ArrayList<Jugador> lista_jugadores) {
@@ -217,7 +222,7 @@ public class Equipo {
 
     /**
      * Es un Get que devuelve el dueño del equipo.
-     * 
+     *
      * @return dueño devuelve el nombre del dueño del equipo
      */
     public Dueño getDueño() {
@@ -226,12 +231,11 @@ public class Equipo {
 
     /**
      * Es un Set que establece el dueño del equipo.
-     * 
+     *
      * @param dueño establece el nombre del dueño del equipo
      */
     public void setDueño(Dueño dueño) {
         this.dueño = dueño;
     }
-
 
 }
