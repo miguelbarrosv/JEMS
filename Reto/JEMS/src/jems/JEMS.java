@@ -51,8 +51,6 @@ public class JEMS {
         eBD = new EquipoBD();
         dBD = new DueñoBD();
         uBD = new UsuarioBD();
-        v.setVisible(true);
-
     }
 
     /**
@@ -437,6 +435,18 @@ public class JEMS {
         UsuarioBD ubd = new UsuarioBD();
         ArrayList<Usuario> listaUsuariosTemp = ubd.consultaTodosUsuarios();
         return listaUsuariosTemp;
-    }
+    } 
+    
+    /**
+     * Funcion que nos dirije a la clase consultarTodosAdministradores situada en AdministradorBD para
+     * pasarle los parametros de la ventana V_Login y asi comprobar el administrador
+     * ya existente
+     *
+     */
+    public static ArrayList<Administrador> conseguirDatosAdministradores() throws Exception {
+        AdministradorBD abd = new AdministradorBD();
+        ArrayList<Administrador> listaAdministradoresTemp = abd.consultarTodosAdministradores();
+        return listaAdministradoresTemp;
+    }  
 
 }
