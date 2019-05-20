@@ -7,6 +7,9 @@ package Vistas;
 
 import UML.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jems.JEMS;
 
 /**
  *
@@ -18,23 +21,22 @@ import java.util.ArrayList;
 public class V_Liga extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Liga
+     * Creates new form V_Liga y mostrar en pantalla los datos recogidos desde la base de datos
      */
-    public V_Liga() {
+    public V_Liga() throws Exception {
         initComponents();
-
-    }
-
-    public V_Liga(Liga liga, ArrayList<Equipo> equipos) {
+        equipos = JEMS.crearListaEquiposOrderPuntuacion();
+        liga = JEMS.cogerNombreLiga();
+        
         tfNombreLiga.setText(liga.getNombre());
         for (int x = 0; x < equipos.size(); x++) {
             taPosicion.setText(String.valueOf(x));
             taEquipos.setText(equipos.get(x).getNombre());
             taPuntos.setText(String.valueOf(equipos.get(x).getPuntuacion()));
-        }
-
     }
-
+    }
+private static ArrayList<Equipo> equipos;
+private static Liga liga;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -190,7 +192,11 @@ public class V_Liga extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new V_Liga().setVisible(true);
+                try {
+                    new V_Liga().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(V_Liga.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
