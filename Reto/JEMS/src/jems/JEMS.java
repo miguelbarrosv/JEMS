@@ -43,7 +43,6 @@ public class JEMS {
     private static Usuario u;
     private static Administrador a;
     private static Liga l;
-    private static AdministradorBD aBD;
 
     /**
      * @param args the command line arguments
