@@ -43,9 +43,9 @@ public class JEMS {
     private static Usuario u;
     private static Administrador a;
     private static Liga l;
-    private static AdministradorBD aBD;
     private static Jornada jor;
     private static JornadaBD jorBD;
+
 
     /**
      * @param args the command line arguments
