@@ -220,7 +220,7 @@ public class EquipoBD {
     }
 
     /**
-     * Funcion que ejecuta el procedimiento PROC_REF_EQUIPO
+     * Funcion que ejecuta el procedimiento PROC_REF_EQUIPO.
      *
      * @return devuelve un string con todos los equipos con el nombre de su
      * dueño y la cantidad de jugadores
@@ -271,5 +271,22 @@ public class EquipoBD {
         // Cerrar la conexión
         bdr.cerrarCon();
         return listaEquipos;
+    }
+    public String rellenarLigaEquipos() throws Exception{
+        bdr.conectar();
+        CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.PROC_REF_EQUIPO(?)}");
+        cStmt.registerOutParameter(1, OracleTypes.CURSOR);
+        cStmt.executeUpdate();
+        ResultSet rs = (ResultSet) cStmt.getObject(1);
+        while (rs.next());
+        {
+            listaEquipos += "Nombre: " + rs.getString("NOMBRE");
+            listaEquipos += "Puntuacion: " + rs.getString("PUNTUACION")+ "\n";
+        }
+        rs.close();
+        cStmt.close();
+        bdr.cerrarCon();
+        return listaEquipos;
+        
     }
 }

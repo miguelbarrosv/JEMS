@@ -48,6 +48,7 @@ public class JEMS {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ControladorVistas.mostrarVentanaLogin();
         dBD = new DueñoBD();
         jBD = new JugadorBD();
         eBD = new EquipoBD();
