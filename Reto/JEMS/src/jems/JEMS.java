@@ -42,6 +42,8 @@ public class JEMS {
     private static Usuario u;
     private static Liga l;
     private static AdministradorBD aBD;
+    private static Jornada jor;
+    private static JornadaBD jorBD;
 
     /**
      * @param args the command line arguments
@@ -56,7 +58,7 @@ public class JEMS {
         uBD = new UsuarioBD();
         aBD = new AdministradorBD();
         lBD = new LigaBD();
-
+        jorBD = new JornadaBD();
     }
 
     /**
@@ -102,6 +104,7 @@ public class JEMS {
      * @return devuelve el nombre del equipo
      */
     public static String getNombreEquipo(int x) {
+       
         return listaEquipos.get(x).getNombre();
     }
 
@@ -502,5 +505,8 @@ public class JEMS {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
     }
-
-}
+    public static Jornada consultarJornada() {
+        //jor = jorBD.consultarJornada();
+        return jor;
+    }
+    }
