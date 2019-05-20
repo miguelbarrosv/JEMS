@@ -67,6 +67,30 @@ public class V_Login extends javax.swing.JFrame {
     public int comprobarDatos() throws Exception {
         // Login usuario = 1 | Login admin = 2
         int comp = 0;
+//forma Joel
+        try {
+            usuario = JEMS.consultarUsuarioPorNombre(tfUsuario.getText());
+            if (tfUsuario.getText().equals(usuario.getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(usuario.getContraseña())) {
+                comp = 1;
+            } else {
+                tfUsuario.setForeground(Color.red);
+                pfContraseña.setForeground(Color.red);
+                comp = 0;
+            }
+
+            administrador = JEMS.consultarAdministradorPorNombre(tfUsuario.getText());
+            if (tfUsuario.getText().equals(administrador.getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(administrador.getContraseña())) {
+                comp = 2;
+            } else {
+                tfUsuario.setForeground(Color.red);
+                pfContraseña.setForeground(Color.red);
+                comp = 0;
+            }
+
+        } catch (Exception e) {
+            System.out.println("problemas");
+        }
+/*forma Eric
         if (JEMS.conseguirDatosUsuarios(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword())) || JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
         } else {
             tfUsuario.setForeground(Color.red);
@@ -77,9 +101,12 @@ public class V_Login extends javax.swing.JFrame {
             comp = 2;
         } else {
             comp = 1;
-        }
+        }*/
         return comp;
     }
+    
+    private static Usuario usuario;
+    private static Administrador administrador;
 
     /**
      * This method is called from within the constructor to initialize the form.
