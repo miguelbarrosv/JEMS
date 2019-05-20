@@ -89,7 +89,7 @@ public class V_Usuario extends javax.swing.JFrame {
      * @param evt pulsar enter
      */
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
-        ControladorVistas.mostrarVentanaLiga();
+        //ControladorVistas.mostrarVentanaLiga();
     }//GEN-LAST:event_bLigaActionPerformed
 /**
      * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el controlador de vistas
