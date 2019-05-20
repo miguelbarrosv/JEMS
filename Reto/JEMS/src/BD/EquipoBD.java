@@ -247,4 +247,28 @@ public class EquipoBD {
         bdr.cerrarCon();
         return listaEquipos;
     }
+    /**
+     * Funcion para buscar todos los equipos por orden de puntuacion.
+     *
+     * @return e objeto de clase Equipo
+     * @throws Exception hereda excepciones
+     */
+    public ArrayList<Equipo> consultarEquipoOrderPuntuacion() throws Exception {
+        bdr.conectar();
+        ArrayList<Equipo> listaEquipos = new ArrayList<Equipo>();
+        String plantilla = "SELECT * FROM EQUIPO ORDER BY PUNTUACION DESC";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        resultado = sentenciaPre.executeQuery();
+        Equipo e;
+        if (resultado.next()) {
+            e = crearObjeto();
+            listaEquipos.add(e);
+        } else {
+            e = null;
+        }
+
+        // Cerrar la conexión
+        bdr.cerrarCon();
+        return listaEquipos;
+    }
 }

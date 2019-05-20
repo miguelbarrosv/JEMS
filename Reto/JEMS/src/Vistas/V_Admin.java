@@ -76,7 +76,7 @@ public class V_Admin extends javax.swing.JFrame {
         miVisualizarLiga = new javax.swing.JMenuItem();
         miVisualizarClasificacion = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        mLogOut = new javax.swing.JMenu();
+        miLogOut = new javax.swing.JMenu();
 
         jMenuItem15.setText("jMenuItem15");
 
@@ -341,11 +341,16 @@ public class V_Admin extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        mLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout_opt.png"))); // NOI18N
-        mLogOut.setText("LogOut");
-        mLogOut.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        mLogOut.setIconTextGap(7);
-        jMenuBar1.add(mLogOut);
+        miLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout_opt.png"))); // NOI18N
+        miLogOut.setText("LogOut");
+        miLogOut.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        miLogOut.setIconTextGap(7);
+        miLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLogOutActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(miLogOut);
 
         setJMenuBar(jMenuBar1);
 
@@ -368,27 +373,42 @@ public class V_Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miModificarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarJugadorActionPerformed
         operacion = "modificar";
         ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miModificarJugadorActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miBajaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaJugadorActionPerformed
         operacion = "baja";
         ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miBajaJugadorActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaAdminUsuario pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miBajaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaUsuarioActionPerformed
         operacion = "baja";
         ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miBajaUsuarioActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miAltaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaJugadorActionPerformed
         operacion = "alta";
         ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miAltaJugadorActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
         try {
             operacion = "modificar";
@@ -398,7 +418,10 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miModificarEquipoActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miAltaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaEquipoActionPerformed
         try {
             operacion = "alta";
@@ -407,7 +430,10 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miAltaEquipoActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miBajaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaEquipoActionPerformed
         try {
             operacion = "baja";
@@ -421,12 +447,18 @@ public class V_Admin extends javax.swing.JFrame {
         operacion = "modificar";
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miModificarDueñoActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miAltaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaDueñoActionPerformed
-
+        operacion = "alta";
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miAltaDueñoActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miBajaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaDueñoActionPerformed
         operacion = "baja";
         ControladorVistas.mostrarVentanaDueño(operacion);
@@ -438,19 +470,25 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miModificarUsuarioActionPerformed
 
     private void miAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaUsuarioActionPerformed
-
+        operacion = "alta";
         ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bCrearLigaActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miConsultarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadorActionPerformed
         operacion = "consulta";
         ControladorVistas.mostrarVentanaJugador(operacion);
     }//GEN-LAST:event_miConsultarJugadorActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listajugadores
+     * @param evt pulsar el boton
+     */
     private void miConsultarJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadoresActionPerformed
         try {
             String listaJugadores = JEMS.crearListaJugadores();
@@ -469,6 +507,11 @@ public class V_Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miConsultarEquipoActionPerformed
 
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listaEquipos
+     * @param evt pulsar el boton
+     */
+
     private void miConsultarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarEquiposActionPerformed
         try {
             String listaEquipos = JEMS.crearListaEquipos();
@@ -477,12 +520,18 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarEquiposActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miConsultarDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarDueñoActionPerformed
         operacion = "consulta";
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miConsultarDueñoActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listaDueños
+     * @param evt pulsar el boton
+     */
     private void miConsultarDueñosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarDueñosActionPerformed
         try {
             String listaDueños = JEMS.crearListaDueños();
@@ -491,12 +540,18 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarDueñosActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaAdminUsuario pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * @param evt pulsar el boton
+     */
     private void miConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarUsuarioActionPerformed
         operacion = "consulta";
         ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miConsultarUsuarioActionPerformed
-
+/**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listaUsuarios
+     * @param evt pulsar el boton
+     */
     private void miConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarUsuariosActionPerformed
         try {
             String listaUsuarios = JEMS.crearListaUsuarios();
@@ -505,6 +560,14 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }        // TODO add your handling code here:
     }//GEN-LAST:event_miConsultarUsuariosActionPerformed
+
+/**
+     * Funcion que nos dirije a la clase cerrarVentanaAdmin 
+     * @param evt pulsar el boton
+     */
+    private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
+        ControladorVistas.cerrarVentanaAdmin();
+    }//GEN-LAST:event_miLogOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -562,7 +625,6 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JMenu mIntroducirResultado;
-    private javax.swing.JMenu mLogOut;
     private javax.swing.JMenuItem miAltaDueño;
     private javax.swing.JMenuItem miAltaEquipo;
     private javax.swing.JMenuItem miAltaJugador;
@@ -579,6 +641,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarJugadores;
     private javax.swing.JMenuItem miConsultarUsuario;
     private javax.swing.JMenuItem miConsultarUsuarios;
+    private javax.swing.JMenu miLogOut;
     private javax.swing.JMenuItem miModificarDueño;
     private javax.swing.JMenuItem miModificarEquipo;
     private javax.swing.JMenuItem miModificarJugador;
