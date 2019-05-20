@@ -5,13 +5,12 @@
  */
 package Vistas;
 
-import UML.Administrador;
 import UML.Usuario;
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -47,51 +46,56 @@ public class V_Registrar extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         // showOnTop();
     }
-    
+
     public boolean validarDatos() {
-        if (validarNombre(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword())) && validarContraseñaRepetida(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())))
+        if (validarNombre(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword())) && validarContraseñaRepetida(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) && cbTerminos.isSelected()) {
             return true;
-        else 
+        } else {
             return false;
-    } 
+        }
+    }
+
     public boolean validarNombre(String nombre) {
         return true;
     }
+
     public boolean validarContraseña(String contraseña) {
         return true;
-    }  
+    }
+
     public boolean validarContraseñaRepetida(String contraseña) {
         return true;
-    } 
+    }
+
     public String convertirContraseña(char[] contraseña) {
-        String contraseñaConvertida = new String(contraseña);               
+        String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
-    
+
     public boolean comprobarDatos() throws Exception {
-        ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios(); 
         boolean flag = true;
         try {
-            for (int i = 0; i < listaUsuariosAComprobar.size(); i++) {
-                if (tfUsuarioRegistrase.getText().equals(listaUsuariosAComprobar.get(i).getUsuario())) {                    
-                    tfUsuarioRegistrase.setForeground(Color.red);  
-                    flag = false;
-                    // mensaje de que el usuario ya esta cogido
-                }
-            }   
-            
-            if(convertirContraseña(pfContraseñaRegistrase.getPassword()) != convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) {
-                    pfContraseñaRegistrase.setForeground(Color.red);                    
-                    pfContraseñaRepetidaRegistrase.setForeground(Color.red);
-                    flag = false;
-                    // mensaje de que la contraseña no es la misma en ambos campos
-                }
-        } catch (Exception e) {     
+            usuario = JEMS.consultarUsuarioPorNombre(tfUsuarioRegistrase.getText());
+            if (tfUsuarioRegistrase.getText().equals(usuario.getUsuario())) {
+                tfUsuarioRegistrase.setForeground(Color.red);
+                flag = false;
+                JOptionPane.showMessageDialog(this, "Este usuario ya esta en uso");
+            }
+
+            if (convertirContraseña(pfContraseñaRegistrase.getPassword()) != convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) {
+                pfContraseñaRegistrase.setForeground(Color.red);
+                pfContraseñaRepetidaRegistrase.setForeground(Color.red);
+                flag = false;
+                JOptionPane.showMessageDialog(this, "Ambas contraseñas han de coincidir");
+            }
+        } catch (Exception e) {
             System.out.println("problemas");
         }
-        
+
         return flag;
     }
+    
+    private static Usuario usuario;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,12 +264,11 @@ public class V_Registrar extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
-        if(validarDatos()){            
+        if (validarDatos()) {
             try {
-                if(comprobarDatos()){
-                    //insertar usuario en bd
+                if (comprobarDatos()) {
                     JEMS.altaUsuario(tfUsuarioRegistrase.getText(), convertirContraseña(pfContraseñaRegistrase.getPassword()));
-                    //mensaje de que el usuario ha sido creado
+                    JOptionPane.showMessageDialog(this, "Usuario creado con exito");
                     ControladorVistas.cerrarVentanaRegistrar();
                     ControladorVistas.mostrarVentanaLogin();
                 }
