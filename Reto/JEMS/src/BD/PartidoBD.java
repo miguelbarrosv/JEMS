@@ -9,6 +9,7 @@ package BD;
  * Clase de partido de base de datos
  *
  * @author Joel Encinas
+ * @author Eric Muñoz
  * 
  * 
  * @version %I%, %G%

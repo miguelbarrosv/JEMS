@@ -5,6 +5,7 @@
  */
 package BD;
 
+import UML.Equipo;
 import UML.Jugador;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -104,9 +105,9 @@ public class JugadorBD {
         j.setNacionalidad(resultado.getString("NACIONALIDAD"));
         j.setEstado(resultado.getString("ESTADO"));
         j.setTelefono(resultado.getString("TELEFONO"));
-        int cod_equipo = resultado.getInt("EQUIPO_COD_EQUIPO");
-
-        //j.setEquipo(resultado.getInt("EQUIPO_COD_EQUIPO"));
+        EquipoBD eBD= new EquipoBD();
+        Equipo e=eBD.consultarEquipoCodigo(resultado.getInt("EQUIPO_COD_EQUIPO"));
+        j.setEquipo(e);
         return j;
     }
 
@@ -129,6 +130,29 @@ public class JugadorBD {
         }
         bdr.cerrarCon();
         return listaJugadores;
+    }
+    
+
+    /**
+     * Función que crea un ArrayList con todos los jugadores de la base de
+     * datos.
+     *
+     * @return devuelve un ArrayList de Jugador.
+     * @throws Exception hereda excepciones.
+     */
+    public ArrayList<Jugador> consultaTodosJugadoresEquipo(int cod_equipo) throws Exception {
+        ArrayList<Jugador> listaJugadoresEquipo = new ArrayList();
+
+        bdr.conectar();
+        String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);        
+        sentenciaPre.setInt(3, cod_equipo);
+        sentenciaPre.executeUpdate();
+        while (resultado.next()) {
+            listaJugadoresEquipo.add(crearObjeto());
+        }
+        bdr.cerrarCon();
+        return listaJugadoresEquipo;
     }
 
     /**
