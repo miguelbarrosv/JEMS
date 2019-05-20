@@ -358,6 +358,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Liga"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miVisualizarLigaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miVisualizarClasificacion">
               <Properties>
@@ -369,6 +372,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clasificacion"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miVisualizarClasificacionActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
             </MenuItem>
