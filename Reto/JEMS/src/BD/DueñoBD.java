@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * @author Joel Encinas
  * @author Sergio Zulueta
  * @author Eric Muñoz
+ * @author Miguel Barros
  *
  * @see Jugador
  *

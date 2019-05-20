@@ -20,6 +20,7 @@ import oracle.jdbc.OracleTypes;
  * @author Joel Encinas
  * @author Eric Muñoz
  * @author Sergio Zulueta
+ * @author Miguel Barros
  *
  * @see Jugador
  *

@@ -66,7 +66,7 @@ public class V_Equipo extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoEquipo.setVisible(false);
-                bAceptar.setEnabled(false);
+                bAceptar.setEnabled(true);
                 break;
             case "consulta":
                 tfCodigoEquipo.setVisible(true);

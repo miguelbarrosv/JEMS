@@ -127,7 +127,7 @@ public class ControladorVistas {
      * Funcion que muestra la ventana V_Liga.
      *
      */
-  public static void mostrarVentanaLiga() {
+  public static void mostrarVentanaLiga() throws Exception {
         vLiga= new V_Liga();
         vLiga.setVisible(true);
     }
