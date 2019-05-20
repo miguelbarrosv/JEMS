@@ -90,8 +90,31 @@ public class AdministradorBD {
     }
 
     /**
-     * Función que crea un ArrayList con todos los administradores de la base de
-     * datos.
+     * Función que crea busca un administrador por nombre
+     *
+     * @return devuelve un objeto clase administrador
+     * @throws Exception hereda excepciones.
+     */
+    public Administrador consultarAdministradorNombre(String usuario) throws Exception {
+        bdr.conectar();
+        
+        String plantilla = "SELECT * FROM ADMINISTRADOR WHERE USUARIO= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, usuario);
+        Administrador a;
+        resultado = sentenciaPre.executeQuery();
+        if (resultado.next()) {
+            a = crearObjeto();
+        } else {
+            a = null;
+        }
+        
+        bdr.cerrarCon();
+        return a;
+    }
+    
+    /**
+     * Función que crea un ArrayList con todos los administradores de la base de datos.
      *
      * @return devuelve un ArrayList de Administrador.
      * @throws Exception hereda excepciones.

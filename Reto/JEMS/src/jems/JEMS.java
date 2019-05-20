@@ -35,11 +35,13 @@ public class JEMS {
     private static JugadorBD jBD;
     private static EquipoBD eBD;
     private static UsuarioBD uBD;
+    private static AdministradorBD aBD;
     private static LigaBD lBD;
     private static Dueño d;
     private static Equipo e;
     private static Jugador j;
     private static Usuario u;
+    private static Administrador a;
     private static Liga l;
     private static AdministradorBD aBD;
     private static Jornada jor;
@@ -379,7 +381,7 @@ public class JEMS {
      *
      * @param codigoUsuario (requerido) codigo del usuario
      * @param usuario (requerido) usuario del usuario
-     * @param contraseña (requerido) contraseñoa del usuario
+     * @param contraseña (requerido) contraseña del usuario
      * @throws Exception hereda excepciones
      */
     public static void modificarUsuario(int codigoUsuario,String usuario, String contraseña) throws Exception {
@@ -396,7 +398,7 @@ public class JEMS {
      * nuevo usuario.
      *
      * @param usuario (requerido) usuario del usuario
-     * @param contraseña (requerido) contraseñoa del usuario
+     * @param contraseña (requerido) contraseña del usuario
      * @throws Exception hereda excepciones
      */
     public static void altaUsuario(String usuario, String contraseña) throws Exception {
@@ -431,6 +433,32 @@ public class JEMS {
         return u;
     }
 
+    /**
+     * Funcion para sacar los datos de un usuario especifico desde la base de datos
+     * mediante el nombre de un usuario.
+     *
+     * @param usuario(requerido) nombre del usuario
+     * @return objeto de la clase Usuario
+     * @throws Exception hereda excepciones
+     */
+    public static Usuario consultarUsuarioPorNombre(String usuario) throws Exception {
+        u = uBD.consultarUsuarioNombre(usuario);
+        return u;
+    }
+    
+    /**
+     * Funcion para sacar los datos de un administrador especifico desde la base de datos
+     * mediante el nombre de un usuario.
+     *
+     * @param usuario(requerido) nombre del administrador
+     * @return objeto de la clase Administrador
+     * @throws Exception hereda excepciones
+     */
+    public static Administrador consultarAdministradorPorNombre(String usuario) throws Exception {
+        a = aBD.consultarAdministradorNombre(usuario);
+        return a;
+    }
+    
     /**
      * Funcion que crea una lista de usuarios.
      *
@@ -489,7 +517,7 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static Liga cogerNombreLiga() {
-        //l = lBD.crearLigaVacia(fechaInicioLiga);
+        //l = lBD.cogerLiga();
         return l;
     }
 
