@@ -33,6 +33,3 @@ Ventanas nombre:
 	-Boton: b
 	-PasswordField: pf
 	-Textarea: ta
-
-joel: mostrar jugadores, equipo, dueño, usuario
-v_registrar

@@ -7,8 +7,10 @@ package Vistas;
 
 import javax.swing.BorderFactory;
 import UML.*;
+import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jems.JEMS;
 
 /**
@@ -55,12 +57,35 @@ public class V_Login extends javax.swing.JFrame {
         return contraseñaConvertida;
     }
     
-    public void comprobarDatos(ArrayList<Usuario> listaUsuarios) throws Exception {
+    public int comprobarDatos() throws Exception {
+        // Login usuario = 1 | Login admin = 2
+        int comp = 0;
         ArrayList<Usuario> listaUsuariosAComprobar = JEMS.conseguirDatosUsuarios(); 
+        ArrayList<Administrador> listaAdministradoresAComprobar = JEMS.conseguirDatosAdministradores();
         try {
-            while(listaUsuariosAComprobar.)
-        } catch (Exception e) {            
+            for (int i = 0; i < listaUsuariosAComprobar.size(); i++) {
+                if (tfUsuario.getText().equals(listaUsuariosAComprobar.get(i).getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(listaUsuariosAComprobar.get(i).getContraseña())) {
+                    comp = 1;                    
+                } else {
+                    tfUsuario.setForeground(Color.red);
+                    pfContraseña.setForeground(Color.red);
+                    comp = 0;
+                }
+            }   
+            
+            for (int i = 0; i < listaAdministradoresAComprobar.size(); i++) {
+                if (tfUsuario.getText().equals(listaAdministradoresAComprobar.get(i).getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(listaAdministradoresAComprobar.get(i).getContraseña())) {
+                    comp = 2;                    
+                } else {
+                    tfUsuario.setForeground(Color.red);
+                    pfContraseña.setForeground(Color.red);
+                    comp = 0;
+                }
+            }    
+        } catch (Exception e) {     
+            System.out.println("problemas");
         }
+        return comp;
     }
     
     /**
@@ -194,8 +219,26 @@ public class V_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAccederActionPerformed
-        if(validarDatos()){
-            comprobarDatos();
+        if(validarDatos()){            
+            try {
+                int comp;
+                comp = comprobarDatos();
+                
+                switch(comp){
+                    case 0:
+                        break;
+                    case 1: 
+                        ControladorVistas.cerrarVentanaLogin();
+                        ControladorVistas.mostrarVentanaUsuario();
+                        break;
+                    case 2: 
+                        ControladorVistas.cerrarVentanaLogin();
+                        ControladorVistas.mostrarVentanaAdmin();
+                        break;                    
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(V_Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_bAccederActionPerformed
 

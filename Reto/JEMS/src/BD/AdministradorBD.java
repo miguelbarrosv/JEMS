@@ -7,6 +7,9 @@ package BD;
 
 import UML.*;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Clase de administrador de base de datos
@@ -26,6 +29,7 @@ public class AdministradorBD {
      * Creacion de los atributos bdr.
      */
     private static Bdr bdr;
+    private ResultSet resultado;
 
     /**
      * Constructor de DueñoBD con el objeto de la conexión a la base de datos.
@@ -67,6 +71,41 @@ public class AdministradorBD {
         sentenciaPre.executeUpdate();
 
         bdr.cerrarCon();
+    }
+    
+    /**
+     * Función que rellena un objeto administrador desde los datos de la base de
+     * datos.
+     *
+     * @return devuelve un objeto de clase Administrador.
+     * @throws Exception hereda excepciones.
+     */
+    public Administrador crearObjeto() throws Exception {
+        Administrador a = new Administrador();
+
+        a.setUsuario(resultado.getString("USUARIO"));
+        a.setContraseña(resultado.getString("CONTRASEÑA"));
+        return a;
+    }
+    
+    /**
+     * Función que crea un ArrayList con todos los administradores de la base de datos.
+     *
+     * @return devuelve un ArrayList de Administrador.
+     * @throws Exception hereda excepciones.
+     */
+    public ArrayList<Administrador> consultarTodosAdministradores() throws Exception {
+        ArrayList<Administrador> listaAdministradores = new ArrayList();
+
+        bdr.conectar();
+
+        Statement sentencia = bdr.getCon().createStatement();
+        resultado = sentencia.executeQuery("SELECT * FROM ADMINISTRADOR");
+        while (resultado.next()) {
+            listaAdministradores.add(crearObjeto());
+        }
+        bdr.cerrarCon();
+        return listaAdministradores;
     }
 
 }

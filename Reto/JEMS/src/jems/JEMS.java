@@ -32,7 +32,6 @@ public class JEMS {
     private static EquipoBD eBD;
     private static UsuarioBD uBD;
 
-    private V_Registrar v = new V_Registrar();
     private static ArrayList<Dueño> dueños;
 
     /**
@@ -45,8 +44,6 @@ public class JEMS {
         eBD = new EquipoBD();
         dBD = new DueñoBD();
         uBD = new UsuarioBD();
-        v.setVisible(true);
-
     }
 
     /**
@@ -194,10 +191,29 @@ public class JEMS {
     public static void bajaUsuario(String codUsuario) {
         uBD.borrarUsuario(codUsuario);
     }    
+    
+    /**
+     * Funcion que nos dirije a la clase consultaTodosUsuarios situada en UsuarioBD para
+     * pasarle los parametros de la ventana V_Login y asi comprobar el usuario
+     * ya existente
+     *
+     */
     public static ArrayList<Usuario> conseguirDatosUsuarios() throws Exception {
         UsuarioBD ubd = new UsuarioBD();
         ArrayList<Usuario> listaUsuariosTemp = ubd.consultaTodosUsuarios();
         return listaUsuariosTemp;
+    } 
+    
+    /**
+     * Funcion que nos dirije a la clase consultarTodosAdministradores situada en AdministradorBD para
+     * pasarle los parametros de la ventana V_Login y asi comprobar el administrador
+     * ya existente
+     *
+     */
+    public static ArrayList<Administrador> conseguirDatosAdministradores() throws Exception {
+        AdministradorBD abd = new AdministradorBD();
+        ArrayList<Administrador> listaAdministradoresTemp = abd.consultarTodosAdministradores();
+        return listaAdministradoresTemp;
     }  
 
 }
