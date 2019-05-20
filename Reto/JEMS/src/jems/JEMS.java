@@ -27,7 +27,6 @@ import java.util.ArrayList;
 
 public class JEMS {
 
-    static V_Registrar v = new V_Registrar();
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
@@ -55,7 +54,6 @@ public class JEMS {
         dBD = new DueñoBD();
         uBD = new UsuarioBD();
         lBD = new LigaBD();
-        v.setVisible(true);
 
     }
 
@@ -459,7 +457,7 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static Liga cogerNombreLiga() {
-        l = lBD.cogerLiga();
+        //l = lBD.cogerLiga();
         return l;
     }     
     
