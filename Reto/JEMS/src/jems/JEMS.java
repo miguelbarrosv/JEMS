@@ -36,10 +36,12 @@ public class JEMS {
     private static JugadorBD jBD;
     private static EquipoBD eBD;
     private static UsuarioBD uBD;
+    private static LigaBD lBD;
     private static Dueño d;
     private static Equipo e;
     private static Jugador j;
     private static Usuario u;
+    private static Liga l;
 
     /**
      * @param args the command line arguments
@@ -51,6 +53,7 @@ public class JEMS {
         eBD = new EquipoBD();
         dBD = new DueñoBD();
         uBD = new UsuarioBD();
+        lBD = new LigaBD();
         v.setVisible(true);
 
     }
@@ -438,5 +441,24 @@ public class JEMS {
         ArrayList<Usuario> listaUsuariosTemp = ubd.consultaTodosUsuarios();
         return listaUsuariosTemp;
     }
-
+    /**
+     * Funcion para poner todos los equipos en una lista ordenados por puntuacion.
+     *
+     * @return listaequipos lista de todos los equipos
+     * @throws Exception hereda excepciones
+     */
+    public static ArrayList<Equipo> crearListaEquiposOrderPuntuacion() throws Exception {
+        listaEquipos = eBD.consultarEquipoOrderPuntuacion();
+        return listaEquipos;
+    }
+    /**
+     * Funcion para coger el objeto liga desde la base de datos 
+     *
+     * @return listaequipos lista de todos los equipos
+     * @throws Exception hereda excepciones
+     */
+    public static Liga cogerNombreLiga() {
+        l = lBD.cogerLiga();
+        return l;
+    }
 }

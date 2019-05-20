@@ -31,6 +31,7 @@ public class ControladorVistas {
     private static V_Liga vLiga;
     private static V_Jornadas vJornadas;
     private static V_Lista vLista;
+    private static V_Admin vAdmin;
 
     /**
      * Funcion que nos dirije a la ventana V_Login para acceder al sistema.
@@ -125,7 +126,7 @@ public class ControladorVistas {
      * Funcion que muestra la ventana V_Liga.
      *
      */
-    public static void mostrarVentanaLiga() {
+    public static void mostrarVentanaLiga() throws Exception {
         vLiga = new V_Liga();
         vUsuario.setVisible(true);
     }
@@ -194,8 +195,11 @@ public class ControladorVistas {
      * @param liga (requerido) la liga
      * @param equipos (requerido) lista de equipos
      */
-    public static void abrirVentanaLiga(Liga liga, ArrayList<Equipo> equipos) {
-        vLiga = new V_Liga(liga, equipos);
+    public static void abrirVentanaLiga() throws Exception {
+        vLiga = new V_Liga();
         vLiga.setVisible(true);
+    }
+    public static void cerrarVentanaAdmin(){
+        vAdmin.dispose();
     }
 }

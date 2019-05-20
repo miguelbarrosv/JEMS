@@ -83,11 +83,19 @@ public class V_Usuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Funcion que nos dirijira a la clase mostrarVentanaLiga situada en el controlador de vistas
+     *
+     * @param evt pulsar enter
+     */
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
         ControladorVistas.mostrarVentanaLiga();
     }//GEN-LAST:event_bLigaActionPerformed
-
+/**
+     * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el controlador de vistas
+     *
+     * @param evt pulsar enter
+     */
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         ControladorVistas.mostrarVentanaJornadas();
     }//GEN-LAST:event_bJornadaActionPerformed
