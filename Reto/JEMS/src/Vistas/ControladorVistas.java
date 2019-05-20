@@ -32,10 +32,6 @@ public class ControladorVistas {
     private static V_Jornadas vJornadas; 
     private static V_Admin vAdmin;
     private static V_Usuario vUsuario;
-    private static V_Mostrar vMostrar;
-    private static V_Mostrar_Jugador vMostrarJugador;
-    private static V_Mostrar_Equipo vMostrarEquipo;
-    private static V_Mostrar_Dueño vMostrarDueño;
     private static V_Lista vLista;
     
  /**
@@ -235,62 +231,5 @@ public class ControladorVistas {
  */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
-    } 
-     /**
- * Funcion que nos dirije a la ventana V_Mostrar para seleccionar que queremos mostrar
- * 
- */
-    public static void mostrarVentanaMostrar() {
-        vMostrar.setVisible(true);
     }
-    /**
- * Funcion que cierra la ventana V_Mostrar
- * 
- */
-    public static void cerrarVentanaMostrar() {
-        vMostrar.dispose();
-    }  
-        /**
- * Funcion que abre la ventana V_Jugador
- * 
- */
-    public static void mostrarVentanaMostrarJugador() {
-        vMostrarJugador.setVisible(true);
-    }
-    /**
- * Funcion que cierra la ventana V_Jugador
- * 
- */
-    public static void cerrarVentanaMostrarJugador() {
-        vMostrarJugador.dispose();
-    } 
-        /**
- * Funcion que abre la ventana V_MostrarEquipo
- * 
- */
-    public static void mostrarVentanaMostrarEquipo() {
-        vMostrarEquipo.setVisible(true);
-    }
-    /**
- * Funcion que cierra la ventana V_MostrarEquipo
- * 
- */
-    public static void cerrarVentanaMostrarEquipo() {
-        vMostrarEquipo.dispose();
-    } 
-        /**
- * Funcion que abre la ventana V_MostrarDueño
- * 
- */
-    public static void mostrarVentanaMostrarDueño() {
-        vMostrarDueño.setVisible(true);
-    }
-    /**
- * Funcion que cierra la ventana V_MostrarDueño
- * 
- */
-    public static void cerrarVentanaMostrarDueño() {
-        vMostrarDueño.dispose();
-    } 
-    
 }
