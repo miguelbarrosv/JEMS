@@ -73,7 +73,7 @@ public class AdministradorBD {
 
         bdr.cerrarCon();
     }
-    
+
     /**
      * Función que rellena un objeto administrador desde los datos de la base de
      * datos.
@@ -83,14 +83,15 @@ public class AdministradorBD {
      */
     public Administrador crearObjeto() throws Exception {
         Administrador a = new Administrador();
-
+        a.setCod_admin(resultado.getInt("COD_ADMIN"));
         a.setUsuario(resultado.getString("USUARIO"));
         a.setContraseña(resultado.getString("CONTRASEÑA"));
         return a;
     }
-    
+
     /**
-     * Función que crea un ArrayList con todos los administradores de la base de datos.
+     * Función que crea un ArrayList con todos los administradores de la base de
+     * datos.
      *
      * @return devuelve un ArrayList de Administrador.
      * @throws Exception hereda excepciones.
@@ -107,6 +108,29 @@ public class AdministradorBD {
         }
         bdr.cerrarCon();
         return listaAdministradores;
+    }
+
+    /**
+     * Función que busca un adminstrador en la base de datos.
+     *
+     * @param usuario (reuqerido) usuario del administrador
+     * @param contraseña (requerido ) contraseña de administrador
+     * @return devuelve un objeto clase administrador.
+     * @throws Exception hereda excepciones.
+     */
+    public Boolean consultarAdministrador(String usuario, String contraseña) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "SELECT * FROM ADMINISTRADOR WHERE USUARIO=UPPER(?) AND CONTRASEÑA=UPPER(?)";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, usuario);
+        sentenciaPre.setString(2, contraseña);
+        Boolean existe;
+        resultado = sentenciaPre.executeQuery();
+        existe = resultado.next();
+
+        bdr.cerrarCon();
+        return existe;
     }
 
 }

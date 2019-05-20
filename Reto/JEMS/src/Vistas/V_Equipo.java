@@ -59,6 +59,7 @@ public class V_Equipo extends javax.swing.JFrame {
             case "baja":
                 tfCodigoEquipo.setVisible(true);
                 tfNombre.setEditable(false);
+                tfPuntuacion.setEditable(false);
                 tfNacionalidad.setEditable(false);
                 tfPresupuesto.setEditable(false);
                 cbDueño.setEnabled(false);
@@ -110,12 +111,7 @@ public class V_Equipo extends javax.swing.JFrame {
         } else {
             return true;
         }
-    }
-
-    public String buscarDueño(int codigoEquipo) throws Exception {
-        dueño = JEMS.buscarDueño(codigoEquipo);
-        return dueño;
-    }
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -258,11 +254,12 @@ public class V_Equipo extends javax.swing.JFrame {
         try {
             if (validarDatos()) {
                 if (ope.compareToIgnoreCase("modificar") == 0) {
-                    JEMS.modificarEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                    JEMS.modificarEquipo(Integer.parseInt(tfCodigoEquipo.getText()),tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
                 } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
                 } else if (ope.compareToIgnoreCase("baja") == 0) {
                     JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
+                    JOptionPane.showMessageDialog(this, "Equipo borrado");
                 }
             }
         } catch (Exception e) {
@@ -281,7 +278,7 @@ public class V_Equipo extends javax.swing.JFrame {
      */
     private void tfCodigoEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoEquipoActionPerformed
         try {
-            dueño = buscarDueño(equipo.getCod_equipo());
+            equipo = JEMS.buscarEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
             switch (ope) {
                 case "modificar":
                     tfNombre.setEditable(false);
@@ -296,7 +293,7 @@ public class V_Equipo extends javax.swing.JFrame {
                     tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
                     tfNacionalidad.setText(equipo.getNacionalidad());
                     tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
-                    cbDueño.setSelectedItem(dueño);
+                    cbDueño.setSelectedItem(equipo.getDueño().getNombre());
                     break;
                 case "baja":
                     tfNombre.setEditable(false);
@@ -311,7 +308,7 @@ public class V_Equipo extends javax.swing.JFrame {
                     tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
                     tfNacionalidad.setText(equipo.getNacionalidad());
                     tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
-                    cbDueño.setSelectedItem(dueño);
+                    cbDueño.setSelectedItem(equipo.getDueño().getNombre());
                     break;
                 case "consulta":
                     tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
@@ -319,7 +316,7 @@ public class V_Equipo extends javax.swing.JFrame {
                     tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));
                     tfNacionalidad.setText(equipo.getNacionalidad());
                     tfPresupuesto.setText(String.valueOf(equipo.getPresupuesto()));
-                    cbDueño.setSelectedItem(dueño);
+                    cbDueño.setSelectedItem(equipo.getDueño().getNombre());
                     break;
             }
         } catch (Exception e) {
