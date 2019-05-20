@@ -52,23 +52,24 @@ public class UsuarioBD {
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, u.getUsuario());
         sentenciaPre.setString(2, u.getContraseña());
+        sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
 
     /**
      * Función que busca un usuario en la base de datos.
      *
-     * @param u (requerido) objeto de clase Usuario.
+     * @param codUsuario (requerido) codigo del Usuario.
      * @return devuelve un objeto clase usuario.
      * @throws Exception hereda excepciones.
      */
-    public Usuario consultarUsuario(Usuario u) throws Exception {
+    public Usuario consultarUsuarioCodigo(int codUsuario) throws Exception {
         bdr.conectar();
 
         String plantilla = "SELECT * FROM USUARIO WHERE COD_USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, u.getCod_usuario());
-
+        sentenciaPre.setInt(1, codUsuario);
+        Usuario u;
         resultado = sentenciaPre.executeQuery();
         if (resultado.next()) {
             u = crearObjeto();
@@ -108,26 +109,44 @@ public class UsuarioBD {
     /**
      * Función que busca un usuario en la base de datos.
      *
-     * @param codUsuario (requerido) codigo del Usuario.
+     * @param usuario (reuqerido) usuario del usuario
+     * @param contraseña (requerido ) contraseña de usuario
      * @return devuelve un objeto clase usuario.
      * @throws Exception hereda excepciones.
      */
-    public Usuario consultarUsuarioCodigo(int codUsuario) throws Exception {
+    public Boolean consultarUsuario(String usuario, String contraseña) throws Exception {
         bdr.conectar();
 
-        String plantilla = "SELECT * FROM USUARIO WHERE COD_USUARIO= ?";
+        String plantilla = "SELECT * FROM USUARIO WHERE USUARIO=UPPER(?) AND CONTRASEÑA=UPPER(?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, codUsuario);
-        Usuario u;
+        sentenciaPre.setString(1, usuario);
+        sentenciaPre.setString(2, contraseña);
+        Boolean existe;
         resultado = sentenciaPre.executeQuery();
-        if (resultado.next()) {
-            u = crearObjeto();
-        } else {
-            u = null;
-        }
+        existe = resultado.next();
 
         bdr.cerrarCon();
-        return u;
+        return existe;
+    }
+        /**
+     * Función que busca un usuario en la base de datos.
+     *
+     * @param usuario (reuqerido) usuario del usuario
+     * @return devuelve un objeto clase usuario.
+     * @throws Exception hereda excepciones.
+     */
+    public Boolean consultarUsuario(String usuario) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "SELECT * FROM USUARIO WHERE USUARIO=UPPER(?)";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, usuario);
+        Boolean existe;
+        resultado = sentenciaPre.executeQuery();
+        existe = resultado.next();
+
+        bdr.cerrarCon();
+        return existe;
     }
 
     /**
@@ -139,7 +158,7 @@ public class UsuarioBD {
      */
     public Usuario crearObjeto() throws Exception {
         Usuario u = new Usuario();
-
+        u.setCod_usuario(resultado.getInt("COD_USUARIO"));
         u.setUsuario(resultado.getString("USUARIO"));
         u.setContraseña(resultado.getString("CONTRASEÑA"));
         return u;
@@ -153,7 +172,7 @@ public class UsuarioBD {
      */
     public ArrayList<Usuario> consultaTodosUsuarios() throws Exception {
         bdr.conectar();
-        
+
         ArrayList<Usuario> listaUsuarios = new ArrayList();
 
         Statement sentencia = bdr.getCon().createStatement();

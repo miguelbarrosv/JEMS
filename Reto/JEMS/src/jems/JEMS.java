@@ -43,6 +43,7 @@ public class JEMS {
     private static Usuario u;
     private static Administrador a;
     private static Liga l;
+    private static AdministradorBD aBD;
 
     /**
      * @param args the command line arguments
@@ -56,7 +57,7 @@ public class JEMS {
         dBD = new DueñoBD();
         uBD = new UsuarioBD();
         aBD = new AdministradorBD();
-        ControladorVistas.mostrarVentanaLogin();
+        lBD = new LigaBD();
     }
 
     /**
@@ -217,6 +218,7 @@ public class JEMS {
      * para pasarle los parametros de la ventana V_Equipo y asi modificar un
      * equipo.
      *
+     * @param codEquipo (requerido) codigo del equipo
      * @param nombre (requerido) nombre del equipo
      * @param nacionalidad (requerido) nacionalidad del equipo
      * @param presupuesto (requerido) presupuesto del equipo
@@ -224,9 +226,15 @@ public class JEMS {
      * @param dueño (requerido) dueño del equipo
      * @throws Exception hereda excepciones
      */
-    public static void modificarEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) throws Exception {
+    public static void modificarEquipo(int codEquipo, String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) throws Exception {
         d = dBD.consultarDueñoCodigo(dueño);
-        e = new Equipo(nombre, nacionalidad, presupuesto, puntuacion, d);
+        e = new Equipo();
+        e.setCod_equipo(codEquipo);
+        e.setNombre(nombre);
+        e.setNacionalidad(nacionalidad);
+        e.setPresupuesto(presupuesto);
+        e.setPuntuacion(puntuacion);
+        e.setDueño(d);
         eBD.modificarEquipo(e);
     }
 
@@ -275,12 +283,12 @@ public class JEMS {
      * Funcion para buscar el dueño en un equipo.
      *
      * @param codigoEquipo codigo del equipo
-     * @return nombre del dueño
+     * @return objeto equipo
      * @throws Exception hereda excepciones
      */
-    public static String buscarDueño(int codigoEquipo) throws Exception {
+    public static Equipo buscarEquipo(int codigoEquipo) throws Exception {
         e = eBD.consultarEquipoCodigo(codigoEquipo);
-        return e.getDueño().getNombre();
+        return e;
     }
 
     /**
@@ -352,9 +360,12 @@ public class JEMS {
      */
     public static String crearListaDueños() throws Exception {
         listaDueños = dBD.consultaTodosDueños();
+
         String stringDueños = "";
         for (int x = 0; x < listaDueños.size(); x++) {
-            listaDueños.get(x).toString();
+            listaEquipos = eBD.consultaEquiposCodDueño(listaDueños.get(x).getCod_dueño());
+            listaDueños.get(x).setLista_equipos(listaEquipos);
+            stringDueños = stringDueños + listaDueños.get(x).toString();
         }
         return stringDueños;
     }
@@ -364,12 +375,14 @@ public class JEMS {
      * para pasarle los parametros de la ventana V_Usuario y asi modificar un
      * usuario ya existente.
      *
+     * @param codigoUsuario (requerido) codigo del usuario
      * @param usuario (requerido) usuario del usuario
      * @param contraseña (requerido) contraseña del usuario
      * @throws Exception hereda excepciones
      */
-    public static void modificarUsuario(String usuario, String contraseña) throws Exception {
+    public static void modificarUsuario(int codigoUsuario,String usuario, String contraseña) throws Exception {
         u = new Usuario();
+        u.setCod_usuario(codigoUsuario);
         u.setUsuario(usuario);
         u.setContraseña(contraseña);
         uBD.modificarUsuario(u);
@@ -458,18 +471,32 @@ public class JEMS {
     }
 
     /**
-     * Funcion para buscar en la base de datos todos los usuarios.
+     * Funcion para buscar en la base de datos al usuario de login.
      *
-     * @return listaUsuariosTemp lista de los usuarios
+     * @param usuario (reuqerido) usuario del usuario
+     * @param contraseña (requerido ) contraseña de usuario
+     * @return boolean si existe o no
      * @throws Exception hereda excepciones
      */
-    public static ArrayList<Usuario> conseguirDatosUsuarios() throws Exception {
-        UsuarioBD ubd = new UsuarioBD();
-        ArrayList<Usuario> listaUsuariosTemp = ubd.consultaTodosUsuarios();
-        return listaUsuariosTemp;
+    public static boolean conseguirDatosUsuarios(String usuario, String contraseña) throws Exception {
+        boolean existir = uBD.consultarUsuario(usuario, contraseña);
+        return existir;
     }
+        /**
+     * Funcion para buscar en la base de datos al usuario de login.
+     *
+     * @param usuario (reuqerido) usuario del usuario
+     * @return boolean si existe o no
+     * @throws Exception hereda excepciones
+     */
+    public static boolean conseguirDatosUsuariosReg(String usuario) throws Exception {
+        boolean existir = uBD.consultarUsuario(usuario);
+        return existir;
+    }
+
     /**
-     * Funcion para poner todos los equipos en una lista ordenados por puntuacion.
+     * Funcion para poner todos los equipos en una lista ordenados por
+     * puntuacion.
      *
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
@@ -478,8 +505,9 @@ public class JEMS {
         listaEquipos = eBD.consultarEquipoOrderPuntuacion();
         return listaEquipos;
     }
+
     /**
-     * Funcion para coger el objeto liga desde la base de datos 
+     * Funcion para coger el objeto liga desde la base de datos
      *
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
@@ -487,18 +515,19 @@ public class JEMS {
     public static Liga cogerNombreLiga() {
         //l = lBD.cogerLiga();
         return l;
-    }     
-    
+    }
+
     /**
-     * Funcion que nos dirije a la clase consultarTodosAdministradores situada en AdministradorBD para
-     * pasarle los parametros de la ventana V_Login y asi comprobar el administrador
-     * ya existente
+     * Funcion para buscar en la base de datos al administrador de login.
      *
+     * @param usuario (reuqerido) usuario del administrador
+     * @param contraseña (requerido ) contraseña de administrador
+     * @return boolean si existe o no
+     * @throws Exception hereda excepciones
      */
-    public static ArrayList<Administrador> conseguirDatosAdministradores() throws Exception {
-        AdministradorBD abd = new AdministradorBD();
-        ArrayList<Administrador> listaAdministradoresTemp = abd.consultarTodosAdministradores();
-        return listaAdministradoresTemp;
-    } 
+    public static boolean conseguirDatosAdministrador(String usuario, String contraseña) throws Exception {
+        boolean existir = aBD.consultarAdministrador(usuario, contraseña);
+        return existir;
+    }
 
 }
