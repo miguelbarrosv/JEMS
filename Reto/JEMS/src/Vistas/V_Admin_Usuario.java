@@ -178,7 +178,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
             if (validarDatos()) {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarUsuario(tfUsuario.getText(), tfContraseña.getText());
+                        JEMS.modificarUsuario(Integer.parseInt(tfCodigoUsuario.getText()),tfUsuario.getText(), tfContraseña.getText());
                         break;
                     case "alta":
                         JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());

@@ -49,37 +49,13 @@ public class DueñoBD {
      */
     public void insertarDueño(Dueño d) throws Exception {
         bdr.conectar();
-        String plantilla = "INSERT INTO DUEÑO(NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO,EQUIPO_COD_EQUIPO) VALUES (?,?,?,?,?,?,?,?)";
+        String plantilla = "INSERT INTO DUEÑO(NOMBRE,APELLIDO,TELEFONO) VALUES (?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, d.getNombre());
         sentenciaPre.setString(2, d.getApellido());
         sentenciaPre.setString(3, d.getTelefono());
+        sentenciaPre.executeUpdate();
         bdr.cerrarCon();
-    }
-
-    /**
-     * Función que busca un dueño en la base de datos.
-     *
-     * @param d (requerido) objeto de clase Dueño.
-     * @return devuelve un objeto clase dueño.
-     * @throws Exception hewreda excepciones.
-     */
-    public Dueño consultarDueño(Dueño d) throws Exception {
-        bdr.conectar();
-
-        String plantilla = "SELECT * FROM DUEÑO WHERE COD_DUEÑO= ?";
-        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, d.getCod_dueño());
-
-        resultado = sentenciaPre.executeQuery();
-        if (resultado.next()) {
-            d = crearObjeto();
-        } else {
-            d = null;
-        }
-
-        bdr.cerrarCon();
-        return d;
     }
 
     /**
@@ -90,7 +66,7 @@ public class DueñoBD {
      */
     public Dueño crearObjeto() throws Exception {
         Dueño d = new Dueño();
-
+        d.setCod_dueño(resultado.getInt("COD_DUEÑO"));
         d.setNombre(resultado.getString("NOMBRE"));
         d.setApellido(resultado.getString("APELLIDO"));
         d.setTelefono(resultado.getString("TELEFONO"));
@@ -135,7 +111,7 @@ public class DueñoBD {
             d = crearObjeto();
         } else {
             d = null;
-        }
+        }            
 
         // Cerrar la conexión
         bdr.cerrarCon();
@@ -194,7 +170,7 @@ public class DueñoBD {
         sentenciaPre.setString(1, d.getNombre());
         sentenciaPre.setString(2, d.getApellido());
         sentenciaPre.setString(3, d.getTelefono());
-
+        sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
 

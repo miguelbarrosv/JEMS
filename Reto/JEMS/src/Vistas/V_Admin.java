@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
@@ -331,11 +333,21 @@ public class V_Admin extends javax.swing.JFrame {
         miVisualizarLiga.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         miVisualizarLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/SLO_opt.png"))); // NOI18N
         miVisualizarLiga.setText("Liga");
+        miVisualizarLiga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miVisualizarLigaActionPerformed(evt);
+            }
+        });
         jMenu7.add(miVisualizarLiga);
 
         miVisualizarClasificacion.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         miVisualizarClasificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/clasificacion_opt.jpg"))); // NOI18N
         miVisualizarClasificacion.setText("Clasificacion");
+        miVisualizarClasificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miVisualizarClasificacionActionPerformed(evt);
+            }
+        });
         jMenu7.add(miVisualizarClasificacion);
         jMenu7.add(jSeparator6);
 
@@ -568,6 +580,18 @@ public class V_Admin extends javax.swing.JFrame {
     private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
         ControladorVistas.cerrarVentanaAdmin();
     }//GEN-LAST:event_miLogOutActionPerformed
+
+    private void miVisualizarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarLigaActionPerformed
+        ControladorVistas.mostrarVentanaJornadas();
+    }//GEN-LAST:event_miVisualizarLigaActionPerformed
+
+    private void miVisualizarClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarClasificacionActionPerformed
+        try {
+            ControladorVistas.mostrarVentanaLiga();
+        } catch (Exception ex) {
+            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_miVisualizarClasificacionActionPerformed
 
     /**
      * @param args the command line arguments
