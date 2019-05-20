@@ -26,6 +26,13 @@ public class V_Dueño extends javax.swing.JFrame {
         initComponents();
     }
 
+/**
+     * Funcion que al iniciar la ventana recoge el parametro operacion para saber 
+     * que tipo de operaciones y realizar los cambios necesarios
+     * 
+     * 
+     * @param operacion (requerido) operacion a realizar
+     */
     public V_Dueño(String operacion) {
         initComponents();
         ope = operacion;
@@ -202,11 +209,23 @@ public class V_Dueño extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
-
+/**
+     * Funcion que al insertar el codigo dueño nos vamos a buscar los datos del 
+     * dueño introducido para despues mostrar al cliente los datos de este
+     * 
+     * 
+     * @param evt pulsar enter
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaDueño();
     }//GEN-LAST:event_bVolverActionPerformed
-
+/**
+     * Funcion que al insertar el codigo dueño nos vamos a buscar los datos del 
+     * dueño introducido para despues mostrar al cliente los datos de este
+     * 
+     * 
+     * @param evt pulsar enter
+     */
     private void tfCodigoDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoDueñoActionPerformed
         try {
             dueño = JEMS.consultarDueño(Integer.parseInt(tfCodigoDueño.getText()));
