@@ -457,7 +457,7 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static Liga cogerNombreLiga() {
-        //l = lBD.cogerLiga();
+        //l = lBD.crearLigaVacia(fechaInicioLiga);
         return l;
     }     
     

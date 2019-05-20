@@ -38,6 +38,7 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     public V_Jugador(String operacion) {
         initComponents();
+        llenarCombo();
         ope = operacion;
         switch (ope) {
             case "modificar":
