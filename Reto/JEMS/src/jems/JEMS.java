@@ -460,5 +460,18 @@ public class JEMS {
     public static Liga cogerNombreLiga() {
         l = lBD.cogerLiga();
         return l;
-    }
+    }     
+    
+    /**
+     * Funcion que nos dirije a la clase consultarTodosAdministradores situada en AdministradorBD para
+     * pasarle los parametros de la ventana V_Login y asi comprobar el administrador
+     * ya existente
+     *
+     */
+    public static ArrayList<Administrador> conseguirDatosAdministradores() throws Exception {
+        AdministradorBD abd = new AdministradorBD();
+        ArrayList<Administrador> listaAdministradoresTemp = abd.consultarTodosAdministradores();
+        return listaAdministradoresTemp;
+    } 
+
 }
