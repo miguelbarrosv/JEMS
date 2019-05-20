@@ -226,7 +226,8 @@ public class EquipoBD {
      * @throws Exception hereda excepciones
      */
     public String consultarTodosEquipos() throws Exception {
-        CallableStatement cStmt = bdr.getCon().prepareCall("{call PROC_REF_EQUIPO(?)}");
+        bdr.conectar();
+        CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.PROC_REF_EQUIPO(?)}");
         cStmt.registerOutParameter(1, OracleTypes.CURSOR);
         cStmt.executeUpdate();
         ResultSet rs = (ResultSet) cStmt.getObject(1);
@@ -243,6 +244,7 @@ public class EquipoBD {
         }
         rs.close();
         cStmt.close();
+        bdr.cerrarCon();
         return listaEquipos;
     }
 }

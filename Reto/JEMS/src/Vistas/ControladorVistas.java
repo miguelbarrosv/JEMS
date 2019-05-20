@@ -36,6 +36,7 @@ public class ControladorVistas {
     private static V_Mostrar_Jugador vMostrarJugador;
     private static V_Mostrar_Equipo vMostrarEquipo;
     private static V_Mostrar_Dueño vMostrarDueño;
+    private static V_Lista vLista;
     
  /**
  * Funcion que nos dirije a la ventana V_Login para acceder al sistema
