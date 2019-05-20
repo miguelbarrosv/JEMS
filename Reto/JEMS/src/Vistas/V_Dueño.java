@@ -51,7 +51,7 @@ public class V_Dueño extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoDueño.setVisible(false);
-                bAceptar.setEnabled(false);
+                bAceptar.setEnabled(true);
                 break;
             case "consulta":
                 tfNombre.setEditable(false);
