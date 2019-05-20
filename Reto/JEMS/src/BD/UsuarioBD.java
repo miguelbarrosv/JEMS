@@ -79,7 +79,6 @@ public class UsuarioBD {
         bdr.cerrarCon();
         return u;
     }
-    
 
     /**
      * Función que busca un usuario en la base de datos.
@@ -128,12 +127,12 @@ public class UsuarioBD {
      * @throws Exception hereda excepciones.
      */
     public ArrayList<Usuario> consultaTodosUsuarios() throws Exception {
+        bdr.conectar();
+        
         ArrayList<Usuario> listaUsuarios = new ArrayList();
 
-        bdr.conectar();
-
         Statement sentencia = bdr.getCon().createStatement();
-        resultado = sentencia.executeQuery("SELECT * FROM USUARIO");
+        resultado = sentencia.executeQuery("SELECT * FROM usuario");
         while (resultado.next()) {
             listaUsuarios.add(crearObjeto());
         }

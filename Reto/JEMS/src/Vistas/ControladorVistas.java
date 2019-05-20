@@ -58,6 +58,7 @@ public class ControladorVistas {
      *
      */
     public static void mostrarVentanaRegistrar() {
+        vRegistrar = new V_Registrar();
         vRegistrar.setVisible(true);
     }
 
