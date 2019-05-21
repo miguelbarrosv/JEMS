@@ -44,7 +44,6 @@ public class V_Registrar extends javax.swing.JFrame {
         pfContraseñaRepetidaRegistrase.setBorder(BorderFactory.createCompoundBorder(
                 pfContraseñaRepetidaRegistrase.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        // showOnTop();
     }
 
     public boolean validarDatos() {
@@ -118,6 +117,9 @@ public class V_Registrar extends javax.swing.JFrame {
         bRegistrarse = new javax.swing.JButton();
         bSalir = new javax.swing.JButton();
         cbTerminos = new javax.swing.JCheckBox();
+        lbBorde = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        lbRiot = new javax.swing.JLabel();
         lbFiller = new javax.swing.JLabel();
         lbFiller2 = new javax.swing.JLabel();
         lbBackgroundRegistro = new javax.swing.JLabel();
@@ -129,50 +131,47 @@ public class V_Registrar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
         lbSubtitulo.setText("REGISTRARSE");
         getContentPane().add(lbSubtitulo);
-        lbSubtitulo.setBounds(570, 140, 220, 40);
+        lbSubtitulo.setBounds(470, 100, 350, 80);
 
         lbUsuarioRegistrase.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbUsuarioRegistrase.setForeground(new java.awt.Color(255, 255, 255));
         lbUsuarioRegistrase.setText("Usuario");
         getContentPane().add(lbUsuarioRegistrase);
-        lbUsuarioRegistrase.setBounds(520, 220, 70, 40);
+        lbUsuarioRegistrase.setBounds(500, 220, 70, 40);
 
         tfUsuarioRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfUsuarioRegistrase.setForeground(new java.awt.Color(0, 0, 0));
         tfUsuarioRegistrase.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfUsuarioRegistrase.setBorder(null);
         getContentPane().add(tfUsuarioRegistrase);
-        tfUsuarioRegistrase.setBounds(520, 260, 280, 30);
+        tfUsuarioRegistrase.setBounds(500, 260, 280, 30);
 
         lbContraseñaRegistrase.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbContraseñaRegistrase.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseñaRegistrase.setText("Contraseña");
         getContentPane().add(lbContraseñaRegistrase);
-        lbContraseñaRegistrase.setBounds(520, 310, 100, 40);
+        lbContraseñaRegistrase.setBounds(500, 310, 100, 40);
 
         pfContraseñaRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        pfContraseñaRegistrase.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseñaRegistrase.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseñaRegistrase.setBorder(null);
         getContentPane().add(pfContraseñaRegistrase);
-        pfContraseñaRegistrase.setBounds(520, 350, 280, 30);
+        pfContraseñaRegistrase.setBounds(500, 350, 280, 30);
 
         pfContraseñaRepetidaRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        pfContraseñaRepetidaRegistrase.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseñaRepetidaRegistrase.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseñaRepetidaRegistrase.setBorder(null);
         getContentPane().add(pfContraseñaRepetidaRegistrase);
-        pfContraseñaRepetidaRegistrase.setBounds(520, 440, 280, 30);
+        pfContraseñaRepetidaRegistrase.setBounds(500, 440, 280, 30);
 
         lbContraseñaRepetidaRegistrase.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbContraseñaRepetidaRegistrase.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseñaRepetidaRegistrase.setText("Repetir Contraseña");
         getContentPane().add(lbContraseñaRepetidaRegistrase);
-        lbContraseñaRepetidaRegistrase.setBounds(520, 400, 160, 40);
+        lbContraseñaRepetidaRegistrase.setBounds(500, 400, 160, 40);
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -191,7 +190,7 @@ public class V_Registrar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bVolver);
-        bVolver.setBounds(580, 630, 170, 30);
+        bVolver.setBounds(560, 630, 170, 30);
 
         bRegistrarse.setBackground(new java.awt.Color(252, 124, 0));
         bRegistrarse.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -210,7 +209,7 @@ public class V_Registrar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bRegistrarse);
-        bRegistrarse.setBounds(520, 540, 280, 50);
+        bRegistrarse.setBounds(500, 540, 280, 50);
 
         bSalir.setBackground(new java.awt.Color(255, 255, 255));
         bSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,7 +234,22 @@ public class V_Registrar extends javax.swing.JFrame {
         cbTerminos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbTerminos.setFocusPainted(false);
         getContentPane().add(cbTerminos);
-        cbTerminos.setBounds(530, 490, 260, 20);
+        cbTerminos.setBounds(510, 490, 260, 20);
+
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(480, 210, 320, 310);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
 
         lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/constellation2.png"))); // NOI18N
         getContentPane().add(lbFiller);
@@ -320,12 +334,15 @@ public class V_Registrar extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbTerminos;
     private javax.swing.JLabel lbBackgroundRegistrarse;
     private javax.swing.JLabel lbBackgroundRegistro;
+    private javax.swing.JLabel lbBorde;
     private javax.swing.JLabel lbContraseñaRegistrase;
     private javax.swing.JLabel lbContraseñaRepetidaRegistrase;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbFiller2;
+    private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbSubtitulo;
     private javax.swing.JLabel lbUsuarioRegistrase;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JPasswordField pfContraseñaRegistrase;
     private javax.swing.JPasswordField pfContraseñaRepetidaRegistrase;
     private javax.swing.JTextField tfUsuarioRegistrase;

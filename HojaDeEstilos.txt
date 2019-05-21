@@ -15,7 +15,7 @@ Errores personalizados: ORA 20000+
   Err8(20008): La liga no puede empezar antes del dia de hoy
 Final de cada END: nombre de la operacion.
 
-Resolucion ventana principal: 1280x720
+Resolucion ventana principal: 1280x720 (640x360)
 Estilo ventanas:
 	-Color principal fondo> #0D0920 / rgb(13, 9, 32)
 	-Color secundario fondo / boton secundario > #565895 / rgb(86, 88, 149)	 
@@ -27,9 +27,23 @@ Estilo ventanas:
 	-Font h1> bahnschrift 24px bold
 	-Font p> bahnschrift 18px plain
 	-Font link> sans-serif 14px plain
+
+	-Boton > ContentAreaFilled X
+	       > BorderPainted X
+	       > cursor => Cursor de mano
+	       > border => EmptyBorder
+
+Ubicacion items en ventana:
+	-Subtitulo: 550 x 110
+	-Boton main 500 x 540
+	-Boton secondary 560 x 630
+
 Ventanas nombre:
 	-JLabel: lb
 	-JTextfield: tf
 	-Boton: b
 	-PasswordField: pf
 	-Textarea: ta
+	-RadioButton: rb
+
+¿¿ V_lista volver

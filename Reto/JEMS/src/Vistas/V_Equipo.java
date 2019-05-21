@@ -8,6 +8,7 @@ package Vistas;
 import UML.Dueño;
 import UML.Equipo;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
@@ -30,7 +31,29 @@ public class V_Equipo extends javax.swing.JFrame {
      * Creates new form V_Equipo
      */
     public V_Equipo() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
+    }
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+        tfCodigoEquipo.setBorder(BorderFactory.createCompoundBorder(
+                tfCodigoEquipo.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfNacionalidad.setBorder(BorderFactory.createCompoundBorder(
+                tfNacionalidad.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfNombre.setBorder(BorderFactory.createCompoundBorder(
+                tfNombre.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPresupuesto.setBorder(BorderFactory.createCompoundBorder(
+                tfPresupuesto.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
     /**
@@ -128,123 +151,179 @@ public class V_Equipo extends javax.swing.JFrame {
 
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
+        lbPresupuesto = new javax.swing.JLabel();
+        lbPuntuacion = new javax.swing.JLabel();
+        lbNacionalidad = new javax.swing.JLabel();
+        lbDueño = new javax.swing.JLabel();
+        lbCodigoEquipo = new javax.swing.JLabel();
+        lbSubtitulo = new javax.swing.JLabel();
         tfCodigoEquipo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         tfPuntuacion = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         tfNacionalidad = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         tfPresupuesto = new javax.swing.JTextField();
         cbDueño = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
+        bSalir = new javax.swing.JButton();
+        lbBorde = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        lbRiot = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+        lbBackgroundEquipo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        bAceptar.setText("Aceptar");
+        bAceptar.setBackground(new java.awt.Color(252, 124, 0));
+        bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bAceptar.setText("ACEPTAR");
+        bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bAceptar.setBorderPainted(false);
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setFocusPainted(false);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(bAceptar);
+        bAceptar.setBounds(500, 540, 280, 50);
 
-        bVolver.setText("Volver");
+        bVolver.setBackground(new java.awt.Color(86, 88, 149));
+        bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setText("VOLVER");
+        bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bVolver.setBorderPainted(false);
+        bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverActionPerformed(evt);
             }
         });
+        getContentPane().add(bVolver);
+        bVolver.setBounds(560, 630, 170, 30);
 
-        jLabel1.setText("Codigo Equipo: ");
+        lbNombre.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lbNombre.setText("Nombre");
+        getContentPane().add(lbNombre);
+        lbNombre.setBounds(350, 310, 150, 40);
 
+        lbPresupuesto.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbPresupuesto.setForeground(new java.awt.Color(255, 255, 255));
+        lbPresupuesto.setText("Presupuesto");
+        getContentPane().add(lbPresupuesto);
+        lbPresupuesto.setBounds(690, 310, 150, 40);
+
+        lbPuntuacion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbPuntuacion.setForeground(new java.awt.Color(255, 255, 255));
+        lbPuntuacion.setText("Puntuación");
+        getContentPane().add(lbPuntuacion);
+        lbPuntuacion.setBounds(350, 400, 150, 40);
+
+        lbNacionalidad.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
+        lbNacionalidad.setText("Nacionalidad");
+        getContentPane().add(lbNacionalidad);
+        lbNacionalidad.setBounds(690, 220, 150, 40);
+
+        lbDueño.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbDueño.setForeground(new java.awt.Color(255, 255, 255));
+        lbDueño.setText("Dueño");
+        getContentPane().add(lbDueño);
+        lbDueño.setBounds(690, 400, 150, 40);
+
+        lbCodigoEquipo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbCodigoEquipo.setForeground(new java.awt.Color(255, 255, 255));
+        lbCodigoEquipo.setText("Codigo Equipo");
+        getContentPane().add(lbCodigoEquipo);
+        lbCodigoEquipo.setBounds(350, 220, 150, 40);
+
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
+        lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
+        lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSubtitulo.setText("EQUIPO");
+        getContentPane().add(lbSubtitulo);
+        lbSubtitulo.setBounds(550, 70, 220, 40);
+
+        tfCodigoEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoEquipo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tfCodigoEquipo.setBorder(null);
         tfCodigoEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCodigoEquipoActionPerformed(evt);
             }
         });
+        getContentPane().add(tfCodigoEquipo);
+        tfCodigoEquipo.setBounds(350, 260, 280, 30);
 
-        jLabel2.setText("Nombre: ");
+        tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setBorder(null);
+        getContentPane().add(tfNombre);
+        tfNombre.setBounds(350, 350, 280, 30);
 
-        jLabel3.setText("Puntuacion: ");
+        tfPuntuacion.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion.setBorder(null);
+        getContentPane().add(tfPuntuacion);
+        tfPuntuacion.setBounds(350, 440, 280, 30);
 
-        jLabel4.setText("Nacionalidad: ");
+        tfNacionalidad.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNacionalidad.setBorder(null);
+        getContentPane().add(tfNacionalidad);
+        tfNacionalidad.setBounds(690, 260, 280, 30);
 
-        jLabel5.setText("Presupuesto: ");
+        tfPresupuesto.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPresupuesto.setBorder(null);
+        getContentPane().add(tfPresupuesto);
+        tfPresupuesto.setBounds(690, 350, 280, 30);
 
+        cbDueño.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        cbDueño.setBorder(null);
         cbDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbDueñoActionPerformed(evt);
             }
         });
+        getContentPane().add(cbDueño);
+        cbDueño.setBounds(690, 440, 280, 30);
 
-        jLabel6.setText("Dueño");
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bAceptar)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(bVolver))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbDueño, 0, 77, Short.MAX_VALUE)
-                                    .addComponent(tfNacionalidad)
-                                    .addComponent(tfPuntuacion)
-                                    .addComponent(tfNombre)
-                                    .addComponent(tfCodigoEquipo)
-                                    .addComponent(tfPresupuesto))))))
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(tfCodigoEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tfPuntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bVolver)
-                    .addComponent(bAceptar))
-                .addContainerGap())
-        );
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(330, 210, 670, 280);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Yuumi.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
+
+        lbBackgroundEquipo.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundEquipo.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundEquipo);
+        lbBackgroundEquipo.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -332,6 +411,10 @@ public class V_Equipo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDueñoActionPerformed
 
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,14 +452,21 @@ public class V_Equipo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bSalir;
     private javax.swing.JButton bVolver;
     private javax.swing.JComboBox<String> cbDueño;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lbBackgroundEquipo;
+    private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbCodigoEquipo;
+    private javax.swing.JLabel lbDueño;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbNacionalidad;
+    private javax.swing.JLabel lbNombre;
+    private javax.swing.JLabel lbPresupuesto;
+    private javax.swing.JLabel lbPuntuacion;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbSubtitulo;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JTextField tfCodigoEquipo;
     private javax.swing.JTextField tfNacionalidad;
     private javax.swing.JTextField tfNombre;

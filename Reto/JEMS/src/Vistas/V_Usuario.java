@@ -21,9 +21,16 @@ public class V_Usuario extends javax.swing.JFrame {
      * Creates new form V_Usuario
      */
     public V_Usuario() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
     }
-
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,54 +42,86 @@ public class V_Usuario extends javax.swing.JFrame {
 
         bLiga = new javax.swing.JButton();
         bJornada = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        lbRiot = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        bSalir = new javax.swing.JButton();
+        lbSubtitulo = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+        lbBackgroundUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        bLiga.setText(" Clasificacion");
+        bLiga.setBackground(new java.awt.Color(252, 124, 0));
+        bLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bLiga.setText("Ver Clasificación");
+        bLiga.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bLiga.setBorderPainted(false);
+        bLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bLiga.setFocusPainted(false);
         bLiga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bLigaActionPerformed(evt);
             }
         });
+        getContentPane().add(bLiga);
+        bLiga.setBounds(460, 330, 410, 80);
 
-        bJornada.setText("Jornadas");
+        bJornada.setBackground(new java.awt.Color(252, 124, 0));
+        bJornada.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bJornada.setText("Ver Jornadas");
+        bJornada.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bJornada.setBorderPainted(false);
+        bJornada.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bJornada.setFocusPainted(false);
         bJornada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bJornadaActionPerformed(evt);
             }
         });
+        getContentPane().add(bJornada);
+        bJornada.setBounds(460, 460, 410, 70);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
 
-        setJMenuBar(jMenuBar1);
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(bLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(bJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bJornada, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(169, Short.MAX_VALUE))
-        );
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
+        lbSubtitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSubtitulo.setText("<html>BIENVENIDO A LA <br> APLICACIÓN OFICIAL <br> DE JEMS E-SPORTS");
+        lbSubtitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbSubtitulo);
+        lbSubtitulo.setBounds(410, 80, 520, 170);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user_background.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
+
+        lbBackgroundUsuario.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundUsuario.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundUsuario);
+        lbBackgroundUsuario.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -108,6 +147,10 @@ public class V_Usuario extends javax.swing.JFrame {
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         ControladorVistas.mostrarVentanaJornadas();
     }//GEN-LAST:event_bJornadaActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,8 +190,11 @@ public class V_Usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bJornada;
     private javax.swing.JButton bLiga;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton bSalir;
+    private javax.swing.JLabel lbBackgroundUsuario;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbSubtitulo;
+    private javax.swing.JLabel lbVersion;
     // End of variables declaration//GEN-END:variables
 }

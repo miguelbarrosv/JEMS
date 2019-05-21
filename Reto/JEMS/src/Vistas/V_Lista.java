@@ -18,7 +18,15 @@ public class V_Lista extends javax.swing.JFrame {
      * Creates new form V_ListaJugadores
      */
     public V_Lista() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
+        taListaJugadores.setEditable(false);
+    }
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -39,44 +47,101 @@ public class V_Lista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taListaJugadores = new javax.swing.JTextArea();
+        lbSubtitulo = new javax.swing.JLabel();
+        bVolver = new javax.swing.JButton();
+        bSalir = new javax.swing.JButton();
+        lbBorde = new javax.swing.JLabel();
+        lbRiot = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+        lbBackgroundLista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setText("Jugadores");
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
 
         taListaJugadores.setColumns(20);
+        taListaJugadores.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         taListaJugadores.setRows(5);
         jScrollPane1.setViewportView(taListaJugadores);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(410, 180, 470, 370);
+
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
+        lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
+        lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSubtitulo.setText("JUGADORES");
+        getContentPane().add(lbSubtitulo);
+        lbSubtitulo.setBounds(510, 70, 300, 60);
+
+        bVolver.setBackground(new java.awt.Color(86, 88, 149));
+        bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setText("Volver");
+        bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bVolver.setBorderPainted(false);
+        bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bVolver.setFocusPainted(false);
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bVolver);
+        bVolver.setBounds(560, 630, 170, 30);
+
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
+
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(380, 160, 520, 410);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Viktor.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
+
+        lbBackgroundLista.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundLista.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundLista);
+        lbBackgroundLista.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        // ControladorVistas.cerrarVentanaJugador(); 
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,8 +180,15 @@ public class V_Lista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton bSalir;
+    private javax.swing.JButton bVolver;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbBackgroundLista;
+    private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbSubtitulo;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JTextArea taListaJugadores;
     // End of variables declaration//GEN-END:variables
 }

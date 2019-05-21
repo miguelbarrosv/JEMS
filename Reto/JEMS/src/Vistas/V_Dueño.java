@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Dueño;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
@@ -23,8 +24,28 @@ public class V_Dueño extends javax.swing.JFrame {
      * Creates new form V_Dueño
      */
     public V_Dueño() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
     }
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+        tfApellido.setBorder(BorderFactory.createCompoundBorder(
+                tfApellido.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfCodigoDueño.setBorder(BorderFactory.createCompoundBorder(
+                tfCodigoDueño.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfNombre.setBorder(BorderFactory.createCompoundBorder(
+                tfNombre.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfTelefono.setBorder(BorderFactory.createCompoundBorder(
+                tfTelefono.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+    }
+    
 
 /**
      * Funcion que al iniciar la ventana recoge el parametro operacion para saber 
@@ -89,98 +110,146 @@ public class V_Dueño extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbSubtitulo = new javax.swing.JLabel();
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbCodigoDueño = new javax.swing.JLabel();
         tfCodigoDueño = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbApellido = new javax.swing.JLabel();
         tfApellido = new javax.swing.JTextField();
         tfTelefono = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lbTelefono = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        lbBorde = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        lbRiot = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+        lbBackgroundEquipo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        bAceptar.setText("Aceptar");
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
+        lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
+        lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSubtitulo.setText("DUEÑO");
+        getContentPane().add(lbSubtitulo);
+        lbSubtitulo.setBounds(520, 70, 260, 60);
+
+        bAceptar.setBackground(new java.awt.Color(252, 124, 0));
+        bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bAceptar.setText("ACEPTAR");
+        bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bAceptar.setBorderPainted(false);
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setFocusPainted(false);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(bAceptar);
+        bAceptar.setBounds(500, 540, 280, 50);
 
-        bVolver.setText("Volver");
+        bVolver.setBackground(new java.awt.Color(86, 88, 149));
+        bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setText("VOLVER");
+        bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bVolver.setBorderPainted(false);
+        bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bVolver.setFocusPainted(false);
         bVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverActionPerformed(evt);
             }
         });
+        getContentPane().add(bVolver);
+        bVolver.setBounds(560, 630, 170, 30);
 
-        jLabel1.setText("Codigo Dueño: ");
+        lbCodigoDueño.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbCodigoDueño.setText("Codigo Dueño");
+        getContentPane().add(lbCodigoDueño);
+        lbCodigoDueño.setBounds(500, 210, 150, 40);
 
+        tfCodigoDueño.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoDueño.setBorder(null);
         tfCodigoDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCodigoDueñoActionPerformed(evt);
             }
         });
+        getContentPane().add(tfCodigoDueño);
+        tfCodigoDueño.setBounds(500, 250, 280, 30);
 
-        jLabel2.setText("Nombre: ");
+        lbNombre.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNombre.setText("Nombre");
+        getContentPane().add(lbNombre);
+        lbNombre.setBounds(500, 280, 150, 40);
 
-        jLabel3.setText("Apellido: ");
+        tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setBorder(null);
+        getContentPane().add(tfNombre);
+        tfNombre.setBounds(500, 320, 280, 30);
 
-        jLabel4.setText("Telefono: ");
+        lbApellido.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbApellido.setText("Apellido");
+        getContentPane().add(lbApellido);
+        lbApellido.setBounds(500, 350, 150, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(bAceptar)
-                        .addGap(71, 71, 71)
-                        .addComponent(bVolver))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                            .addComponent(tfCodigoDueño)
-                            .addComponent(tfNombre)
-                            .addComponent(tfApellido))))
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(tfCodigoDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bAceptar)
-                    .addComponent(bVolver))
-                .addGap(24, 24, 24))
-        );
+        tfApellido.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfApellido.setBorder(null);
+        getContentPane().add(tfApellido);
+        tfApellido.setBounds(500, 390, 280, 30);
+
+        tfTelefono.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfTelefono.setBorder(null);
+        getContentPane().add(tfTelefono);
+        tfTelefono.setBounds(500, 460, 280, 30);
+
+        lbTelefono.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbTelefono.setText("Telefono ");
+        getContentPane().add(lbTelefono);
+        lbTelefono.setBounds(500, 420, 150, 40);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(1230, 10, 40, 40);
+
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(470, 200, 340, 310);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Blitzcrank.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
+
+        lbBackgroundEquipo.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundEquipo.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundEquipo);
+        lbBackgroundEquipo.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -265,6 +334,10 @@ public class V_Dueño extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfCodigoDueñoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,10 +376,17 @@ public class V_Dueño extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
     private javax.swing.JButton bVolver;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lbApellido;
+    private javax.swing.JLabel lbBackgroundEquipo;
+    private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbCodigoDueño;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbNombre;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbSubtitulo;
+    private javax.swing.JLabel lbTelefono;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JTextField tfApellido;
     private javax.swing.JTextField tfCodigoDueño;
     private javax.swing.JTextField tfNombre;
