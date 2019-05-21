@@ -247,11 +247,4 @@ public class Jugador {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    @Override
-    public String toString() {
-        String mensaje = "codigo: " + cod_jugador + " nombre: " + nombre + " apellido: " + apellido + " nickname: " + nickname + " sueldo: " + sueldo + " nacionalidad: " + nacionalidad + " estado: " + estado + " telefono: " + telefono + " equipo: " + equipo.getNombre() + "\n";
-        return mensaje;
-    }
-
 }
