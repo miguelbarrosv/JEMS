@@ -142,7 +142,6 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
-
         jMenu1.setBorder(null);
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
         jMenu1.setText("BBDD");
@@ -364,6 +363,11 @@ public class V_Admin extends javax.swing.JFrame {
         mIntroducirResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mIntroducirResultado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         mIntroducirResultado.setIconTextGap(10);
+        mIntroducirResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mIntroducirResultadoActionPerformed(evt);
+            }
+        });
         mIntroducirResultado.add(jSeparator1);
         mIntroducirResultado.add(jSeparator5);
 
