@@ -91,13 +91,12 @@ public class JEMS {
         j.setNacionalidad(nacionalidad);
         j.setEstado(estado);
         j.setTelefono(telefono);
-        if (equipo==null){
+        if (equipo == null) {
             jBD.insertarJugadorSinEquipo(j);
-        }
-        else{
+        } else {
             e = eBD.consultarEquipoCodigo(equipo);
             j.setEquipo(e);
-        }        
+        }
         jBD.insertarJugador(j);
     }
 
@@ -144,6 +143,7 @@ public class JEMS {
         listaDueños = dBD.consultaTodosDueños();
         return listaDueños;
     }
+
     /**
      * Funcion que llama a la funcion de DueñoBD para rellenar la lista de
      * dueños de la base de datos.
@@ -208,7 +208,7 @@ public class JEMS {
         listaJugadores = jBD.consultaTodosJugadores();
         String stringJugadores = "";
         for (int x = 0; x < listaJugadores.size(); x++) {
-            stringJugadores+=listaJugadores.get(x).toString();
+            stringJugadores += listaJugadores.get(x).toString();
         }
         return stringJugadores;
     }
@@ -386,12 +386,14 @@ public class JEMS {
      */
     public static String crearListaDueños() throws Exception {
         listaDueños = dBD.consultaTodosDueños();
-
         String stringDueños = "";
+        String stringEquipos="";
         for (int x = 0; x < listaDueños.size(); x++) {
             listaEquipos = eBD.consultaEquiposCodDueño(listaDueños.get(x).getCod_dueño());
-            listaDueños.get(x).setLista_equipos(listaEquipos);
-            stringDueños = stringDueños + listaDueños.get(x).toString();
+            for (int y = 0; y < listaEquipos.size(); y++){
+                stringEquipos+=listaEquipos.get(y).getNombre()+", ";
+            }
+            stringDueños += "codigo: " + listaDueños.get(x).getCod_dueño() + " nombre: " + listaDueños.get(x).getNombre() + " apellido: " + listaDueños.get(x).getApellido() + " telefono: " + listaDueños.get(x).getTelefono() + " equipos: " + stringEquipos + "\n";
         }
         return stringDueños;
     }
@@ -491,7 +493,7 @@ public class JEMS {
         listaUsuarios = uBD.consultaTodosUsuarios();
         String stringUsuarios = "";
         for (int x = 0; x < listaUsuarios.size(); x++) {
-            stringUsuarios+=listaUsuarios.get(x).toString();
+            stringUsuarios += listaUsuarios.get(x).toString();
         }
         return stringUsuarios;
     }
@@ -555,8 +557,8 @@ public class JEMS {
     public static boolean conseguirDatosAdministrador(String usuario, String contraseña) throws Exception {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
-    }
-    
+    }    
+
     /**
      * Funcion para buscar en la base de datos al administrador de login.
      *
@@ -572,16 +574,20 @@ public class JEMS {
         String mensaje = LigaBD.crearLigaVacia(fechaInicio);
         return mensaje;
     }
- /**
-     * Funcion para buscar en la base de datos todos los datos de las jornadas existenets
+
+
+    /**
+     * Funcion para buscar en la base de datos todos los datos de las jornadas
+     * existenets
      *
      * @return ArrayList del obejto jornada
      */
-    public static  ArrayList<Jornada> buscarJornadas() throws Exception {
+    public static ArrayList<Jornada> buscarJornadas() throws Exception {
         ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         jornadas = jorBD.consultarJornadas();
         return jornadas;
     }
+
     /**
      * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido
      *
@@ -602,4 +608,3 @@ public class JEMS {
         return listaJornadas;
     }
   }
-

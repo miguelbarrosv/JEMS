@@ -778,113 +778,113 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_mIntroducirResultadoActionPerformed
 
     private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 10;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 10;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada10ActionPerformed
 
     private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 1;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 1;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada1ActionPerformed
 
     private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 2;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 2;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada2ActionPerformed
 
     private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 3;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 3;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada3ActionPerformed
 
     private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 4;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 4;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada4ActionPerformed
 
     private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 5;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 5;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada5ActionPerformed
 
     private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 6;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 6;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada6ActionPerformed
 
     private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 7;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 7;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada7ActionPerformed
 
     private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 8;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 8;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada8ActionPerformed
 
     private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         try {
+            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
             jornadas = JEMS.buscarJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+            int numJornada = 9;
+            ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
-        int numJornada = 9;
-        ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
     }//GEN-LAST:event_miJornada9ActionPerformed
 
     /**

@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -78,7 +79,7 @@ public class ControladorVistas {
      *
      * @param operacion tipo de operacion
      */
-    public static void mostrarVentanaJugador(String operacion)throws Exception {
+    public static void mostrarVentanaJugador(String operacion) throws Exception {
         vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
@@ -240,31 +241,34 @@ public class ControladorVistas {
      */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
-    } 
+    }
+
     /**
- * Funcion que abre la ventana V_CrearLiga
- * 
- */
+     * Funcion que abre la ventana V_CrearLiga
+     *
+     */
     public static void mostrarVentanaCreacion() {
         vCrearLiga = new V_CrearLiga();
         vCrearLiga.setVisible(true);
     }
+
     /**
- * Funcion que abre la ventana V_IntroducirResultado
- * 
- */
-    public static void mostrarVentanaResultado( ArrayList<Jornada> jornadas,int numJornada) {
-        vIntroducirResultado = new V_IntroducirResultado(jornadas,numJornada);
+     * Funcion que abre la ventana V_IntroducirResultado
+     *
+     */
+    public static void mostrarVentanaResultado(ArrayList<Jornada> jornadas, int numJornada) {
+        vIntroducirResultado = new V_IntroducirResultado(jornadas, numJornada);
         vIntroducirResultado.setVisible(true);
     }
+
     /**
- * Funcion que abre cierra la ventana vIntroducirResultado
- * 
- */
+     * Funcion que abre cierra la ventana vIntroducirResultado
+     *
+     */
     public static void cerrarVentanaResultado() {
         vIntroducirResultado.dispose();
     }
-    
+
     /**
      * Funcion que abre la ventana V_Aviso
      *
@@ -273,7 +277,7 @@ public class ControladorVistas {
         vAviso = new V_Aviso(mensaje);
         vAviso.setVisible(true);
     }
-    
+
     /**
      * Funcion que abre la ventana V_Aviso
      *

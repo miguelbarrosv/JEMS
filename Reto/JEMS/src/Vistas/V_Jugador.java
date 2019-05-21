@@ -149,10 +149,10 @@ public class V_Jugador extends javax.swing.JFrame {
             Catch con excepciones personalizadas
              */
         } catch (CampoVacio e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMensaje());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMensaje());
             return false;
         } catch (DatoNoValido e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMensaje());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMensaje());
             return false;
         } catch (Exception e) {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
@@ -261,7 +261,6 @@ public class V_Jugador extends javax.swing.JFrame {
      * @throws Exception hereda de la clase Exception
      */
     private void validarTelefono() throws Exception {
-        String cadena = null;
         if (tfTelefono.getText().isEmpty()) {
             throw new CampoVacio("El telefono del jugador es obligatorio");
         }
@@ -273,9 +272,8 @@ public class V_Jugador extends javax.swing.JFrame {
         }
 
         Pattern pat = Pattern.compile("^[6-9][0-9]{8}$");
-        Matcher mat = pat.matcher(cadena);
-        if (mat.matches()) {
-        } else {
+        Matcher mat = pat.matcher(tfTelefono.getText());
+        if (!mat.matches()) {
             throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7, 8 o 9.");
         }
     }

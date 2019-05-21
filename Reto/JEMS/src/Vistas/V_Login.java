@@ -15,6 +15,8 @@ import jems.JEMS;
 /**
  *
  * @author Joel Encinas
+ * @author Sergio Zulueta
+ *
  *
  * @version %I%, %G%
  * @since 1.0
