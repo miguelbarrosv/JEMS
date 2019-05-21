@@ -46,7 +46,6 @@ public class JEMS {
     private static Jornada jor;
     private static JornadaBD jorBD;
 
-
     /**
      * @param args the command line arguments
      */
@@ -59,6 +58,7 @@ public class JEMS {
         aBD = new AdministradorBD();
         lBD = new LigaBD();
         jorBD = new JornadaBD();
+        ControladorVistas.mostrarVentanaLogin();
     }
 
     /**
@@ -104,7 +104,7 @@ public class JEMS {
      * @return devuelve el nombre del equipo
      */
     public static String getNombreEquipo(int x) {
-       
+
         return listaEquipos.get(x).getNombre();
     }
 
@@ -382,7 +382,7 @@ public class JEMS {
      * @param contraseña (requerido) contraseña del usuario
      * @throws Exception hereda excepciones
      */
-    public static void modificarUsuario(int codigoUsuario,String usuario, String contraseña) throws Exception {
+    public static void modificarUsuario(int codigoUsuario, String usuario, String contraseña) throws Exception {
         u = new Usuario();
         u.setCod_usuario(codigoUsuario);
         u.setUsuario(usuario);
@@ -432,8 +432,8 @@ public class JEMS {
     }
 
     /**
-     * Funcion para sacar los datos de un usuario especifico desde la base de datos
-     * mediante el nombre de un usuario.
+     * Funcion para sacar los datos de un usuario especifico desde la base de
+     * datos mediante el nombre de un usuario.
      *
      * @param usuario(requerido) nombre del usuario
      * @return objeto de la clase Usuario
@@ -443,10 +443,10 @@ public class JEMS {
         u = uBD.consultarUsuarioNombre(usuario);
         return u;
     }
-    
+
     /**
-     * Funcion para sacar los datos de un administrador especifico desde la base de datos
-     * mediante el nombre de un usuario.
+     * Funcion para sacar los datos de un administrador especifico desde la base
+     * de datos mediante el nombre de un usuario.
      *
      * @param usuario(requerido) nombre del administrador
      * @return objeto de la clase Administrador
@@ -456,7 +456,7 @@ public class JEMS {
         a = aBD.consultarAdministradorNombre(usuario);
         return a;
     }
-    
+
     /**
      * Funcion que crea una lista de usuarios.
      *
@@ -484,7 +484,8 @@ public class JEMS {
         boolean existir = uBD.consultarUsuario(usuario, contraseña);
         return existir;
     }
-        /**
+
+    /**
      * Funcion para buscar en la base de datos al usuario de login.
      *
      * @param usuario (reuqerido) usuario del usuario
@@ -514,7 +515,7 @@ public class JEMS {
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
      */
-    public static Liga cogerNombreLiga() {
+    public static Liga cogerNombreLiga() throws Exception {
         //l = lBD.cogerLiga();
         return l;
     }
@@ -531,8 +532,9 @@ public class JEMS {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
     }
+
     public static Jornada consultarJornada() {
         //jor = jorBD.consultarJornada();
         return jor;
     }
-    }
+}

@@ -31,7 +31,7 @@ public class V_Jugador extends javax.swing.JFrame {
     public V_Jugador() {
         setUndecorated(true);
         initComponents();
-        myInitComponents();
+        
     }
     
     public void myInitComponents() {
@@ -67,6 +67,7 @@ public class V_Jugador extends javax.swing.JFrame {
      */
     public V_Jugador(String operacion) {
         initComponents();
+        myInitComponents();
         llenarCombo();
         ope = operacion;
         switch (ope) {
