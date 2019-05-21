@@ -31,9 +31,9 @@ public class V_Equipo extends javax.swing.JFrame {
      * Creates new form V_Equipo
      */
     public V_Equipo() {
-        setUndecorated(true);
+        
         initComponents();
-        myInitComponents();
+        
     }
     
     public void myInitComponents() {
@@ -63,7 +63,9 @@ public class V_Equipo extends javax.swing.JFrame {
      * @throws Exception hereda excepciones
      */
     public V_Equipo(String operacion) throws Exception {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
         ope = operacion;
         dueños = JEMS.getListaDueños();
         for (int i = 0; i < dueños.size(); i++) {
