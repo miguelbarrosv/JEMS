@@ -117,6 +117,7 @@ public class V_Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbRiot = new javax.swing.JLabel();
         lbBackground = new javax.swing.JLabel();
         bSalir = new javax.swing.JButton();
         bAcceder = new javax.swing.JButton();
@@ -127,11 +128,16 @@ public class V_Login extends javax.swing.JFrame {
         lbContraseña = new javax.swing.JLabel();
         pfContraseña = new javax.swing.JPasswordField();
         bCrearCuenta = new javax.swing.JButton();
+        lbVersion = new javax.swing.JLabel();
         lbBackgroundSesion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(null);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_fullsize.jpg"))); // NOI18N
         getContentPane().add(lbBackground);
@@ -159,10 +165,8 @@ public class V_Login extends javax.swing.JFrame {
         bAcceder.setToolTipText("");
         bAcceder.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bAcceder.setBorderPainted(false);
-        bAcceder.setContentAreaFilled(false);
         bAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bAcceder.setFocusPainted(false);
-        bAcceder.setOpaque(true);
         bAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAccederActionPerformed(evt);
@@ -190,7 +194,6 @@ public class V_Login extends javax.swing.JFrame {
         lbSubtitulo.setBounds(930, 240, 220, 40);
 
         tfUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfUsuario.setForeground(new java.awt.Color(0, 0, 0));
         tfUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfUsuario.setBorder(null);
         getContentPane().add(tfUsuario);
@@ -203,7 +206,6 @@ public class V_Login extends javax.swing.JFrame {
         lbContraseña.setBounds(940, 400, 220, 40);
 
         pfContraseña.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        pfContraseña.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseña.setBorder(null);
         getContentPane().add(pfContraseña);
@@ -224,6 +226,12 @@ public class V_Login extends javax.swing.JFrame {
         });
         getContentPane().add(bCrearCuenta);
         bCrearCuenta.setBounds(930, 600, 150, 35);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
 
         lbBackgroundSesion.setBackground(new java.awt.Color(13, 9, 32));
         lbBackgroundSesion.setForeground(new java.awt.Color(13, 9, 32));
@@ -311,9 +319,11 @@ public class V_Login extends javax.swing.JFrame {
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbBackgroundSesion;
     private javax.swing.JLabel lbContraseña;
+    private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbSubtitulo;
     private javax.swing.JLabel lbTituloJems;
     private javax.swing.JLabel lbUsuario;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JPasswordField pfContraseña;
     private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables

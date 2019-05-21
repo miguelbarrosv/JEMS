@@ -24,8 +24,16 @@ public class V_Admin extends javax.swing.JFrame {
      * Creates new form V_Inicio
      */
     public V_Admin() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
     }
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+    }
+    
     private static String operacion;
 
     /**
@@ -42,7 +50,9 @@ public class V_Admin extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
-        bLogOut = new javax.swing.JButton();
+        lbRiot = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        bSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -85,33 +95,53 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem16.setText("jMenuItem16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jToggleButton1.setText("jToggleButton1");
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(0, 0, 0, 0);
 
         jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 0, 0);
 
-        bCrearLiga.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        bCrearLiga.setText("CREAR LIGA");
+        bCrearLiga.setBackground(new java.awt.Color(252, 124, 0));
+        bCrearLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bCrearLiga.setText("Crear Liga");
+        bCrearLiga.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bCrearLiga.setBorderPainted(false);
+        bCrearLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCrearLiga.setFocusPainted(false);
         bCrearLiga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCrearLigaActionPerformed(evt);
             }
         });
-        getContentPane().add(bCrearLiga, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 209, 192, 98));
+        getContentPane().add(bCrearLiga);
+        bCrearLiga.setBounds(500, 231, 192, 98);
 
-        bLogOut.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        bLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout_opt.png"))); // NOI18N
-        bLogOut.setText("LogOut");
-        bLogOut.addActionListener(new java.awt.event.ActionListener() {
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 610, 100, 60);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 620, 180, 40);
+
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLogOutActionPerformed(evt);
+                bSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(bLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, -1, -1));
-
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
         jMenu1.setBorder(null);
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
         jMenu1.setText("BBDD");
@@ -576,13 +606,9 @@ public class V_Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miVisualizarClasificacionActionPerformed
 
-    private void bLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLogOutActionPerformed
-        ControladorVistas.cerrarVentanaAdmin();
-    }//GEN-LAST:event_bLogOutActionPerformed
-
-    private void mIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mIntroducirResultadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mIntroducirResultadoActionPerformed
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -622,7 +648,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCrearLiga;
-    private javax.swing.JButton bLogOut;
+    private javax.swing.JButton bSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
@@ -640,6 +666,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JMenu mIntroducirResultado;
     private javax.swing.JMenuItem miAltaDueño;
     private javax.swing.JMenuItem miAltaEquipo;

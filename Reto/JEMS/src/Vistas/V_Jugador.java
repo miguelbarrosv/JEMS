@@ -9,6 +9,7 @@ import Excepciones.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import UML.*;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
@@ -28,7 +29,35 @@ public class V_Jugador extends javax.swing.JFrame {
      * Creates new form V_Jugador
      */
     public V_Jugador() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
+    }
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+        tfApellido.setBorder(BorderFactory.createCompoundBorder(
+                tfApellido.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfCodigoJugador.setBorder(BorderFactory.createCompoundBorder(
+                tfCodigoJugador.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfNombre.setBorder(BorderFactory.createCompoundBorder(
+                tfNombre.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfTelefono.setBorder(BorderFactory.createCompoundBorder(
+                tfTelefono.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfSueldo.setBorder(BorderFactory.createCompoundBorder(
+                tfSueldo.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfNacionalidad.setBorder(BorderFactory.createCompoundBorder(
+                tfNacionalidad.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfNickname.setBorder(BorderFactory.createCompoundBorder(
+                tfNickname.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
     /**
@@ -234,174 +263,221 @@ public class V_Jugador extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        bSalir = new javax.swing.JButton();
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbSubtitulo = new javax.swing.JLabel();
+        lbNombre = new javax.swing.JLabel();
         tfNombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lbApellido = new javax.swing.JLabel();
         tfApellido = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lbNickname = new javax.swing.JLabel();
         tfNickname = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lbNacionalidad = new javax.swing.JLabel();
         tfNacionalidad = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        lbSueldo = new javax.swing.JLabel();
         tfSueldo = new javax.swing.JTextField();
         rbVacante = new javax.swing.JRadioButton();
         rbOcupado = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
+        lbTelefono = new javax.swing.JLabel();
         tfTelefono = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbEstado = new javax.swing.JLabel();
+        lbEquipo = new javax.swing.JLabel();
         cbEquipo = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
+        lbJugador = new javax.swing.JLabel();
         tfCodigoJugador = new javax.swing.JTextField();
+        lbBorde = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        lbRiot = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+        lbBackgroundJugador = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
+
+        bAceptar.setBackground(new java.awt.Color(252, 124, 0));
+        bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         bAceptar.setText("Aceptar");
+        bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bAceptar.setBorderPainted(false);
+        bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAceptar.setFocusPainted(false);
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(bAceptar);
+        bAceptar.setBounds(500, 540, 280, 50);
 
+        bVolver.setBackground(new java.awt.Color(86, 88, 149));
+        bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         bVolver.setText("Volver");
+        bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bVolver.setBorderPainted(false);
+        bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bVolver.setFocusPainted(false);
         bVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverActionPerformed(evt);
             }
         });
+        getContentPane().add(bVolver);
+        bVolver.setBounds(560, 630, 170, 30);
 
-        jLabel1.setText("Nombre: ");
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
+        lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
+        lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSubtitulo.setText("JUGADOR");
+        getContentPane().add(lbSubtitulo);
+        lbSubtitulo.setBounds(530, 70, 240, 60);
 
-        jLabel2.setText("Apellido: ");
+        lbNombre.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNombre.setText("Nombre");
+        getContentPane().add(lbNombre);
+        lbNombre.setBounds(170, 310, 150, 40);
 
-        jLabel4.setText("Nickname: ");
+        tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setBorder(null);
+        getContentPane().add(tfNombre);
+        tfNombre.setBounds(170, 350, 280, 30);
 
-        jLabel5.setText("Nacionalidad: ");
+        lbApellido.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbApellido.setText("Apellido");
+        getContentPane().add(lbApellido);
+        lbApellido.setBounds(170, 400, 150, 40);
 
-        jLabel6.setText("Sueldo: ");
+        tfApellido.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfApellido.setBorder(null);
+        getContentPane().add(tfApellido);
+        tfApellido.setBounds(170, 440, 280, 30);
+
+        lbNickname.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNickname.setText("Nickname");
+        getContentPane().add(lbNickname);
+        lbNickname.setBounds(840, 220, 150, 40);
+
+        tfNickname.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNickname.setBorder(null);
+        getContentPane().add(tfNickname);
+        tfNickname.setBounds(840, 260, 280, 30);
+
+        lbNacionalidad.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNacionalidad.setText("Nacionalidad");
+        getContentPane().add(lbNacionalidad);
+        lbNacionalidad.setBounds(500, 220, 150, 40);
+
+        tfNacionalidad.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNacionalidad.setBorder(null);
+        getContentPane().add(tfNacionalidad);
+        tfNacionalidad.setBounds(500, 260, 280, 30);
+
+        lbSueldo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbSueldo.setText("Sueldo");
+        getContentPane().add(lbSueldo);
+        lbSueldo.setBounds(500, 310, 150, 40);
+
+        tfSueldo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfSueldo.setBorder(null);
+        getContentPane().add(tfSueldo);
+        tfSueldo.setBounds(500, 350, 280, 30);
 
         buttonGroup1.add(rbVacante);
+        rbVacante.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         rbVacante.setText("Vacante");
+        rbVacante.setBorder(null);
+        rbVacante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(rbVacante);
+        rbVacante.setBounds(870, 350, 100, 30);
 
         buttonGroup1.add(rbOcupado);
+        rbOcupado.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         rbOcupado.setText("Ocupado");
+        rbOcupado.setBorder(null);
+        rbOcupado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(rbOcupado);
+        rbOcupado.setBounds(1010, 350, 110, 30);
 
-        jLabel7.setText("Telefono: ");
+        lbTelefono.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbTelefono.setText("Telefono");
+        getContentPane().add(lbTelefono);
+        lbTelefono.setBounds(500, 400, 150, 40);
 
-        jLabel8.setText("Estado: ");
+        tfTelefono.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfTelefono.setBorder(null);
+        getContentPane().add(tfTelefono);
+        tfTelefono.setBounds(500, 440, 280, 30);
 
-        jLabel9.setText("Equipo: ");
+        lbEstado.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEstado.setText("Estado");
+        getContentPane().add(lbEstado);
+        lbEstado.setBounds(840, 310, 150, 40);
 
-        jLabel10.setText("Codigo Jugador: ");
+        lbEquipo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEquipo.setText("Equipo");
+        getContentPane().add(lbEquipo);
+        lbEquipo.setBounds(840, 400, 150, 40);
 
+        cbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        cbEquipo.setBorder(null);
+        cbEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(cbEquipo);
+        cbEquipo.setBounds(840, 440, 280, 30);
+
+        lbJugador.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbJugador.setText("Codigo Jugador");
+        getContentPane().add(lbJugador);
+        lbJugador.setBounds(170, 220, 150, 40);
+
+        tfCodigoJugador.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoJugador.setBorder(null);
         tfCodigoJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCodigoJugadorActionPerformed(evt);
             }
         });
+        getContentPane().add(tfCodigoJugador);
+        tfCodigoJugador.setBounds(170, 260, 280, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bAceptar)
-                            .addComponent(jLabel9))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bVolver)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbEquipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(121, 121, 121))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel10))
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfCodigoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                    .addComponent(tfApellido)
-                                    .addComponent(tfNickname)
-                                    .addComponent(tfNacionalidad)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbVacante)
-                                    .addComponent(rbOcupado))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(tfCodigoJugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(tfApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tfNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(tfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(rbOcupado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbVacante)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bVolver)
-                    .addComponent(bAceptar))
-                .addContainerGap())
-        );
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(150, 210, 990, 280);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jax.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
+
+        lbBackgroundJugador.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundJugador.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundJugador);
+        lbBackgroundJugador.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -518,6 +594,10 @@ public class V_Jugador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfCodigoJugadorActionPerformed
 
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -555,19 +635,26 @@ public class V_Jugador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
+    private javax.swing.JButton bSalir;
     private javax.swing.JButton bVolver;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbEquipo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lbApellido;
+    private javax.swing.JLabel lbBackgroundJugador;
+    private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbEquipo;
+    private javax.swing.JLabel lbEstado;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbJugador;
+    private javax.swing.JLabel lbNacionalidad;
+    private javax.swing.JLabel lbNickname;
+    private javax.swing.JLabel lbNombre;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbSubtitulo;
+    private javax.swing.JLabel lbSueldo;
+    private javax.swing.JLabel lbTelefono;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JRadioButton rbOcupado;
     private javax.swing.JRadioButton rbVacante;
     private javax.swing.JTextField tfApellido;
