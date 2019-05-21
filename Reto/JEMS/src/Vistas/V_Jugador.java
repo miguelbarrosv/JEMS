@@ -25,13 +25,14 @@ import jems.JEMS;
  *
  */
 public class V_Jugador extends javax.swing.JFrame {
-    
+
     private static ArrayList<Equipo> equipos;
+
     /**
      * Creates new form V_Jugador
      */
     public V_Jugador() {
-        
+
         initComponents();
 
     }
@@ -67,7 +68,7 @@ public class V_Jugador extends javax.swing.JFrame {
      *
      * @param operacion tipo de operacion
      */
-    public V_Jugador(String operacion)throws Exception {
+    public V_Jugador(String operacion) throws Exception {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -125,7 +126,7 @@ public class V_Jugador extends javax.swing.JFrame {
 
     /**
      * Funcion para validar los datos del jugador
-     * 
+     *
      * @return True Si las validaciones son correctas
      * @return False Si las validaciones dan error
      */
@@ -133,7 +134,7 @@ public class V_Jugador extends javax.swing.JFrame {
 
         /*
         Introducimos todas las funciones de validar para omprobarlas y llamar solo a validarDatos();
-        */
+         */
         try {
             validarNombre();
             validarApellido();
@@ -144,16 +145,26 @@ public class V_Jugador extends javax.swing.JFrame {
             validarEstado();
             validarEquipo();
             return true;
+            /*
+            Catch con excepciones personalizadas
+             */
+        } catch (CampoVacio e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMensaje());
+            return false;
+        } catch (DatoNoValido e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMensaje());
+            return false;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error a la hora de validar los datos: " + e.getMessage());
             return false;
         }
+
     }
 
     /**
      * Funcion que trata de validar el nombre del jugador, si el nombre esta
      * vacio o es superior a 20 caracteres saltara la excepcion.
-     * 
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarNombre() throws Exception {
@@ -172,7 +183,7 @@ public class V_Jugador extends javax.swing.JFrame {
     /**
      * Funcion que trata de validar el apellido del jugador, si el apellido esta
      * vacio o es superior a 20 caracteres saltara la excepcion.
-     * 
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarApellido() throws Exception {
@@ -190,7 +201,7 @@ public class V_Jugador extends javax.swing.JFrame {
     /**
      * Funcion que trata de validar el nickname del jugador, si el nick esta
      * vacio o es superior a 20 caracteres saltara la excepcion.
-     * 
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarNickName() throws Exception {
@@ -207,9 +218,9 @@ public class V_Jugador extends javax.swing.JFrame {
 
     /**
      * Funcion que trata de validar la nacionalidad del jugador, si la
-     * nacionalidad esta vacia o es superior a 20 caracteres saltara la 
+     * nacionalidad esta vacia o es superior a 20 caracteres saltara la
      * excepcion.
-     * 
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarNacionalidad() throws Exception {
@@ -227,25 +238,26 @@ public class V_Jugador extends javax.swing.JFrame {
     /**
      * Funcion que trata de validar el sueldo del jugador, si el sueldo esta
      * vacio o es superior a 6 digitos saltara la excepcion.
-     * 
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarSueldo() throws Exception {
-        if (tfNacionalidad.getText().isEmpty()) {
+        if (tfSueldo.getText().isEmpty()) {
             throw new CampoVacio("El sueldo del jugador es obligatorio*.");
         }
         //En la bdd tenemos el sueldo como number 6
         //Consideramos que no deba ser mayor a 6
-        if (tfNacionalidad.getText().length() > 6) {
+        if (tfSueldo.getText().length() > 6) {
             throw new DatoNoValido("El sueldo no puede ser mayor a 6 digitos");
         }
     }
 
     /**
      * Funcion que trata de validar el telefono del jugador, si el telefono esta
-     * vacio o es superior a 9 digitos saltara la excepcion. En la misma funcion 
-     * tenemos un pattern para que el numero de telefono empiece por 6, 7, ,8, 9.
-     * 
+     * vacio o es superior a 9 digitos saltara la excepcion. En la misma funcion
+     * tenemos un pattern para que el numero de telefono empiece por 6, 7, ,8,
+     * 9.
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarTelefono() throws Exception {
@@ -256,34 +268,33 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos el telefono como varchar 9
         //Consideramos que no deba ser mayor a 9
-        if (tfNacionalidad.getText().length() > 9) {
-            throw new DatoNoValido("El sueldo no puede ser mayor a 6 digitos");
+        if (tfTelefono.getText().length() > 9) {
+            throw new DatoNoValido("El telefono no puede ser superior a 9 digitos");
         }
 
-        Pattern pat = Pattern.compile("^[6,7,8,9]");
+        Pattern pat = Pattern.compile("^[6-9][0-9]{8}$");
         Matcher mat = pat.matcher(cadena);
         if (mat.matches()) {
         } else {
-            throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7 8 o 9.");
+            throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7, 8 o 9.");
         }
     }
 
     /**
-     * Funcion que trata de validar el estado del jugador, si el estado esta 
+     * Funcion que trata de validar el estado del jugador, si el estado esta
      * vacia saltara la excepcion.
-     * 
+     *
      * @throws Exception hereda de la clase Exception
      */
     private void validarEstado() throws Exception {
-        if (rbVacante.getText().isEmpty() || rbOcupado.getText().isEmpty()){
+        if (rbVacante.getText().isEmpty() || rbOcupado.getText().isEmpty()) {
             throw new CampoVacio("El estado del jugador es obligatorio");
         }
-        
 
     }
 
     private void validarEquipo() {
-        
+
     }
 
     public void validarJugador() {
