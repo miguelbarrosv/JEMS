@@ -758,7 +758,11 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsultarUsuariosActionPerformed
 
     private void miVisualizarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarLigaActionPerformed
-        ControladorVistas.mostrarVentanaJornadas();
+        try {
+            ControladorVistas.mostrarVentanaJornadas();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miVisualizarLigaActionPerformed
 
     private void miVisualizarClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarClasificacionActionPerformed

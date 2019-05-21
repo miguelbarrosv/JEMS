@@ -142,7 +142,7 @@ public class ControladorVistas {
      * Funcion que muestra la ventana V_Jornadas.
      *
      */
-    public static void mostrarVentanaJornadas() {
+    public static void mostrarVentanaJornadas()throws Exception {
         vJornadas = new V_Jornadas();
         vJornadas.setVisible(true);
     }
