@@ -36,7 +36,6 @@ public class Bdr {
             con = DriverManager.getConnection(url, "Scott", "oracle");*/
             String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
             con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");
-            //insertar un admin
             Statement sentencia = con.createStatement();
             sentencia.executeUpdate("INSERT INTO ADMINISTRADOR (USUARIO, CONTRASEÑA)VALUES ('A', 'A')");
 
