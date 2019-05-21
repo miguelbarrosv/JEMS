@@ -33,9 +33,9 @@ public class EquipoBD {
     /**
      * Creacion de los atributos bdr, resultado y listaEquipos.
      */
-    private static Bdr bdr;
-    private ResultSet resultado;
-    private String listaEquipos;
+    private  Bdr bdr;
+    private  ResultSet resultado;
+    private  String listaEquipos;
 
     public EquipoBD() {
         bdr = new Bdr();
@@ -139,12 +139,16 @@ public class EquipoBD {
         e.setNacionalidad(resultado.getString("NACIONALIDAD"));
         e.setPresupuesto(Integer.parseInt(resultado.getString("PRESUPUESTO")));
         e.setPuntuacion(Integer.parseInt(resultado.getString("PUNTUACION")));
+        
         DueñoBD dBD = new DueñoBD();
         Dueño d = dBD.consultarDueñoCodigo(resultado.getInt("DUEÑO_COD_DUEÑO"));
         e.setDueño(d);
-        //e.setLista_jugadores(lista_jugadores);
-        //e.setLista_partidos(lista_partidos);
-
+        
+        JugadorBD jBD = new JugadorBD();
+        e.setLista_jugadores(jBD.consultaTodosJugadores());
+        
+        PartidoBD pBD = new PartidoBD();
+        e.setLista_partidos(pBD.consultarPartidos());
         return e;
     }
 

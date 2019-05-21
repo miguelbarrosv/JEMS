@@ -94,6 +94,8 @@ public class V_Equipo extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoEquipo.setVisible(false);
+                tfPuntuacion.setText(0 + "");
+                tfPuntuacion.setEditable(false);
                 bAceptar.setEnabled(true);
                 break;
             case "consulta":
@@ -187,11 +189,6 @@ public class V_Equipo extends javax.swing.JFrame {
     private void validarPresupuesto() throws Exception {
         if (tfPresupuesto.getText().isEmpty()) {
             throw new CampoVacio("El presupuesto es obligatorio*.");
-        }
-        //En la bdd tenemos el sueldo como number 6
-        //Consideramos que no deba ser mayor a 6
-        if (tfPresupuesto.getText().length() > 6) {
-            throw new DatoNoValido("El presupuesto no puede ser mayor a 6 digitos");
         }
     }
 

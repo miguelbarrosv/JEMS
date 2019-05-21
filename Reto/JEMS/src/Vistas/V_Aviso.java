@@ -7,7 +7,10 @@ package Vistas;
 
 /**
  *
- * @author Jowii
+ * @author Joel Encinas
+ * 
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_Aviso extends javax.swing.JFrame {
 
@@ -17,17 +20,17 @@ public class V_Aviso extends javax.swing.JFrame {
     public V_Aviso() {
         initComponents();
     }
-    
+
     public V_Aviso(String mensaje) {
         setUndecorated(true);
         initComponents();
         myInitComponents();
         lbMensaje.setText(mensaje);
     }
-    
+
     public void myInitComponents() {
         setSize(400, 220);
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -64,6 +67,7 @@ public class V_Aviso extends javax.swing.JFrame {
         bAceptar.setBounds(130, 170, 140, 35);
 
         lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        lbMensaje.setForeground(new java.awt.Color(255, 255, 255));
         lbMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbMensaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(lbMensaje);
@@ -81,7 +85,7 @@ public class V_Aviso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
-        this.dispose();
+        ControladorVistas.cerrarVentanaAviso();
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
