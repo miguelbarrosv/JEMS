@@ -89,14 +89,23 @@ public class V_Admin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         miJornada1 = new javax.swing.JMenuItem();
+        jSeparator7 = new javax.swing.JPopupMenu.Separator();
         miJornada2 = new javax.swing.JMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
         miJornada3 = new javax.swing.JMenuItem();
+        jSeparator9 = new javax.swing.JPopupMenu.Separator();
         miJornada4 = new javax.swing.JMenuItem();
+        jSeparator10 = new javax.swing.JPopupMenu.Separator();
         miJornada5 = new javax.swing.JMenuItem();
+        jSeparator11 = new javax.swing.JPopupMenu.Separator();
         miJornada6 = new javax.swing.JMenuItem();
+        jSeparator12 = new javax.swing.JPopupMenu.Separator();
         miJornada7 = new javax.swing.JMenuItem();
+        jSeparator13 = new javax.swing.JPopupMenu.Separator();
         miJornada8 = new javax.swing.JMenuItem();
+        jSeparator14 = new javax.swing.JPopupMenu.Separator();
         miJornada9 = new javax.swing.JMenuItem();
+        jSeparator15 = new javax.swing.JPopupMenu.Separator();
         miJornada10 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         miVisualizarLiga = new javax.swing.JMenuItem();
@@ -395,6 +404,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada1);
+        mIntroducirResultado.add(jSeparator7);
 
         miJornada2.setText("Jornada 2");
         miJornada2.addActionListener(new java.awt.event.ActionListener() {
@@ -403,6 +413,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada2);
+        mIntroducirResultado.add(jSeparator8);
 
         miJornada3.setText("Jornada 3");
         miJornada3.addActionListener(new java.awt.event.ActionListener() {
@@ -411,6 +422,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada3);
+        mIntroducirResultado.add(jSeparator9);
 
         miJornada4.setText("Jornada 4");
         miJornada4.addActionListener(new java.awt.event.ActionListener() {
@@ -419,6 +431,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada4);
+        mIntroducirResultado.add(jSeparator10);
 
         miJornada5.setText("Jornada 5");
         miJornada5.addActionListener(new java.awt.event.ActionListener() {
@@ -427,6 +440,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada5);
+        mIntroducirResultado.add(jSeparator11);
 
         miJornada6.setText("Jornada 6");
         miJornada6.addActionListener(new java.awt.event.ActionListener() {
@@ -435,6 +449,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada6);
+        mIntroducirResultado.add(jSeparator12);
 
         miJornada7.setText("Jornada 7");
         miJornada7.addActionListener(new java.awt.event.ActionListener() {
@@ -443,6 +458,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada7);
+        mIntroducirResultado.add(jSeparator13);
 
         miJornada8.setText("Jornada 8");
         miJornada8.addActionListener(new java.awt.event.ActionListener() {
@@ -451,6 +467,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada8);
+        mIntroducirResultado.add(jSeparator14);
 
         miJornada9.setText("Jornada 9");
         miJornada9.addActionListener(new java.awt.event.ActionListener() {
@@ -459,6 +476,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         mIntroducirResultado.add(miJornada9);
+        mIntroducirResultado.add(jSeparator15);
 
         miJornada10.setText("Jornada 10");
         miJornada10.addActionListener(new java.awt.event.ActionListener() {
@@ -740,7 +758,11 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miConsultarUsuariosActionPerformed
 
     private void miVisualizarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarLigaActionPerformed
-        ControladorVistas.mostrarVentanaJornadas();
+        try {
+            ControladorVistas.mostrarVentanaJornadas();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miVisualizarLigaActionPerformed
 
     private void miVisualizarClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarClasificacionActionPerformed
@@ -920,11 +942,20 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator10;
+    private javax.swing.JPopupMenu.Separator jSeparator11;
+    private javax.swing.JPopupMenu.Separator jSeparator12;
+    private javax.swing.JPopupMenu.Separator jSeparator13;
+    private javax.swing.JPopupMenu.Separator jSeparator14;
+    private javax.swing.JPopupMenu.Separator jSeparator15;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator7;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
+    private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbVersion;
