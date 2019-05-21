@@ -571,7 +571,7 @@ public class JEMS {
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Date fechaInicio = format.parse(fecha);
-        String mensaje = LigaBD.crearLigaVacia(fechaInicio);
+        String mensaje = lBD.crearLigaVacia(fechaInicio);
         return mensaje;
     }
 
