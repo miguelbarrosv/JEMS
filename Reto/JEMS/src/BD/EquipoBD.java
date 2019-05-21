@@ -33,9 +33,9 @@ public class EquipoBD {
     /**
      * Creacion de los atributos bdr, resultado y listaEquipos.
      */
-    private static Bdr bdr;
-    private ResultSet resultado;
-    private String listaEquipos;
+    private  Bdr bdr;
+    private  ResultSet resultado;
+    private  String listaEquipos;
 
     public EquipoBD() {
         bdr = new Bdr();
@@ -139,12 +139,16 @@ public class EquipoBD {
         e.setNacionalidad(resultado.getString("NACIONALIDAD"));
         e.setPresupuesto(Integer.parseInt(resultado.getString("PRESUPUESTO")));
         e.setPuntuacion(Integer.parseInt(resultado.getString("PUNTUACION")));
+        
         DueñoBD dBD = new DueñoBD();
         Dueño d = dBD.consultarDueñoCodigo(resultado.getInt("DUEÑO_COD_DUEÑO"));
         e.setDueño(d);
-        //e.setLista_jugadores(lista_jugadores);
-        //e.setLista_partidos(lista_partidos);
-
+        
+        JugadorBD jBD = new JugadorBD();
+        e.setLista_jugadores(jBD.consultaTodosJugadores());
+        
+        PartidoBD pBD = new PartidoBD();
+        e.setLista_partidos(pBD.consultarPartidos());
         return e;
     }
 
@@ -290,5 +294,32 @@ public class EquipoBD {
         bdr.cerrarCon();
         return listaEquipos;
 
+    }
+    public Equipo buscarCodigoPorNombre(String nomEquipo) throws Exception {
+        bdr.conectar();
+        String plantilla = "SELECT COD_EQUIPO FROM EQUIPO WHERE NOMBRE = ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, nomEquipo);
+        resultado = sentenciaPre.executeQuery();
+        Equipo e;
+        if (resultado.next()) {
+            e = crearObjeto();
+        } else {
+            e = null;
+        }
+        // Cerrar la conexión
+        bdr.cerrarCon();
+        return e;
+    }
+    public void modificarPuntuacion(Equipo e) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "UPDATE EQUIPO SET PUNTUACION = PUNTUACION + 3 WHERE COD_EQUIPO = ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, e.getCod_equipo());
+
+        sentenciaPre.executeUpdate();
+
+        bdr.cerrarCon();
     }
 }

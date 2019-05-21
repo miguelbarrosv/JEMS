@@ -30,8 +30,8 @@ public class JugadorBD {
     /**
      * Creacion de los atributos resultado y bdr.
      */
-    private static ResultSet resultado;
-    private static Bdr bdr;
+    private  ResultSet resultado;
+    private  Bdr bdr;
 
     /**
      * Constructor de JugadorBD con el objeto de la conexión a la base de datos.
@@ -60,6 +60,27 @@ public class JugadorBD {
         sentenciaPre.setString(6, j.getEstado());
         sentenciaPre.setString(7, j.getTelefono());
         sentenciaPre.setInt(8, j.getEquipo().getCod_equipo());
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+    }
+    
+    /**
+     * Función para insertar jugador sin equipo.
+     *
+     * @param j (requerido) objeto de clase Jugador.
+     * @throws Exception hereda excepciones.
+     */
+    public void insertarJugadorSinEquipo(Jugador j) throws Exception {
+        bdr.conectar();
+        String plantilla = "INSERT INTO JUGADOR(NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO) VALUES (?,?,?,?,?,?,?,)";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, j.getNombre());
+        sentenciaPre.setString(2, j.getApellido());
+        sentenciaPre.setString(3, j.getNickname());
+        sentenciaPre.setInt(4, j.getSueldo());
+        sentenciaPre.setString(5, j.getNacionalidad());
+        sentenciaPre.setString(6, j.getEstado());
+        sentenciaPre.setString(7, j.getTelefono());
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }

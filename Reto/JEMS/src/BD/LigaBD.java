@@ -15,6 +15,7 @@ import java.util.Date;
  * Clase de Liga de base de datos
  *
  * @author Eric Muñoz
+ * 
  *
  *
  * @version %I%, %G%
@@ -24,8 +25,8 @@ import java.util.Date;
 public class LigaBD {
 
     private static Bdr bdr;
-    private ResultSet resultado;
-    private Liga l;
+    private static ResultSet resultado;
+    private static Liga l;
 
     public LigaBD() {
         bdr = new Bdr();
@@ -38,7 +39,7 @@ public class LigaBD {
      * @return devuelve un string con el mensaje de la creacion de la liga
      * @throws Exception hereda excepciones
      */
-    public String crearLigaVacia(Date fechaInicioLiga) throws Exception {
+    public static String crearLigaVacia(Date fechaInicioLiga) throws Exception {
         java.sql.Date sDate = convertUtilToSql(fechaInicioLiga);
         bdr.conectar();
         CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?)}");
@@ -72,7 +73,7 @@ public class LigaBD {
      * @return devuelve una
      * @throws Exception
      */
-    public Liga consultarLiga() throws Exception {
+    public static Liga consultarLiga() throws Exception {
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
         resultado = sentencia.executeQuery("SELECT * FROM LIGA");
@@ -89,7 +90,7 @@ public class LigaBD {
      * @return devuelve un objeto liga
      * @throws Exception hereda excepciones
      */
-    public Liga crearObjeto() throws Exception {
+    public static Liga crearObjeto() throws Exception {
         l = new Liga();
         l.setNombre(resultado.getString("NOMBRE"));
         l.setFecha_inicio(resultado.getDate("FECHA_INICIO"));

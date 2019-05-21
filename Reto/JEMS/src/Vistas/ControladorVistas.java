@@ -33,6 +33,8 @@ public class ControladorVistas {
     private static V_Admin vAdmin;
     private static V_Usuario vUsuario;
     private static V_Lista vLista;
+    private static V_CrearLiga vCrearLiga;
+    private static V_IntroducirResultado vIntroducirResultado;
     private static V_Aviso vAviso;
 
     /**
@@ -238,6 +240,29 @@ public class ControladorVistas {
      */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
+    } 
+    /**
+ * Funcion que abre la ventana V_CrearLiga
+ * 
+ */
+    public static void mostrarVentanaCreacion() {
+        vCrearLiga = new V_CrearLiga();
+        vCrearLiga.setVisible(true);
+    }
+    /**
+ * Funcion que abre la ventana V_IntroducirResultado
+ * 
+ */
+    public static void mostrarVentanaResultado( ArrayList<Jornada> jornadas,int numJornada) {
+        vIntroducirResultado = new V_IntroducirResultado(jornadas,numJornada);
+        vIntroducirResultado.setVisible(true);
+    }
+    /**
+ * Funcion que abre cierra la ventana vIntroducirResultado
+ * 
+ */
+    public static void cerrarVentanaResultado() {
+        vIntroducirResultado.dispose();
     }
     
     /**
@@ -245,7 +270,7 @@ public class ControladorVistas {
      *
      */
     public static void abrirVentanaAviso(String mensaje) {
-        vAviso = new V_Aviso();
+        vAviso = new V_Aviso(mensaje);
         vAviso.setVisible(true);
     }
     

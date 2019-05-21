@@ -23,7 +23,14 @@ package jems;
 import Vistas.*;
 import BD.*;
 import UML.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class JEMS {
 
@@ -31,6 +38,7 @@ public class JEMS {
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
     private static ArrayList<Usuario> listaUsuarios;
+    private static ArrayList<Jornada> listaJornadas;
     private static DueñoBD dBD;
     private static JugadorBD jBD;
     private static EquipoBD eBD;
@@ -74,7 +82,7 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, int equipo) throws Exception {
+    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
         j.setNombre(nombre);
         j.setApellido(apellido);
@@ -83,8 +91,12 @@ public class JEMS {
         j.setNacionalidad(nacionalidad);
         j.setEstado(estado);
         j.setTelefono(telefono);
-        e = eBD.consultarEquipoCodigo(equipo);
-        j.setEquipo(e);
+        if (equipo == null) {
+            jBD.insertarJugadorSinEquipo(j);
+        } else {
+            e = eBD.consultarEquipoCodigo(equipo);
+            j.setEquipo(e);
+        }
         jBD.insertarJugador(j);
     }
 
@@ -131,6 +143,7 @@ public class JEMS {
         listaDueños = dBD.consultaTodosDueños();
         return listaDueños;
     }
+
     /**
      * Funcion que llama a la funcion de DueñoBD para rellenar la lista de
      * dueños de la base de datos.
@@ -159,7 +172,7 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, int equipo) throws Exception {
+    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
         j.setNombre(nombre);
         j.setApellido(apellido);
@@ -195,7 +208,7 @@ public class JEMS {
         listaJugadores = jBD.consultaTodosJugadores();
         String stringJugadores = "";
         for (int x = 0; x < listaJugadores.size(); x++) {
-            listaJugadores.get(x).toString();
+            stringJugadores += listaJugadores.get(x).toString();
         }
         return stringJugadores;
     }
@@ -373,12 +386,14 @@ public class JEMS {
      */
     public static String crearListaDueños() throws Exception {
         listaDueños = dBD.consultaTodosDueños();
-
         String stringDueños = "";
+        String stringEquipos="";
         for (int x = 0; x < listaDueños.size(); x++) {
             listaEquipos = eBD.consultaEquiposCodDueño(listaDueños.get(x).getCod_dueño());
-            listaDueños.get(x).setLista_equipos(listaEquipos);
-            stringDueños = stringDueños + listaDueños.get(x).toString();
+            for (int y = 0; y < listaEquipos.size(); y++){
+                stringEquipos+=listaEquipos.get(y).getNombre()+", ";
+            }
+            stringDueños += "codigo: " + listaDueños.get(x).getCod_dueño() + " nombre: " + listaDueños.get(x).getNombre() + " apellido: " + listaDueños.get(x).getApellido() + " telefono: " + listaDueños.get(x).getTelefono() + " equipos: " + stringEquipos + "\n";
         }
         return stringDueños;
     }
@@ -478,7 +493,7 @@ public class JEMS {
         listaUsuarios = uBD.consultaTodosUsuarios();
         String stringUsuarios = "";
         for (int x = 0; x < listaUsuarios.size(); x++) {
-            listaUsuarios.get(x).toString();
+            stringUsuarios += listaUsuarios.get(x).toString();
         }
         return stringUsuarios;
     }
@@ -527,7 +542,7 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static Liga cogerNombreLiga() throws Exception {
-        //l = lBD.cogerLiga();
+        l = lBD.consultarLiga();
         return l;
     }
 
@@ -544,8 +559,53 @@ public class JEMS {
         return existir;
     }
 
+    /**
+     * Funcion para buscar en la base de datos la jornada a dar a la vista al
+     * usuario
+     *
+     * @return objeto Jornada
+     */
     public static Jornada consultarJornada() {
-        //jor = jorBD.consultarJornada();
+        //listaJornadas = jorBD.consultarJornada();
         return jor;
+    }
+
+    /**
+     * Funcion para buscar en la base de datos al administrador de login.
+     *
+     * @param fecha (reuqerido) fecha inicio de la liga
+     * @return String para confirmar que se ha creado la liga
+     * @throws ParseException hereda excepciones
+     * @throws Exception hereda excepciones
+     */
+    public static String crearLigaVacia(String fecha) throws ParseException, Exception {
+        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        Date fechaInicio = format.parse(fecha);
+        String mensaje = LigaBD.crearLigaVacia(fechaInicio);
+        return mensaje;
+    }
+
+    /**
+     * Funcion para buscar en la base de datos todos los datos de las jornadas
+     * existenets
+     *
+     * @return ArrayList del obejto jornada
+     */
+    public static ArrayList<Jornada> buscarJornadas() throws Exception {
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = jorBD.consultarJornadas();
+        return jornadas;
+    }
+
+    /**
+     * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido
+     *
+     * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
+     * @throws Exception hereda excepciones
+     */
+    public static void introducirResultado(String nombreEquipo) throws Exception {
+        e = eBD.buscarCodigoPorNombre(nombreEquipo);
+        eBD.modificarPuntuacion(e);
     }
 }
