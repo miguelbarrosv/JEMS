@@ -54,7 +54,8 @@ public class V_Usuario extends javax.swing.JFrame {
 
         bLiga.setBackground(new java.awt.Color(252, 124, 0));
         bLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bLiga.setText("Ver Clasificación");
+        bLiga.setForeground(new java.awt.Color(255, 255, 255));
+        bLiga.setText("VER CLASIFICACIÓN");
         bLiga.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bLiga.setBorderPainted(false);
         bLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -69,7 +70,8 @@ public class V_Usuario extends javax.swing.JFrame {
 
         bJornada.setBackground(new java.awt.Color(252, 124, 0));
         bJornada.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bJornada.setText("Ver Jornadas");
+        bJornada.setForeground(new java.awt.Color(255, 255, 255));
+        bJornada.setText("VER JORNADAS");
         bJornada.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bJornada.setBorderPainted(false);
         bJornada.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

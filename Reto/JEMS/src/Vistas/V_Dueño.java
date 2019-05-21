@@ -142,6 +142,7 @@ public class V_Dueño extends javax.swing.JFrame {
 
         bAceptar.setBackground(new java.awt.Color(252, 124, 0));
         bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bAceptar.setBorderPainted(false);
@@ -157,6 +158,7 @@ public class V_Dueño extends javax.swing.JFrame {
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
         bVolver.setText("VOLVER");
         bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bVolver.setBorderPainted(false);
@@ -267,19 +269,20 @@ public class V_Dueño extends javax.swing.JFrame {
                 switch (ope) {
                     case "modificar":
                         JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                        ControladorVistas.abrirVentanaAviso("Dueño modificado con exito!");
                         break;
                     case "alta":
                         JEMS.altaDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                        ControladorVistas.abrirVentanaAviso("Dueño dado de alta con exito!");
                         break;
                     case "baja":
                         JEMS.bajaDueño(Integer.parseInt(tfCodigoDueño.getText()));
-                        JOptionPane.showMessageDialog(this, "Dueño borrado");
-
+                        ControladorVistas.abrirVentanaAviso("Dueño dado de baja con exito!");
                         break;
                 }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
     /**
@@ -334,7 +337,7 @@ public class V_Dueño extends javax.swing.JFrame {
                     break;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
     }//GEN-LAST:event_tfCodigoDueñoActionPerformed
 

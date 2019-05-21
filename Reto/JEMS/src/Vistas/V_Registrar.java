@@ -79,14 +79,14 @@ public class V_Registrar extends javax.swing.JFrame {
             if (tfUsuarioRegistrase.getText().equals(usuario.getUsuario())) {
                 tfUsuarioRegistrase.setForeground(Color.red);
                 flag = false;
-                JOptionPane.showMessageDialog(this, "Este usuario ya esta en uso");
+                ControladorVistas.abrirVentanaAviso("Este usuario ya esta en uso!");
             }
 
             if (convertirContraseña(pfContraseñaRegistrase.getPassword()) != convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) {
                 pfContraseñaRegistrase.setForeground(Color.red);
                 pfContraseñaRepetidaRegistrase.setForeground(Color.red);
                 flag = false;
-                JOptionPane.showMessageDialog(this, "Ambas contraseñas han de coincidir");
+                ControladorVistas.abrirVentanaAviso("Ambas contraseñas han de coincidir!");
             }
         } catch (Exception e) {
 /* forma Eric
@@ -104,7 +104,7 @@ public class V_Registrar extends javax.swing.JFrame {
                 }
         } catch (Exception e) { */    
 
-            System.out.println("problemas");
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
 
         return flag;

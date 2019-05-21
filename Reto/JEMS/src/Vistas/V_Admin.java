@@ -107,7 +107,8 @@ public class V_Admin extends javax.swing.JFrame {
 
         bCrearLiga.setBackground(new java.awt.Color(252, 124, 0));
         bCrearLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bCrearLiga.setText("Crear Liga");
+        bCrearLiga.setForeground(new java.awt.Color(255, 255, 255));
+        bCrearLiga.setText("CREAR LIGA");
         bCrearLiga.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bCrearLiga.setBorderPainted(false);
         bCrearLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

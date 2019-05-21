@@ -81,7 +81,8 @@ public class V_Lista extends javax.swing.JFrame {
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bVolver.setText("Volver");
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
+        bVolver.setText("VOLVER");
         bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bVolver.setBorderPainted(false);
         bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -136,7 +137,7 @@ public class V_Lista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        // ControladorVistas.cerrarVentanaJugador(); 
+        ControladorVistas.cerrarVentanaJugador(); 
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
