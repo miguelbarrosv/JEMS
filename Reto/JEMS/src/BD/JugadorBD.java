@@ -63,6 +63,27 @@ public class JugadorBD {
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
+    
+    /**
+     * Función para insertar jugador sin equipo.
+     *
+     * @param j (requerido) objeto de clase Jugador.
+     * @throws Exception hereda excepciones.
+     */
+    public void insertarJugadorSinEquipo(Jugador j) throws Exception {
+        bdr.conectar();
+        String plantilla = "INSERT INTO JUGADOR(NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO) VALUES (?,?,?,?,?,?,?,)";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, j.getNombre());
+        sentenciaPre.setString(2, j.getApellido());
+        sentenciaPre.setString(3, j.getNickname());
+        sentenciaPre.setInt(4, j.getSueldo());
+        sentenciaPre.setString(5, j.getNacionalidad());
+        sentenciaPre.setString(6, j.getEstado());
+        sentenciaPre.setString(7, j.getTelefono());
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+    }
 
     /**
      * Función que busca un jugador en la base de datos.

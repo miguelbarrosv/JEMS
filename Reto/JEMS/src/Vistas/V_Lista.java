@@ -35,6 +35,10 @@ public class V_Lista extends javax.swing.JFrame {
      * @param lista lista de los jugadores, equipos, dueños o usuarios
      */
     public V_Lista(String lista) {
+        setUndecorated(true);
+        initComponents();
+        myInitComponents();
+        taListaJugadores.setEditable(false);
         taListaJugadores.setText(lista);
     }
 

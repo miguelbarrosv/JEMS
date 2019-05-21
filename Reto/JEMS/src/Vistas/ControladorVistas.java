@@ -270,7 +270,7 @@ public class ControladorVistas {
      *
      */
     public static void abrirVentanaAviso(String mensaje) {
-        vAviso = new V_Aviso();
+        vAviso = new V_Aviso(mensaje);
         vAviso.setVisible(true);
     }
     
