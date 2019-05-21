@@ -478,7 +478,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
-        // TODO add your handling code here:
+        ControladorVistas.mostrarVentanaCreacion();
     }//GEN-LAST:event_bCrearLigaActionPerformed
 /**
      * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar

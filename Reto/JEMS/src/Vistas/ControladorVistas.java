@@ -33,8 +33,8 @@ public class ControladorVistas {
     private static V_Admin vAdmin;
     private static V_Usuario vUsuario;
     private static V_Lista vLista;
-    
-
+    private static V_CrearLiga vCrearLiga;
+    private static V_IntroducirResultado vIntroducirResultado;
  /**
  * Funcion que nos dirije a la ventana V_Login para acceder al sistema
  * 
@@ -236,5 +236,20 @@ public class ControladorVistas {
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
     } 
-    
+    /**
+ * Funcion que abre la ventana V_CrearLiga
+ * 
+ */
+    public static void mostrarVentanaCreacion() {
+        vCrearLiga = new V_CrearLiga();
+        vCrearLiga.setVisible(true);
+    }
+    /**
+ * Funcion que abre la ventana V_IntroducirResultado
+ * 
+ */
+    public static void mostrarVentanaResultado() {
+        vIntroducirResultado = new V_IntroducirResultado();
+        vIntroducirResultado.setVisible(true);
+    }
 }

@@ -5,6 +5,11 @@
  */
 package Vistas;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import jems.JEMS;
+
 /**
  *
  * @author migue
@@ -27,21 +32,58 @@ public class V_CrearLiga extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tfFechaInicio = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        bCrear = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Fecha Inicio de la liga: ");
+
+        bCrear.setText("Crear");
+        bCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bCrear)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(33, 33, 33)
+                        .addComponent(tfFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(60, 60, 60)
+                .addComponent(bCrear)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
+        try {
+           String mensaje = JEMS.crearLigaVacia(tfFechaInicio.getText());
+           JOptionPane.showMessageDialog(this, mensaje);
+        } catch (Exception ex) {
+            Logger.getLogger(V_CrearLiga.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bCrearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +122,8 @@ public class V_CrearLiga extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCrear;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField tfFechaInicio;
     // End of variables declaration//GEN-END:variables
 }
