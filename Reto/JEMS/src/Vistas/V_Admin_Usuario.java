@@ -44,7 +44,9 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     public V_Admin_Usuario(String operacion) {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
         ope = operacion;
         switch (ope) {
             case "modificar":
