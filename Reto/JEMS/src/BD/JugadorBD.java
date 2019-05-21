@@ -60,32 +60,8 @@ public class JugadorBD {
         sentenciaPre.setString(6, j.getEstado());
         sentenciaPre.setString(7, j.getTelefono());
         sentenciaPre.setInt(8, j.getEquipo().getCod_equipo());
+        sentenciaPre.executeUpdate();
         bdr.cerrarCon();
-    }
-
-    /**
-     * Función que busca un jugador en la base de datos.
-     *
-     * @param j (requerido) objeto de clase Jugador.
-     * @return devuelve un objeto clase jugador.
-     * @throws Exception hewreda excepciones.
-     */
-    public Jugador consultarJugador(Jugador j) throws Exception {
-        bdr.conectar();
-
-        String plantilla = "SELECT * FROM JUGADOR WHERE COD_JUGADOR= ?";
-        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        sentenciaPre.setInt(1, j.getCod_jugador());
-
-        resultado = sentenciaPre.executeQuery();
-        if (resultado.next()) {
-            j = crearObjeto();
-        } else {
-            j = null;
-        }
-
-        bdr.cerrarCon();
-        return j;
     }
 
     /**
@@ -122,7 +98,7 @@ public class JugadorBD {
      */
     public Jugador crearObjeto() throws Exception {
         Jugador j = new Jugador();
-
+        j.setCod_jugador(resultado.getInt("COD_JUGADOR"));
         j.setNombre(resultado.getString("NOMBRE"));
         j.setApellido(resultado.getString("APELLIDO"));
         j.setNickname(resultado.getString("NICKNAME"));

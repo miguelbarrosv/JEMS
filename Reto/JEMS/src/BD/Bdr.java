@@ -31,10 +31,10 @@ public class Bdr {
     public void conectar() {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");
-            Statement sentencia = con.createStatement();
-            sentencia.executeUpdate("INSERT INTO ADMINISTRADOR (USUARIO, CONTRASEÑA)VALUES ('A', 'A')");
+            String url = "jdbc:oracle:thin:@10.10.10.9:1521:db12102";
+            con = DriverManager.getConnection(url, "Scott", "oracle");
+            /*String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
+            con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");*/
        
        
         } catch (Exception e) {
