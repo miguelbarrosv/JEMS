@@ -55,7 +55,9 @@ public class V_Dueño extends javax.swing.JFrame {
      * @param operacion (requerido) operacion a realizar
      */
     public V_Dueño(String operacion) {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
         ope = operacion;
         switch (ope) {
             case "modificar":
