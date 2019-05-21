@@ -132,9 +132,12 @@ public class V_Dueño extends javax.swing.JFrame {
         }
 
         //En la bdd tenemos el nombre como varchar 20
-        //Consideramos que no deba ser mayor a 20 el nombre
-        if (tfNombre.getText().length() > 20) {
-            throw new DatoNoValido("El nombre no puede ser superior a 20 caracteres.");
+        //Consideramos que no deba ser mayor a 20
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNombre.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El nombre tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
 
     }
@@ -152,10 +155,12 @@ public class V_Dueño extends javax.swing.JFrame {
 
         //En la bdd tenemos el apellido como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfApellido.getText().length() > 20) {
-            throw new DatoNoValido("El apellido no puede ser superior a 20 caracteres.");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfApellido.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El apellido tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
-
     }
 
     /**
