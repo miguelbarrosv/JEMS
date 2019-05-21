@@ -138,6 +138,7 @@ public class JEMS {
         listaDueños = dBD.consultaTodosDueños();
         return listaDueños;
     }
+
     /**
      * Funcion que llama a la funcion de DueñoBD para rellenar la lista de
      * dueños de la base de datos.
@@ -555,6 +556,7 @@ public class JEMS {
         //jor = jorBD.consultarJornada();
         return jor;
     }
+
     public static String crearLigaVacia(String fecha) throws ParseException, Exception {
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
@@ -562,14 +564,15 @@ public class JEMS {
         String mensaje = LigaBD.crearLigaVacia(fechaInicio);
         return mensaje;
     }
-    public static  ArrayList<Jornada> buscarJornadas() {
+
+    public static ArrayList<Jornada> buscarJornadas() {
         ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
         //jornadas = jorBD.buscarJornadas();
         return jornadas;
     }
+
     public static void introducirResultado(String nombreEquipo) throws Exception {
         e = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(e);
     }
-  }
-
+}

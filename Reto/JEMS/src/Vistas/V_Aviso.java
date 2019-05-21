@@ -55,6 +55,11 @@ public class V_Aviso extends javax.swing.JFrame {
         bAceptar.setBorderPainted(false);
         bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bAceptar.setFocusPainted(false);
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
         getContentPane().add(bAceptar);
         bAceptar.setBounds(130, 170, 140, 35);
 
@@ -74,6 +79,10 @@ public class V_Aviso extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
      * @param args the command line arguments

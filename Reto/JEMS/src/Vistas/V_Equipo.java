@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import Excepciones.*;
 import UML.Dueño;
 import UML.Equipo;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -31,11 +33,11 @@ public class V_Equipo extends javax.swing.JFrame {
      * Creates new form V_Equipo
      */
     public V_Equipo() {
-        
+
         initComponents();
-        
+
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -106,37 +108,92 @@ public class V_Equipo extends javax.swing.JFrame {
         }
     }
 
-    public boolean validarDatos() {
-        if (validarNombre(tfNombre.getText()) && validarPuntuacion(tfPuntuacion.getText()) && validarNacionalidad(tfNacionalidad.getText()) && validarPresupuesto(tfPresupuesto.getText()) && validarDueño(cbDueño.getSelectedIndex())) {
+    /**
+     * Funcion para validar los datos del jugador
+     *
+     * @return True Si las validaciones son correctas
+     * @return False Si las validaciones dan error
+     */
+    private boolean validarDatos() {
+
+        /*
+        Introducimos todas las funciones de validar para omprobarlas y llamar solo a validarDatos();
+         */
+        try {
+            validarNombre();
+            validarNacionalidad();
+            validarPresupuesto();
             return true;
-        } else {
+            /*
+            Catch con excepciones personalizadas
+             */
+        } catch (CampoVacio e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMensaje());
             return false;
+        } catch (DatoNoValido e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMensaje());
+            return false;
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            return false;
+        }
+
+    }
+
+    /**
+     * Funcion que trata de validar el nombre del equipo, si el nombre esta
+     * vacio o es superior a 20 caracteres saltara la excepcion.
+     *
+     * @throws Exception hereda de la clase Exception
+     */
+    private void validarNombre() throws Exception {
+        if (tfNombre.getText().isEmpty()) {
+            throw new CampoVacio("El nombre del equipo es obligatorio*.");
+        }
+
+        //En la bdd tenemos el nombre como varchar 20
+        //Consideramos que no deba ser mayor a 20 el nombre
+        if (tfNombre.getText().length() > 20) {
+            throw new DatoNoValido("El nombre no puede ser superior a 20 caracteres.");
+        }
+
+    }
+
+    /**
+     * Funcion que trata de validar la nacionalidad del dequipo, si la
+     * nacionalidad esta vacia o es superior a 20 caracteres saltara la
+     * excepcion.
+     *
+     * @throws Exception hereda de la clase Exception
+     */
+    private void validarNacionalidad() throws Exception {
+        if (tfNacionalidad.getText().isEmpty()) {
+            throw new CampoVacio("La nacionalidad del jugador es obligatoria*");
+        }
+
+        //En la bdd tenemos la nacionalidad como varchar 20
+        //Consideramos que no deba ser mayor a 20
+        if (tfNacionalidad.getText().length() > 20) {
+            throw new DatoNoValido("La nacionalidad no puede ser superior a 20 datos");
         }
     }
 
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
-
-    public boolean validarPuntuacion(String puntuacion) {
-        return true;
-    }
-
-    public boolean validarNacionalidad(String nacionalidad) {
-        return true;
-    }
-
-    public boolean validarPresupuesto(String presupuesto) {
-        return true;
-    }
-
-    public boolean validarDueño(int posicion) {
-        if (posicion == -1) {
-            return false;
-        } else {
-            return true;
+    /**
+     * Funcion que trata de validar el sueldo del equipo, si el sueldo esta
+     * vacio o es superior a 6 digitos saltara la excepcion.
+     *
+     * @throws Exception hereda de la clase Exception
+     */
+    private void validarPresupuesto() throws Exception {
+        if (tfPresupuesto.getText().isEmpty()) {
+            throw new CampoVacio("El presupuesto es obligatorio*.");
         }
-    }    
+        //En la bdd tenemos el sueldo como number 6
+        //Consideramos que no deba ser mayor a 6
+        if (tfPresupuesto.getText().length() > 6) {
+            throw new DatoNoValido("El presupuesto no puede ser mayor a 6 digitos");
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -337,7 +394,7 @@ public class V_Equipo extends javax.swing.JFrame {
         try {
             if (validarDatos()) {
                 if (ope.compareToIgnoreCase("modificar") == 0) {
-                    JEMS.modificarEquipo(Integer.parseInt(tfCodigoEquipo.getText()),tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                    JEMS.modificarEquipo(Integer.parseInt(tfCodigoEquipo.getText()), tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
                     ControladorVistas.abrirVentanaAviso("Equipo modificado con exito!");
                 } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
