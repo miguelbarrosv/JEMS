@@ -67,7 +67,7 @@ public class V_Login extends javax.swing.JFrame {
     public int comprobarDatos() throws Exception {
         // Login usuario = 1 | Login admin = 2
         int comp = 0;
-//forma Joel
+        /*
         try {
             usuario = JEMS.consultarUsuarioPorNombre(tfUsuario.getText());
             if (tfUsuario.getText().equals(usuario.getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(usuario.getContraseña())) {
@@ -89,22 +89,22 @@ public class V_Login extends javax.swing.JFrame {
 
         } catch (Exception e) {
             System.out.println("problemas");
-        }
-/*forma Eric
+        }*/
+
         if (JEMS.conseguirDatosUsuarios(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword())) || JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
+            if (JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
+                comp = 2;
+            } else {
+                comp = 1;
+            }
         } else {
             tfUsuario.setForeground(Color.red);
             pfContraseña.setForeground(Color.red);
             comp = 0;
         }
-        if (JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
-            comp = 2;
-        } else {
-            comp = 1;
-        }*/
         return comp;
     }
-    
+
     private static Usuario usuario;
     private static Administrador administrador;
 
