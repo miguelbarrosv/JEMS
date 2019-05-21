@@ -33,7 +33,7 @@ public class V_Jugador extends javax.swing.JFrame {
         initComponents();
         
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
