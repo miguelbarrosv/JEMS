@@ -9,6 +9,7 @@ import Excepciones.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import UML.*;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import jems.JEMS;
@@ -24,12 +25,13 @@ import jems.JEMS;
  *
  */
 public class V_Jugador extends javax.swing.JFrame {
-
+    
+    private static ArrayList<Equipo> equipos;
     /**
      * Creates new form V_Jugador
      */
     public V_Jugador() {
-        setUndecorated(true);
+        
         initComponents();
         
     }
@@ -65,10 +67,14 @@ public class V_Jugador extends javax.swing.JFrame {
      *
      * @param operacion tipo de operacion
      */
-    public V_Jugador(String operacion) {
+    public V_Jugador(String operacion)throws Exception {
+        setUndecorated(true);
         initComponents();
         myInitComponents();
-        llenarCombo();
+        equipos = JEMS.getListaEquipos();
+        for (int i = 0; i < equipos.size(); i++) {
+            cbEquipo.insertItemAt(equipos.get(i).getNombre(), i);
+        }
         ope = operacion;
         switch (ope) {
             case "modificar":
@@ -222,18 +228,6 @@ public class V_Jugador extends javax.swing.JFrame {
 
     private boolean validarEquipo() {
         return false;
-    }
-
-    /**
-     * Funcion que se usa para llenar la combobox.
-     */
-    public void llenarCombo() {
-        //el numero de equipos presentes
-        int numero = JEMS.getNumeroEquipos();
-        //insertamos todos los equipos en la combobox
-        for (int x = 0; x < numero; x++) {
-            cbEquipo.insertItemAt(JEMS.getNombreEquipo(x), x);
-        }
     }
 
     public void validarJugador() {
@@ -497,10 +491,10 @@ public class V_Jugador extends javax.swing.JFrame {
             try {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                        JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
                         break;
                     case "alta":
-                        JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), cbEquipo.getSelectedIndex());
+                        JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
                         break;
                     case "baja":
                         JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));

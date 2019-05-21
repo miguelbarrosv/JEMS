@@ -131,6 +131,17 @@ public class JEMS {
         listaDueños = dBD.consultaTodosDueños();
         return listaDueños;
     }
+    /**
+     * Funcion que llama a la funcion de DueñoBD para rellenar la lista de
+     * dueños de la base de datos.
+     *
+     * @return devuelve la lista de dueños
+     * @throws Exception hereda excepciones
+     */
+    public static ArrayList<Equipo> getListaEquipos() throws Exception {
+        listaEquipos = eBD.consultaEquipos();
+        return listaEquipos;
+    }
 
     /**
      * Funcion que nos dirije a la clase modificacionJugador situado en
