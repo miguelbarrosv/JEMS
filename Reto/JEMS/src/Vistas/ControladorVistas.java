@@ -29,16 +29,16 @@ public class ControladorVistas {
     private static V_Jugador vJugador;
     private static V_Admin_Usuario vAdminUsuario;
     private static V_Liga vLiga;
-    private static V_Jornadas vJornadas; 
+    private static V_Jornadas vJornadas;
     private static V_Admin vAdmin;
     private static V_Usuario vUsuario;
     private static V_Lista vLista;
-    
+    private static V_Aviso vAviso;
 
- /**
- * Funcion que nos dirije a la ventana V_Login para acceder al sistema
- * 
- */
+    /**
+     * Funcion que nos dirije a la ventana V_Login para acceder al sistema
+     *
+     */
     public static void mostrarVentanaLogin() {
         vLogin = new V_Login();
         vLogin.setVisible(true);
@@ -130,8 +130,8 @@ public class ControladorVistas {
      * Funcion que muestra la ventana V_Liga.
      *
      */
-  public static void mostrarVentanaLiga() throws Exception {
-        vLiga= new V_Liga();
+    public static void mostrarVentanaLiga() throws Exception {
+        vLiga = new V_Liga();
         vLiga.setVisible(true);
     }
 
@@ -185,10 +185,10 @@ public class ControladorVistas {
     }
 
     /**
-
- * Funcion que cierra la ventana vAdminUsuario
- * 
- */
+     *
+     * Funcion que cierra la ventana vAdminUsuario
+     *
+     */
     public static void cerrarVentanaAdminUsuario() {
         vAdminUsuario.dispose();
 
@@ -204,37 +204,56 @@ public class ControladorVistas {
     public static void abrirVentanaLiga() throws Exception {
         vLiga = new V_Liga();
         vLiga.setVisible(true);
-    }  
-  
- /**
- * Funcion que muestra la ventana V_Admin
- * 
- */
+    }
+
+    /**
+     * Funcion que muestra la ventana V_Admin
+     *
+     */
     public static void mostrarVentanaAdmin() {
         vAdmin = new V_Admin();
         vAdmin.setVisible(true);
     }
+
     /**
- * Funcion que cierra la ventana v_Admin
- * 
- */
+     * Funcion que cierra la ventana v_Admin
+     *
+     */
     public static void cerrarVentanaAdmin() {
         vAdmin.dispose();
     }
+
     /**
- * Funcion que abre la ventana V_Usuario
- * 
- */
+     * Funcion que abre la ventana V_Usuario
+     *
+     */
     public static void mostrarVentanaUsuario() {
         vUsuario = new V_Usuario();
         vUsuario.setVisible(true);
     }
+
     /**
- * Funcion que cierra la ventana V_Login
- * 
- */
+     * Funcion que cierra la ventana V_Login
+     *
+     */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
-    } 
+    }
     
+    /**
+     * Funcion que abre la ventana V_Aviso
+     *
+     */
+    public static void abrirVentanaAviso(String mensaje) {
+        vAviso = new V_Aviso();
+        vAviso.setVisible(true);
+    }
+    
+    /**
+     * Funcion que abre la ventana V_Aviso
+     *
+     */
+    public static void cerrarVentanaAviso() {
+        vAviso.dispose();
+    }
 }

@@ -8,7 +8,6 @@ package Vistas;
 import javax.swing.BorderFactory;
 import UML.*;
 import java.awt.Color;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jems.JEMS;
@@ -104,9 +103,6 @@ public class V_Login extends javax.swing.JFrame {
         }
         return comp;
     }
-
-    private static Usuario usuario;
-    private static Administrador administrador;
 
     /**
      * This method is called from within the constructor to initialize the form.

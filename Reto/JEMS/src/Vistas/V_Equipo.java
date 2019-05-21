@@ -172,6 +172,7 @@ public class V_Equipo extends javax.swing.JFrame {
 
         bAceptar.setBackground(new java.awt.Color(252, 124, 0));
         bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bAceptar.setBorderPainted(false);
@@ -187,6 +188,7 @@ public class V_Equipo extends javax.swing.JFrame {
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
         bVolver.setText("VOLVER");
         bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bVolver.setBorderPainted(false);
@@ -334,15 +336,17 @@ public class V_Equipo extends javax.swing.JFrame {
             if (validarDatos()) {
                 if (ope.compareToIgnoreCase("modificar") == 0) {
                     JEMS.modificarEquipo(Integer.parseInt(tfCodigoEquipo.getText()),tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                    ControladorVistas.abrirVentanaAviso("Equipo modificado con exito!");
                 } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                    ControladorVistas.abrirVentanaAviso("Equipo dado de alta con exito!");
                 } else if (ope.compareToIgnoreCase("baja") == 0) {
                     JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
-                    JOptionPane.showMessageDialog(this, "Equipo borrado");
+                    ControladorVistas.abrirVentanaAviso("Equipo dado de baja con exito!");
                 }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -399,7 +403,7 @@ public class V_Equipo extends javax.swing.JFrame {
                     break;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
 
     }//GEN-LAST:event_tfCodigoEquipoActionPerformed
