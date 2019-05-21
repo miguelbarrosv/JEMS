@@ -127,7 +127,8 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
         bAceptar.setBackground(new java.awt.Color(252, 124, 0));
         bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bAceptar.setText("Aceptar");
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bAceptar.setBorderPainted(false);
         bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -142,7 +143,8 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bVolver.setText("Volver");
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
+        bVolver.setText("VOLVER");
         bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bVolver.setBorderPainted(false);
         bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -244,17 +246,20 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                 switch (ope) {
                     case "modificar":
                         JEMS.modificarUsuario(Integer.parseInt(tfCodigoUsuario.getText()),tfUsuario.getText(), tfContraseña.getText());
+                        ControladorVistas.abrirVentanaAviso("Usuario modificado con exito!");
                         break;
                     case "alta":
                         JEMS.altaUsuario(tfUsuario.getText(), tfContraseña.getText());
+                        ControladorVistas.abrirVentanaAviso("Usuario dado de alta con exito!");
                         break;
                     case "baja":
                         JEMS.bajaUsuario(Integer.parseInt(tfCodigoUsuario.getText()));
+                        ControladorVistas.abrirVentanaAviso("Usuario dado de baja con exito!");
                         break;
                 }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
@@ -287,7 +292,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                     break;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
     }//GEN-LAST:event_tfCodigoUsuarioActionPerformed
 

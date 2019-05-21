@@ -155,8 +155,8 @@ public class V_Jugador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMensaje());
             return false;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error a la hora de validar los datos: " + e.getMessage());
-            return false;
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+          return false;
         }
 
     }
@@ -301,13 +301,13 @@ public class V_Jugador extends javax.swing.JFrame {
         try {
             boolean mensaje = JEMS.consultarJugadorLista(Integer.parseInt(tfCodigoJugador.getText()));
             if (mensaje = false) {
-                JOptionPane.showMessageDialog(this, "Jugador no existe");
+                ControladorVistas.abrirVentanaAviso("El jugador no existe!");
             } else {
                 jugador = JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
             }
             JOptionPane.showMessageDialog(this, mensaje);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
     }
     private static String ope;
@@ -374,7 +374,8 @@ public class V_Jugador extends javax.swing.JFrame {
 
         bAceptar.setBackground(new java.awt.Color(252, 124, 0));
         bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bAceptar.setText("Aceptar");
+        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bAceptar.setBorderPainted(false);
         bAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -389,7 +390,8 @@ public class V_Jugador extends javax.swing.JFrame {
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bVolver.setText("Volver");
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
+        bVolver.setText("VOLVER");
         bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bVolver.setBorderPainted(false);
         bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -559,19 +561,22 @@ public class V_Jugador extends javax.swing.JFrame {
                 switch (ope) {
                     case "modificar":
                         JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                        ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");    
                         break;
                     case "alta":
                         JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                        ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
                         break;
                     case "baja":
                         JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                        ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
                         break;
                     case "consulta":
-                        JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                        JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));                        
                         break;
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+                ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
             }
         }
     }//GEN-LAST:event_bAceptarActionPerformed

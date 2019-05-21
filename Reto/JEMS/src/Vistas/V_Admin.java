@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import UML.Jornada;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,12 +30,12 @@ public class V_Admin extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
     }
-    
+
     private static String operacion;
 
     /**
@@ -47,6 +49,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
@@ -85,6 +88,16 @@ public class V_Admin extends javax.swing.JFrame {
         mIntroducirResultado = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        miJornada1 = new javax.swing.JMenuItem();
+        miJornada2 = new javax.swing.JMenuItem();
+        miJornada3 = new javax.swing.JMenuItem();
+        miJornada4 = new javax.swing.JMenuItem();
+        miJornada5 = new javax.swing.JMenuItem();
+        miJornada6 = new javax.swing.JMenuItem();
+        miJornada7 = new javax.swing.JMenuItem();
+        miJornada8 = new javax.swing.JMenuItem();
+        miJornada9 = new javax.swing.JMenuItem();
+        miJornada10 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         miVisualizarLiga = new javax.swing.JMenuItem();
         miVisualizarClasificacion = new javax.swing.JMenuItem();
@@ -93,6 +106,8 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem15.setText("jMenuItem15");
 
         jMenuItem16.setText("jMenuItem16");
+
+        jMenuItem10.setText("jMenuItem10");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -107,7 +122,8 @@ public class V_Admin extends javax.swing.JFrame {
 
         bCrearLiga.setBackground(new java.awt.Color(252, 124, 0));
         bCrearLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bCrearLiga.setText("Crear Liga");
+        bCrearLiga.setForeground(new java.awt.Color(255, 255, 255));
+        bCrearLiga.setText("CREAR LIGA");
         bCrearLiga.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bCrearLiga.setBorderPainted(false);
         bCrearLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -372,6 +388,86 @@ public class V_Admin extends javax.swing.JFrame {
         mIntroducirResultado.add(jSeparator1);
         mIntroducirResultado.add(jSeparator5);
 
+        miJornada1.setText("Jornada 1");
+        miJornada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada1ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada1);
+
+        miJornada2.setText("Jornada 2");
+        miJornada2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada2ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada2);
+
+        miJornada3.setText("Jornada 3");
+        miJornada3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada3ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada3);
+
+        miJornada4.setText("Jornada 4");
+        miJornada4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada4ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada4);
+
+        miJornada5.setText("Jornada 5");
+        miJornada5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada5ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada5);
+
+        miJornada6.setText("Jornada 6");
+        miJornada6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada6ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada6);
+
+        miJornada7.setText("Jornada 7");
+        miJornada7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada7ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada7);
+
+        miJornada8.setText("Jornada 8");
+        miJornada8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada8ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada8);
+
+        miJornada9.setText("Jornada 9");
+        miJornada9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada9ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada9);
+
+        miJornada10.setText("Jornada 10");
+        miJornada10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada10ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada10);
+
         jMenuBar1.add(mIntroducirResultado);
 
         jMenu7.setBorder(null);
@@ -408,39 +504,61 @@ public class V_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
-     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miModificarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarJugadorActionPerformed
-        operacion = "modificar";
-        ControladorVistas.mostrarVentanaJugador(operacion);
+        try {
+            operacion = "modificar";
+            ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miModificarJugadorActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miBajaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaJugadorActionPerformed
-        operacion = "baja";
-        ControladorVistas.mostrarVentanaJugador(operacion);
+        try {
+            operacion = "baja";
+            ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miBajaJugadorActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaAdminUsuario pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaAdminUsuario pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miBajaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaUsuarioActionPerformed
         operacion = "baja";
         ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miBajaUsuarioActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miAltaJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaJugadorActionPerformed
-        operacion = "alta";
-        ControladorVistas.mostrarVentanaJugador(operacion);
+        try {
+            operacion = "alta";
+            ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miAltaJugadorActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
@@ -452,8 +570,10 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miModificarEquipoActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miAltaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaEquipoActionPerformed
@@ -464,8 +584,10 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miAltaEquipoActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaEquipo pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miBajaEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaEquipoActionPerformed
@@ -481,16 +603,20 @@ public class V_Admin extends javax.swing.JFrame {
         operacion = "modificar";
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miModificarDueñoActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miAltaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAltaDueñoActionPerformed
         operacion = "alta";
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miAltaDueñoActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miBajaDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miBajaDueñoActionPerformed
@@ -509,18 +635,26 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_miAltaUsuarioActionPerformed
 
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
-        // TODO add your handling code here:
+        ControladorVistas.mostrarVentanaCreacion();
     }//GEN-LAST:event_bCrearLigaActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miConsultarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadorActionPerformed
-        operacion = "consulta";
-        ControladorVistas.mostrarVentanaJugador(operacion);
+        try {
+            operacion = "consulta";
+            ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+        }
     }//GEN-LAST:event_miConsultarJugadorActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listajugadores
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole
+     * listajugadores
+     *
      * @param evt pulsar el boton
      */
     private void miConsultarJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarJugadoresActionPerformed
@@ -541,8 +675,10 @@ public class V_Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miConsultarEquipoActionPerformed
 
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listaEquipos
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole
+     * listaEquipos
+     *
      * @param evt pulsar el boton
      */
 
@@ -554,16 +690,20 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarEquiposActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaDueño pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miConsultarDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarDueñoActionPerformed
         operacion = "consulta";
         ControladorVistas.mostrarVentanaDueño(operacion);
     }//GEN-LAST:event_miConsultarDueñoActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listaDueños
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole
+     * listaDueños
+     *
      * @param evt pulsar el boton
      */
     private void miConsultarDueñosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarDueñosActionPerformed
@@ -574,16 +714,20 @@ public class V_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_miConsultarDueñosActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaAdminUsuario pasandole el parametro operacion para saber el tipo de operacion a realizar
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaAdminUsuario pasandole el
+     * parametro operacion para saber el tipo de operacion a realizar
+     *
      * @param evt pulsar el boton
      */
     private void miConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarUsuarioActionPerformed
         operacion = "consulta";
         ControladorVistas.mostrarVentanaAdminUsuario(operacion);
     }//GEN-LAST:event_miConsultarUsuarioActionPerformed
-/**
-     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole listaUsuarios
+    /**
+     * Funcion que nos dirije a la clase mostrarVentanaLista pasandole
+     * listaUsuarios
+     *
      * @param evt pulsar el boton
      */
     private void miConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarUsuariosActionPerformed
@@ -612,8 +756,78 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void mIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mIntroducirResultadoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_mIntroducirResultadoActionPerformed
+
+    private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 10;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada10ActionPerformed
+
+    private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 1;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada1ActionPerformed
+
+    private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 2;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada2ActionPerformed
+
+    private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 3;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada3ActionPerformed
+
+    private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 4;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada4ActionPerformed
+
+    private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 5;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada5ActionPerformed
+
+    private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 6;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada6ActionPerformed
+
+    private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 7;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada7ActionPerformed
+
+    private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 8;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada8ActionPerformed
+
+    private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 9;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -662,6 +876,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -690,6 +905,16 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarJugadores;
     private javax.swing.JMenuItem miConsultarUsuario;
     private javax.swing.JMenuItem miConsultarUsuarios;
+    private javax.swing.JMenuItem miJornada1;
+    private javax.swing.JMenuItem miJornada10;
+    private javax.swing.JMenuItem miJornada2;
+    private javax.swing.JMenuItem miJornada3;
+    private javax.swing.JMenuItem miJornada4;
+    private javax.swing.JMenuItem miJornada5;
+    private javax.swing.JMenuItem miJornada6;
+    private javax.swing.JMenuItem miJornada7;
+    private javax.swing.JMenuItem miJornada8;
+    private javax.swing.JMenuItem miJornada9;
     private javax.swing.JMenuItem miModificarDueño;
     private javax.swing.JMenuItem miModificarEquipo;
     private javax.swing.JMenuItem miModificarJugador;

@@ -38,7 +38,7 @@ public class LigaBD {
      * @return devuelve un string con el mensaje de la creacion de la liga
      * @throws Exception hereda excepciones
      */
-    public String crearLigaVacia(Date fechaInicioLiga) throws Exception {
+    public static String crearLigaVacia(Date fechaInicioLiga) throws Exception {
         java.sql.Date sDate = convertUtilToSql(fechaInicioLiga);
         bdr.conectar();
         CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?)}");

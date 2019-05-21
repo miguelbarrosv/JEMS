@@ -23,7 +23,14 @@ package jems;
 import Vistas.*;
 import BD.*;
 import UML.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class JEMS {
 
@@ -548,4 +555,21 @@ public class JEMS {
         //jor = jorBD.consultarJornada();
         return jor;
     }
-}
+    public static String crearLigaVacia(String fecha) throws ParseException, Exception {
+        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        Date fechaInicio = format.parse(fecha);
+        String mensaje = LigaBD.crearLigaVacia(fechaInicio);
+        return mensaje;
+    }
+    public static  ArrayList<Jornada> buscarJornadas() {
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        //jornadas = jorBD.buscarJornadas();
+        return jornadas;
+    }
+    public static void introducirResultado(String nombreEquipo) throws Exception {
+        e = eBD.buscarCodigoPorNombre(nombreEquipo);
+        eBD.modificarPuntuacion(e);
+    }
+  }
+
