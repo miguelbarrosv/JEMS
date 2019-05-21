@@ -31,11 +31,11 @@ public class V_Equipo extends javax.swing.JFrame {
      * Creates new form V_Equipo
      */
     public V_Equipo() {
-        
+
         initComponents();
-        
+
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -92,6 +92,8 @@ public class V_Equipo extends javax.swing.JFrame {
                 break;
             case "alta":
                 tfCodigoEquipo.setVisible(false);
+                tfPuntuacion.setText(0 + "");
+                tfPuntuacion.setEditable(false);
                 bAceptar.setEnabled(true);
                 break;
             case "consulta":
@@ -136,7 +138,7 @@ public class V_Equipo extends javax.swing.JFrame {
         } else {
             return true;
         }
-    }    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -337,7 +339,7 @@ public class V_Equipo extends javax.swing.JFrame {
         try {
             if (validarDatos()) {
                 if (ope.compareToIgnoreCase("modificar") == 0) {
-                    JEMS.modificarEquipo(Integer.parseInt(tfCodigoEquipo.getText()),tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
+                    JEMS.modificarEquipo(Integer.parseInt(tfCodigoEquipo.getText()), tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
                     ControladorVistas.abrirVentanaAviso("Equipo modificado con exito!");
                 } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());

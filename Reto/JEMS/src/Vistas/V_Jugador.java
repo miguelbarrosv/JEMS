@@ -156,7 +156,7 @@ public class V_Jugador extends javax.swing.JFrame {
             return false;
         } catch (Exception e) {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-          return false;
+            return false;
         }
 
     }
@@ -466,6 +466,11 @@ public class V_Jugador extends javax.swing.JFrame {
         rbVacante.setText("Vacante");
         rbVacante.setBorder(null);
         rbVacante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbVacante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbVacanteActionPerformed(evt);
+            }
+        });
         getContentPane().add(rbVacante);
         rbVacante.setBounds(870, 350, 100, 30);
 
@@ -474,6 +479,11 @@ public class V_Jugador extends javax.swing.JFrame {
         rbOcupado.setText("Ocupado");
         rbOcupado.setBorder(null);
         rbOcupado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbOcupado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbOcupadoActionPerformed(evt);
+            }
+        });
         getContentPane().add(rbOcupado);
         rbOcupado.setBounds(1010, 350, 110, 30);
 
@@ -553,18 +563,40 @@ public class V_Jugador extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         if (rbOcupado.isSelected()) {
             estado = "ocupado";
+            if (validarDatos()) {
+                try {
+                    switch (ope) {
+                        case "modificar":
+                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                            ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
+                            break;
+                        case "alta":
+                            JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                            ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
+                            break;
+                        case "baja":
+                            JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                            ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
+                            break;
+                        case "consulta":
+                            JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                            break;
+                    }
+                } catch (Exception e) {
+                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+                }
+            }
         } else if (rbVacante.isSelected()) {
             estado = "vacante";
-        }
-        if (validarDatos()) {
+            if (validarDatos()) {
             try {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
-                        ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");    
+                        JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                        ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
                         break;
                     case "alta":
-                        JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                        JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
                         ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
                         break;
                     case "baja":
@@ -572,13 +604,15 @@ public class V_Jugador extends javax.swing.JFrame {
                         ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
                         break;
                     case "consulta":
-                        JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));                        
+                        JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
                         break;
                 }
             } catch (Exception e) {
                 ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
             }
         }
+        }
+
     }//GEN-LAST:event_bAceptarActionPerformed
     /**
      * Funcion para sabes que pasa a la hora de pulsar el boton volver.
@@ -664,6 +698,17 @@ public class V_Jugador extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
+
+    private void rbVacanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVacanteActionPerformed
+        lbEquipo.setVisible(false);
+        cbEquipo.setVisible(false);
+        cbEquipo.setSelectedIndex(-1);
+    }//GEN-LAST:event_rbVacanteActionPerformed
+
+    private void rbOcupadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbOcupadoActionPerformed
+        lbEquipo.setVisible(true);
+        cbEquipo.setVisible(true);
+    }//GEN-LAST:event_rbOcupadoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -81,7 +81,7 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, int equipo) throws Exception {
+    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
         j.setNombre(nombre);
         j.setApellido(apellido);
@@ -90,8 +90,13 @@ public class JEMS {
         j.setNacionalidad(nacionalidad);
         j.setEstado(estado);
         j.setTelefono(telefono);
-        e = eBD.consultarEquipoCodigo(equipo);
-        j.setEquipo(e);
+        if (equipo==null){
+            jBD.insertarJugadorSinEquipo(j);
+        }
+        else{
+            e = eBD.consultarEquipoCodigo(equipo);
+            j.setEquipo(e);
+        }        
         jBD.insertarJugador(j);
     }
 
@@ -166,7 +171,7 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, int equipo) throws Exception {
+    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
         j.setNombre(nombre);
         j.setApellido(apellido);
@@ -202,7 +207,7 @@ public class JEMS {
         listaJugadores = jBD.consultaTodosJugadores();
         String stringJugadores = "";
         for (int x = 0; x < listaJugadores.size(); x++) {
-            listaJugadores.get(x).toString();
+            stringJugadores+=listaJugadores.get(x).toString();
         }
         return stringJugadores;
     }
@@ -485,7 +490,7 @@ public class JEMS {
         listaUsuarios = uBD.consultaTodosUsuarios();
         String stringUsuarios = "";
         for (int x = 0; x < listaUsuarios.size(); x++) {
-            listaUsuarios.get(x).toString();
+            stringUsuarios+=listaUsuarios.get(x).toString();
         }
         return stringUsuarios;
     }
