@@ -141,7 +141,7 @@ public class V_Jugador extends javax.swing.JFrame {
             validarNickName();
             validarNacionalidad();
             validarSueldo();
-            validarTelefono();
+            //validarTelefono();
             validarEstado();
             validarEquipo();
             return true;

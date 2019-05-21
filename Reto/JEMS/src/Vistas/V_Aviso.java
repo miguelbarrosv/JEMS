@@ -27,7 +27,7 @@ public class V_Aviso extends javax.swing.JFrame {
     
     public void myInitComponents() {
         setSize(400, 220);
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(this);        
     }
 
     /**
@@ -59,6 +59,7 @@ public class V_Aviso extends javax.swing.JFrame {
         bAceptar.setBounds(130, 170, 140, 35);
 
         lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        lbMensaje.setForeground(new java.awt.Color(255, 255, 255));
         lbMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbMensaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(lbMensaje);
