@@ -38,6 +38,13 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tfFechaInicio.setText("  /  /");
+        tfFechaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFechaInicioActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("Fecha Inicio de la liga: ");
 
         bCrear.setText("Crear");
@@ -58,7 +65,8 @@ public class V_CrearLiga extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(33, 33, 33)
-                        .addComponent(tfFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)))
                 .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
@@ -84,6 +92,10 @@ public class V_CrearLiga extends javax.swing.JFrame {
             Logger.getLogger(V_CrearLiga.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bCrearActionPerformed
+
+    private void tfFechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfFechaInicioActionPerformed
 
     /**
      * @param args the command line arguments
