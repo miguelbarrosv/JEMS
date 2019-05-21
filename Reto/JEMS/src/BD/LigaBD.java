@@ -39,7 +39,7 @@ public class LigaBD {
      * @return devuelve un string con el mensaje de la creacion de la liga
      * @throws Exception hereda excepciones
      */
-    public static String crearLigaVacia(Date fechaInicioLiga) throws Exception {
+    public String crearLigaVacia(Date fechaInicioLiga) throws Exception {
         java.sql.Date sDate = convertUtilToSql(fechaInicioLiga);
         bdr.conectar();
         CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?)}");
@@ -62,7 +62,7 @@ public class LigaBD {
      * @param fechaInicioLiga fecha del inicio de la liga
      * @return devuelve la fecha en sql date
      */
-    private static java.sql.Date convertUtilToSql(java.util.Date fechaInicioLiga) {
+    private java.sql.Date convertUtilToSql(java.util.Date fechaInicioLiga) {
         java.sql.Date sDate = new java.sql.Date(fechaInicioLiga.getTime());
         return sDate;
     }
@@ -73,7 +73,7 @@ public class LigaBD {
      * @return devuelve una
      * @throws Exception
      */
-    public static Liga consultarLiga() throws Exception {
+    public Liga consultarLiga() throws Exception {
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
         resultado = sentencia.executeQuery("SELECT * FROM LIGA");
@@ -90,7 +90,7 @@ public class LigaBD {
      * @return devuelve un objeto liga
      * @throws Exception hereda excepciones
      */
-    public static Liga crearObjeto() throws Exception {
+    public Liga crearObjeto() throws Exception {
         l = new Liga();
         l.setNombre(resultado.getString("NOMBRE"));
         l.setFecha_inicio(resultado.getDate("FECHA_INICIO"));

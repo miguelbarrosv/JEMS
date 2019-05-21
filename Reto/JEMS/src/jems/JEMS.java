@@ -557,18 +557,7 @@ public class JEMS {
     public static boolean conseguirDatosAdministrador(String usuario, String contraseña) throws Exception {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
-    }
-
-    /**
-     * Funcion para buscar en la base de datos la jornada a dar a la vista al
-     * usuario
-     *
-     * @return objeto Jornada
-     */
-    public static Jornada consultarJornada() {
-        //listaJornadas = jorBD.consultarJornada();
-        return jor;
-    }
+    }    
 
     /**
      * Funcion para buscar en la base de datos al administrador de login.
@@ -582,9 +571,10 @@ public class JEMS {
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Date fechaInicio = format.parse(fecha);
-        String mensaje = LigaBD.crearLigaVacia(fechaInicio);
+        String mensaje = lBD.crearLigaVacia(fechaInicio);
         return mensaje;
     }
+
 
     /**
      * Funcion para buscar en la base de datos todos los datos de las jornadas
@@ -608,4 +598,13 @@ public class JEMS {
         e = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(e);
     }
-}
+    /**
+     * Funcion para buscar en la base de datos las jornadas para dar a la vista al usuario
+     *
+     * @return ArrayList del objeto Jornada
+     */
+    public static ArrayList<Jornada> consultarJornadas() throws Exception {
+        listaJornadas = jorBD.consultarJornadas();
+        return listaJornadas;
+    }
+  }
