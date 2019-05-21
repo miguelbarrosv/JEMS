@@ -144,7 +144,7 @@ public class AdministradorBD {
     public Boolean consultarAdministrador(String usuario, String contraseña) throws Exception {
         bdr.conectar();
 
-        String plantilla = "SELECT * FROM ADMINISTRADOR WHERE USUARIO=UPPER(?) AND CONTRASEÑA=UPPER(?)";
+        String plantilla = "SELECT COD_ADMIN,USUARIO,CONTRASEÑA FROM ADMINISTRADOR WHERE UPPER(USUARIO)=UPPER(?) AND UPPER(CONTRASEÑA)=UPPER(?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, usuario);
         sentenciaPre.setString(2, contraseña);
