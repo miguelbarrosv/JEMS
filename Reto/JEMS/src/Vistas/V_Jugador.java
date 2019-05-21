@@ -25,17 +25,18 @@ import jems.JEMS;
  *
  */
 public class V_Jugador extends javax.swing.JFrame {
-    
+
     private static ArrayList<Equipo> equipos;
+
     /**
      * Creates new form V_Jugador
      */
     public V_Jugador() {
-        
+
         initComponents();
-        
+
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -67,7 +68,7 @@ public class V_Jugador extends javax.swing.JFrame {
      *
      * @param operacion tipo de operacion
      */
-    public V_Jugador(String operacion)throws Exception {
+    public V_Jugador(String operacion) throws Exception {
         setUndecorated(true);
         initComponents();
         myInitComponents();

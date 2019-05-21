@@ -76,7 +76,7 @@ public class ControladorVistas {
      *
      * @param operacion tipo de operacion
      */
-    public static void mostrarVentanaJugador(String operacion) {
+    public static void mostrarVentanaJugador(String operacion)throws Exception {
         vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
