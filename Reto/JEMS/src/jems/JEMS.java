@@ -38,6 +38,7 @@ public class JEMS {
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
     private static ArrayList<Usuario> listaUsuarios;
+    private static ArrayList<Jornada> listaJornadas;
     private static DueñoBD dBD;
     private static JugadorBD jBD;
     private static EquipoBD eBD;
@@ -555,15 +556,7 @@ public class JEMS {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
     }
-/**
-     * Funcion para buscar en la base de datos la jornada a dar a la vista al usuario
-     *
-     * @return objeto Jornada
-     */
-    public static Jornada consultarJornada() {
-        jor = jorBD.consultarJornada();
-        return jor;
-    }
+    
     /**
      * Funcion para buscar en la base de datos al administrador de login.
      *
@@ -598,6 +591,15 @@ public class JEMS {
     public static void introducirResultado(String nombreEquipo) throws Exception {
         e = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(e);
+    }
+    /**
+     * Funcion para buscar en la base de datos las jornadas para dar a la vista al usuario
+     *
+     * @return ArrayList del objeto Jornada
+     */
+    public static ArrayList<Jornada> consultarJornadas() throws Exception {
+        listaJornadas = jorBD.consultarJornadas();
+        return listaJornadas;
     }
   }
 

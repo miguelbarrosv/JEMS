@@ -60,7 +60,9 @@ public class JornadaBD {
        
        PartidoBD pBD = new PartidoBD();
        j.setPartidos(pBD.consultarPartidos());
-       j.setLiga(LigaBD.consultarLiga());
+       
+       LigaBD lBD = new LigaBD();
+       j.setLiga(lBD.consultarLiga());
        return j;
     }
     
