@@ -551,4 +551,13 @@ public class JEMS {
         String mensaje = LigaBD.crearLigaVacia(fechaInicio);
         return mensaje;
     }
+    public static  ArrayList<Jornada> buscarJornadas() {
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        //jornadas = jorBD.buscarJornadas();
+        return jornadas;
+    }
+    public static void introducirResultado(String nombreEquipo) throws Exception {
+        e = eBD.buscarCodigoPorNombre(nombreEquipo);
+        eBD.modificarPuntuacion(e);
+    }
   }

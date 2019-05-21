@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import UML.Jornada;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,6 +41,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
@@ -75,6 +78,16 @@ public class V_Admin extends javax.swing.JFrame {
         mIntroducirResultado = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        miJornada1 = new javax.swing.JMenuItem();
+        miJornada2 = new javax.swing.JMenuItem();
+        miJornada3 = new javax.swing.JMenuItem();
+        miJornada4 = new javax.swing.JMenuItem();
+        miJornada5 = new javax.swing.JMenuItem();
+        miJornada6 = new javax.swing.JMenuItem();
+        miJornada7 = new javax.swing.JMenuItem();
+        miJornada8 = new javax.swing.JMenuItem();
+        miJornada9 = new javax.swing.JMenuItem();
+        miJornada10 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         miVisualizarLiga = new javax.swing.JMenuItem();
         miVisualizarClasificacion = new javax.swing.JMenuItem();
@@ -83,6 +96,8 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem15.setText("jMenuItem15");
 
         jMenuItem16.setText("jMenuItem16");
+
+        jMenuItem10.setText("jMenuItem10");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -341,6 +356,86 @@ public class V_Admin extends javax.swing.JFrame {
         mIntroducirResultado.add(jSeparator1);
         mIntroducirResultado.add(jSeparator5);
 
+        miJornada1.setText("Jornada 1");
+        miJornada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada1ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada1);
+
+        miJornada2.setText("Jornada 2");
+        miJornada2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada2ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada2);
+
+        miJornada3.setText("Jornada 3");
+        miJornada3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada3ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada3);
+
+        miJornada4.setText("Jornada 4");
+        miJornada4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada4ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada4);
+
+        miJornada5.setText("Jornada 5");
+        miJornada5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada5ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada5);
+
+        miJornada6.setText("Jornada 6");
+        miJornada6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada6ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada6);
+
+        miJornada7.setText("Jornada 7");
+        miJornada7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada7ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada7);
+
+        miJornada8.setText("Jornada 8");
+        miJornada8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada8ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada8);
+
+        miJornada9.setText("Jornada 9");
+        miJornada9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada9ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada9);
+
+        miJornada10.setText("Jornada 10");
+        miJornada10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miJornada10ActionPerformed(evt);
+            }
+        });
+        mIntroducirResultado.add(miJornada10);
+
         jMenuBar1.add(mIntroducirResultado);
 
         jMenu7.setBorder(null);
@@ -581,8 +676,78 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bLogOutActionPerformed
 
     private void mIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mIntroducirResultadoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_mIntroducirResultadoActionPerformed
+
+    private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 10;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada10ActionPerformed
+
+    private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 1;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada1ActionPerformed
+
+    private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 2;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada2ActionPerformed
+
+    private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 3;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada3ActionPerformed
+
+    private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 4;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada4ActionPerformed
+
+    private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 5;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada5ActionPerformed
+
+    private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 6;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada6ActionPerformed
+
+    private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 7;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada7ActionPerformed
+
+    private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 8;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada8ActionPerformed
+
+    private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
+        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        jornadas = JEMS.buscarJornadas();
+        int numJornada = 9;
+        ControladorVistas.mostrarVentanaResultado(jornadas,numJornada);
+    }//GEN-LAST:event_miJornada9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -631,6 +796,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -657,6 +823,16 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarJugadores;
     private javax.swing.JMenuItem miConsultarUsuario;
     private javax.swing.JMenuItem miConsultarUsuarios;
+    private javax.swing.JMenuItem miJornada1;
+    private javax.swing.JMenuItem miJornada10;
+    private javax.swing.JMenuItem miJornada2;
+    private javax.swing.JMenuItem miJornada3;
+    private javax.swing.JMenuItem miJornada4;
+    private javax.swing.JMenuItem miJornada5;
+    private javax.swing.JMenuItem miJornada6;
+    private javax.swing.JMenuItem miJornada7;
+    private javax.swing.JMenuItem miJornada8;
+    private javax.swing.JMenuItem miJornada9;
     private javax.swing.JMenuItem miModificarDueño;
     private javax.swing.JMenuItem miModificarEquipo;
     private javax.swing.JMenuItem miModificarJugador;

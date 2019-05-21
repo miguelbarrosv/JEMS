@@ -248,8 +248,15 @@ public class ControladorVistas {
  * Funcion que abre la ventana V_IntroducirResultado
  * 
  */
-    public static void mostrarVentanaResultado() {
-        vIntroducirResultado = new V_IntroducirResultado();
+    public static void mostrarVentanaResultado( ArrayList<Jornada> jornadas,int numJornada) {
+        vIntroducirResultado = new V_IntroducirResultado(jornadas,numJornada);
         vIntroducirResultado.setVisible(true);
+    }
+    /**
+ * Funcion que abre cierra la ventana vIntroducirResultado
+ * 
+ */
+    public static void cerrarVentanaResultado() {
+        vIntroducirResultado.dispose();
     }
 }

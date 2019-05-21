@@ -291,4 +291,31 @@ public class EquipoBD {
         return listaEquipos;
 
     }
+    public Equipo buscarCodigoPorNombre(String nomEquipo) throws Exception {
+        bdr.conectar();
+        String plantilla = "SELECT COD_EQUIPO FROM EQUIPO WHERE NOMBRE = ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, nomEquipo);
+        resultado = sentenciaPre.executeQuery();
+        Equipo e;
+        if (resultado.next()) {
+            e = crearObjeto();
+        } else {
+            e = null;
+        }
+        // Cerrar la conexión
+        bdr.cerrarCon();
+        return e;
+    }
+    public void modificarPuntuacion(Equipo e) throws Exception {
+        bdr.conectar();
+
+        String plantilla = "UPDATE EQUIPO SET PUNTUACION = PUNTUACION + 3 WHERE COD_EQUIPO = ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, e.getCod_equipo());
+
+        sentenciaPre.executeUpdate();
+
+        bdr.cerrarCon();
+    }
 }
