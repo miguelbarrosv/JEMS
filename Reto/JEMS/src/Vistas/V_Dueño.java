@@ -5,7 +5,10 @@
  */
 package Vistas;
 
+import Excepciones.*;
 import UML.Dueño;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import jems.JEMS;
@@ -14,6 +17,7 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -28,7 +32,7 @@ public class V_Dueño extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -45,7 +49,6 @@ public class V_Dueño extends javax.swing.JFrame {
                 tfTelefono.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
-    
 
     /**
      * Funcion que al iniciar la ventana recoge el parametro operacion para
@@ -85,21 +88,102 @@ public class V_Dueño extends javax.swing.JFrame {
         }
     }
 
-    public boolean validarDatos() {
-        if (validarNombre(tfNombre.getText()) && validarApellido(tfApellido.getText())) {
+    /**
+     * Funcion para validar los datos del dueño
+     *
+     * @return True Si las validaciones son correctas
+     * @return False Si las validaciones dan error
+     */
+    private boolean validarDatos() {
+
+        /*
+        Introducimos todas las funciones de validar para omprobarlas y llamar solo a validarDatos();
+         */
+        try {
+            validarNombre();
+            validarApellido();
+            validarTelefono();
             return true;
-        } else {
+            /*
+            Catch con excepciones personalizadas
+             */
+        } catch (CampoVacio e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMensaje());
             return false;
+        } catch (DatoNoValido e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMensaje());
+            return false;
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            return false;
+        }
+
+    }
+
+    /**
+     * Funcion que trata de validar el nombre del dueño, si el nombre esta vacio
+     * o es superior a 20 caracteres saltara la excepcion.
+     *
+     * @throws Exception hereda de la clase Exception
+     */
+    private void validarNombre() throws Exception {
+        if (tfNombre.getText().isEmpty()) {
+            throw new CampoVacio("El nombre del jugador es obligatorio*.");
+        }
+
+        //En la bdd tenemos el nombre como varchar 20
+        //Consideramos que no deba ser mayor a 20 el nombre
+        if (tfNombre.getText().length() > 20) {
+            throw new DatoNoValido("El nombre no puede ser superior a 20 caracteres.");
+        }
+
+    }
+
+    /**
+     * Funcion que trata de validar el apellido del dueño, si el apellido esta
+     * vacio o es superior a 20 caracteres saltara la excepcion.
+     *
+     * @throws Exception hereda de la clase Exception
+     */
+    private void validarApellido() throws Exception {
+        if (tfApellido.getText().isEmpty()) {
+            throw new CampoVacio("El apellido del jugador es obligatorio*");
+        }
+
+        //En la bdd tenemos el apellido como varchar 20
+        //Consideramos que no deba ser mayor a 20
+        if (tfApellido.getText().length() > 20) {
+            throw new DatoNoValido("El apellido no puede ser superior a 20 caracteres.");
+        }
+
+    }
+
+    /**
+     * Funcion que trata de validar el telefono del dueño, si el telefono esta
+     * vacio o es superior a 9 digitos saltara la excepcion, en la misma funcion
+     * tenemos un pattern para que el numero de telefono empiece por 6, 7, ,8,
+     * 9.
+     *
+     * @throws Exception hereda de la clase Exception
+     */
+    private void validarTelefono() throws Exception {
+        if (tfTelefono.getText().isEmpty()) {
+            throw new CampoVacio("El telefono del jugador es obligatorio");
+        }
+
+        //En la bdd tenemos el telefono como varchar 9
+        //Consideramos que no deba ser mayor a 9
+        if (tfTelefono.getText().length() != 9) {
+            throw new DatoNoValido("El telefono tiene que tener 9 digitos");
+        }
+
+        Pattern pat = Pattern.compile("^[6-9][0-9]{8}$");
+        Matcher mat = pat.matcher(tfTelefono.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7, 8 o 9.");
         }
     }
 
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
-
-    public boolean validarApellido(String apellido) {
-        return true;
-    }
     private static String ope;
     private static Dueño dueño;
 

@@ -586,6 +586,7 @@ public class JEMS {
         return mensaje;
     }
 
+
     /**
      * Funcion para buscar en la base de datos todos los datos de las jornadas
      * existenets

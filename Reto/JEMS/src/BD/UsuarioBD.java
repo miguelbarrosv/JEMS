@@ -17,6 +17,7 @@ import java.util.ArrayList;
  *
  * @author Joel Encinas
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @see Usuario
  *
@@ -80,7 +81,7 @@ public class UsuarioBD {
         bdr.cerrarCon();
         return u;
     }
-    
+
     /**
      * Función que busca un usuario especifico en la base de datos.
      *
@@ -90,7 +91,7 @@ public class UsuarioBD {
      */
     public Usuario consultarUsuarioNombre(String usuario) throws Exception {
         bdr.conectar();
-        
+
         String plantilla = "SELECT * FROM USUARIO WHERE USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, usuario);
@@ -101,7 +102,7 @@ public class UsuarioBD {
         } else {
             u = null;
         }
-        
+
         bdr.cerrarCon();
         return u;
     }
@@ -128,7 +129,8 @@ public class UsuarioBD {
         bdr.cerrarCon();
         return existe;
     }
-        /**
+
+    /**
      * Función que busca un usuario en la base de datos.
      *
      * @param usuario (reuqerido) usuario del usuario
