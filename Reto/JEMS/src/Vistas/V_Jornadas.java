@@ -7,6 +7,7 @@ package Vistas;
 
 import UML.*;
 import java.util.ArrayList;
+import jems.JEMS;
 
 /**
  *
@@ -19,30 +20,22 @@ public class V_Jornadas extends javax.swing.JFrame {
 
     /**
      * Creates new form V_Jornadas
+     * Funcion que al iniciar la ventana muestra en la pantalla los datos de una jornada
+     * para que el usuario pueda visualizarlo
      */
     public V_Jornadas() {
         initComponents();
-    }
-/**
-     * Funcion que al iniciar la ventana muestra en la pantalla los datos de una jornada
-     * para que el usuario pueda visualizarlo
-     * 
-     * @param Objeto Jornada 
-     */
-    public V_Jornadas(Jornada jornada) {
-        
+        jornada = JEMS.consultarJornada();
         tfNumJornada.setText(String.valueOf(jornada.getCod_jornada()));
-        tfEquipoLocal.setText(jornada.getPartidos().get(x).getEquipo_local().getNombre());
-        tfEquipoVisitante.setText(jornada.getPartidos().get(x).getEquipo_visitante().getNombre());
-        tfEquipoLocal2.setText(jornada.getPartidos().get(i).getEquipo_local().getNombre());
-        tfEquipoVisitante2.setText(jornada.getPartidos().get(i).getEquipo_visitante().getNombre());
-        tfEquipoLocal3.setText(jornada.getPartidos().get(e).getEquipo_local().getNombre());
-        tfEquipoVisitante3.setText(jornada.getPartidos().get(e).getEquipo_visitante().getNombre());
+        tfEquipoLocal.setText(jornada.getPartidos().get(0).getEquipo_local().getNombre());
+        tfEquipoVisitante.setText(jornada.getPartidos().get(0).getEquipo_visitante().getNombre());
+        tfEquipoLocal2.setText(jornada.getPartidos().get(1).getEquipo_local().getNombre());
+        tfEquipoVisitante2.setText(jornada.getPartidos().get(1).getEquipo_visitante().getNombre());
+        tfEquipoLocal3.setText(jornada.getPartidos().get(2).getEquipo_local().getNombre());
+        tfEquipoVisitante3.setText(jornada.getPartidos().get(2).getEquipo_visitante().getNombre());
     }
-    private static int x = 0;
-    private static int i = 1;
-    private static int e = 2;
-    private static ArrayList<Equipo> equipos = new ArrayList<Equipo>();
+    
+    private static Jornada jornada;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

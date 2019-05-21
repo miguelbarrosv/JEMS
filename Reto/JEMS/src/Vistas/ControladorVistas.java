@@ -235,6 +235,6 @@ public class ControladorVistas {
  */
     public static void cerrarVentanaUsuario() {
         vUsuario.dispose();
-    }    
+    } 
     
 }

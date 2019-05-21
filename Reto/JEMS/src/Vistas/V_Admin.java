@@ -24,8 +24,16 @@ public class V_Admin extends javax.swing.JFrame {
      * Creates new form V_Inicio
      */
     public V_Admin() {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
     }
+    
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+    }
+    
     private static String operacion;
 
     /**
@@ -42,6 +50,9 @@ public class V_Admin extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
+        lbRiot = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        bSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -78,25 +89,59 @@ public class V_Admin extends javax.swing.JFrame {
         miVisualizarLiga = new javax.swing.JMenuItem();
         miVisualizarClasificacion = new javax.swing.JMenuItem();
         jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        miLogOut = new javax.swing.JMenu();
 
         jMenuItem15.setText("jMenuItem15");
 
         jMenuItem16.setText("jMenuItem16");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jToggleButton1.setText("jToggleButton1");
+        getContentPane().add(jToggleButton1);
+        jToggleButton1.setBounds(0, 0, 0, 0);
 
         jButton1.setText("jButton1");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(0, 0, 0, 0);
 
-        bCrearLiga.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        bCrearLiga.setText("CREAR LIGA");
+        bCrearLiga.setBackground(new java.awt.Color(252, 124, 0));
+        bCrearLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bCrearLiga.setText("Crear Liga");
+        bCrearLiga.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bCrearLiga.setBorderPainted(false);
+        bCrearLiga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCrearLiga.setFocusPainted(false);
         bCrearLiga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCrearLigaActionPerformed(evt);
             }
         });
+        getContentPane().add(bCrearLiga);
+        bCrearLiga.setBounds(500, 231, 192, 98);
+
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 610, 100, 60);
+
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 620, 180, 40);
+
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
 
         jMenu1.setBorder(null);
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
@@ -319,6 +364,11 @@ public class V_Admin extends javax.swing.JFrame {
         mIntroducirResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mIntroducirResultado.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         mIntroducirResultado.setIconTextGap(10);
+        mIntroducirResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mIntroducirResultadoActionPerformed(evt);
+            }
+        });
         mIntroducirResultado.add(jSeparator1);
         mIntroducirResultado.add(jSeparator5);
 
@@ -353,35 +403,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        miLogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout_opt.png"))); // NOI18N
-        miLogOut.setText("LogOut");
-        miLogOut.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        miLogOut.setIconTextGap(7);
-        miLogOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miLogOutActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(miLogOut);
-
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(335, Short.MAX_VALUE)
-                .addComponent(bCrearLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(299, 299, 299))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
-                .addComponent(bCrearLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -573,14 +595,6 @@ public class V_Admin extends javax.swing.JFrame {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_miConsultarUsuariosActionPerformed
 
-/**
-     * Funcion que nos dirije a la clase cerrarVentanaAdmin 
-     * @param evt pulsar el boton
-     */
-    private void miLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLogOutActionPerformed
-        ControladorVistas.cerrarVentanaAdmin();
-    }//GEN-LAST:event_miLogOutActionPerformed
-
     private void miVisualizarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarLigaActionPerformed
         ControladorVistas.mostrarVentanaJornadas();
     }//GEN-LAST:event_miVisualizarLigaActionPerformed
@@ -592,6 +606,14 @@ public class V_Admin extends javax.swing.JFrame {
             Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_miVisualizarClasificacionActionPerformed
+
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
+
+    private void mIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mIntroducirResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mIntroducirResultadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -631,6 +653,7 @@ public class V_Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCrearLiga;
+    private javax.swing.JButton bSalir;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
@@ -648,6 +671,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JMenu mIntroducirResultado;
     private javax.swing.JMenuItem miAltaDueño;
     private javax.swing.JMenuItem miAltaEquipo;
@@ -665,7 +690,6 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem miConsultarJugadores;
     private javax.swing.JMenuItem miConsultarUsuario;
     private javax.swing.JMenuItem miConsultarUsuarios;
-    private javax.swing.JMenu miLogOut;
     private javax.swing.JMenuItem miModificarDueño;
     private javax.swing.JMenuItem miModificarEquipo;
     private javax.swing.JMenuItem miModificarJugador;

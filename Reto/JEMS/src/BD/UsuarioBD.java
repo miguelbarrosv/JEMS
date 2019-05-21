@@ -80,6 +80,31 @@ public class UsuarioBD {
         bdr.cerrarCon();
         return u;
     }
+    
+    /**
+     * Función que busca un usuario especifico en la base de datos.
+     *
+     * @param u (requerido) objeto de clase Usuario.
+     * @return devuelve un objeto clase usuario.
+     * @throws Exception hereda excepciones.
+     */
+    public Usuario consultarUsuarioNombre(String usuario) throws Exception {
+        bdr.conectar();
+        
+        String plantilla = "SELECT * FROM USUARIO WHERE USUARIO= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setString(1, usuario);
+        Usuario u;
+        resultado = sentenciaPre.executeQuery();
+        if (resultado.next()) {
+            u = crearObjeto();
+        } else {
+            u = null;
+        }
+        
+        bdr.cerrarCon();
+        return u;
+    }
 
     /**
      * Función que busca un usuario en la base de datos.
