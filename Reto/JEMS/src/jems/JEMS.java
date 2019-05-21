@@ -534,7 +534,7 @@ public class JEMS {
      * @throws Exception hereda excepciones
      */
     public static Liga cogerNombreLiga() throws Exception {
-        //l = lBD.cogerLiga();
+        l = lBD.consultarLiga();
         return l;
     }
 
@@ -550,11 +550,23 @@ public class JEMS {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
     }
-
+/**
+     * Funcion para buscar en la base de datos la jornada a dar a la vista al usuario
+     *
+     * @return objeto Jornada
+     */
     public static Jornada consultarJornada() {
-        //jor = jorBD.consultarJornada();
+        jor = jorBD.consultarJornada();
         return jor;
     }
+    /**
+     * Funcion para buscar en la base de datos al administrador de login.
+     *
+     * @param fecha (reuqerido) fecha inicio de la liga
+     * @return String para confirmar que se ha creado la liga
+     * @throws ParseException hereda excepciones
+     * @throws Exception hereda excepciones
+     */
     public static String crearLigaVacia(String fecha) throws ParseException, Exception {
         DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
@@ -562,11 +574,22 @@ public class JEMS {
         String mensaje = LigaBD.crearLigaVacia(fechaInicio);
         return mensaje;
     }
-    public static  ArrayList<Jornada> buscarJornadas() {
+ /**
+     * Funcion para buscar en la base de datos todos los datos de las jornadas existenets
+     *
+     * @return ArrayList del obejto jornada
+     */
+    public static  ArrayList<Jornada> buscarJornadas() throws Exception {
         ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
-        //jornadas = jorBD.buscarJornadas();
+        jornadas = jorBD.consultarJornadas();
         return jornadas;
     }
+    /**
+     * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido
+     *
+     * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
+     * @throws Exception hereda excepciones
+     */
     public static void introducirResultado(String nombreEquipo) throws Exception {
         e = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(e);

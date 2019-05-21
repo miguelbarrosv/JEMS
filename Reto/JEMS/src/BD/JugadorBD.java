@@ -30,8 +30,8 @@ public class JugadorBD {
     /**
      * Creacion de los atributos resultado y bdr.
      */
-    private static ResultSet resultado;
-    private static Bdr bdr;
+    private  ResultSet resultado;
+    private  Bdr bdr;
 
     /**
      * Constructor de JugadorBD con el objeto de la conexión a la base de datos.
