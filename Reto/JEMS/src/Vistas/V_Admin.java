@@ -142,6 +142,7 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
+
         jMenu1.setBorder(null);
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
         jMenu1.setText("BBDD");
@@ -609,6 +610,10 @@ public class V_Admin extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
+
+    private void mIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mIntroducirResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mIntroducirResultadoActionPerformed
 
     /**
      * @param args the command line arguments
