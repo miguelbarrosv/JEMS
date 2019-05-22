@@ -8,11 +8,9 @@ package BD;
 import UML.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 
 /**
- * Clase de administrador de base de datos
+ * Clase de administrador de base de datos.
  *
  * @author Joel Encinas
  * @author Sergio Zulueta
@@ -27,7 +25,7 @@ import java.util.ArrayList;
 public class AdministradorBD {
 
     /**
-     * Creacion de los atributos bdr.
+     * Creacion de los atributos bdr y resultado.
      */
     private static Bdr bdr;
     private ResultSet resultado;
@@ -47,30 +45,25 @@ public class AdministradorBD {
      */
     public void insertarAdministrador(Administrador a) throws Exception {
         bdr.conectar();
-
         String plantilla = "INSERT INTO ADMINISTRADOR(USUARIO, CONTRASEÑA) VALUES (?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, a.getUsuario());
         sentenciaPre.setString(2, a.getContraseña());
-
         bdr.cerrarCon();
     }
 
     /**
      * Función para borrar un Administrador.
      *
-     * @param cod_admin (requerido) codigo del administrador
+     * @param cod_admin (requerido) codigo del Administrador
      * @throws Exception
      */
     public void borrarAdministrador(int cod_admin) throws Exception {
         bdr.conectar();
-
         String plantilla = "DELETE FROM ADMINISTRADOR WHERE COD_ADMIN =?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_admin);
-
         sentenciaPre.executeUpdate();
-
         bdr.cerrarCon();
     }
 
@@ -90,15 +83,15 @@ public class AdministradorBD {
     }
 
     /**
-     * Función que crea busca un administrador por nombre
+     * Función que busca un Administrador por nombre.
      *
-     * @return devuelve un objeto clase administrador
+     * @param usuario (requerido) usuario del Adminustrador
+     * @return devuelve un objeto clase Administrador
      * @throws Exception hereda excepciones.
      */
     public Administrador consultarAdministradorNombre(String usuario) throws Exception {
         bdr.conectar();
-        
-        String plantilla = "SELECT * FROM ADMINISTRADOR WHERE USUARIO= ?";
+        String plantilla = "SELECT COD_ADMIN,USUARIO,CONTRASEÑA FROM ADMINISTRADOR WHERE USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, usuario);
         Administrador a;
@@ -108,52 +101,30 @@ public class AdministradorBD {
         } else {
             a = null;
         }
-        
         bdr.cerrarCon();
         return a;
     }
-    
-    /**
-     * Función que crea un ArrayList con todos los administradores de la base de datos.
-     *
-     * @return devuelve un ArrayList de Administrador.
-     * @throws Exception hereda excepciones.
-     */
-    public ArrayList<Administrador> consultarTodosAdministradores() throws Exception {
-        ArrayList<Administrador> listaAdministradores = new ArrayList();
-
-        bdr.conectar();
-
-        Statement sentencia = bdr.getCon().createStatement();
-        resultado = sentencia.executeQuery("SELECT * FROM ADMINISTRADOR");
-        while (resultado.next()) {
-            listaAdministradores.add(crearObjeto());
-        }
-        bdr.cerrarCon();
-        return listaAdministradores;
-    }
 
     /**
-     * Función que busca un adminstrador en la base de datos.
+     * Función que busca un Adminstrador en la base de datos mediante usuario y
+     * contraseña.
      *
-     * @param usuario (reuqerido) usuario del administrador
-     * @param contraseña (requerido ) contraseña de administrador
-     * @return devuelve un objeto clase administrador.
+     * @param usuario (reuqerido) usuario del Administrador
+     * @param contraseña (requerido ) contraseña de Administrador
+     * @return devuelve un objeto clase Administrador.
      * @throws Exception hereda excepciones.
      */
     public Boolean consultarAdministrador(String usuario, String contraseña) throws Exception {
         bdr.conectar();
 
-        String plantilla = "SELECT COD_ADMIN,USUARIO,CONTRASEÑA FROM ADMINISTRADOR WHERE UPPER(USUARIO)=UPPER(?) AND UPPER(CONTRASEÑA)=UPPER(?)";
+        String plantilla = "SELECT USUARIO,CONTRASEÑA FROM ADMINISTRADOR WHERE USUARIO=? AND CONTRASEÑA=?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, usuario);
         sentenciaPre.setString(2, contraseña);
         Boolean existe;
         resultado = sentenciaPre.executeQuery();
         existe = resultado.next();
-
         bdr.cerrarCon();
         return existe;
     }
-
 }

@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Clase de jugador de base de datos
+ * Clase de Jugador de base de datos.
  *
  * @author Joel Encinas
  * @author Eric Muñoz
@@ -29,13 +29,13 @@ public class JugadorBD {
 
     /**
      * Creacion de los atributos resultado y bdr.
+     *
      */
-    private  ResultSet resultado;
-    private  Bdr bdr;
+    private ResultSet resultado;
+    private static Bdr bdr;
 
     /**
      * Constructor de JugadorBD con el objeto de la conexión a la base de datos.
-     *
      *
      */
     public JugadorBD() {
@@ -43,7 +43,7 @@ public class JugadorBD {
     }
 
     /**
-     * Función para insertar jugador.
+     * Función para insertar Jugador.
      *
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception hereda excepciones.
@@ -63,9 +63,9 @@ public class JugadorBD {
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
-    
+
     /**
-     * Función para insertar jugador sin equipo.
+     * Función para insertar Jugador sin equipo.
      *
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception hereda excepciones.
@@ -86,16 +86,15 @@ public class JugadorBD {
     }
 
     /**
-     * Función que busca un jugador en la base de datos.
+     * Función que busca un Jugador en la base de datos mediante su codigo.
      *
      * @param cod_jugador (requerido) codigo de clase Jugador.
-     * @return devuelve un objeto clase jugador.
-     * @throws Exception hewreda excepciones.
+     * @return devuelve un objeto clase Jugador.
+     * @throws Exception hereda excepciones.
      */
     public Jugador consultarJugadorCodigo(int cod_jugador) throws Exception {
         bdr.conectar();
-
-        String plantilla = "SELECT * FROM JUGADOR WHERE COD_JUGADOR= ?";
+        String plantilla = "SELECT COD_JUGADOR,NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO,EQUIPO_COD_EQUIPO FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_jugador);
         Jugador j;
@@ -105,13 +104,12 @@ public class JugadorBD {
         } else {
             j = null;
         }
-
         bdr.cerrarCon();
         return j;
     }
 
     /**
-     * Función que rellena un objeto jugador desde los datos de la base de
+     * Función que rellena un objeto Jugador desde los datos de la base de
      * datos.
      *
      * @return devuelve un objeto de clase Jugador.
@@ -134,7 +132,7 @@ public class JugadorBD {
     }
 
     /**
-     * Función que crea un ArrayList con todos los jugadores de la base de
+     * Función que crea un ArrayList con todos los Jugadores de la base de
      * datos.
      *
      * @return devuelve un ArrayList de Jugador.
@@ -142,9 +140,7 @@ public class JugadorBD {
      */
     public ArrayList<Jugador> consultaTodosJugadores() throws Exception {
         ArrayList<Jugador> listaJugadores = new ArrayList();
-
         bdr.conectar();
-
         Statement sentencia = bdr.getCon().createStatement();
         resultado = sentencia.executeQuery("SELECT * FROM JUGADOR");
         while (resultado.next()) {
@@ -155,15 +151,15 @@ public class JugadorBD {
     }
 
     /**
-     * Función que crea un ArrayList con todos los jugadores de la base de
-     * datos.
+     * Función que crea un ArrayList con todos los Jugadores de un equipo de la
+     * base de datos.
      *
+     * @param cod_equipo (requerido) codigo del Equipo
      * @return devuelve un ArrayList de Jugador.
      * @throws Exception hereda excepciones.
      */
     public ArrayList<Jugador> consultaTodosJugadoresEquipo(int cod_equipo) throws Exception {
         ArrayList<Jugador> listaJugadoresEquipo = new ArrayList();
-
         bdr.conectar();
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -177,32 +173,28 @@ public class JugadorBD {
     }
 
     /**
-     * Función que borra un jugador de la base de datos.
+     * Función que borra un Jugador de la base de datos.
      *
      * @param codJugador (requerido) codigo del Jugador.
      * @throws Exception hereda excepciones.
      */
     public void borrarJugador(int codJugador) throws Exception {
         bdr.conectar();
-
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, codJugador);
-
         sentenciaPre.executeUpdate();
-
         bdr.cerrarCon();
     }
 
     /**
-     * Función para modificar un jugador.
+     * Función para modificar un Jugador.
      *
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception heredar excepciones
      */
     public void modificarJugador(Jugador j) throws Exception {
         bdr.conectar();
-
         String plantilla = "UPDATE JUGADOR SET NOMBRE=?, APELLIDO=?, NICKNAME=?, SUELDO=?, NACIONALIDAD=?, ESTADO=?, TELEFONO=?, EQUIPO_COD_EQUIPO=? WHERE COD_JUGADOR=?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, j.getNombre());
@@ -214,9 +206,7 @@ public class JugadorBD {
         sentenciaPre.setString(3, j.getTelefono());
         sentenciaPre.setInt(3, j.getEquipo().getCod_equipo());
         sentenciaPre.setInt(3, j.getCod_jugador());
-
         sentenciaPre.executeUpdate();
-
         bdr.cerrarCon();
     }
 

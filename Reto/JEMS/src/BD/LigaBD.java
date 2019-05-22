@@ -12,11 +12,11 @@ import java.sql.Statement;
 import java.util.Date;
 
 /**
- * Clase de Liga de base de datos
+ * Clase de Liga de base de datos.
  *
  * @author Eric Muñoz
- * 
  *
+ *@see Liga
  *
  * @version %I%, %G%
  * @since 1.0
@@ -24,10 +24,18 @@ import java.util.Date;
  */
 public class LigaBD {
 
+    /**
+     * Creacion de los atributos bdr, resultado y l.
+     *
+     */
     private static Bdr bdr;
     private static ResultSet resultado;
     private static Liga l;
 
+    /**
+     * Constructor de JugadorBD con el objeto de la conexión a la base de datos.
+     *
+     */
     public LigaBD() {
         bdr = new Bdr();
     }
@@ -35,8 +43,8 @@ public class LigaBD {
     /**
      * Funcion que ejecuta el procedimiento GENERAR_CALENDARIO.
      *
-     * @param fechaInicioLiga fecha de inicio de la liga
-     * @return devuelve un string con el mensaje de la creacion de la liga
+     * @param fechaInicioLiga (requerido) fecha de inicio de la Liga
+     * @return devuelve un string con el mensaje de la creacion de la Liga
      * @throws Exception hereda excepciones
      */
     public String crearLigaVacia(Date fechaInicioLiga) throws Exception {
@@ -68,7 +76,7 @@ public class LigaBD {
     }
 
     /**
-     * busca en la base de datos la liga.
+     * busca en la base de datos la Liga.
      *
      * @return devuelve una
      * @throws Exception
@@ -76,7 +84,7 @@ public class LigaBD {
     public Liga consultarLiga() throws Exception {
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
-        resultado = sentencia.executeQuery("SELECT * FROM LIGA");
+        resultado = sentencia.executeQuery("SELECT COD_LIGA,NOMBRE,FECHA_INICIO,FECHA_FIN,ESTADO FROM LIGA");
         while (resultado.next()) {
             l = crearObjeto();
         }
@@ -87,7 +95,7 @@ public class LigaBD {
     /**
      * crear un objeto tipo Liga.
      *
-     * @return devuelve un objeto liga
+     * @return devuelve un objeto Liga
      * @throws Exception hereda excepciones
      */
     public Liga crearObjeto() throws Exception {

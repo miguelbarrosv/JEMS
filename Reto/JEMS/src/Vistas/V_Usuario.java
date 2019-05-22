@@ -7,6 +7,7 @@ package Vistas;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  * @author Miguel Barros
@@ -25,12 +26,12 @@ public class V_Usuario extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -128,7 +129,8 @@ public class V_Usuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
-     * Funcion que nos dirijira a la clase mostrarVentanaLiga situada en el controlador de vistas
+     * Funcion que nos dirijira a la clase mostrarVentanaLiga situada en el
+     * controlador de vistas
      *
      * @param evt pulsar enter
      */
@@ -141,16 +143,17 @@ public class V_Usuario extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_bLigaActionPerformed
-/**
-     * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el controlador de vistas
+    /**
+     * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el
+     * controlador de vistas
      *
      * @param evt pulsar enter
      */
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         try {
             ControladorVistas.mostrarVentanaJornadas();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
         }
     }//GEN-LAST:event_bJornadaActionPerformed
 

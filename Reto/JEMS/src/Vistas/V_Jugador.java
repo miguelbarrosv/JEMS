@@ -32,9 +32,7 @@ public class V_Jugador extends javax.swing.JFrame {
      * Creates new form V_Jugador
      */
     public V_Jugador() {
-
         initComponents();
-
     }
 
     public void myInitComponents() {
@@ -141,7 +139,7 @@ public class V_Jugador extends javax.swing.JFrame {
             validarNickName();
             validarNacionalidad();
             validarSueldo();
-            //validarTelefono();
+            validarTelefono();
             validarEstado();
             validarEquipo();
             return true;
@@ -173,9 +171,12 @@ public class V_Jugador extends javax.swing.JFrame {
         }
 
         //En la bdd tenemos el nombre como varchar 20
-        //Consideramos que no deba ser mayor a 20 el nombre
-        if (tfNombre.getText().length() > 20) {
-            throw new DatoNoValido("El nombre no puede ser superior a 20 caracteres.");
+        //Consideramos que no deba ser mayor a 20
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNombre.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El nombre tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
 
     }
@@ -193,8 +194,11 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos el apellido como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfApellido.getText().length() > 20) {
-            throw new DatoNoValido("El apellido no puede ser superior a 20 caracteres.");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfApellido.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El apellido tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
     }
 
@@ -211,8 +215,11 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos el nick como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfNickname.getText().length() > 20) {
-            throw new DatoNoValido("El Nick no puede ser superior a 20 caracteres.");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNickname.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El nickname tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
     }
 
@@ -230,8 +237,11 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos la nacionalidad como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfNacionalidad.getText().length() > 20) {
-            throw new DatoNoValido("La nacionalidad no puede ser superior a 20 datos");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNacionalidad.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("La nacionalidad tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
     }
 
@@ -410,59 +420,71 @@ public class V_Jugador extends javax.swing.JFrame {
         lbSubtitulo.setBounds(530, 70, 240, 60);
 
         lbNombre.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNombre.setForeground(new java.awt.Color(255, 255, 255));
         lbNombre.setText("Nombre");
         getContentPane().add(lbNombre);
         lbNombre.setBounds(170, 310, 150, 40);
 
         tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setForeground(new java.awt.Color(0, 0, 0));
         tfNombre.setBorder(null);
         getContentPane().add(tfNombre);
         tfNombre.setBounds(170, 350, 280, 30);
 
         lbApellido.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbApellido.setForeground(new java.awt.Color(255, 255, 255));
         lbApellido.setText("Apellido");
         getContentPane().add(lbApellido);
         lbApellido.setBounds(170, 400, 150, 40);
 
         tfApellido.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfApellido.setForeground(new java.awt.Color(0, 0, 0));
         tfApellido.setBorder(null);
         getContentPane().add(tfApellido);
         tfApellido.setBounds(170, 440, 280, 30);
 
         lbNickname.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNickname.setForeground(new java.awt.Color(255, 255, 255));
         lbNickname.setText("Nickname");
         getContentPane().add(lbNickname);
         lbNickname.setBounds(840, 220, 150, 40);
 
         tfNickname.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNickname.setForeground(new java.awt.Color(0, 0, 0));
         tfNickname.setBorder(null);
         getContentPane().add(tfNickname);
         tfNickname.setBounds(840, 260, 280, 30);
 
         lbNacionalidad.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
         lbNacionalidad.setText("Nacionalidad");
         getContentPane().add(lbNacionalidad);
         lbNacionalidad.setBounds(500, 220, 150, 40);
 
         tfNacionalidad.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNacionalidad.setForeground(new java.awt.Color(0, 0, 0));
         tfNacionalidad.setBorder(null);
         getContentPane().add(tfNacionalidad);
         tfNacionalidad.setBounds(500, 260, 280, 30);
 
         lbSueldo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbSueldo.setForeground(new java.awt.Color(255, 255, 255));
         lbSueldo.setText("Sueldo");
         getContentPane().add(lbSueldo);
         lbSueldo.setBounds(500, 310, 150, 40);
 
         tfSueldo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfSueldo.setForeground(new java.awt.Color(0, 0, 0));
         tfSueldo.setBorder(null);
         getContentPane().add(tfSueldo);
         tfSueldo.setBounds(500, 350, 280, 30);
 
         buttonGroup1.add(rbVacante);
         rbVacante.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        rbVacante.setForeground(new java.awt.Color(255, 255, 255));
         rbVacante.setText("Vacante");
         rbVacante.setBorder(null);
+        rbVacante.setContentAreaFilled(false);
         rbVacante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbVacante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -474,8 +496,10 @@ public class V_Jugador extends javax.swing.JFrame {
 
         buttonGroup1.add(rbOcupado);
         rbOcupado.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        rbOcupado.setForeground(new java.awt.Color(255, 255, 255));
         rbOcupado.setText("Ocupado");
         rbOcupado.setBorder(null);
+        rbOcupado.setContentAreaFilled(false);
         rbOcupado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbOcupado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -486,37 +510,44 @@ public class V_Jugador extends javax.swing.JFrame {
         rbOcupado.setBounds(1010, 350, 110, 30);
 
         lbTelefono.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lbTelefono.setText("Telefono");
         getContentPane().add(lbTelefono);
         lbTelefono.setBounds(500, 400, 150, 40);
 
         tfTelefono.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfTelefono.setForeground(new java.awt.Color(0, 0, 0));
         tfTelefono.setBorder(null);
         getContentPane().add(tfTelefono);
         tfTelefono.setBounds(500, 440, 280, 30);
 
         lbEstado.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEstado.setForeground(new java.awt.Color(255, 255, 255));
         lbEstado.setText("Estado");
         getContentPane().add(lbEstado);
         lbEstado.setBounds(840, 310, 150, 40);
 
         lbEquipo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEquipo.setForeground(new java.awt.Color(255, 255, 255));
         lbEquipo.setText("Equipo");
         getContentPane().add(lbEquipo);
         lbEquipo.setBounds(840, 400, 150, 40);
 
         cbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        cbEquipo.setForeground(new java.awt.Color(0, 0, 0));
         cbEquipo.setBorder(null);
         cbEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(cbEquipo);
         cbEquipo.setBounds(840, 440, 280, 30);
 
         lbJugador.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbJugador.setForeground(new java.awt.Color(255, 255, 255));
         lbJugador.setText("Codigo Jugador");
         getContentPane().add(lbJugador);
         lbJugador.setBounds(170, 220, 150, 40);
 
         tfCodigoJugador.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoJugador.setForeground(new java.awt.Color(0, 0, 0));
         tfCodigoJugador.setBorder(null);
         tfCodigoJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -587,28 +618,28 @@ public class V_Jugador extends javax.swing.JFrame {
         } else if (rbVacante.isSelected()) {
             estado = "vacante";
             if (validarDatos()) {
-            try {
-                switch (ope) {
-                    case "modificar":
-                        JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
-                        ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
-                        break;
-                    case "alta":
-                        JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
-                        ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
-                        break;
-                    case "baja":
-                        JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
-                        ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
-                        break;
-                    case "consulta":
-                        JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
-                        break;
+                try {
+                    switch (ope) {
+                        case "modificar":
+                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                            ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
+                            break;
+                        case "alta":
+                            JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                            ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
+                            break;
+                        case "baja":
+                            JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                            ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
+                            break;
+                        case "consulta":
+                            JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                            break;
+                    }
+                } catch (Exception e) {
+                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
                 }
-            } catch (Exception e) {
-                ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
             }
-        }
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed

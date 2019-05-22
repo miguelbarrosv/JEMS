@@ -8,19 +8,18 @@ package BD;
 import java.sql.ResultSet;
 import UML.*;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Clase de dueño de base de datos
+ * Clase de Dueño de base de datos.
  *
  * @author Joel Encinas
  * @author Sergio Zulueta
  * @author Eric Muñoz
  * @author Miguel Barros
  *
- * @see Jugador
+ * @see Dueño
  *
  * @version %I%, %G%
  * @since 1.0
@@ -30,19 +29,21 @@ public class DueñoBD {
 
     /**
      * Creacion de los atributos resultado y bdr.
+     *
      */
     private static ResultSet resultado;
     private static Bdr bdr;
 
     /**
      * Constructor de DueñoBD con el objeto de la conexión a la base de datos.
+     *
      */
     public DueñoBD() {
         bdr = new Bdr();
     }
 
     /**
-     * Función para insertar jugador.
+     * Función para insertar un Dueño.
      *
      * @param d (requerido) objeto de clase Dueño.
      * @throws Exception hereda excepciones.
@@ -81,9 +82,7 @@ public class DueñoBD {
      * @throws Exception herada excepciones.
      */
     public Dueño crearObjetoConListaEquipos() throws Exception {
-        ArrayList<Dueño> lista_equipos;
         Dueño d = new Dueño();
-
         d.setNombre(resultado.getString("NOMBRE"));
         d.setApellido(resultado.getString("APELLIDO"));
         d.setTelefono(resultado.getString("TELEFONO"));
@@ -94,15 +93,15 @@ public class DueñoBD {
     }
 
     /**
-     * Funcion para buscar un dueño mediante el codigo.
+     * Funcion para buscar un Dueño mediante el codigo.
      *
-     * @param cod_dueño codigo del dueño
+     * @param cod_dueño (requerido) codigo del Dueño
      * @return d objeto de clase Dueño
      * @throws Exception hereda excepciones
      */
     public Dueño consultarDueñoCodigo(int cod_dueño) throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT * FROM DUEÑO WHERE COD_DUEÑO= ?";
+        String plantilla = "SELECT COD_DUEÑO,NOMBRE,APELLIDO,TELEFONO FROM DUEÑO WHERE COD_DUEÑO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_dueño);
         resultado = sentenciaPre.executeQuery();
@@ -111,9 +110,7 @@ public class DueñoBD {
             d = crearObjeto();
         } else {
             d = null;
-        }            
-
-        // Cerrar la conexión
+        }
         bdr.cerrarCon();
         return d;
     }
@@ -126,9 +123,7 @@ public class DueñoBD {
      */
     public ArrayList<Dueño> consultaTodosDueños() throws Exception {
         ArrayList<Dueño> listaDueños = new ArrayList();
-
         bdr.conectar();
-
         Statement sentencia = bdr.getCon().createStatement();
         resultado = sentencia.executeQuery("SELECT * FROM DUEÑO");
         while (resultado.next()) {
@@ -146,13 +141,10 @@ public class DueñoBD {
      */
     public void borrarDueño(int cod_dueño) throws Exception {
         bdr.conectar();
-
         String plantilla = "DELETE FROM DUEÑO WHERE COD_DUEÑO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_dueño);
-
         sentenciaPre.executeUpdate();
-
         bdr.cerrarCon();
     }
 
@@ -164,7 +156,6 @@ public class DueñoBD {
      */
     public void modificarDueño(Dueño d) throws Exception {
         bdr.conectar();
-
         String plantilla = "UPDATE DUEÑO SET NOMBRE=?, APELLIDO=?, TELEFONO=? WHERE COD_DUEÑO=? ";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setString(1, d.getNombre());
@@ -173,5 +164,4 @@ public class DueñoBD {
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
-
 }
