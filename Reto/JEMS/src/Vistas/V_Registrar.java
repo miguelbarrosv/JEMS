@@ -106,7 +106,6 @@ public class V_Registrar extends javax.swing.JFrame {
 
             ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
-
         return flag;
     }
     
@@ -160,6 +159,7 @@ public class V_Registrar extends javax.swing.JFrame {
         lbUsuarioRegistrase.setBounds(500, 220, 70, 40);
 
         tfUsuarioRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfUsuarioRegistrase.setForeground(new java.awt.Color(0, 0, 0));
         tfUsuarioRegistrase.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfUsuarioRegistrase.setBorder(null);
         getContentPane().add(tfUsuarioRegistrase);
@@ -172,12 +172,14 @@ public class V_Registrar extends javax.swing.JFrame {
         lbContraseñaRegistrase.setBounds(500, 310, 100, 40);
 
         pfContraseñaRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        pfContraseñaRegistrase.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseñaRegistrase.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseñaRegistrase.setBorder(null);
         getContentPane().add(pfContraseñaRegistrase);
         pfContraseñaRegistrase.setBounds(500, 350, 280, 30);
 
         pfContraseñaRepetidaRegistrase.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        pfContraseñaRepetidaRegistrase.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseñaRepetidaRegistrase.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseñaRepetidaRegistrase.setBorder(null);
         getContentPane().add(pfContraseñaRepetidaRegistrase);

@@ -9,6 +9,7 @@ import UML.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
@@ -21,13 +22,16 @@ import jems.JEMS;
 public class V_Liga extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Liga y mostrar en pantalla los datos recogidos desde la base de datos
+     * Creates new form V_Liga y mostrar en pantalla los datos recogidos desde
+     * la base de datos
      */
     public V_Liga() throws Exception {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
         equipos = JEMS.crearListaEquiposOrderPuntuacion();
         liga = JEMS.cogerNombreLiga();
-        
+
         tfNombreLiga.setText(liga.getNombre());
         tfEquipo1.setText(equipos.get(0).getNombre());
         tfPuntuacion1.setText(String.valueOf(equipos.get(0).getPuntuacion()));
@@ -42,8 +46,54 @@ public class V_Liga extends javax.swing.JFrame {
         tfEquipo6.setText(equipos.get(5).getNombre());
         tfPuntuacion6.setText(String.valueOf(equipos.get(5).getPuntuacion()));
     }
-private static ArrayList<Equipo> equipos;
-private static Liga liga;
+
+    public void myInitComponents() {
+        setSize(1280, 720);
+        setLocationRelativeTo(null);
+        tfNombreLiga.setBorder(BorderFactory.createCompoundBorder(
+                tfNombreLiga.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipo1.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipo1.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipo2.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipo2.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipo3.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipo3.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipo4.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipo4.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipo5.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipo5.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipo6.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipo6.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion1.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion1.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion2.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion2.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion3.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion3.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion4.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion4.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion5.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion5.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfPuntuacion6.setBorder(BorderFactory.createCompoundBorder(
+                tfPuntuacion6.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+    }
+    
+    private static ArrayList<Equipo> equipos;
+    private static Liga liga;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,196 +103,232 @@ private static Liga liga;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        lbLiga = new javax.swing.JLabel();
+        lbPosicion = new javax.swing.JLabel();
+        lbEquipo = new javax.swing.JLabel();
+        lbPuntos = new javax.swing.JLabel();
         tfNombreLiga = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        eEquipo = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        bVolver = new javax.swing.JButton();
         tfEquipo1 = new javax.swing.JTextField();
         tfEquipo2 = new javax.swing.JTextField();
         tfEquipo3 = new javax.swing.JTextField();
         tfEquipo4 = new javax.swing.JTextField();
         tfEquipo5 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
         tfEquipo6 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         tfPuntuacion1 = new javax.swing.JTextField();
         tfPuntuacion2 = new javax.swing.JTextField();
         tfPuntuacion3 = new javax.swing.JTextField();
         tfPuntuacion4 = new javax.swing.JTextField();
         tfPuntuacion5 = new javax.swing.JTextField();
         tfPuntuacion6 = new javax.swing.JTextField();
+        lbSubtitulo = new javax.swing.JLabel();
+        lbPosicion6 = new javax.swing.JLabel();
+        lbPosicion1 = new javax.swing.JLabel();
+        lbPosicion2 = new javax.swing.JLabel();
+        lbPosicion3 = new javax.swing.JLabel();
+        lbPosicion4 = new javax.swing.JLabel();
+        lbPosicion5 = new javax.swing.JLabel();
+        bVolver = new javax.swing.JButton();
+        lbRiot = new javax.swing.JLabel();
+        lbVersion = new javax.swing.JLabel();
+        bSalir = new javax.swing.JButton();
+        lbBorde = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+        lbBackgroundLiga = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jTextField1.setText("Liga:");
-        jTextField1.setEnabled(false);
+        lbLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbLiga.setForeground(new java.awt.Color(255, 255, 255));
+        lbLiga.setText("Liga");
+        getContentPane().add(lbLiga);
+        lbLiga.setBounds(650, 190, 60, 40);
 
+        lbPosicion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbPosicion.setForeground(new java.awt.Color(255, 255, 255));
+        lbPosicion.setText("Posición");
+        getContentPane().add(lbPosicion);
+        lbPosicion.setBounds(450, 310, 100, 40);
+
+        lbEquipo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEquipo.setForeground(new java.awt.Color(255, 255, 255));
+        lbEquipo.setText("Equipo");
+        getContentPane().add(lbEquipo);
+        lbEquipo.setBounds(550, 310, 90, 40);
+
+        lbPuntos.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbPuntos.setForeground(new java.awt.Color(255, 255, 255));
+        lbPuntos.setText("Puntos");
+        getContentPane().add(lbPuntos);
+        lbPuntos.setBounds(820, 310, 80, 40);
+
+        tfNombreLiga.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombreLiga.setForeground(new java.awt.Color(0, 0, 0));
         tfNombreLiga.setEnabled(false);
+        getContentPane().add(tfNombreLiga);
+        tfNombreLiga.setBounds(600, 230, 160, 30);
 
-        jTextField2.setText("Posicion");
-        jTextField2.setEnabled(false);
+        tfEquipo1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipo1.setForeground(new java.awt.Color(0, 0, 0));
+        tfEquipo1.setEnabled(false);
+        getContentPane().add(tfEquipo1);
+        tfEquipo1.setBounds(550, 350, 250, 30);
 
-        eEquipo.setText("Equipo");
-        eEquipo.setEnabled(false);
+        tfEquipo2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipo2.setForeground(new java.awt.Color(0, 0, 0));
+        tfEquipo2.setEnabled(false);
+        tfEquipo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEquipo2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfEquipo2);
+        tfEquipo2.setBounds(550, 390, 250, 30);
 
-        jTextField4.setText("Puntos");
-        jTextField4.setEnabled(false);
+        tfEquipo3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipo3.setForeground(new java.awt.Color(0, 0, 0));
+        tfEquipo3.setEnabled(false);
+        getContentPane().add(tfEquipo3);
+        tfEquipo3.setBounds(550, 430, 250, 30);
 
-        bVolver.setText("Volver");
+        tfEquipo4.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipo4.setForeground(new java.awt.Color(0, 0, 0));
+        tfEquipo4.setEnabled(false);
+        getContentPane().add(tfEquipo4);
+        tfEquipo4.setBounds(550, 470, 250, 30);
+
+        tfEquipo5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipo5.setForeground(new java.awt.Color(0, 0, 0));
+        tfEquipo5.setEnabled(false);
+        getContentPane().add(tfEquipo5);
+        tfEquipo5.setBounds(550, 510, 250, 30);
+
+        tfEquipo6.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipo6.setForeground(new java.awt.Color(0, 0, 0));
+        tfEquipo6.setEnabled(false);
+        getContentPane().add(tfEquipo6);
+        tfEquipo6.setBounds(550, 550, 250, 30);
+
+        tfPuntuacion1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion1.setForeground(new java.awt.Color(0, 0, 0));
+        tfPuntuacion1.setEnabled(false);
+        getContentPane().add(tfPuntuacion1);
+        tfPuntuacion1.setBounds(820, 350, 60, 30);
+
+        tfPuntuacion2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion2.setForeground(new java.awt.Color(0, 0, 0));
+        tfPuntuacion2.setEnabled(false);
+        getContentPane().add(tfPuntuacion2);
+        tfPuntuacion2.setBounds(820, 390, 60, 30);
+
+        tfPuntuacion3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion3.setForeground(new java.awt.Color(0, 0, 0));
+        tfPuntuacion3.setEnabled(false);
+        getContentPane().add(tfPuntuacion3);
+        tfPuntuacion3.setBounds(820, 430, 60, 30);
+
+        tfPuntuacion4.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion4.setForeground(new java.awt.Color(0, 0, 0));
+        tfPuntuacion4.setEnabled(false);
+        getContentPane().add(tfPuntuacion4);
+        tfPuntuacion4.setBounds(820, 470, 60, 30);
+
+        tfPuntuacion5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion5.setForeground(new java.awt.Color(0, 0, 0));
+        tfPuntuacion5.setEnabled(false);
+        getContentPane().add(tfPuntuacion5);
+        tfPuntuacion5.setBounds(820, 510, 60, 30);
+
+        tfPuntuacion6.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion6.setForeground(new java.awt.Color(0, 0, 0));
+        tfPuntuacion6.setEnabled(false);
+        getContentPane().add(tfPuntuacion6);
+        tfPuntuacion6.setBounds(820, 550, 60, 30);
+
+        lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
+        lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
+        lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbSubtitulo.setText("LIGA");
+        getContentPane().add(lbSubtitulo);
+        lbSubtitulo.setBounds(530, 70, 290, 60);
+
+        lbPosicion6.setText("6.");
+        getContentPane().add(lbPosicion6);
+        lbPosicion6.setBounds(480, 550, 50, 30);
+
+        lbPosicion1.setText("1.");
+        getContentPane().add(lbPosicion1);
+        lbPosicion1.setBounds(480, 350, 50, 30);
+
+        lbPosicion2.setText("2.");
+        getContentPane().add(lbPosicion2);
+        lbPosicion2.setBounds(480, 390, 50, 30);
+
+        lbPosicion3.setText("3.");
+        getContentPane().add(lbPosicion3);
+        lbPosicion3.setBounds(480, 430, 50, 30);
+
+        lbPosicion4.setText("4.");
+        getContentPane().add(lbPosicion4);
+        lbPosicion4.setBounds(480, 470, 50, 30);
+
+        lbPosicion5.setText("5.");
+        getContentPane().add(lbPosicion5);
+        lbPosicion5.setBounds(480, 510, 50, 30);
+
+        bVolver.setBackground(new java.awt.Color(86, 88, 149));
+        bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
+        bVolver.setText("VOLVER");
+        bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bVolver.setBorderPainted(false);
+        bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bVolver.setFocusPainted(false);
         bVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bVolverActionPerformed(evt);
             }
         });
+        getContentPane().add(bVolver);
+        bVolver.setBounds(590, 630, 170, 30);
 
-        tfEquipo1.setEnabled(false);
+        lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
+        getContentPane().add(lbRiot);
+        lbRiot.setBounds(10, 670, 100, 50);
 
-        tfEquipo2.setEnabled(false);
+        lbVersion.setFont(new java.awt.Font("Source Serif Pro Black", 3, 12)); // NOI18N
+        lbVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbVersion.setText("FINAL_BUILD_V1.0.0");
+        getContentPane().add(lbVersion);
+        lbVersion.setBounds(1100, 680, 180, 30);
 
-        tfEquipo3.setEnabled(false);
-
-        tfEquipo4.setEnabled(false);
-
-        tfEquipo5.setEnabled(false);
-
-        jTextField3.setText("1");
-        jTextField3.setEnabled(false);
-
-        jTextField5.setText("2");
-        jTextField5.setEnabled(false);
-
-        jTextField6.setText("3");
-        jTextField6.setEnabled(false);
-
-        jTextField7.setText("4");
-        jTextField7.setEnabled(false);
-
-        jTextField8.setText("5");
-        jTextField8.setEnabled(false);
-
-        tfEquipo6.setEnabled(false);
-
-        jTextField9.setText("6");
-        jTextField9.setEnabled(false);
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
+        bSalir.setBorderPainted(false);
+        bSalir.setContentAreaFilled(false);
+        bSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bSalir.setFocusPainted(false);
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                bSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(bSalir);
+        bSalir.setBounds(1230, 10, 40, 40);
 
-        tfPuntuacion1.setEnabled(false);
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(430, 180, 480, 420);
 
-        tfPuntuacion2.setEnabled(false);
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/jornada_background.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
 
-        tfPuntuacion3.setEnabled(false);
-
-        tfPuntuacion4.setEnabled(false);
-
-        tfPuntuacion5.setEnabled(false);
-
-        tfPuntuacion6.setEnabled(false);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(bVolver)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(tfNombreLiga, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField5)
-                                .addComponent(jTextField3)
-                                .addComponent(jTextField6)
-                                .addComponent(jTextField7)
-                                .addComponent(jTextField8))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(eEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                    .addComponent(tfPuntuacion1)
-                    .addComponent(tfPuntuacion2)
-                    .addComponent(tfPuntuacion3)
-                    .addComponent(tfPuntuacion4)
-                    .addComponent(tfPuntuacion5)
-                    .addComponent(tfPuntuacion6))
-                .addGap(21, 21, 21))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNombreLiga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfEquipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPuntuacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPuntuacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPuntuacion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPuntuacion4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPuntuacion5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfEquipo6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPuntuacion6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(bVolver)
-                .addContainerGap())
-        );
+        lbBackgroundLiga.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundLiga.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundLiga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundLiga);
+        lbBackgroundLiga.setBounds(0, 0, 1280, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,9 +337,13 @@ private static Liga liga;
         ControladorVistas.cerrarVentanaLiga();
     }//GEN-LAST:event_bVolverActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_bSalirActionPerformed
+
+    private void tfEquipo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEquipo2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_tfEquipo2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,17 +385,24 @@ private static Liga liga;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bSalir;
     private javax.swing.JButton bVolver;
-    private javax.swing.JTextField eEquipo;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lbBackgroundLiga;
+    private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbEquipo;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbLiga;
+    private javax.swing.JLabel lbPosicion;
+    private javax.swing.JLabel lbPosicion1;
+    private javax.swing.JLabel lbPosicion2;
+    private javax.swing.JLabel lbPosicion3;
+    private javax.swing.JLabel lbPosicion4;
+    private javax.swing.JLabel lbPosicion5;
+    private javax.swing.JLabel lbPosicion6;
+    private javax.swing.JLabel lbPuntos;
+    private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbSubtitulo;
+    private javax.swing.JLabel lbVersion;
     private javax.swing.JTextField tfEquipo1;
     private javax.swing.JTextField tfEquipo2;
     private javax.swing.JTextField tfEquipo3;

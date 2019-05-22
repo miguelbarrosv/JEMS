@@ -32,9 +32,7 @@ public class V_Jugador extends javax.swing.JFrame {
      * Creates new form V_Jugador
      */
     public V_Jugador() {
-
         initComponents();
-
     }
 
     public void myInitComponents() {
@@ -422,59 +420,71 @@ public class V_Jugador extends javax.swing.JFrame {
         lbSubtitulo.setBounds(530, 70, 240, 60);
 
         lbNombre.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNombre.setForeground(new java.awt.Color(255, 255, 255));
         lbNombre.setText("Nombre");
         getContentPane().add(lbNombre);
         lbNombre.setBounds(170, 310, 150, 40);
 
         tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setForeground(new java.awt.Color(0, 0, 0));
         tfNombre.setBorder(null);
         getContentPane().add(tfNombre);
         tfNombre.setBounds(170, 350, 280, 30);
 
         lbApellido.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbApellido.setForeground(new java.awt.Color(255, 255, 255));
         lbApellido.setText("Apellido");
         getContentPane().add(lbApellido);
         lbApellido.setBounds(170, 400, 150, 40);
 
         tfApellido.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfApellido.setForeground(new java.awt.Color(0, 0, 0));
         tfApellido.setBorder(null);
         getContentPane().add(tfApellido);
         tfApellido.setBounds(170, 440, 280, 30);
 
         lbNickname.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNickname.setForeground(new java.awt.Color(255, 255, 255));
         lbNickname.setText("Nickname");
         getContentPane().add(lbNickname);
         lbNickname.setBounds(840, 220, 150, 40);
 
         tfNickname.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNickname.setForeground(new java.awt.Color(0, 0, 0));
         tfNickname.setBorder(null);
         getContentPane().add(tfNickname);
         tfNickname.setBounds(840, 260, 280, 30);
 
         lbNacionalidad.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNacionalidad.setForeground(new java.awt.Color(255, 255, 255));
         lbNacionalidad.setText("Nacionalidad");
         getContentPane().add(lbNacionalidad);
         lbNacionalidad.setBounds(500, 220, 150, 40);
 
         tfNacionalidad.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNacionalidad.setForeground(new java.awt.Color(0, 0, 0));
         tfNacionalidad.setBorder(null);
         getContentPane().add(tfNacionalidad);
         tfNacionalidad.setBounds(500, 260, 280, 30);
 
         lbSueldo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbSueldo.setForeground(new java.awt.Color(255, 255, 255));
         lbSueldo.setText("Sueldo");
         getContentPane().add(lbSueldo);
         lbSueldo.setBounds(500, 310, 150, 40);
 
         tfSueldo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfSueldo.setForeground(new java.awt.Color(0, 0, 0));
         tfSueldo.setBorder(null);
         getContentPane().add(tfSueldo);
         tfSueldo.setBounds(500, 350, 280, 30);
 
         buttonGroup1.add(rbVacante);
         rbVacante.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        rbVacante.setForeground(new java.awt.Color(255, 255, 255));
         rbVacante.setText("Vacante");
         rbVacante.setBorder(null);
+        rbVacante.setContentAreaFilled(false);
         rbVacante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbVacante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -486,8 +496,10 @@ public class V_Jugador extends javax.swing.JFrame {
 
         buttonGroup1.add(rbOcupado);
         rbOcupado.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        rbOcupado.setForeground(new java.awt.Color(255, 255, 255));
         rbOcupado.setText("Ocupado");
         rbOcupado.setBorder(null);
+        rbOcupado.setContentAreaFilled(false);
         rbOcupado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbOcupado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,37 +510,44 @@ public class V_Jugador extends javax.swing.JFrame {
         rbOcupado.setBounds(1010, 350, 110, 30);
 
         lbTelefono.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lbTelefono.setText("Telefono");
         getContentPane().add(lbTelefono);
         lbTelefono.setBounds(500, 400, 150, 40);
 
         tfTelefono.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfTelefono.setForeground(new java.awt.Color(0, 0, 0));
         tfTelefono.setBorder(null);
         getContentPane().add(tfTelefono);
         tfTelefono.setBounds(500, 440, 280, 30);
 
         lbEstado.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEstado.setForeground(new java.awt.Color(255, 255, 255));
         lbEstado.setText("Estado");
         getContentPane().add(lbEstado);
         lbEstado.setBounds(840, 310, 150, 40);
 
         lbEquipo.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbEquipo.setForeground(new java.awt.Color(255, 255, 255));
         lbEquipo.setText("Equipo");
         getContentPane().add(lbEquipo);
         lbEquipo.setBounds(840, 400, 150, 40);
 
         cbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        cbEquipo.setForeground(new java.awt.Color(0, 0, 0));
         cbEquipo.setBorder(null);
         cbEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(cbEquipo);
         cbEquipo.setBounds(840, 440, 280, 30);
 
         lbJugador.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbJugador.setForeground(new java.awt.Color(255, 255, 255));
         lbJugador.setText("Codigo Jugador");
         getContentPane().add(lbJugador);
         lbJugador.setBounds(170, 220, 150, 40);
 
         tfCodigoJugador.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoJugador.setForeground(new java.awt.Color(0, 0, 0));
         tfCodigoJugador.setBorder(null);
         tfCodigoJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
