@@ -812,7 +812,6 @@ public class V_Admin extends javax.swing.JFrame {
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
         try {
             operacion = "modificar";
-
             ControladorVistas.mostrarVentanaEquipo(operacion);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());

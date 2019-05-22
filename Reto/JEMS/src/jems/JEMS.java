@@ -157,6 +157,7 @@ public class JEMS {
      * asi modificar aun jugador ya existente.
      *
      *
+     * @param codJugador (requerido) codigo jugador
      * @param nombre (requerido) nombre del jugador
      * @param apellido (requerido) apellido del jugador
      * @param nick (requerido) nickname del jugador
@@ -167,8 +168,9 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
+    public static void modificarJugador(int codJugador,String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
+        j.setCod_jugador(codJugador);
         j.setNombre(nombre);
         j.setApellido(apellido);
         j.setNickname(nick);
@@ -321,13 +323,15 @@ public class JEMS {
      * pasarle los parametros de la ventana V_Dueño y asi modificar un dueño ya
      * existente.
      *
+     * @param codigoDueño (requerido) codigo del dueño
      * @param nombre (requerido) nombre del dueño
      * @param apellido (requerido) apellido del dueño
      * @param telefono (requerido) telefono del dueño
      * @throws Exception hereda excepciones
      */
-    public static void modificarDueño(String nombre, String apellido, String telefono) throws Exception {
+    public static void modificarDueño(int codigoDueño,String nombre, String apellido, String telefono) throws Exception {
         d = new Dueño();
+        d.setCod_dueño(codigoDueño);
         d.setNombre(nombre);
         d.setApellido(apellido);
         d.setTelefono(telefono);

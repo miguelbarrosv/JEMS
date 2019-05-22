@@ -364,7 +364,7 @@ public class V_Dueño extends javax.swing.JFrame {
             if (validarDatos()) {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarDueño(tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                        JEMS.modificarDueño(Integer.parseInt(tfCodigoDueño.getText()),tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
                         ControladorVistas.abrirVentanaAviso("Dueño modificado con exito!");
                         break;
                     case "alta":

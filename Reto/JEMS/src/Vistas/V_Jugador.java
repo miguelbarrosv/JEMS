@@ -596,7 +596,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 try {
                     switch (ope) {
                         case "modificar":
-                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                            JEMS.modificarJugador(Integer.parseInt(tfCodigoJugador.getText()),tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
                             ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
                             break;
                         case "alta":
@@ -621,7 +621,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 try {
                     switch (ope) {
                         case "modificar":
-                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                            JEMS.modificarJugador(Integer.parseInt(tfCodigoJugador.getText()),tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
                             ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
                             break;
                         case "alta":
@@ -663,6 +663,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 tfNombre.setEditable(true);
                 tfApellido.setEditable(true);
                 tfNacionalidad.setEditable(true);
+                tfNickname.setEditable(true);
                 tfSueldo.setEditable(true);
                 tfTelefono.setEditable(true);
                 rbOcupado.setEnabled(true);
@@ -676,23 +677,15 @@ public class V_Jugador extends javax.swing.JFrame {
                 tfNacionalidad.setText(jugador.getNacionalidad());
                 tfSueldo.setText(String.valueOf(jugador.getSueldo()));
                 tfTelefono.setText(jugador.getTelefono());
-                //mirar todos los nombres de los equipos en la combobox
-                cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
-                //otra posible solucion
-                /*for (int x = 0; x < cbEquipo.getItemCount(); x++) {
-                    //si el nombre del equipo del jugador es igual al nombre del equipo de la combobox en esa posicion
-                    if (jugador.getEquipo().getNombre().compareToIgnoreCase(cbEquipo.getItemAt(x)) != 0) {
-                        //se pone como principal el nombre del equipo de esa posicion
-                        cbEquipo.setSelectedIndex(x);
-                    }
-                }*/
-                if (jugador.getEstado().compareToIgnoreCase("vacante") != 0) {
-                    rbVacante.isSelected();
+                cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());                
+                if (jugador.getEstado().compareToIgnoreCase("vacante") == 0) {
+                    rbVacante.setSelected(true);
                 } else {
-                    rbOcupado.isSelected();
+                    rbOcupado.setSelected(true);
                 }
                 break;
             case "baja":
+                tfCodigoJugador.setEditable(true);
                 bAceptar.setEnabled(true);
                 tfNombre.setText(jugador.getNombre());
                 tfApellido.setText(jugador.getApellido());
@@ -701,10 +694,10 @@ public class V_Jugador extends javax.swing.JFrame {
                 tfSueldo.setText(String.valueOf(jugador.getSueldo()));
                 tfTelefono.setText(jugador.getTelefono());
                 cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
-                if (jugador.getEstado().compareToIgnoreCase("vacante") != 0) {
-                    rbVacante.isSelected();
+                if (jugador.getEstado().compareToIgnoreCase("vacante") == 0) {
+                    rbVacante.setSelected(true);
                 } else {
-                    rbOcupado.isSelected();
+                    rbOcupado.setSelected(true);
                 }
                 break;
             case "consulta":
@@ -715,10 +708,10 @@ public class V_Jugador extends javax.swing.JFrame {
                 tfSueldo.setText(String.valueOf(jugador.getSueldo()));
                 tfTelefono.setText(jugador.getTelefono());
                 cbEquipo.setSelectedItem(jugador.getEquipo().getNombre());
-                if (jugador.getEstado().compareToIgnoreCase("vacante") != 0) {
-                    rbVacante.isSelected();
+                if (jugador.getEstado().compareToIgnoreCase("vacante") == 0) {
+                    rbVacante.setSelected(true);
                 } else {
-                    rbOcupado.isSelected();
+                    rbOcupado.setSelected(true);
                 }
                 break;
         }
