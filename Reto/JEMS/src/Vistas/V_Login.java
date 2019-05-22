@@ -67,30 +67,6 @@ public class V_Login extends javax.swing.JFrame {
     public int comprobarDatos() throws Exception {
         // Login usuario = 1 | Login admin = 2
         int comp = 0;
-        /*
-        try {
-            usuario = JEMS.consultarUsuarioPorNombre(tfUsuario.getText());
-            if (tfUsuario.getText().equals(usuario.getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(usuario.getContraseña())) {
-                comp = 1;
-            } else {
-                tfUsuario.setForeground(Color.red);
-                pfContraseña.setForeground(Color.red);
-                comp = 0;
-            }
-
-            administrador = JEMS.consultarAdministradorPorNombre(tfUsuario.getText());
-            if (tfUsuario.getText().equals(administrador.getUsuario()) && convertirContraseña(pfContraseña.getPassword()).equals(administrador.getContraseña())) {
-                comp = 2;
-            } else {
-                tfUsuario.setForeground(Color.red);
-                pfContraseña.setForeground(Color.red);
-                comp = 0;
-            }
-
-        } catch (Exception e) {
-            System.out.println("problemas");
-        }*/
-
         if (JEMS.conseguirDatosUsuarios(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword())) || JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
             if (JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
                 comp = 2;
@@ -207,6 +183,11 @@ public class V_Login extends javax.swing.JFrame {
         pfContraseña.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseña.setBorder(null);
+        pfContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pfContraseñaActionPerformed(evt);
+            }
+        });
         getContentPane().add(pfContraseña);
         pfContraseña.setBounds(940, 440, 280, 30);
 
@@ -273,6 +254,10 @@ public class V_Login extends javax.swing.JFrame {
         ControladorVistas.cerrarVentanaLogin();
         ControladorVistas.mostrarVentanaRegistrar();
     }//GEN-LAST:event_bCrearCuentaActionPerformed
+
+    private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed
+        bAcceder.doClick();
+    }//GEN-LAST:event_pfContraseñaActionPerformed
 
     /**
      * @param args the command line arguments

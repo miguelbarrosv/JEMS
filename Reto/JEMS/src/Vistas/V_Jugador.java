@@ -139,7 +139,7 @@ public class V_Jugador extends javax.swing.JFrame {
             validarNickName();
             validarNacionalidad();
             validarSueldo();
-            //validarTelefono();
+            validarTelefono();
             validarEstado();
             validarEquipo();
             return true;
@@ -171,9 +171,12 @@ public class V_Jugador extends javax.swing.JFrame {
         }
 
         //En la bdd tenemos el nombre como varchar 20
-        //Consideramos que no deba ser mayor a 20 el nombre
-        if (tfNombre.getText().length() > 20) {
-            throw new DatoNoValido("El nombre no puede ser superior a 20 caracteres.");
+        //Consideramos que no deba ser mayor a 20
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNombre.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El nombre tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
 
     }
@@ -191,8 +194,11 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos el apellido como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfApellido.getText().length() > 20) {
-            throw new DatoNoValido("El apellido no puede ser superior a 20 caracteres.");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfApellido.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El apellido tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
     }
 
@@ -209,8 +215,11 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos el nick como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfNickname.getText().length() > 20) {
-            throw new DatoNoValido("El Nick no puede ser superior a 20 caracteres.");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNickname.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("El nickname tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
     }
 
@@ -228,8 +237,11 @@ public class V_Jugador extends javax.swing.JFrame {
 
         //En la bdd tenemos la nacionalidad como varchar 20
         //Consideramos que no deba ser mayor a 20
-        if (tfNacionalidad.getText().length() > 20) {
-            throw new DatoNoValido("La nacionalidad no puede ser superior a 20 datos");
+        //Tambien consideramos que todo se introduzca en mayusculas
+        Pattern pat = Pattern.compile("([A-Z]){1,20}$");
+        Matcher mat = pat.matcher(tfNacionalidad.getText());
+        if (!mat.matches()) {
+            throw new DatoNoValido("La nacionalidad tiene que ser en mayusculas y tener maximo 20 caracteres.");
         }
     }
 
@@ -606,28 +618,28 @@ public class V_Jugador extends javax.swing.JFrame {
         } else if (rbVacante.isSelected()) {
             estado = "vacante";
             if (validarDatos()) {
-            try {
-                switch (ope) {
-                    case "modificar":
-                        JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
-                        ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
-                        break;
-                    case "alta":
-                        JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
-                        ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
-                        break;
-                    case "baja":
-                        JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
-                        ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
-                        break;
-                    case "consulta":
-                        JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
-                        break;
+                try {
+                    switch (ope) {
+                        case "modificar":
+                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                            ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
+                            break;
+                        case "alta":
+                            JEMS.altaJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                            ControladorVistas.abrirVentanaAviso("Jugador dado de alta con exito!");
+                            break;
+                        case "baja":
+                            JEMS.borrarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                            ControladorVistas.abrirVentanaAviso("Jugador dado de baja con exito!");
+                            break;
+                        case "consulta":
+                            JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
+                            break;
+                    }
+                } catch (Exception e) {
+                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
                 }
-            } catch (Exception e) {
-                ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
             }
-        }
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
