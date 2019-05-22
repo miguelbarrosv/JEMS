@@ -49,8 +49,10 @@ public class GeneradorDOMClasificacion {
     }
 
     public void run() {
+        System.out.println("Iniciando...");
         crearArbolDOM();
         exportarFichero();
+        System.out.println("Fichero generado");
     }
 
     private void crearDocumento() {
