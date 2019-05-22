@@ -89,6 +89,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         getContentPane().add(lbVersion);
         lbVersion.setBounds(1100, 680, 180, 30);
 
+
         lbCodigoDueño.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbCodigoDueño.setForeground(new java.awt.Color(255, 255, 255));
         lbCodigoDueño.setText("Selecciona la Fecha de Inicio de la Liga");
@@ -157,6 +158,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
             Logger.getLogger(V_CrearLiga.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bCrearActionPerformed
+
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
