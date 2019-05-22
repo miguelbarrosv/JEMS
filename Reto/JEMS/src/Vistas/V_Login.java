@@ -6,7 +6,6 @@
 package Vistas;
 
 import javax.swing.BorderFactory;
-import UML.*;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -168,6 +167,7 @@ public class V_Login extends javax.swing.JFrame {
         lbSubtitulo.setBounds(930, 240, 220, 40);
 
         tfUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfUsuario.setForeground(new java.awt.Color(0, 0, 0));
         tfUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfUsuario.setBorder(null);
         getContentPane().add(tfUsuario);
@@ -180,6 +180,7 @@ public class V_Login extends javax.swing.JFrame {
         lbContraseña.setBounds(940, 400, 220, 40);
 
         pfContraseña.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        pfContraseña.setForeground(new java.awt.Color(0, 0, 0));
         pfContraseña.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         pfContraseña.setBorder(null);
         pfContraseña.addActionListener(new java.awt.event.ActionListener() {

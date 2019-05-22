@@ -34,6 +34,7 @@ public class V_Admin extends javax.swing.JFrame {
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
+        bVolver.setVisible(false);
     }
 
     private static String operacion;
@@ -50,12 +51,34 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        lbEquipo1 = new javax.swing.JLabel();
+        lbEquipo2 = new javax.swing.JLabel();
+        lbEquipo3 = new javax.swing.JLabel();
+        lbEquipo4 = new javax.swing.JLabel();
+        lbEquipo5 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
+        bEquipo = new javax.swing.JButton();
+        bJugador = new javax.swing.JButton();
+        bDueño = new javax.swing.JButton();
+        bUsuario = new javax.swing.JButton();
+        bAlta = new javax.swing.JButton();
+        bModificar = new javax.swing.JButton();
+        bBaja = new javax.swing.JButton();
+        bConsultarUno = new javax.swing.JButton();
+        bConsultarMuchos = new javax.swing.JButton();
+        lbEquipo = new javax.swing.JLabel();
+        lbJugador = new javax.swing.JLabel();
+        lbUsuario = new javax.swing.JLabel();
+        lbDueño = new javax.swing.JLabel();
+        lbTituloAdmin = new javax.swing.JLabel();
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
+        bVolver = new javax.swing.JButton();
         bSalir = new javax.swing.JButton();
+        lbBackgroundUsuario = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -121,6 +144,36 @@ public class V_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        lbEquipo1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEquipo1.setForeground(new java.awt.Color(0, 0, 0));
+        lbEquipo1.setText("BORRAR");
+        getContentPane().add(lbEquipo1);
+        lbEquipo1.setBounds(190, 310, 102, 40);
+
+        lbEquipo2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEquipo2.setForeground(new java.awt.Color(0, 0, 0));
+        lbEquipo2.setText("AÑADIR");
+        getContentPane().add(lbEquipo2);
+        lbEquipo2.setBounds(190, 150, 100, 40);
+
+        lbEquipo3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEquipo3.setForeground(new java.awt.Color(0, 0, 0));
+        lbEquipo3.setText("CONSULTAR UNO");
+        getContentPane().add(lbEquipo3);
+        lbEquipo3.setBounds(190, 390, 210, 40);
+
+        lbEquipo4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEquipo4.setForeground(new java.awt.Color(0, 0, 0));
+        lbEquipo4.setText("CONSULTAR TODOS");
+        getContentPane().add(lbEquipo4);
+        lbEquipo4.setBounds(190, 470, 240, 40);
+
+        lbEquipo5.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEquipo5.setForeground(new java.awt.Color(0, 0, 0));
+        lbEquipo5.setText("EDITAR");
+        getContentPane().add(lbEquipo5);
+        lbEquipo5.setBounds(190, 230, 90, 40);
+
         jToggleButton1.setText("jToggleButton1");
         getContentPane().add(jToggleButton1);
         jToggleButton1.setBounds(0, 0, 0, 0);
@@ -143,7 +196,163 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bCrearLiga);
-        bCrearLiga.setBounds(500, 231, 192, 98);
+        bCrearLiga.setBounds(740, 30, 410, 80);
+
+        bEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/equipo.png"))); // NOI18N
+        bEquipo.setBorder(null);
+        bEquipo.setBorderPainted(false);
+        bEquipo.setContentAreaFilled(false);
+        bEquipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bEquipo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEquipoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bEquipo);
+        bEquipo.setBounds(90, 240, 270, 80);
+
+        bJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/jugador.png"))); // NOI18N
+        bJugador.setBorder(null);
+        bJugador.setBorderPainted(false);
+        bJugador.setContentAreaFilled(false);
+        bJugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bJugador.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bJugadorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bJugador);
+        bJugador.setBounds(90, 440, 270, 80);
+
+        bDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dueño.png"))); // NOI18N
+        bDueño.setBorder(null);
+        bDueño.setBorderPainted(false);
+        bDueño.setContentAreaFilled(false);
+        bDueño.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bDueño.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bDueño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDueñoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bDueño);
+        bDueño.setBounds(90, 340, 270, 80);
+
+        bUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/usuario.png"))); // NOI18N
+        bUsuario.setBorder(null);
+        bUsuario.setBorderPainted(false);
+        bUsuario.setContentAreaFilled(false);
+        bUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bUsuario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bUsuario);
+        bUsuario.setBounds(90, 140, 270, 80);
+
+        bAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/añadir.png"))); // NOI18N
+        bAlta.setBorder(null);
+        bAlta.setBorderPainted(false);
+        bAlta.setContentAreaFilled(false);
+        bAlta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bAlta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAltaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bAlta);
+        bAlta.setBounds(80, 130, 320, 80);
+
+        bModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/editar.png"))); // NOI18N
+        bModificar.setBorder(null);
+        bModificar.setBorderPainted(false);
+        bModificar.setContentAreaFilled(false);
+        bModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bModificar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bModificar);
+        bModificar.setBounds(80, 220, 320, 70);
+
+        bBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/borrar.png"))); // NOI18N
+        bBaja.setBorder(null);
+        bBaja.setBorderPainted(false);
+        bBaja.setContentAreaFilled(false);
+        bBaja.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bBaja.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBajaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bBaja);
+        bBaja.setBounds(80, 300, 320, 70);
+
+        bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
+        bConsultarUno.setBorder(null);
+        bConsultarUno.setBorderPainted(false);
+        bConsultarUno.setContentAreaFilled(false);
+        bConsultarUno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bConsultarUno.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bConsultarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConsultarUnoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bConsultarUno);
+        bConsultarUno.setBounds(80, 380, 320, 70);
+
+        bConsultarMuchos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_varios.png"))); // NOI18N
+        bConsultarMuchos.setBorder(null);
+        bConsultarMuchos.setBorderPainted(false);
+        bConsultarMuchos.setContentAreaFilled(false);
+        bConsultarMuchos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bConsultarMuchos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bConsultarMuchos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bConsultarMuchosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bConsultarMuchos);
+        bConsultarMuchos.setBounds(80, 460, 320, 70);
+
+        lbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEquipo.setForeground(new java.awt.Color(0, 0, 0));
+        lbEquipo.setText("EQUIPO");
+        getContentPane().add(lbEquipo);
+        lbEquipo.setBounds(200, 260, 90, 40);
+
+        lbJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbJugador.setForeground(new java.awt.Color(0, 0, 0));
+        lbJugador.setText("JUGADOR");
+        getContentPane().add(lbJugador);
+        lbJugador.setBounds(200, 460, 120, 40);
+
+        lbUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        lbUsuario.setText("USUARIO");
+        getContentPane().add(lbUsuario);
+        lbUsuario.setBounds(200, 160, 110, 40);
+
+        lbDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbDueño.setForeground(new java.awt.Color(0, 0, 0));
+        lbDueño.setText("DUEÑO");
+        getContentPane().add(lbDueño);
+        lbDueño.setBounds(200, 360, 90, 40);
+
+        lbTituloAdmin.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        lbTituloAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        lbTituloAdmin.setText("<HTML>ADMINISTRAR <BR> BASE DE DATOS</HTML> ");
+        getContentPane().add(lbTituloAdmin);
+        lbTituloAdmin.setBounds(80, 10, 300, 100);
 
         lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
         getContentPane().add(lbRiot);
@@ -154,6 +363,22 @@ public class V_Admin extends javax.swing.JFrame {
         lbVersion.setText("FINAL_BUILD_V1.0.0");
         getContentPane().add(lbVersion);
         lbVersion.setBounds(1100, 620, 180, 40);
+
+        bVolver.setBackground(new java.awt.Color(13, 9, 32));
+        bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bVolver.setForeground(new java.awt.Color(255, 255, 255));
+        bVolver.setText("VOLVER");
+        bVolver.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bVolver.setBorderPainted(false);
+        bVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bVolver.setFocusPainted(false);
+        bVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bVolver);
+        bVolver.setBounds(150, 560, 170, 30);
 
         bSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/error.png"))); // NOI18N
         bSalir.setBorderPainted(false);
@@ -167,6 +392,16 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
+
+        lbBackgroundUsuario.setBackground(new java.awt.Color(13, 9, 32));
+        lbBackgroundUsuario.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_secondary_color.png"))); // NOI18N
+        getContentPane().add(lbBackgroundUsuario);
+        lbBackgroundUsuario.setBounds(0, 0, 440, 720);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Nunu.jpg"))); // NOI18N
+        getContentPane().add(lbFiller);
+        lbFiller.setBounds(0, 0, 1280, 720);
 
         jMenu1.setBorder(null);
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/sql developer_opt.png"))); // NOI18N
@@ -891,6 +1126,72 @@ public class V_Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_miJornada9ActionPerformed
 
+    private void bUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUsuarioActionPerformed
+        bVolver.setVisible(true);
+        lbTituloAdmin.setText("USUARIO");
+    }//GEN-LAST:event_bUsuarioActionPerformed
+
+    private void bEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquipoActionPerformed
+        bVolver.setVisible(true);
+        lbTituloAdmin.setText("EQUIPO");
+    }//GEN-LAST:event_bEquipoActionPerformed
+
+    private void bDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDueñoActionPerformed
+        bVolver.setVisible(true);
+        lbTituloAdmin.setText("DUEÑO");
+    }//GEN-LAST:event_bDueñoActionPerformed
+
+    private void bJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJugadorActionPerformed
+        bVolver.setVisible(true);
+        lbTituloAdmin.setText("JUGADOR");
+    }//GEN-LAST:event_bJugadorActionPerformed
+
+    private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
+        bVolver.setVisible(false);
+        lbTituloAdmin.setText("<HTML>ADMINISTRAR <BR> BASE DE DATOS</HTML>");
+    }//GEN-LAST:event_bVolverActionPerformed
+
+    private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
+        if (lbTituloAdmin.getText().equalsIgnoreCase("USUARIO")) {
+            operacion = "alta";
+            ControladorVistas.mostrarVentanaAdminUsuario(operacion);
+        } else if (lbTituloAdmin.getText().equalsIgnoreCase("JUGADOR")) {
+            try {
+                operacion = "alta";
+                ControladorVistas.mostrarVentanaJugador(operacion);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            }
+        } else if (lbTituloAdmin.getText().equalsIgnoreCase("EQUIPO")) {
+            try {
+                operacion = "alta";
+                ControladorVistas.mostrarVentanaEquipo(operacion);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            }
+        } else if (lbTituloAdmin.getText().equalsIgnoreCase("DUEÑO")) {
+            operacion = "alta";
+            ControladorVistas.mostrarVentanaDueño(operacion);
+        }
+
+    }//GEN-LAST:event_bAltaActionPerformed
+
+    private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
+
+    }//GEN-LAST:event_bModificarActionPerformed
+
+    private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
+
+    }//GEN-LAST:event_bBajaActionPerformed
+
+    private void bConsultarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarUnoActionPerformed
+
+    }//GEN-LAST:event_bConsultarUnoActionPerformed
+
+    private void bConsultarMuchosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarMuchosActionPerformed
+
+    }//GEN-LAST:event_bConsultarMuchosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -928,8 +1229,18 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAlta;
+    private javax.swing.JButton bBaja;
+    private javax.swing.JButton bConsultarMuchos;
+    private javax.swing.JButton bConsultarUno;
     private javax.swing.JButton bCrearLiga;
+    private javax.swing.JButton bDueño;
+    private javax.swing.JButton bEquipo;
+    private javax.swing.JButton bJugador;
+    private javax.swing.JButton bModificar;
     private javax.swing.JButton bSalir;
+    private javax.swing.JButton bUsuario;
+    private javax.swing.JButton bVolver;
     private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
@@ -957,7 +1268,19 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbBackgroundUsuario;
+    private javax.swing.JLabel lbDueño;
+    private javax.swing.JLabel lbEquipo;
+    private javax.swing.JLabel lbEquipo1;
+    private javax.swing.JLabel lbEquipo2;
+    private javax.swing.JLabel lbEquipo3;
+    private javax.swing.JLabel lbEquipo4;
+    private javax.swing.JLabel lbEquipo5;
+    private javax.swing.JLabel lbFiller;
+    private javax.swing.JLabel lbJugador;
     private javax.swing.JLabel lbRiot;
+    private javax.swing.JLabel lbTituloAdmin;
+    private javax.swing.JLabel lbUsuario;
     private javax.swing.JLabel lbVersion;
     private javax.swing.JMenu mIntroducirResultado;
     private javax.swing.JMenuItem miAltaDueño;
