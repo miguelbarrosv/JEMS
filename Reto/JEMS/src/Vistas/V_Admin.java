@@ -985,7 +985,7 @@ public class V_Admin extends javax.swing.JFrame {
             String listaEquipos = JEMS.crearListaEquipos();
             ControladorVistas.mostrarVentanaLista(listaEquipos);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miConsultarEquiposActionPerformed
     /**
