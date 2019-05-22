@@ -6,6 +6,7 @@
 package BD;
 
 import UML.Jornada;
+import UML.Partido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -59,7 +60,7 @@ public class JornadaBD {
         bdr.cerrarCon();
         return listaJornadas;
     }
-    
+
     /**
      * Funcion que crea un objeto de clase Jornada con los datos de la base de
      * datos.
@@ -72,10 +73,13 @@ public class JornadaBD {
         j.setCod_jornada(resultado.getInt("COD_JORNADA"));
         j.setFecha_fin(resultado.getDate("FECHA_FIN"));
         j.setFecha_inicio(resultado.getDate("FECHA_INICIO"));
-        LigaBD lBD = new LigaBD();
+        LigaBD lBD = new LigaBD();        
         j.setLiga(lBD.consultarLiga());
+        PartidoBD pBD = new PartidoBD();
+        ArrayList<Partido> listaPartidos = pBD.consultarPartidosJornada(resultado.getInt("COD_JORNADA"));
+        j.setPartidos(listaPartidos);
         return j;
-    }    
+    }
 
     /**
      * Funcion que consulta una Jornada mediante su codigo.

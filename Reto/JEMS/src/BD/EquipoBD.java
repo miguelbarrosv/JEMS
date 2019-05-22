@@ -237,23 +237,19 @@ public class EquipoBD {
     }
 
     /**
-     * Funcion para buscar todos los Equipos por orden de puntuacion.
+     * Función que crea un ArrayList con todos los Equipos de la base de datos
+     * ordenador por puntuacion.
      *
-     * @return e objeto de clase Equipo
-     * @throws Exception hereda excepciones
+     * @return devuelve un ArrayList de Equipo.
+     * @throws Exception hereda excepciones.
      */
     public ArrayList<Equipo> consultarEquipoOrderPuntuacion() throws Exception {
-        bdr.conectar();
         ArrayList<Equipo> listaEquipos = new ArrayList();
-        String plantilla = "SELECT COD_EQUIPO,NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_DUEÑO,PUNTUACION FROM EQUIPO ORDER BY PUNTUACION DESC";
-        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
-        resultado = sentenciaPre.executeQuery();
-        Equipo e;
-        if (resultado.next()) {
-            e = crearObjeto();
-            listaEquipos.add(e);
-        } else {
-            e = null;
+        bdr.conectar();
+        Statement sentencia = bdr.getCon().createStatement();
+        resultado = sentencia.executeQuery("SELECT COD_EQUIPO,NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_DUEÑO,PUNTUACION FROM EQUIPO ORDER BY PUNTUACION DESC");
+        while (resultado.next()) {
+            listaEquipos.add(crearObjeto());
         }
         bdr.cerrarCon();
         return listaEquipos;
@@ -266,7 +262,7 @@ public class EquipoBD {
      * puntuaciones
      * @throws Exception hereda excepciones
      */
- /*   public String rellenarLigaEquipos() throws Exception {
+    /*   public String rellenarLigaEquipos() throws Exception {
         bdr.conectar();
         CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.PROC_REF_EQUIPO(?)}");
         cStmt.registerOutParameter(1, OracleTypes.CURSOR);
@@ -282,7 +278,6 @@ public class EquipoBD {
         bdr.cerrarCon();
         return stringlistaEquipos;
     }*/
-
     /**
      * Funcion para buscar el codigo de Equipo mediante el nombre del Equipo.
      *

@@ -63,6 +63,27 @@ public class PartidoBD {
     }
 
     /**
+     * Funcion que consultado todos los Partidos de una Jornada.
+     *
+     * @param cod_jornada (requerido) codigo de la jornada
+     * @return devuelve todos los partidos de ese Equipo
+     * @throws Exception hereda excepciones
+     */
+    public ArrayList<Partido> consultarPartidosJornada(int cod_jornada) throws Exception {
+        bdr.conectar();
+        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE JORNADA_COD_JORNADA=?;";
+        PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
+        ps.setInt(1, cod_jornada);
+        resultado = ps.executeQuery();
+        while (resultado.next()) {
+            p = crearObjeto();
+            partidos.add(p);
+        }
+        bdr.cerrarCon();
+        return partidos;
+    }
+
+    /**
      * Funcion que consultado todos los Partidos de un Equipo.
      *
      * @param cod_equipo (requerido) codigo del Equipo
@@ -91,7 +112,7 @@ public class PartidoBD {
      * @throws Exception hereda excepciones
      */
     public Partido crearObjeto() throws Exception {
-        Partido p = new Partido();
+        p = new Partido();
         p.setResultado(resultado.getInt("RESULTADO"));
         p.setFecha_partido(resultado.getDate("FECHA_PARTIDO"));
         EquipoBD eBD = new EquipoBD();
