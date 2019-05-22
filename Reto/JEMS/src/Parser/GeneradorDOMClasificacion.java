@@ -85,10 +85,14 @@ public class GeneradorDOMClasificacion {
         Element elementoFechaActualizacion = dom.createElement("fecha_actualizacion");
         raiz.appendChild(elementoFechaActualizacion);
 
+        //Elemento partidos
+        Element elementoEquipos = dom.createElement("equipos");
+        raiz.appendChild(elementoEquipos);
+        
         // Generar elementos equipo y hacer equipos el padre
         for (Equipo equipo : equipos) {
             Element elemento = crearElementoEquipo(equipo);
-            raiz.appendChild(elemento);
+            elementoEquipos.appendChild(elemento);
         }
     }
 

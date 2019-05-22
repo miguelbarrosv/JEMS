@@ -99,7 +99,7 @@ public class GeneradorDOMJornada {
 
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
-
+        
         // <partido>
         // Generar elementos partido y hacer partidos al padre
         for (Partido partido : partidos) {
