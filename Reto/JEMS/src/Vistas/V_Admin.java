@@ -31,13 +31,51 @@ public class V_Admin extends javax.swing.JFrame {
     public V_Admin() {
         setUndecorated(true);
         initComponents();
-        myInitComponents();
+        myInitComponents();        
     }
 
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
         bVolver.setVisible(false);
+        lbAlta.setVisible(false);
+        lbModificar.setVisible(false);
+        lbBaja.setVisible(false);
+        lbConsultarUno.setVisible(false);
+        lbConsultarMuchos.setVisible(false); 
+        bAlta.setVisible(false);
+        bModificar.setVisible(false);
+        bBaja.setVisible(false);
+        bConsultarUno.setVisible(false);
+        bConsultarMuchos.setVisible(false); 
+    }
+    
+    public void mostrarOpcionesUsuarioJugadorDueñoEquipo() {
+        bVolver.setVisible(true);
+        lbAlta.setVisible(true);
+        lbModificar.setVisible(true);
+        lbBaja.setVisible(true);
+        lbConsultarUno.setVisible(true);
+        lbConsultarMuchos.setVisible(true); 
+        bAlta.setVisible(true);
+        bModificar.setVisible(true);
+        bBaja.setVisible(true);
+        bConsultarUno.setVisible(true);
+        bConsultarMuchos.setVisible(true); 
+    }
+    
+    public void ocultarOpcionesUsuarioJugadorDueñoEquipo() {
+        bVolver.setVisible(false);
+        lbAlta.setVisible(false);
+        lbModificar.setVisible(false);
+        lbBaja.setVisible(false);
+        lbConsultarUno.setVisible(false);
+        lbConsultarMuchos.setVisible(false); 
+        bAlta.setVisible(false);
+        bModificar.setVisible(false);
+        bBaja.setVisible(false);
+        bConsultarUno.setVisible(false);
+        bConsultarMuchos.setVisible(false); 
     }
 
     private static String operacion;
@@ -54,11 +92,11 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
-        lbEquipo1 = new javax.swing.JLabel();
-        lbEquipo2 = new javax.swing.JLabel();
-        lbEquipo3 = new javax.swing.JLabel();
-        lbEquipo4 = new javax.swing.JLabel();
-        lbEquipo5 = new javax.swing.JLabel();
+        lbBaja = new javax.swing.JLabel();
+        lbAlta = new javax.swing.JLabel();
+        lbConsultarUno = new javax.swing.JLabel();
+        lbConsultarMuchos = new javax.swing.JLabel();
+        lbModificar = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
@@ -148,30 +186,35 @@ public class V_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        lbEquipo1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo1.setText("BORRAR");
-        getContentPane().add(lbEquipo1);
-        lbEquipo1.setBounds(190, 310, 102, 40);
+        lbBaja.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbBaja.setForeground(new java.awt.Color(0, 0, 0));
+        lbBaja.setText("BORRAR");
+        getContentPane().add(lbBaja);
+        lbBaja.setBounds(190, 310, 102, 40);
 
-        lbEquipo2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo2.setText("AÑADIR");
-        getContentPane().add(lbEquipo2);
-        lbEquipo2.setBounds(190, 150, 100, 40);
+        lbAlta.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbAlta.setForeground(new java.awt.Color(0, 0, 0));
+        lbAlta.setText("AÑADIR");
+        getContentPane().add(lbAlta);
+        lbAlta.setBounds(190, 150, 100, 40);
 
-        lbEquipo3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo3.setText("CONSULTAR UNO");
-        getContentPane().add(lbEquipo3);
-        lbEquipo3.setBounds(190, 390, 210, 40);
+        lbConsultarUno.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbConsultarUno.setForeground(new java.awt.Color(0, 0, 0));
+        lbConsultarUno.setText("CONSULTAR UNO");
+        getContentPane().add(lbConsultarUno);
+        lbConsultarUno.setBounds(190, 390, 210, 40);
 
-        lbEquipo4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo4.setText("CONSULTAR TODOS");
-        getContentPane().add(lbEquipo4);
-        lbEquipo4.setBounds(190, 470, 240, 40);
+        lbConsultarMuchos.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbConsultarMuchos.setForeground(new java.awt.Color(0, 0, 0));
+        lbConsultarMuchos.setText("CONSULTAR TODOS");
+        getContentPane().add(lbConsultarMuchos);
+        lbConsultarMuchos.setBounds(190, 470, 240, 40);
 
-        lbEquipo5.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo5.setText("EDITAR");
-        getContentPane().add(lbEquipo5);
-        lbEquipo5.setBounds(190, 230, 90, 40);
+        lbModificar.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbModificar.setForeground(new java.awt.Color(0, 0, 0));
+        lbModificar.setText("EDITAR");
+        getContentPane().add(lbModificar);
+        lbModificar.setBounds(190, 230, 90, 40);
 
         jToggleButton1.setText("jToggleButton1");
         getContentPane().add(jToggleButton1);
@@ -1266,16 +1309,16 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbAlta;
     private javax.swing.JLabel lbBackgroundUsuario;
+    private javax.swing.JLabel lbBaja;
+    private javax.swing.JLabel lbConsultarMuchos;
+    private javax.swing.JLabel lbConsultarUno;
     private javax.swing.JLabel lbDueño;
     private javax.swing.JLabel lbEquipo;
-    private javax.swing.JLabel lbEquipo1;
-    private javax.swing.JLabel lbEquipo2;
-    private javax.swing.JLabel lbEquipo3;
-    private javax.swing.JLabel lbEquipo4;
-    private javax.swing.JLabel lbEquipo5;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbJugador;
+    private javax.swing.JLabel lbModificar;
     private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbTituloAdmin;
     private javax.swing.JLabel lbUsuario;

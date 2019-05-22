@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.BorderFactory;
+
 /**
  *
  * @author Joel Encinas
@@ -24,20 +26,28 @@ public class V_Aviso extends javax.swing.JFrame {
     public V_Aviso(String mensaje) {
         setUndecorated(true);
         initComponents();
-        myInitComponents();
-        lbMensaje.setText(mensaje);
+        myInitComponents();    
+        String espacio = "<br>";
+        lbMensaje.setText(formatearString(formatearString("<html>" + mensaje + "</html>", espacio, 30), espacio, 62));
     }
 
     public void myInitComponents() {
         setSize(400, 220);
         setLocationRelativeTo(this);
+        lbMensaje.setBorder(BorderFactory.createCompoundBorder(
+                lbMensaje.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    public String formatearMensaje(String mensaje) {
-        if (mensaje.length() > 25) {
-            mensaje = new StringBuilder(mensaje).insert(mensaje.length() - 10, "\n").toString();
+    public String formatearString (String mensaje, String espacio, int index) {
+        String temp = new String();
+        for (int i = 0; i < mensaje.length(); i++) {
+            temp += mensaje.charAt(i);
+            if (i == index) {                 
+                temp += espacio;
+            }
         }
-        return mensaje;
+        return temp;
     }
 
     /**
@@ -50,16 +60,16 @@ public class V_Aviso extends javax.swing.JFrame {
     private void initComponents() {
 
         bAceptar = new javax.swing.JButton();
-        lbBorde = new javax.swing.JLabel();
         lbAviso = new javax.swing.JLabel();
         lbMensaje = new javax.swing.JLabel();
+        lbBorde = new javax.swing.JLabel();
         lbFiller = new javax.swing.JLabel();
         lbBackgroundAviso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        bAceptar.setBackground(new java.awt.Color(252, 124, 0));
+        bAceptar.setBackground(new java.awt.Color(86, 88, 149));
         bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         bAceptar.setForeground(new java.awt.Color(255, 255, 255));
         bAceptar.setText("ACEPTAR");
@@ -75,23 +85,21 @@ public class V_Aviso extends javax.swing.JFrame {
         getContentPane().add(bAceptar);
         bAceptar.setBounds(130, 170, 140, 35);
 
-        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
-        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
-        getContentPane().add(lbBorde);
-        lbBorde.setBounds(50, 70, 300, 90);
-
         lbAviso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/warning.png"))); // NOI18N
         getContentPane().add(lbAviso);
         lbAviso.setBounds(180, 20, 50, 40);
 
-        lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         lbMensaje.setForeground(new java.awt.Color(255, 255, 255));
-        lbMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbMensaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(lbMensaje);
-        lbMensaje.setBounds(50, 70, 300, 90);
+        lbMensaje.setBounds(80, 80, 240, 60);
 
-        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ventana_aviso.jpg"))); // NOI18N
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(70, 70, 260, 80);
+
+        lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ventana_aviso_morado.jpg"))); // NOI18N
         getContentPane().add(lbFiller);
         lbFiller.setBounds(0, 0, 400, 220);
 
