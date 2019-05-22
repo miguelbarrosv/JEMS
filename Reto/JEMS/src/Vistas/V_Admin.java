@@ -22,6 +22,9 @@ import jems.JEMS;
  */
 public class V_Admin extends javax.swing.JFrame {
 
+    private int numJornada;
+    private ArrayList<Jornada> jornadas;
+
     /**
      * Creates new form V_Inicio
      */
@@ -35,6 +38,44 @@ public class V_Admin extends javax.swing.JFrame {
         setSize(1280, 720);
         setLocationRelativeTo(null);
         bVolver.setVisible(false);
+        lbAlta.setVisible(false);
+        lbModificar.setVisible(false);
+        lbBaja.setVisible(false);
+        lbConsultarUno.setVisible(false);
+        lbConsultarMuchos.setVisible(false);
+        bAlta.setVisible(false);
+        bModificar.setVisible(false);
+        bBaja.setVisible(false);
+        bConsultarUno.setVisible(false);
+        bConsultarMuchos.setVisible(false);
+    }
+
+    public void mostrarOpcionesUsuarioJugadorDueñoEquipo() {
+        bVolver.setVisible(true);
+        lbAlta.setVisible(true);
+        lbModificar.setVisible(true);
+        lbBaja.setVisible(true);
+        lbConsultarUno.setVisible(true);
+        lbConsultarMuchos.setVisible(true);
+        bAlta.setVisible(true);
+        bModificar.setVisible(true);
+        bBaja.setVisible(true);
+        bConsultarUno.setVisible(true);
+        bConsultarMuchos.setVisible(true);
+    }
+
+    public void ocultarOpcionesUsuarioJugadorDueñoEquipo() {
+        bVolver.setVisible(false);
+        lbAlta.setVisible(false);
+        lbModificar.setVisible(false);
+        lbBaja.setVisible(false);
+        lbConsultarUno.setVisible(false);
+        lbConsultarMuchos.setVisible(false);
+        bAlta.setVisible(false);
+        bModificar.setVisible(false);
+        bBaja.setVisible(false);
+        bConsultarUno.setVisible(false);
+        bConsultarMuchos.setVisible(false);
     }
 
     private static String operacion;
@@ -51,11 +92,11 @@ public class V_Admin extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
-        lbEquipo1 = new javax.swing.JLabel();
-        lbEquipo2 = new javax.swing.JLabel();
-        lbEquipo3 = new javax.swing.JLabel();
-        lbEquipo4 = new javax.swing.JLabel();
-        lbEquipo5 = new javax.swing.JLabel();
+        lbBaja = new javax.swing.JLabel();
+        lbAlta = new javax.swing.JLabel();
+        lbConsultarUno = new javax.swing.JLabel();
+        lbConsultarMuchos = new javax.swing.JLabel();
+        lbModificar = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
@@ -66,8 +107,10 @@ public class V_Admin extends javax.swing.JFrame {
         bAlta = new javax.swing.JButton();
         bModificar = new javax.swing.JButton();
         bBaja = new javax.swing.JButton();
+        bBorrarLiga = new javax.swing.JButton();
         bConsultarUno = new javax.swing.JButton();
         bConsultarMuchos = new javax.swing.JButton();
+        bInsertarPartidos = new javax.swing.JButton();
         lbEquipo = new javax.swing.JLabel();
         lbJugador = new javax.swing.JLabel();
         lbUsuario = new javax.swing.JLabel();
@@ -144,35 +187,30 @@ public class V_Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        lbEquipo1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo1.setForeground(new java.awt.Color(0, 0, 0));
-        lbEquipo1.setText("BORRAR");
-        getContentPane().add(lbEquipo1);
-        lbEquipo1.setBounds(190, 310, 102, 40);
+        lbBaja.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbBaja.setText("BORRAR");
+        getContentPane().add(lbBaja);
+        lbBaja.setBounds(190, 310, 102, 40);
 
-        lbEquipo2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo2.setForeground(new java.awt.Color(0, 0, 0));
-        lbEquipo2.setText("AÑADIR");
-        getContentPane().add(lbEquipo2);
-        lbEquipo2.setBounds(190, 150, 100, 40);
+        lbAlta.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbAlta.setText("AÑADIR");
+        getContentPane().add(lbAlta);
+        lbAlta.setBounds(190, 150, 100, 40);
 
-        lbEquipo3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo3.setForeground(new java.awt.Color(0, 0, 0));
-        lbEquipo3.setText("CONSULTAR UNO");
-        getContentPane().add(lbEquipo3);
-        lbEquipo3.setBounds(190, 390, 210, 40);
+        lbConsultarUno.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbConsultarUno.setText("CONSULTAR UNO");
+        getContentPane().add(lbConsultarUno);
+        lbConsultarUno.setBounds(190, 390, 210, 40);
 
-        lbEquipo4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo4.setForeground(new java.awt.Color(0, 0, 0));
-        lbEquipo4.setText("CONSULTAR TODOS");
-        getContentPane().add(lbEquipo4);
-        lbEquipo4.setBounds(190, 470, 240, 40);
+        lbConsultarMuchos.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbConsultarMuchos.setText("CONSULTAR TODOS");
+        getContentPane().add(lbConsultarMuchos);
+        lbConsultarMuchos.setBounds(190, 470, 240, 40);
 
-        lbEquipo5.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo5.setForeground(new java.awt.Color(0, 0, 0));
-        lbEquipo5.setText("EDITAR");
-        getContentPane().add(lbEquipo5);
-        lbEquipo5.setBounds(190, 230, 90, 40);
+        lbModificar.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbModificar.setText("EDITAR");
+        getContentPane().add(lbModificar);
+        lbModificar.setBounds(190, 230, 90, 40);
 
         jToggleButton1.setText("jToggleButton1");
         getContentPane().add(jToggleButton1);
@@ -296,6 +334,10 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().add(bBaja);
         bBaja.setBounds(80, 300, 320, 70);
 
+        bBorrarLiga.setText("ELIMINAR LIGA");
+        getContentPane().add(bBorrarLiga);
+        bBorrarLiga.setBounds(890, 170, 160, 23);
+
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setBorder(null);
         bConsultarUno.setBorderPainted(false);
@@ -324,32 +366,36 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().add(bConsultarMuchos);
         bConsultarMuchos.setBounds(80, 460, 320, 70);
 
+        bInsertarPartidos.setText("Insertar Partidos");
+        bInsertarPartidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInsertarPartidosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bInsertarPartidos);
+        bInsertarPartidos.setBounds(810, 300, 170, 50);
+
         lbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo.setText("EQUIPO");
         getContentPane().add(lbEquipo);
         lbEquipo.setBounds(200, 260, 90, 40);
 
         lbJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbJugador.setForeground(new java.awt.Color(0, 0, 0));
         lbJugador.setText("JUGADOR");
         getContentPane().add(lbJugador);
         lbJugador.setBounds(200, 460, 120, 40);
 
         lbUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("USUARIO");
         getContentPane().add(lbUsuario);
         lbUsuario.setBounds(200, 160, 110, 40);
 
         lbDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbDueño.setForeground(new java.awt.Color(0, 0, 0));
         lbDueño.setText("DUEÑO");
         getContentPane().add(lbDueño);
         lbDueño.setBounds(200, 360, 90, 40);
 
         lbTituloAdmin.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        lbTituloAdmin.setForeground(new java.awt.Color(0, 0, 0));
         lbTituloAdmin.setText("<HTML>ADMINISTRAR <BR> BASE DE DATOS</HTML> ");
         getContentPane().add(lbTituloAdmin);
         lbTituloAdmin.setBounds(80, 10, 300, 100);
@@ -817,7 +863,6 @@ public class V_Admin extends javax.swing.JFrame {
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
         try {
             operacion = "modificar";
-
             ControladorVistas.mostrarVentanaEquipo(operacion);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1018,9 +1063,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 10;
+            numJornada = 10;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1029,9 +1074,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 1;
+            numJornada = 1;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1040,9 +1085,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 2;
+            numJornada = 2;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1051,9 +1096,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 3;
+            numJornada = 3;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1062,9 +1107,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 4;
+            numJornada = 4;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1073,9 +1118,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 5;
+            numJornada = 5;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1084,9 +1129,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 6;
+            numJornada = 6;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1095,9 +1140,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 7;
+            numJornada = 7;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1106,9 +1151,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 8;
+            numJornada = 8;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1117,9 +1162,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 9;
+            numJornada = 9;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1192,6 +1237,14 @@ public class V_Admin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_bConsultarMuchosActionPerformed
 
+    private void bInsertarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarPartidosActionPerformed
+        try {
+            JEMS.insertarEquipos();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_bInsertarPartidosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1231,11 +1284,13 @@ public class V_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
+    private javax.swing.JButton bBorrarLiga;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
     private javax.swing.JButton bCrearLiga;
     private javax.swing.JButton bDueño;
     private javax.swing.JButton bEquipo;
+    private javax.swing.JButton bInsertarPartidos;
     private javax.swing.JButton bJugador;
     private javax.swing.JButton bModificar;
     private javax.swing.JButton bSalir;
@@ -1268,16 +1323,16 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator8;
     private javax.swing.JPopupMenu.Separator jSeparator9;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbAlta;
     private javax.swing.JLabel lbBackgroundUsuario;
+    private javax.swing.JLabel lbBaja;
+    private javax.swing.JLabel lbConsultarMuchos;
+    private javax.swing.JLabel lbConsultarUno;
     private javax.swing.JLabel lbDueño;
     private javax.swing.JLabel lbEquipo;
-    private javax.swing.JLabel lbEquipo1;
-    private javax.swing.JLabel lbEquipo2;
-    private javax.swing.JLabel lbEquipo3;
-    private javax.swing.JLabel lbEquipo4;
-    private javax.swing.JLabel lbEquipo5;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbJugador;
+    private javax.swing.JLabel lbModificar;
     private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbTituloAdmin;
     private javax.swing.JLabel lbUsuario;

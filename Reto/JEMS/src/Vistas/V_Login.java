@@ -252,7 +252,8 @@ public class V_Login extends javax.swing.JFrame {
 
     private void bCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearCuentaActionPerformed
         ControladorVistas.cerrarVentanaLogin();
-        ControladorVistas.mostrarVentanaRegistrar();
+        //ControladorVistas.mostrarVentanaRegistrar();        
+        ControladorVistas.mostrarVentanaAdmin();
     }//GEN-LAST:event_bCrearCuentaActionPerformed
 
     private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed

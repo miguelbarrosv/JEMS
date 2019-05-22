@@ -29,6 +29,7 @@ public class ParserDomClasificacion {
     private static Element elementoRaiz;
     
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
+
             File archivo = new File("./liga.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
