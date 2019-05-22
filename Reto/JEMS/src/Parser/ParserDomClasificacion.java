@@ -5,6 +5,7 @@
  */
 package Parser;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -28,49 +29,34 @@ public class ParserDomClasificacion {
     private static Element elementoRaiz;
     
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
-        
+            File archivo = new File("./liga.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();;
-           
-            InputSource datos = new InputSource(new StringReader(Euskalmet()));
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             
-            Document doc = dBuilder.parse(datos);
+            Document doc = dBuilder.parse(archivo);
+            doc.getDocumentElement().normalize();
+            System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
+            
             elementoRaiz = doc.getDocumentElement();
-            
-            NodeList datosLiga = elementoRaiz.getChildNodes();
-            for (int x = 0; x < datosLiga.getLength(); x++) {
-                    Node dato = datosLiga.item(x);
-                    
-                    if (dato.getNodeType() == Node.ELEMENT_NODE) {
-                        System.out.println(dato.getNodeName());
-                    }
-                    
-                    Node contenido = dato.getFirstChild();
-                    if (contenido != null) {
-                        System.out.println(" " + contenido.getNodeName());
-                    }
-                }
+            System.out.println("cod: " + elementoRaiz.getAttribute("estado_liga"));
+            System.out.println("cod: " + elementoRaiz.getAttribute("fecha_fin"));
+            System.out.println("cod: " + elementoRaiz.getAttribute("fecha_inicio"));
+            System.out.println("cod: " + elementoRaiz.getAttribute("cod"));
             
             NodeList listaEquipos = doc.getElementsByTagName("equipo");
+            System.out.println("------------------------");
             
             for (int i = 0; i < listaEquipos.getLength(); i++) {
                 Node partido = listaEquipos.item(i);
-                System.out.println("Equipo " + i);
                 
-                NodeList datosEquipo = partido.getChildNodes();
-                for (int x = 0; x < datosEquipo.getLength(); x++) {
-                    Node dato = datosEquipo.item(x);
-                    
-                    if (dato.getNodeType() == Node.ELEMENT_NODE) {
-                        System.out.println(dato.getNodeName());
+                System.out.println("Elemento " + partido.getNodeName());
+                
+                if (partido.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) partido;
+                    System.out.println("cod: " + element.getAttribute("cod"));
+                    System.out.println("nombre: " + element.getElementsByTagName("nombre").item(0).getTextContent());
+                    System.out.println("puntos: " + element.getElementsByTagName("puntos").item(0).getTextContent());
                     }
-                    
-                    Node contenido = dato.getFirstChild();
-                    if (contenido != null) {
-                        System.out.println(" " + contenido.getNodeName());
-                    }
-                }
-                System.out.println("");
             }
     }      
 }
