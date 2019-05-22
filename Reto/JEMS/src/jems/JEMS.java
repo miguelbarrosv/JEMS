@@ -28,7 +28,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class JEMS {
-
+    
+    private static ArrayList<Partido>  listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
@@ -582,9 +583,10 @@ public class JEMS {
      * existenets
      *
      * @return ArrayList del obejto jornada
+     * @throws Exception hereda excepciones
      */
     public static ArrayList<Jornada> buscarJornadas() throws Exception {
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        ArrayList<Jornada> jornadas = new ArrayList<>();
         jornadas = jorBD.consultarJornadas();
         return jornadas;
     }
@@ -609,5 +611,20 @@ public class JEMS {
     public static ArrayList<Jornada> consultarJornadas() throws Exception {
         listaJornadas = jorBD.consultarJornadas();
         return listaJornadas;
+    }
+    public static ArrayList<Partido> consultarPartidos() throws Exception {
+        PartidoBD pBD = new PartidoBD();
+        listaPartidos  = pBD.consultarPartidos();
+        return listaPartidos;
+    }
+    
+    public static ArrayList<Equipo> consultarEquipos() throws Exception {
+        listaEquipos = eBD.consultaEquipos();
+        return listaEquipos;
+    }
+    
+    public static Liga consultarLiga() throws Exception {
+        l = lBD.consultarLiga();
+        return l;
     }
 }

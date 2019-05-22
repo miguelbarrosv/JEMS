@@ -24,6 +24,8 @@ public class V_Liga extends javax.swing.JFrame {
     /**
      * Creates new form V_Liga y mostrar en pantalla los datos recogidos desde
      * la base de datos
+     *
+     * @throws Exception hereda excepciones
      */
     public V_Liga() throws Exception {
         setUndecorated(true);
@@ -31,20 +33,23 @@ public class V_Liga extends javax.swing.JFrame {
         myInitComponents();
         equipos = JEMS.crearListaEquiposOrderPuntuacion();
         liga = JEMS.cogerNombreLiga();
-
-        tfNombreLiga.setText(liga.getNombre());
-        tfEquipo1.setText(equipos.get(0).getNombre());
-        tfPuntuacion1.setText(String.valueOf(equipos.get(0).getPuntuacion()));
-        tfEquipo2.setText(equipos.get(1).getNombre());
-        tfPuntuacion2.setText(String.valueOf(equipos.get(1).getPuntuacion()));
-        tfEquipo3.setText(equipos.get(2).getNombre());
-        tfPuntuacion3.setText(String.valueOf(equipos.get(2).getPuntuacion()));
-        tfEquipo4.setText(equipos.get(3).getNombre());
-        tfPuntuacion4.setText(String.valueOf(equipos.get(3).getPuntuacion()));
-        tfEquipo5.setText(equipos.get(4).getNombre());
-        tfPuntuacion5.setText(String.valueOf(equipos.get(4).getPuntuacion()));
-        tfEquipo6.setText(equipos.get(5).getNombre());
-        tfPuntuacion6.setText(String.valueOf(equipos.get(5).getPuntuacion()));
+        if (equipos.isEmpty()) {
+            tfNombreLiga.setText(liga.getNombre());
+        } else {
+            tfNombreLiga.setText(liga.getNombre());
+            tfEquipo1.setText(equipos.get(0).getNombre());
+            tfPuntuacion1.setText(String.valueOf(equipos.get(0).getPuntuacion()));
+            tfEquipo2.setText(equipos.get(1).getNombre());
+            tfPuntuacion2.setText(String.valueOf(equipos.get(1).getPuntuacion()));
+            tfEquipo3.setText(equipos.get(2).getNombre());
+            tfPuntuacion3.setText(String.valueOf(equipos.get(2).getPuntuacion()));
+            tfEquipo4.setText(equipos.get(3).getNombre());
+            tfPuntuacion4.setText(String.valueOf(equipos.get(3).getPuntuacion()));
+            tfEquipo5.setText(equipos.get(4).getNombre());
+            tfPuntuacion5.setText(String.valueOf(equipos.get(4).getPuntuacion()));
+            tfEquipo6.setText(equipos.get(5).getNombre());
+            tfPuntuacion6.setText(String.valueOf(equipos.get(5).getPuntuacion()));
+        }
     }
 
     public void myInitComponents() {
@@ -90,7 +95,7 @@ public class V_Liga extends javax.swing.JFrame {
                 tfPuntuacion6.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
-    
+
     private static ArrayList<Equipo> equipos;
     private static Liga liga;
 
