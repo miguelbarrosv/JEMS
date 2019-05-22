@@ -263,6 +263,8 @@ public class ControladorVistas {
     /**
      * Funcion que abre la ventana V_IntroducirResultado
      *
+     * @param jornadas(requerido) todas las jornadas
+     * @param numJornada (requerido) numero de la jornada
      */
     public static void mostrarVentanaResultado(ArrayList<Jornada> jornadas, int numJornada) {
         vIntroducirResultado = new V_IntroducirResultado(jornadas, numJornada);
@@ -292,5 +294,9 @@ public class ControladorVistas {
      */
     public static void cerrarVentanaAviso() {
         vAviso.dispose();
+    }
+
+    static void cerrarVentanaLista() {
+        vLista.dispose();
     }
 }

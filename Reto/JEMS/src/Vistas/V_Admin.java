@@ -22,6 +22,9 @@ import jems.JEMS;
  */
 public class V_Admin extends javax.swing.JFrame {
 
+    private int numJornada;
+    private ArrayList<Jornada> jornadas;
+
     /**
      * Creates new form V_Inicio
      */
@@ -104,6 +107,7 @@ public class V_Admin extends javax.swing.JFrame {
         bAlta = new javax.swing.JButton();
         bModificar = new javax.swing.JButton();
         bBaja = new javax.swing.JButton();
+        bBorrarLiga = new javax.swing.JButton();
         bConsultarUno = new javax.swing.JButton();
         bConsultarMuchos = new javax.swing.JButton();
         lbEquipo = new javax.swing.JLabel();
@@ -334,6 +338,10 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().add(bBaja);
         bBaja.setBounds(80, 300, 320, 70);
 
+        bBorrarLiga.setText("ELIMINAR LIGA");
+        getContentPane().add(bBorrarLiga);
+        bBorrarLiga.setBounds(890, 170, 160, 23);
+
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setBorder(null);
         bConsultarUno.setBorderPainted(false);
@@ -363,31 +371,26 @@ public class V_Admin extends javax.swing.JFrame {
         bConsultarMuchos.setBounds(80, 460, 320, 70);
 
         lbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo.setText("EQUIPO");
         getContentPane().add(lbEquipo);
         lbEquipo.setBounds(200, 260, 90, 40);
 
         lbJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbJugador.setForeground(new java.awt.Color(0, 0, 0));
         lbJugador.setText("JUGADOR");
         getContentPane().add(lbJugador);
         lbJugador.setBounds(200, 460, 120, 40);
 
         lbUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("USUARIO");
         getContentPane().add(lbUsuario);
         lbUsuario.setBounds(200, 160, 110, 40);
 
         lbDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbDueño.setForeground(new java.awt.Color(0, 0, 0));
         lbDueño.setText("DUEÑO");
         getContentPane().add(lbDueño);
         lbDueño.setBounds(200, 360, 90, 40);
 
         lbTituloAdmin.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        lbTituloAdmin.setForeground(new java.awt.Color(0, 0, 0));
         lbTituloAdmin.setText("<HTML>ADMINISTRAR <BR> BASE DE DATOS</HTML> ");
         getContentPane().add(lbTituloAdmin);
         lbTituloAdmin.setBounds(80, 10, 300, 100);
@@ -855,7 +858,6 @@ public class V_Admin extends javax.swing.JFrame {
     private void miModificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miModificarEquipoActionPerformed
         try {
             operacion = "modificar";
-
             ControladorVistas.mostrarVentanaEquipo(operacion);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1056,9 +1058,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 10;
+            numJornada = 10;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1067,9 +1069,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 1;
+            numJornada = 1;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1078,9 +1080,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 2;
+            numJornada = 2;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1089,9 +1091,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 3;
+            numJornada = 3;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1100,9 +1102,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 4;
+            numJornada = 4;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1111,9 +1113,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 5;
+            numJornada = 5;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1122,9 +1124,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 6;
+            numJornada = 6;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1133,9 +1135,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 7;
+            numJornada = 7;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1144,9 +1146,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 8;
+            numJornada = 8;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1155,9 +1157,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 9;
+            numJornada = 9;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1269,6 +1271,7 @@ public class V_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
+    private javax.swing.JButton bBorrarLiga;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
     private javax.swing.JButton bCrearLiga;

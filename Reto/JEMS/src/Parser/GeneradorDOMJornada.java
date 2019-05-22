@@ -8,7 +8,9 @@ package Parser;
 import UML.Partido;
 import UML.Jornada;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,6 +23,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import jems.JEMS;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -28,28 +31,41 @@ import org.w3c.dom.Text;
 /**
  *
  * @author Joel Encinas
+ * @author Miguel Barros
  *
  * @version %I%, %G%
  * @since 1.0
  */
 public class GeneradorDOMJornada {
-    /*
+    
     private List<Jornada> jornadas;
     private Document dom;
+    
+    private ArrayList<Partido> partidos;
 
-    public GeneradorDOMJornada() {
+    public GeneradorDOMJornada() throws Exception {
         // Lista para almacenar los objetos
         jornadas = new ArrayList<>();
-
+        // Cargar datos 
+        cargarDatos();
         // Construir un documento DOM vacio
         crearDocumento();
     }
 
     public void run() {
+        System.out.println("Iniciando...");
         crearArbolDOM();
         exportarFichero();
+        System.out.println("Fichero generado");
     }
-
+    
+    public void cargarDatos() throws Exception {
+        // Cargar ArrayList paartidos
+        partidos = JEMS.consultarPartidos();
+        //Cargar ArrayList de jornada
+        jornadas = JEMS.consultarJornadas();
+    }
+    
     private void crearDocumento() {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -57,16 +73,17 @@ public class GeneradorDOMJornada {
             dom = db.newDocument();
 
             // REF: No hay esquema o DTD: https://stackoverflow.com/a/8438236
-            // dom.setXmlStandalone(true);
+             dom.setXmlStandalone(true);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
     }
 
     private void crearArbolDOM() {
+        // Crear elmento raiz jornadas
         Element raiz = dom.createElement("jornadas");
         dom.appendChild(raiz);
-
+        // Generar elementos jornada y hacer jornadas el padre
         for (Jornada jornada : jornadas) {
             Element elemento = crearElementoJornada(jornada);
             raiz.appendChild(elemento);
@@ -77,23 +94,32 @@ public class GeneradorDOMJornada {
         // <jornada>
         Element elementoJornada = dom.createElement("jornada");
         elementoJornada.setAttribute("cod", String.valueOf(jornada.getCod_jornada()));
-        elementoJornada.setAttribute("fecha_inicio", jornada.getFecha_inicio());
-        elementoJornada.setAttribute("fecha_fin", jornada.getFecha_fin());
+        elementoJornada.setAttribute("fecha_inicio", String.valueOf(jornada.getFecha_inicio()));
+        elementoJornada.setAttribute("fecha_fin", String.valueOf(jornada.getFecha_fin()));
 
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
 
         // <partido>
+        // Generar elementos partido y hacer partidos al padre
+        for (Partido partido : partidos) {
+            Element elemento = crearElementoPartido(partido);
+            elementoPartidos.appendChild(elemento);
+        }
+        return elementoJornada;
+    }
+    
+    public Element crearElementoPartido(Partido partido) {
+        // <partido>
         Element elementoPartido = dom.createElement("partido");
-        elementoPartido.setAttribute("cod", partido.getCodigo());
-        elementoPartido.setAttribute("fecha_partido", partido.getFecha_partido());
+        elementoPartido.setAttribute("fecha_partido", String.valueOf(partido.getFecha_partido()));
 
         // <equipo_local>
         Element elementoEquipoLocal = dom.createElement("equipo_local");
 
         // #PCDATA
-        Text equipoLocal = dom.createTextNode(equipo.getNombre());
-        elementoPartido.appendChild(equipoLocal);
+        Text textoEquipoLocal = dom.createTextNode(partido.getEquipo_local().getNombre());
+        elementoEquipoLocal.appendChild(textoEquipoLocal);
 
         // </equipo_local>
         elementoPartido.appendChild(elementoEquipoLocal);
@@ -102,24 +128,19 @@ public class GeneradorDOMJornada {
         Element elementoEquipoVisitante = dom.createElement("equipo_visitante");
 
         // #PCDATA
-        Text equipoVisitante = dom.createTextNode(equipo.getNombre());
-        elementoPartido.appendChild(equipoVisitante);
+        Text textoEquipoVisitante = dom.createTextNode(partido.getEquipo_visitante().getNombre());
+        elementoPartido.appendChild(textoEquipoVisitante);
 
         // </equipo_visitante>
         elementoPartido.appendChild(elementoEquipoVisitante);
 
         // <resultado>
         Element elementoResultado = dom.createElement("resultado");
-        elementoResultado.setAttribute("cod_equipo", resultado.getCodigo());
 
-        // #PCDATA
-        Text resultado = dom.createTextNode(equipo.getNombre());
-        elementoPartido.appendChild(resultado);
-
-        // </resultado>
+        // </partido>
         elementoPartido.appendChild(elementoResultado);
 
-        return elementoJornada;
+        return elementoPartido;
     }
 
     private void exportarFichero() {
@@ -143,9 +164,9 @@ public class GeneradorDOMJornada {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         System.out.println("--- DOM (escritura) ---\n");
-        new GeneradorDOMClasificacion().run();
+        new GeneradorDOMJornada().run();
     }
-*/
+
 }

@@ -54,7 +54,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
     }
     
     public V_IntroducirResultado( ArrayList<Jornada>jornadas, int numJornada) {
+        setUndecorated(true);
         initComponents();
+        myInitComponents();
         switch (numJornada) {
             case 1:
                 tfNumJornada.setText(String.valueOf(numJornada));

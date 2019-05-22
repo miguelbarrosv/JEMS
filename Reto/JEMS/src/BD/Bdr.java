@@ -36,12 +36,10 @@ public class Bdr {
             //PARA CONECTARSE CON VAGRANT
             //String url = "jdbc:oracle:thin:@10.10.10.9:1521:db12102";
             //con = DriverManager.getConnection(url, "SCOTT", "oracle");
-            // PARA CONEXION JOEL
-            String url = "jdbc:oracle:thin:@localhost:1521:xe";
-            con = DriverManager.getConnection(url, "system", "root");
-            /*//PARA CONECTARSE CON SERVIDOR DE CLASE
+            //PARA CONECTARSE CON SERVIDOR DE CLASE
+
             String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");*/
+            con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");
 
         } catch (Exception e) {
             System.out.println("Problemas con la base de datos relacional");

@@ -23,16 +23,13 @@ package jems;
 import Vistas.*;
 import BD.*;
 import UML.*;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 
 public class JEMS {
-
+    
+    private static ArrayList<Partido>  listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
@@ -161,6 +158,7 @@ public class JEMS {
      * asi modificar aun jugador ya existente.
      *
      *
+     * @param codJugador (requerido) codigo jugador
      * @param nombre (requerido) nombre del jugador
      * @param apellido (requerido) apellido del jugador
      * @param nick (requerido) nickname del jugador
@@ -171,8 +169,9 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void modificarJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
+    public static void modificarJugador(int codJugador,String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
+        j.setCod_jugador(codJugador);
         j.setNombre(nombre);
         j.setApellido(apellido);
         j.setNickname(nick);
@@ -325,13 +324,15 @@ public class JEMS {
      * pasarle los parametros de la ventana V_Dueño y asi modificar un dueño ya
      * existente.
      *
+     * @param codigoDueño (requerido) codigo del dueño
      * @param nombre (requerido) nombre del dueño
      * @param apellido (requerido) apellido del dueño
      * @param telefono (requerido) telefono del dueño
      * @throws Exception hereda excepciones
      */
-    public static void modificarDueño(String nombre, String apellido, String telefono) throws Exception {
+    public static void modificarDueño(int codigoDueño,String nombre, String apellido, String telefono) throws Exception {
         d = new Dueño();
+        d.setCod_dueño(codigoDueño);
         d.setNombre(nombre);
         d.setApellido(apellido);
         d.setTelefono(telefono);
@@ -566,15 +567,14 @@ public class JEMS {
      * Funcion para buscar en la base de datos al administrador de login.
      *
      * @param fecha (reuqerido) fecha inicio de la liga
+     * @param nombre (requerido) nombre de la liga
      * @return String para confirmar que se ha creado la liga
      * @throws ParseException hereda excepciones
      * @throws Exception hereda excepciones
      */
-    public static String crearLigaVacia(String fecha) throws ParseException, Exception {
-        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-        Date fechaInicio = format.parse(fecha);
-        String mensaje = lBD.crearLigaVacia(fechaInicio);
+    public static String crearLigaVacia(Date fecha,String nombre) throws ParseException, Exception {
+
+        String mensaje = lBD.crearLigaVacia(fecha,nombre);
         return mensaje;
     }
 
@@ -583,9 +583,10 @@ public class JEMS {
      * existenets
      *
      * @return ArrayList del obejto jornada
+     * @throws Exception hereda excepciones
      */
     public static ArrayList<Jornada> buscarJornadas() throws Exception {
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        ArrayList<Jornada> jornadas = new ArrayList<>();
         jornadas = jorBD.consultarJornadas();
         return jornadas;
     }
@@ -610,5 +611,20 @@ public class JEMS {
     public static ArrayList<Jornada> consultarJornadas() throws Exception {
         listaJornadas = jorBD.consultarJornadas();
         return listaJornadas;
+    }
+    public static ArrayList<Partido> consultarPartidos() throws Exception {
+        PartidoBD pBD = new PartidoBD();
+        listaPartidos  = pBD.consultarPartidos();
+        return listaPartidos;
+    }
+    
+    public static ArrayList<Equipo> consultarEquipos() throws Exception {
+        listaEquipos = eBD.consultaEquipos();
+        return listaEquipos;
+    }
+    
+    public static Liga consultarLiga() throws Exception {
+        l = lBD.consultarLiga();
+        return l;
     }
 }
