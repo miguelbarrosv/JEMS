@@ -9,6 +9,7 @@ import UML.Partido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Clase de Partido de base de datos.
@@ -33,6 +34,14 @@ public class PartidoBD {
     private ResultSet resultado;
     private static Bdr bdr;
     private ArrayList<Partido> partidos = new ArrayList<>();
+
+    /**
+     * Constructor de PartidoBD con el objeto de la conexión a la base de datos.
+     *
+     */
+    public PartidoBD() {
+        bdr = new Bdr();
+    }
 
     /**
      * Funcion que consulta todos los Partidos.
@@ -91,5 +100,30 @@ public class PartidoBD {
         JornadaBD jBD = new JornadaBD();
         p.setJornada(jBD.consultarJornada(resultado.getInt("JORNADA_COD_JORNADA")));
         return p;
+    }
+
+    public void insertarPartido(int cod_local, int cod_visitante, Date fecha, int cod_jornada) throws Exception {
+        bdr.conectar();
+        java.sql.Date sDate = convertUtilToSql(fecha);
+        String plantilla = "INSERT INTO PARTIDO (EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,FECHA_PARTIDO,EQUIPO_VISITANTE,RESULTADO)VALUES(?,?,?,?,?)";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, cod_local);
+        sentenciaPre.setInt(2, cod_jornada);
+        sentenciaPre.setDate(3, sDate);
+        sentenciaPre.setInt(4, cod_visitante);
+        sentenciaPre.setInt(5, 0);
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+    }
+
+    /**
+     * Transformar java date a sql date.
+     *
+     * @param fechaInicioLiga fecha del inicio de la liga
+     * @return devuelve la fecha en sql date
+     */
+    private java.sql.Date convertUtilToSql(java.util.Date fechaInicioLiga) {
+        java.sql.Date sDate = new java.sql.Date(fechaInicioLiga.getTime());
+        return sDate;
     }
 }

@@ -28,8 +28,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class JEMS {
-    
-    private static ArrayList<Partido>  listaPartidos;
+
+    private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
     private static ArrayList<Dueño> listaDueños;
@@ -41,6 +41,7 @@ public class JEMS {
     private static UsuarioBD uBD;
     private static AdministradorBD aBD;
     private static LigaBD lBD;
+    private static PartidoBD pBD;
     private static Dueño d;
     private static Equipo e;
     private static Jugador j;
@@ -62,6 +63,7 @@ public class JEMS {
         aBD = new AdministradorBD();
         lBD = new LigaBD();
         jorBD = new JornadaBD();
+        pBD = new PartidoBD();
         ControladorVistas.mostrarVentanaLogin();
     }
 
@@ -169,7 +171,7 @@ public class JEMS {
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
      */
-    public static void modificarJugador(int codJugador,String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
+    public static void modificarJugador(int codJugador, String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
         j = new Jugador();
         j.setCod_jugador(codJugador);
         j.setNombre(nombre);
@@ -330,7 +332,7 @@ public class JEMS {
      * @param telefono (requerido) telefono del dueño
      * @throws Exception hereda excepciones
      */
-    public static void modificarDueño(int codigoDueño,String nombre, String apellido, String telefono) throws Exception {
+    public static void modificarDueño(int codigoDueño, String nombre, String apellido, String telefono) throws Exception {
         d = new Dueño();
         d.setCod_dueño(codigoDueño);
         d.setNombre(nombre);
@@ -540,7 +542,7 @@ public class JEMS {
     }
 
     /**
-     * Funcion para coger el objeto liga desde la base de datos
+     * Funcion para coger el objeto Liga desde la base de datos.
      *
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
@@ -564,23 +566,23 @@ public class JEMS {
     }
 
     /**
-     * Funcion para buscar en la base de datos al administrador de login.
+     * Funcion para crear la Liga vacia.
      *
-     * @param fecha (reuqerido) fecha inicio de la liga
-     * @param nombre (requerido) nombre de la liga
-     * @return String para confirmar que se ha creado la liga
+     * @param fecha (reuqerido) fecha inicio de la Liga
+     * @param nombre (requerido) nombre de la Liga
+     * @return String para confirmar que se ha creado la Liga
      * @throws ParseException hereda excepciones
      * @throws Exception hereda excepciones
      */
-    public static String crearLigaVacia(Date fecha,String nombre) throws ParseException, Exception {
+    public static String crearLigaVacia(Date fecha, String nombre) throws ParseException, Exception {
 
-        String mensaje = lBD.crearLigaVacia(fecha,nombre);
+        String mensaje = lBD.crearLigaVacia(fecha, nombre);
         return mensaje;
     }
 
     /**
      * Funcion para buscar en la base de datos todos los datos de las jornadas
-     * existenets
+     * existentes.
      *
      * @return ArrayList del obejto jornada
      * @throws Exception hereda excepciones
@@ -592,7 +594,7 @@ public class JEMS {
     }
 
     /**
-     * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido
+     * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido.
      *
      * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
      * @throws Exception hereda excepciones
@@ -604,27 +606,99 @@ public class JEMS {
 
     /**
      * Funcion para buscar en la base de datos las jornadas para dar a la vista
-     * al usuario
+     * al usuario.
      *
      * @return ArrayList del objeto Jornada
+     * @throws Exception hereda excepciones
      */
     public static ArrayList<Jornada> consultarJornadas() throws Exception {
         listaJornadas = jorBD.consultarJornadas();
         return listaJornadas;
     }
+
+    /**
+     * Funcion que saca todos los Partidos de la base de datos.
+     *
+     * @return devuelve todos los Partidos
+     * @throws Exception hereda excepciones
+     */
     public static ArrayList<Partido> consultarPartidos() throws Exception {
-        PartidoBD pBD = new PartidoBD();
-        listaPartidos  = pBD.consultarPartidos();
+        listaPartidos = pBD.consultarPartidos();
         return listaPartidos;
     }
-    
+
+    /**
+     * Funcion que saca todos los Equipos de la base de datos.
+     *
+     * @return devuelve todos los Equipos
+     * @throws Exception hereda excepciones
+     */
     public static ArrayList<Equipo> consultarEquipos() throws Exception {
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }
-    
+
+    /**
+     * Funcion donde se consulta la Liga.
+     *
+     * @return devuelve un objeto de Liga
+     * @throws Exception hereda excepciones
+     */
     public static Liga consultarLiga() throws Exception {
         l = lBD.consultarLiga();
         return l;
+    }
+
+    /**
+     * Funcion para insertar Equipos en los partidos para la Liga.
+     *
+     * @throws Exception hereda excepciones
+     */
+    public static void insertarEquipos() throws Exception {
+        listaEquipos = consultarEquipos();
+        Equipo[] EquiposArray = new Equipo[listaEquipos.size()];
+        EquiposArray = listaEquipos.toArray(EquiposArray);
+        listaJornadas = jorBD.consultarJornadas();
+        //IDA
+        pBD.insertarPartido(EquiposArray[0].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(0).getFecha_inicio(), listaJornadas.get(0).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(0).getFecha_inicio(), listaJornadas.get(0).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[5].getCod_equipo(), listaJornadas.get(0).getFecha_inicio(), listaJornadas.get(0).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[0].getCod_equipo(), EquiposArray[2].getCod_equipo(), listaJornadas.get(1).getFecha_inicio(), listaJornadas.get(1).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[3].getCod_equipo(), EquiposArray[4].getCod_equipo(), listaJornadas.get(1).getFecha_inicio(), listaJornadas.get(1).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[5].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(1).getFecha_inicio(), listaJornadas.get(1).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[0].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(2).getFecha_inicio(), listaJornadas.get(2).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[5].getCod_equipo(), listaJornadas.get(2).getFecha_inicio(), listaJornadas.get(2).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[1].getCod_equipo(), EquiposArray[2].getCod_equipo(), listaJornadas.get(2).getFecha_inicio(), listaJornadas.get(2).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[0].getCod_equipo(), EquiposArray[4].getCod_equipo(), listaJornadas.get(3).getFecha_inicio(), listaJornadas.get(3).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[5].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(3).getFecha_inicio(), listaJornadas.get(3).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(3).getFecha_inicio(), listaJornadas.get(3).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[0].getCod_equipo(), EquiposArray[5].getCod_equipo(), listaJornadas.get(4).getFecha_inicio(), listaJornadas.get(4).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[1].getCod_equipo(), EquiposArray[2].getCod_equipo(), listaJornadas.get(4).getFecha_inicio(), listaJornadas.get(4).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[3].getCod_equipo(), EquiposArray[4].getCod_equipo(), listaJornadas.get(4).getFecha_inicio(), listaJornadas.get(4).getCod_jornada());
+        //VUELTA
+        pBD.insertarPartido(EquiposArray[1].getCod_equipo(), EquiposArray[0].getCod_equipo(), listaJornadas.get(5).getFecha_inicio(), listaJornadas.get(5).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[3].getCod_equipo(), EquiposArray[2].getCod_equipo(), listaJornadas.get(5).getFecha_inicio(), listaJornadas.get(5).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[5].getCod_equipo(), EquiposArray[4].getCod_equipo(), listaJornadas.get(5).getFecha_inicio(), listaJornadas.get(5).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[0].getCod_equipo(), listaJornadas.get(6).getFecha_inicio(), listaJornadas.get(6).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(6).getFecha_inicio(), listaJornadas.get(6).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[1].getCod_equipo(), EquiposArray[5].getCod_equipo(), listaJornadas.get(6).getFecha_inicio(), listaJornadas.get(6).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[3].getCod_equipo(), EquiposArray[0].getCod_equipo(), listaJornadas.get(7).getFecha_inicio(), listaJornadas.get(7).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[5].getCod_equipo(), EquiposArray[4].getCod_equipo(), listaJornadas.get(7).getFecha_inicio(), listaJornadas.get(7).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(7).getFecha_inicio(), listaJornadas.get(7).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[0].getCod_equipo(), listaJornadas.get(8).getFecha_inicio(), listaJornadas.get(8).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[1].getCod_equipo(), EquiposArray[5].getCod_equipo(), listaJornadas.get(8).getFecha_inicio(), listaJornadas.get(8).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[3].getCod_equipo(), EquiposArray[2].getCod_equipo(), listaJornadas.get(8).getFecha_inicio(), listaJornadas.get(8).getCod_jornada());
+
+        pBD.insertarPartido(EquiposArray[5].getCod_equipo(), EquiposArray[0].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
+        pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
+
     }
 }

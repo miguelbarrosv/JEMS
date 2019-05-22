@@ -179,7 +179,6 @@ public class EquipoBD {
         resultado = sentencia.executeQuery("SELECT COD_EQUIPO,NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_DUEÑO,PUNTUACION FROM EQUIPO");
         while (resultado.next()) {
             listaEquipos.add(crearObjeto());
-            System.out.println("hola esoty entrando soy hacekr");
         }
         bdr.cerrarCon();
         return listaEquipos;

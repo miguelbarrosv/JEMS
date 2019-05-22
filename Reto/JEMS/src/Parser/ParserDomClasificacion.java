@@ -29,10 +29,10 @@ public class ParserDomClasificacion {
     
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
         
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+          /*  DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();;
            
-            InputSource datos = new InputSource(new StringReader(Euskalmet()));
+            //InputSource datos = new InputSource(new StringReader(Euskalmet()));
             
             Document doc = dBuilder.parse(datos);
             elementoRaiz = doc.getDocumentElement();
@@ -71,7 +71,7 @@ public class ParserDomClasificacion {
                     }
                 }
                 System.out.println("");
-            }
+            }*/
     }      
 }
 

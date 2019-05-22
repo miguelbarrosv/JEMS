@@ -8,6 +8,7 @@ package BD;
 import UML.Jornada;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +33,6 @@ public class JornadaBD {
     private static Bdr bdr;
     private ResultSet resultado;
     private Jornada j;
-    private ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
 
     /**
      * Constructor de JornadaBD con el objeto de la conexión a la base de datos.
@@ -50,17 +50,16 @@ public class JornadaBD {
      */
     public ArrayList<Jornada> consultarJornadas() throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT COD_JORNADA,FECHA_INICIO,FECHA_FIN,LIGA_COD_LIGA FROM JORNADA;";
-        PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
-        resultado = ps.executeQuery();
+        ArrayList<Jornada> listaJornadas = new ArrayList();
+        Statement sentencia = bdr.getCon().createStatement();
+        resultado = sentencia.executeQuery("SELECT COD_JORNADA,FECHA_INICIO,FECHA_FIN,LIGA_COD_LIGA FROM JORNADA");
         while (resultado.next()) {
-            j = crearObjeto();
-            jornadas.add(j);
+            listaJornadas.add(crearObjeto());
         }
         bdr.cerrarCon();
-        return jornadas;
+        return listaJornadas;
     }
-
+    
     /**
      * Funcion que crea un objeto de clase Jornada con los datos de la base de
      * datos.
@@ -69,16 +68,14 @@ public class JornadaBD {
      * @throws Exception hereda excepciones
      */
     public Jornada crearObjeto() throws Exception {
-        Jornada j = new Jornada();
-        j.setCod_jornada(resultado.getInt("COD_EQUIPO"));
+        j = new Jornada();
+        j.setCod_jornada(resultado.getInt("COD_JORNADA"));
         j.setFecha_fin(resultado.getDate("FECHA_FIN"));
         j.setFecha_inicio(resultado.getDate("FECHA_INICIO"));
-        PartidoBD pBD = new PartidoBD();
-        j.setPartidos(pBD.consultarPartidos());
         LigaBD lBD = new LigaBD();
         j.setLiga(lBD.consultarLiga());
         return j;
-    }
+    }    
 
     /**
      * Funcion que consulta una Jornada mediante su codigo.
