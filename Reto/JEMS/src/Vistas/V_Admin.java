@@ -66,6 +66,7 @@ public class V_Admin extends javax.swing.JFrame {
         bAlta = new javax.swing.JButton();
         bModificar = new javax.swing.JButton();
         bBaja = new javax.swing.JButton();
+        bBorrarLiga = new javax.swing.JButton();
         bConsultarUno = new javax.swing.JButton();
         bConsultarMuchos = new javax.swing.JButton();
         lbEquipo = new javax.swing.JLabel();
@@ -145,31 +146,26 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         lbEquipo1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo1.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo1.setText("BORRAR");
         getContentPane().add(lbEquipo1);
         lbEquipo1.setBounds(190, 310, 102, 40);
 
         lbEquipo2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo2.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo2.setText("AÑADIR");
         getContentPane().add(lbEquipo2);
         lbEquipo2.setBounds(190, 150, 100, 40);
 
         lbEquipo3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo3.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo3.setText("CONSULTAR UNO");
         getContentPane().add(lbEquipo3);
         lbEquipo3.setBounds(190, 390, 210, 40);
 
         lbEquipo4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo4.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo4.setText("CONSULTAR TODOS");
         getContentPane().add(lbEquipo4);
         lbEquipo4.setBounds(190, 470, 240, 40);
 
         lbEquipo5.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo5.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo5.setText("EDITAR");
         getContentPane().add(lbEquipo5);
         lbEquipo5.setBounds(190, 230, 90, 40);
@@ -296,6 +292,10 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().add(bBaja);
         bBaja.setBounds(80, 300, 320, 70);
 
+        bBorrarLiga.setText("ELIMINAR LIGA");
+        getContentPane().add(bBorrarLiga);
+        bBorrarLiga.setBounds(890, 170, 160, 23);
+
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setBorder(null);
         bConsultarUno.setBorderPainted(false);
@@ -325,31 +325,26 @@ public class V_Admin extends javax.swing.JFrame {
         bConsultarMuchos.setBounds(80, 460, 320, 70);
 
         lbEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbEquipo.setForeground(new java.awt.Color(0, 0, 0));
         lbEquipo.setText("EQUIPO");
         getContentPane().add(lbEquipo);
         lbEquipo.setBounds(200, 260, 90, 40);
 
         lbJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbJugador.setForeground(new java.awt.Color(0, 0, 0));
         lbJugador.setText("JUGADOR");
         getContentPane().add(lbJugador);
         lbJugador.setBounds(200, 460, 120, 40);
 
         lbUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lbUsuario.setText("USUARIO");
         getContentPane().add(lbUsuario);
         lbUsuario.setBounds(200, 160, 110, 40);
 
         lbDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        lbDueño.setForeground(new java.awt.Color(0, 0, 0));
         lbDueño.setText("DUEÑO");
         getContentPane().add(lbDueño);
         lbDueño.setBounds(200, 360, 90, 40);
 
         lbTituloAdmin.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        lbTituloAdmin.setForeground(new java.awt.Color(0, 0, 0));
         lbTituloAdmin.setText("<HTML>ADMINISTRAR <BR> BASE DE DATOS</HTML> ");
         getContentPane().add(lbTituloAdmin);
         lbTituloAdmin.setBounds(80, 10, 300, 100);
@@ -1231,6 +1226,7 @@ public class V_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
+    private javax.swing.JButton bBorrarLiga;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
     private javax.swing.JButton bCrearLiga;
