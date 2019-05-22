@@ -453,7 +453,7 @@ public class V_Equipo extends javax.swing.JFrame {
                     tfPresupuesto.setEditable(false);
                     cbDueño.setEnabled(false);
                     bAceptar.setEnabled(true);
-                    tfCodigoEquipo.setEditable(false);
+                    tfCodigoEquipo.setEditable(true);
                     tfCodigoEquipo.setText(String.valueOf(equipo.getCod_equipo()));
                     tfNombre.setText(equipo.getNombre());
                     tfPuntuacion.setText(String.valueOf(equipo.getPuntuacion()));

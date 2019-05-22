@@ -293,4 +293,8 @@ public class ControladorVistas {
     public static void cerrarVentanaAviso() {
         vAviso.dispose();
     }
+
+    static void cerrarVentanaLista() {
+        vLista.dispose();
+    }
 }
