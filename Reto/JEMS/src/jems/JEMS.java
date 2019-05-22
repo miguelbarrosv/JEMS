@@ -581,27 +581,14 @@ public class JEMS {
     }
 
     /**
-     * Funcion para buscar en la base de datos todos los datos de las jornadas
-     * existentes.
-     *
-     * @return ArrayList del obejto jornada
-     * @throws Exception hereda excepciones
-     */
-    public static ArrayList<Jornada> buscarJornadas() throws Exception {
-        ArrayList<Jornada> jornadas = new ArrayList<>();
-        jornadas = jorBD.consultarJornadas();
-        return jornadas;
-    }
-
-    /**
      * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido.
      *
      * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
      * @throws Exception hereda excepciones
      */
     public static void introducirResultado(String nombreEquipo) throws Exception {
-        e = eBD.buscarCodigoPorNombre(nombreEquipo);
-        eBD.modificarPuntuacion(e);
+        int codigoEquipo = eBD.buscarCodigoPorNombre(nombreEquipo);
+        eBD.modificarPuntuacion(codigoEquipo);
     }
 
     /**
