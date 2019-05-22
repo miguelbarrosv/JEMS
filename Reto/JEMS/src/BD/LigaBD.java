@@ -110,6 +110,7 @@ public class LigaBD {
      */
     public Liga crearObjeto() throws Exception {
         l = new Liga();
+        l.setCod_liga(resultado.getInt("COD_LIGA"));
         l.setNombre(resultado.getString("NOMBRE"));
         l.setFecha_inicio(resultado.getDate("FECHA_INICIO"));
         l.setFecha_fin(resultado.getDate("FECHA_FIN"));

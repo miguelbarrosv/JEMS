@@ -22,6 +22,9 @@ import jems.JEMS;
  */
 public class V_Admin extends javax.swing.JFrame {
 
+    private int numJornada;
+    private ArrayList<Jornada> jornadas;
+
     /**
      * Creates new form V_Inicio
      */
@@ -1012,9 +1015,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 10;
+            numJornada = 10;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1023,9 +1026,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 1;
+            numJornada = 1;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1034,9 +1037,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 2;
+            numJornada = 2;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1045,9 +1048,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 3;
+            numJornada = 3;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1056,9 +1059,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 4;
+            numJornada = 4;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1067,9 +1070,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 5;
+            numJornada = 5;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1078,9 +1081,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 6;
+            numJornada = 6;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1089,9 +1092,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 7;
+            numJornada = 7;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1100,9 +1103,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 8;
+            numJornada = 8;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
@@ -1111,9 +1114,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
         try {
-            ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+            jornadas = new ArrayList<>();
             jornadas = JEMS.buscarJornadas();
-            int numJornada = 9;
+            numJornada = 9;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getClass());

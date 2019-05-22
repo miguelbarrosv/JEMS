@@ -32,7 +32,7 @@ public class PartidoBD {
     private Partido p;
     private ResultSet resultado;
     private static Bdr bdr;
-    private ArrayList<Partido> partidos = new ArrayList<Partido>();
+    private ArrayList<Partido> partidos = new ArrayList<>();
 
     /**
      * Funcion que consulta todos los Partidos.

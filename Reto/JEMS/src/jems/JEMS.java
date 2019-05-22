@@ -582,9 +582,10 @@ public class JEMS {
      * existenets
      *
      * @return ArrayList del obejto jornada
+     * @throws Exception hereda excepciones
      */
     public static ArrayList<Jornada> buscarJornadas() throws Exception {
-        ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+        ArrayList<Jornada> jornadas = new ArrayList<>();
         jornadas = jorBD.consultarJornadas();
         return jornadas;
     }
