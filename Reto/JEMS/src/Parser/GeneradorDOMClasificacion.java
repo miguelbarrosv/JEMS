@@ -21,6 +21,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import jems.JEMS;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Text;
@@ -28,18 +29,21 @@ import org.w3c.dom.Text;
 /**
  *
  * @author Joel Encinas
- *
+ * @ author Miguel Barros
+ * 
  * @version %I%, %G%
  * @since 1.0
  */
 public class GeneradorDOMClasificacion {
 
-    /*
+    
     private List<Equipo> equipos;
     private Document dom;
-
-    public GeneradorDOMClasificacion() {        
-
+    private static Liga liga;
+    
+    public GeneradorDOMClasificacion() throws Exception {        
+        //cargarDatos
+        cargarDatos();
         // Construir un documento DOM vacio
         crearDocumento();
     }
@@ -56,25 +60,29 @@ public class GeneradorDOMClasificacion {
             dom = db.newDocument();
 
             // REF: No hay esquema o DTD: https://stackoverflow.com/a/8438236
-            // dom.setXmlStandalone(true);
+            dom.setXmlStandalone(true);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
     }
-
+    public void cargarDatos() throws Exception {
+        // cargar ArrayList equipos
+        equipos = JEMS.consultarEquipos();
+        // cargar Objeto Liga
+        liga = JEMS.consultarLiga();
+    }
     private void crearArbolDOM() {
+        
         // Elemento raiz liga
         Element raiz = dom.createElement("liga");
         dom.appendChild(raiz);
-        raiz.setAttribute("cod", liga.getCod_liga());
-        raiz.setAttribute("fecha_inicio", liga.getFecha_inicio());
-        raiz.setAttribute("fecha_fin", liga.getFecha_fin());
-        raiz.setAttribute("estado_liga", liga.isEstado());
+        raiz.setAttribute("cod", String.valueOf(liga.getCod_liga()));
+        raiz.setAttribute("fecha_inicio", String.valueOf(liga.getFecha_inicio()));
+        raiz.setAttribute("fecha_fin", String.valueOf(liga.getFecha_fin()));
+        raiz.setAttribute("estado_liga", String.valueOf(liga.isEstado()));
 
         // Elemento fecha_actualizacion
         Element elementoFechaActualizacion = dom.createElement("fecha_actualizacion");
-        Text fechaActualizacion = dom.createTextNode(liga.getFechaActualizacion());
-        elementoFechaActualizacion.appendChild(fechaActualizacion);
         raiz.appendChild(elementoFechaActualizacion);
 
         // Generar elementos equipo y hacer equipos el padre
@@ -85,7 +93,6 @@ public class GeneradorDOMClasificacion {
     }
 
     private Element crearElementoEquipo(Equipo equipo) {
-
         // <equipo cod="">
         Element elementoEquipo = dom.createElement("equipo");
         elementoEquipo.setAttribute("cod", String.valueOf(equipo.getCod_equipo()));
@@ -134,9 +141,8 @@ public class GeneradorDOMClasificacion {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         System.out.println("--- DOM (escritura) ---\n");
         new GeneradorDOMClasificacion().run();
     }
-*/
 }

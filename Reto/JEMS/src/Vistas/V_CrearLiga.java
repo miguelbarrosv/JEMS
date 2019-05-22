@@ -24,6 +24,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         myInitComponents();
+        tfFechaInicio.setText("  /  /    ");
     }
     
     public void myInitComponents() {
