@@ -23,13 +23,9 @@ package jems;
 import Vistas.*;
 import BD.*;
 import UML.*;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 
 public class JEMS {
 
@@ -570,15 +566,14 @@ public class JEMS {
      * Funcion para buscar en la base de datos al administrador de login.
      *
      * @param fecha (reuqerido) fecha inicio de la liga
+     * @param nombre (requerido) nombre de la liga
      * @return String para confirmar que se ha creado la liga
      * @throws ParseException hereda excepciones
      * @throws Exception hereda excepciones
      */
-    public static String crearLigaVacia(String fecha) throws ParseException, Exception {
-        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-        Date fechaInicio = format.parse(fecha);
-        String mensaje = lBD.crearLigaVacia(fechaInicio);
+    public static String crearLigaVacia(Date fecha,String nombre) throws ParseException, Exception {
+
+        String mensaje = lBD.crearLigaVacia(fecha,nombre);
         return mensaje;
     }
 

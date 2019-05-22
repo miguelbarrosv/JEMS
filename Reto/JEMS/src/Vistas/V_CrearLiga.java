@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -25,7 +27,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -44,6 +46,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private void initComponents() {
 
         tfFechaInicio = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
         bCrear = new javax.swing.JButton();
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
@@ -59,9 +62,16 @@ public class V_CrearLiga extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         tfFechaInicio.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(tfFechaInicio);
-        tfFechaInicio.setBounds(510, 310, 250, 30);
+        tfFechaInicio.setBounds(510, 400, 250, 30);
+
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfNombre);
+        tfNombre.setBounds(510, 340, 250, 30);
 
         bCrear.setBackground(new java.awt.Color(252, 124, 0));
         bCrear.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -89,10 +99,9 @@ public class V_CrearLiga extends javax.swing.JFrame {
         getContentPane().add(lbVersion);
         lbVersion.setBounds(1100, 680, 180, 30);
 
-
         lbCodigoDueño.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbCodigoDueño.setForeground(new java.awt.Color(255, 255, 255));
-        lbCodigoDueño.setText("Selecciona la Fecha de Inicio de la Liga");
+        lbCodigoDueño.setText("<html>Selecciona el nombre y <br> la fecha de Inicio de la Liga</html>");
         getContentPane().add(lbCodigoDueño);
         lbCodigoDueño.setBounds(480, 260, 310, 40);
 
@@ -128,7 +137,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
         lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
         getContentPane().add(lbBorde);
-        lbBorde.setBounds(450, 220, 360, 170);
+        lbBorde.setBounds(450, 210, 360, 260);
 
         lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
@@ -152,8 +161,14 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
     private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
         try {
-           String mensaje = JEMS.crearLigaVacia(tfFechaInicio.getText());
-           ControladorVistas.abrirVentanaAviso("Liga creada en la fecha " + mensaje);
+
+            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+
+            Date fecha = formateador.parse(tfFechaInicio.getText());
+     
+            
+            String mensaje = JEMS.crearLigaVacia(fecha,tfNombre.getText());
+            ControladorVistas.abrirVentanaAviso("Liga creada en la fecha " + mensaje);
         } catch (Exception ex) {
             Logger.getLogger(V_CrearLiga.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -167,6 +182,10 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaCreacion();
     }//GEN-LAST:event_bVolverActionPerformed
+
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,5 +235,6 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private javax.swing.JLabel lbSubtitulo;
     private javax.swing.JLabel lbVersion;
     private javax.swing.JTextField tfFechaInicio;
+    private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,16 +7,19 @@ package BD;
 
 import UML.Liga;
 import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  * Clase de Liga de base de datos.
  *
  * @author Eric Muñoz
  *
- *@see Liga
+ * @see Liga
  *
  * @version %I%, %G%
  * @since 1.0
@@ -44,22 +47,29 @@ public class LigaBD {
      * Funcion que ejecuta el procedimiento GENERAR_CALENDARIO.
      *
      * @param fechaInicioLiga (requerido) fecha de inicio de la Liga
+     * @param nombre (requerido) nombre de la liga
      * @return devuelve un string con el mensaje de la creacion de la Liga
      * @throws Exception hereda excepciones
      */
-    public String crearLigaVacia(Date fechaInicioLiga) throws Exception {
+    public String crearLigaVacia(Date fechaInicioLiga,String nombre) throws Exception {
         java.sql.Date sDate = convertUtilToSql(fechaInicioLiga);
         bdr.conectar();
-        CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?)}");
-        cStmt.setDate(1, sDate);
-        cStmt.executeUpdate();
-        String mensaje = "";
-        ResultSet rs = (ResultSet) cStmt.getResultSet();
-        while (rs.next()) {
-            mensaje = "Liga vacia creada";
+        String mensaje = null;
+        try (CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?,?)}")) {
+            cStmt.setDate(1, sDate);
+            cStmt.setString(2, nombre);
+            cStmt.executeUpdate();
+            mensaje = "";
+            try (ResultSet rs = (ResultSet) cStmt.getResultSet()) {
+                while (rs.next()) {
+                    mensaje = "Liga vacia creada";
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "error");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error");
         }
-        rs.close();
-        cStmt.close();
         bdr.cerrarCon();
         return mensaje;
     }
