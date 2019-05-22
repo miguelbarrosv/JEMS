@@ -251,6 +251,14 @@ public class ControladorVistas {
         vCrearLiga = new V_CrearLiga();
         vCrearLiga.setVisible(true);
     }
+    
+    /**
+     * Funcion que cierra la ventana V_CrearLiga
+     *
+     */
+    public static void cerrarVentanaCreacion() {
+        vCrearLiga.dispose();
+    }
 
     /**
      * Funcion que abre la ventana V_IntroducirResultado

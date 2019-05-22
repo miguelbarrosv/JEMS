@@ -7,7 +7,6 @@ package Vistas;
 
 import UML.Usuario;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -165,31 +164,37 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         lbSubtitulo.setBounds(350, 80, 640, 120);
 
         tfUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfUsuario.setForeground(new java.awt.Color(0, 0, 0));
         tfUsuario.setBorder(null);
         getContentPane().add(tfUsuario);
         tfUsuario.setBounds(500, 350, 280, 30);
 
         lbUsuario.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbUsuario.setText("Usuario");
         getContentPane().add(lbUsuario);
         lbUsuario.setBounds(500, 310, 150, 40);
 
         lbContraseña.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lbContraseña.setText("Contraseña");
         getContentPane().add(lbContraseña);
         lbContraseña.setBounds(500, 400, 150, 40);
 
         tfContraseña.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfContraseña.setForeground(new java.awt.Color(0, 0, 0));
         tfContraseña.setBorder(null);
         getContentPane().add(tfContraseña);
         tfContraseña.setBounds(500, 440, 280, 30);
 
         lbCodigoUsuario.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbCodigoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbCodigoUsuario.setText("Codigo Usuario");
         getContentPane().add(lbCodigoUsuario);
         lbCodigoUsuario.setBounds(500, 220, 150, 40);
 
         tfCodigoUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoUsuario.setForeground(new java.awt.Color(0, 0, 0));
         tfCodigoUsuario.setBorder(null);
         tfCodigoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

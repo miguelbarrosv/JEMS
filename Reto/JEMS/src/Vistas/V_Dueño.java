@@ -10,7 +10,6 @@ import UML.Dueño;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -257,11 +256,13 @@ public class V_Dueño extends javax.swing.JFrame {
         bVolver.setBounds(560, 630, 170, 30);
 
         lbCodigoDueño.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbCodigoDueño.setForeground(new java.awt.Color(255, 255, 255));
         lbCodigoDueño.setText("Codigo Dueño");
         getContentPane().add(lbCodigoDueño);
         lbCodigoDueño.setBounds(500, 210, 150, 40);
 
         tfCodigoDueño.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoDueño.setForeground(new java.awt.Color(0, 0, 0));
         tfCodigoDueño.setBorder(null);
         tfCodigoDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,31 +273,37 @@ public class V_Dueño extends javax.swing.JFrame {
         tfCodigoDueño.setBounds(500, 250, 280, 30);
 
         lbNombre.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbNombre.setForeground(new java.awt.Color(255, 255, 255));
         lbNombre.setText("Nombre");
         getContentPane().add(lbNombre);
         lbNombre.setBounds(500, 280, 150, 40);
 
         tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setForeground(new java.awt.Color(0, 0, 0));
         tfNombre.setBorder(null);
         getContentPane().add(tfNombre);
         tfNombre.setBounds(500, 320, 280, 30);
 
         lbApellido.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbApellido.setForeground(new java.awt.Color(255, 255, 255));
         lbApellido.setText("Apellido");
         getContentPane().add(lbApellido);
         lbApellido.setBounds(500, 350, 150, 40);
 
         tfApellido.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfApellido.setForeground(new java.awt.Color(0, 0, 0));
         tfApellido.setBorder(null);
         getContentPane().add(tfApellido);
         tfApellido.setBounds(500, 390, 280, 30);
 
         tfTelefono.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfTelefono.setForeground(new java.awt.Color(0, 0, 0));
         tfTelefono.setBorder(null);
         getContentPane().add(tfTelefono);
         tfTelefono.setBounds(500, 460, 280, 30);
 
         lbTelefono.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        lbTelefono.setForeground(new java.awt.Color(255, 255, 255));
         lbTelefono.setText("Telefono ");
         getContentPane().add(lbTelefono);
         lbTelefono.setBounds(500, 420, 150, 40);

@@ -147,7 +147,11 @@ public class V_Usuario extends javax.swing.JFrame {
      * @param evt pulsar enter
      */
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
-        ControladorVistas.mostrarVentanaJornadas();
+        try {
+            ControladorVistas.mostrarVentanaJornadas();
+        } catch (Exception ex) {
+            Logger.getLogger(V_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bJornadaActionPerformed
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed

@@ -10,7 +10,6 @@ import UML.Dueño;
 import UML.Equipo;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -33,9 +32,7 @@ public class V_Equipo extends javax.swing.JFrame {
      * Creates new form V_Equipo
      */
     public V_Equipo() {
-
         initComponents();
-
     }
 
     public void myInitComponents() {
@@ -301,6 +298,7 @@ public class V_Equipo extends javax.swing.JFrame {
         lbSubtitulo.setBounds(550, 70, 220, 40);
 
         tfCodigoEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfCodigoEquipo.setForeground(new java.awt.Color(0, 0, 0));
         tfCodigoEquipo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfCodigoEquipo.setBorder(null);
         tfCodigoEquipo.addActionListener(new java.awt.event.ActionListener() {
@@ -312,26 +310,32 @@ public class V_Equipo extends javax.swing.JFrame {
         tfCodigoEquipo.setBounds(350, 260, 280, 30);
 
         tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setForeground(new java.awt.Color(0, 0, 0));
         tfNombre.setBorder(null);
         getContentPane().add(tfNombre);
         tfNombre.setBounds(350, 350, 280, 30);
 
         tfPuntuacion.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPuntuacion.setForeground(new java.awt.Color(0, 0, 0));
         tfPuntuacion.setBorder(null);
+        tfPuntuacion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         getContentPane().add(tfPuntuacion);
         tfPuntuacion.setBounds(350, 440, 280, 30);
 
         tfNacionalidad.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNacionalidad.setForeground(new java.awt.Color(0, 0, 0));
         tfNacionalidad.setBorder(null);
         getContentPane().add(tfNacionalidad);
         tfNacionalidad.setBounds(690, 260, 280, 30);
 
         tfPresupuesto.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfPresupuesto.setForeground(new java.awt.Color(0, 0, 0));
         tfPresupuesto.setBorder(null);
         getContentPane().add(tfPresupuesto);
         tfPresupuesto.setBounds(690, 350, 280, 30);
 
         cbDueño.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        cbDueño.setForeground(new java.awt.Color(0, 0, 0));
         cbDueño.setBorder(null);
         cbDueño.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

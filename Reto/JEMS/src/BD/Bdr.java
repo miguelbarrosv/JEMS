@@ -34,10 +34,12 @@ public class Bdr {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             /*String url = "jdbc:oracle:thin:@10.10.10.9:1521:db12102";
             con = DriverManager.getConnection(url, "Scott", "oracle");*/
-            String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");
-            /*Statement sentencia = con.createStatement();
-            sentencia.executeUpdate("INSERT INTO ADMINISTRADOR (USUARIO, CONTRASEÑA)VALUES ('A', 'A')");*/
+            // String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
+            String url = "jdbc:oracle:thin:@localhost:1521:xe";
+            // con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");
+            con = DriverManager.getConnection(url, "system", "root");
+            Statement sentencia = con.createStatement();
+            sentencia.executeUpdate("INSERT INTO ADMINISTRADOR (USUARIO, CONTRASEÑA)VALUES ('A', 'A')");
 
         } catch (Exception e) {
             System.out.println("Problemas con la base de datos relacional");

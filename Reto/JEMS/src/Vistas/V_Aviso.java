@@ -8,7 +8,7 @@ package Vistas;
 /**
  *
  * @author Joel Encinas
- * 
+ *
  * @version %I%, %G%
  * @since 1.0
  */
@@ -33,6 +33,13 @@ public class V_Aviso extends javax.swing.JFrame {
         setLocationRelativeTo(this);
     }
 
+    public String formatearMensaje(String mensaje) {
+        if (mensaje.length() > 25) {
+            mensaje = new StringBuilder(mensaje).insert(mensaje.length() - 10, "\n").toString();
+        }
+        return mensaje;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,6 +50,8 @@ public class V_Aviso extends javax.swing.JFrame {
     private void initComponents() {
 
         bAceptar = new javax.swing.JButton();
+        lbBorde = new javax.swing.JLabel();
+        lbAviso = new javax.swing.JLabel();
         lbMensaje = new javax.swing.JLabel();
         lbFiller = new javax.swing.JLabel();
         lbBackgroundAviso = new javax.swing.JLabel();
@@ -66,12 +75,21 @@ public class V_Aviso extends javax.swing.JFrame {
         getContentPane().add(bAceptar);
         bAceptar.setBounds(130, 170, 140, 35);
 
-        lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
+        lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
+        getContentPane().add(lbBorde);
+        lbBorde.setBounds(50, 70, 300, 90);
+
+        lbAviso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/warning.png"))); // NOI18N
+        getContentPane().add(lbAviso);
+        lbAviso.setBounds(180, 20, 50, 40);
+
+        lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         lbMensaje.setForeground(new java.awt.Color(255, 255, 255));
         lbMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbMensaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(lbMensaje);
-        lbMensaje.setBounds(50, 20, 300, 120);
+        lbMensaje.setBounds(50, 70, 300, 90);
 
         lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ventana_aviso.jpg"))); // NOI18N
         getContentPane().add(lbFiller);
@@ -125,7 +143,9 @@ public class V_Aviso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
+    private javax.swing.JLabel lbAviso;
     private javax.swing.JLabel lbBackgroundAviso;
+    private javax.swing.JLabel lbBorde;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbMensaje;
     // End of variables declaration//GEN-END:variables
