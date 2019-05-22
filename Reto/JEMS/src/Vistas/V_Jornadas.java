@@ -31,7 +31,7 @@ public class V_Jornadas extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        jornadas = JEMS.consultarJornadas();
+        jornadas = JEMS.consultarJornadasconPartidos();
 
         switch (cbJornadas.getSelectedIndex()) {
             case 0:

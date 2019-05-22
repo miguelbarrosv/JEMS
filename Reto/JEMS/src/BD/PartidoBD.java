@@ -33,7 +33,6 @@ public class PartidoBD {
     private Partido p;
     private ResultSet resultado;
     private static Bdr bdr;
-    private ArrayList<Partido> partidos = new ArrayList<>();
 
     /**
      * Constructor de PartidoBD con el objeto de la conexión a la base de datos.
@@ -51,15 +50,15 @@ public class PartidoBD {
      */
     public ArrayList<Partido> consultarPartidos() throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO;";
+        ArrayList<Partido> listaPartidos = new ArrayList();
+        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO";
         PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
         resultado = ps.executeQuery();
         while (resultado.next()) {
-            p = crearObjeto();
-            partidos.add(p);
+            listaPartidos.add(crearObjeto());
         }
         bdr.cerrarCon();
-        return partidos;
+        return listaPartidos;
     }
 
     /**
@@ -71,16 +70,16 @@ public class PartidoBD {
      */
     public ArrayList<Partido> consultarPartidosJornada(int cod_jornada) throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE JORNADA_COD_JORNADA=?;";
+        ArrayList<Partido> listaPartidos = new ArrayList();
+        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE JORNADA_COD_JORNADA=?";
         PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
         ps.setInt(1, cod_jornada);
         resultado = ps.executeQuery();
         while (resultado.next()) {
-            p = crearObjeto();
-            partidos.add(p);
+            listaPartidos.add(crearObjeto());
         }
         bdr.cerrarCon();
-        return partidos;
+        return listaPartidos;
     }
 
     /**
@@ -92,17 +91,17 @@ public class PartidoBD {
      */
     public ArrayList<Partido> consultarPartidosEquipo(int cod_equipo) throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE EQUIPO_COD_EQUIPO=? OR EQUIPO_VISITANTE=?;";
+        ArrayList<Partido> listaPartidos = new ArrayList();
+        String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE EQUIPO_COD_EQUIPO=? OR EQUIPO_VISITANTE=?";
         PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
         ps.setInt(1, cod_equipo);
         ps.setInt(2, cod_equipo);
         resultado = ps.executeQuery();
         while (resultado.next()) {
-            p = crearObjeto();
-            partidos.add(p);
+            listaPartidos.add(crearObjeto());
         }
         bdr.cerrarCon();
-        return partidos;
+        return listaPartidos;
     }
 
     /**
@@ -125,6 +124,7 @@ public class PartidoBD {
 
     public void insertarPartido(int cod_local, int cod_visitante, Date fecha, int cod_jornada) throws Exception {
         bdr.conectar();
+        ArrayList<Partido> listaPartidos = new ArrayList();
         java.sql.Date sDate = convertUtilToSql(fecha);
         String plantilla = "INSERT INTO PARTIDO (EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,FECHA_PARTIDO,EQUIPO_VISITANTE,RESULTADO)VALUES(?,?,?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);

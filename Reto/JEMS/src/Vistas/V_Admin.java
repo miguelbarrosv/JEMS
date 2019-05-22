@@ -1041,7 +1041,7 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             ControladorVistas.mostrarVentanaJornadas();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miVisualizarLigaActionPerformed
 

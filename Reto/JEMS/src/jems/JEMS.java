@@ -617,6 +617,17 @@ public class JEMS {
     }
 
     /**
+     * Funcion que para sacar las jornadas con los partidos.
+     *
+     * @return devuelve las jornadas con los partidos
+     * @throws Exception hereda excepciones
+     */
+    public static ArrayList<Jornada> consultarJornadasconPartidos() throws Exception {
+        listaJornadas = jorBD.consultarJornadasConPartidos();
+        return listaJornadas;
+    }
+
+    /**
      * Funcion que saca todos los Partidos de la base de datos.
      *
      * @return devuelve todos los Partidos
@@ -701,4 +712,5 @@ public class JEMS {
         pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
 
     }
+
 }
