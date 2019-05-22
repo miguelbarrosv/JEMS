@@ -200,12 +200,12 @@ public class JugadorBD {
         sentenciaPre.setString(1, j.getNombre());
         sentenciaPre.setString(2, j.getApellido());
         sentenciaPre.setString(3, j.getNickname());
-        sentenciaPre.setInt(3, j.getSueldo());
-        sentenciaPre.setString(3, j.getNacionalidad());
-        sentenciaPre.setString(3, j.getEstado());
-        sentenciaPre.setString(3, j.getTelefono());
-        sentenciaPre.setInt(3, j.getEquipo().getCod_equipo());
-        sentenciaPre.setInt(3, j.getCod_jugador());
+        sentenciaPre.setInt(4, j.getSueldo());
+        sentenciaPre.setString(5, j.getNacionalidad());
+        sentenciaPre.setString(6, j.getEstado());
+        sentenciaPre.setString(7, j.getTelefono());
+        sentenciaPre.setInt(8, j.getEquipo().getCod_equipo());
+        sentenciaPre.setInt(9, j.getCod_jugador());
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }

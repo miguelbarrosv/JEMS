@@ -596,7 +596,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 try {
                     switch (ope) {
                         case "modificar":
-                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
+                            JEMS.modificarJugador(Integer.parseInt(tfCodigoJugador.getText()),tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), equipos.get(cbEquipo.getSelectedIndex()).getCod_equipo());
                             ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
                             break;
                         case "alta":
@@ -621,7 +621,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 try {
                     switch (ope) {
                         case "modificar":
-                            JEMS.modificarJugador(tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
+                            JEMS.modificarJugador(Integer.parseInt(tfCodigoJugador.getText()),tfNombre.getText(), tfApellido.getText(), tfNickname.getText(), Integer.parseInt(tfSueldo.getText()), tfNacionalidad.getText(), estado, tfTelefono.getText(), null);
                             ControladorVistas.abrirVentanaAviso("Jugador modificado con exito!");
                             break;
                         case "alta":
@@ -663,6 +663,7 @@ public class V_Jugador extends javax.swing.JFrame {
                 tfNombre.setEditable(true);
                 tfApellido.setEditable(true);
                 tfNacionalidad.setEditable(true);
+                tfNickname.setEditable(true);
                 tfSueldo.setEditable(true);
                 tfTelefono.setEditable(true);
                 rbOcupado.setEnabled(true);

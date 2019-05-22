@@ -94,7 +94,7 @@ public class EquipoBD {
         sentenciaPre.setString(2, e.getNacionalidad());
         sentenciaPre.setInt(3, e.getPresupuesto());
         sentenciaPre.setInt(4, e.getDueño().getCod_dueño());
-        sentenciaPre.setInt(5, e.getPresupuesto());
+        sentenciaPre.setInt(5, e.getPuntuacion());
         sentenciaPre.setInt(6, e.getCod_equipo());
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();

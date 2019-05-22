@@ -432,7 +432,7 @@ public class V_Equipo extends javax.swing.JFrame {
             equipo = JEMS.buscarEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
             switch (ope) {
                 case "modificar":
-                    tfNombre.setEditable(false);
+                    tfNombre.setEditable(true);
                     tfPuntuacion.setEditable(true);
                     tfNacionalidad.setEditable(true);
                     tfPresupuesto.setEditable(true);

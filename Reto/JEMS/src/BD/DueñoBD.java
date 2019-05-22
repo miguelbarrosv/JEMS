@@ -161,6 +161,7 @@ public class DueñoBD {
         sentenciaPre.setString(1, d.getNombre());
         sentenciaPre.setString(2, d.getApellido());
         sentenciaPre.setString(3, d.getTelefono());
+        sentenciaPre.setInt(4,d.getCod_dueño());
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
