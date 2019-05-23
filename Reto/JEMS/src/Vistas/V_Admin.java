@@ -232,6 +232,7 @@ public class V_Admin extends javax.swing.JFrame {
         lbIntroducirResultadoJornada = new javax.swing.JLabel();
         tfIntroducirResultadoJornada = new javax.swing.JTextField();
         lbTituloAdmin2 = new javax.swing.JLabel();
+        bInsertarPartidos = new javax.swing.JButton();
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
         bVolverBase = new javax.swing.JButton();
@@ -419,6 +420,14 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bConsultarMuchos);
         bConsultarMuchos.setBounds(90, 480, 290, 70);
+        bInsertarPartidos.setText("Insertar Partidos");
+        bInsertarPartidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInsertarPartidosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bInsertarPartidos);
+        bInsertarPartidos.setBounds(810, 300, 170, 50);
 
         bBorrarLiga.setBackground(new java.awt.Color(255, 0, 0));
         bBorrarLiga.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -959,6 +968,13 @@ public class V_Admin extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_bIntroducirResultadoActionPerformed
+    private void bInsertarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarPartidosActionPerformed
+        try {
+            JEMS.insertarEquipos();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_bInsertarPartidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1009,6 +1025,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JButton bEquipo;
     private javax.swing.JButton bIntroducirResultado;
     private javax.swing.JButton bJornada;
+    private javax.swing.JButton bInsertarPartidos;
     private javax.swing.JButton bJugador;
     private javax.swing.JButton bMirarLiga;
     private javax.swing.JButton bModificar;

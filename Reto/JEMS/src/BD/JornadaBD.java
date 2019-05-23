@@ -6,8 +6,10 @@
 package BD;
 
 import UML.Jornada;
+import UML.Partido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +34,6 @@ public class JornadaBD {
     private static Bdr bdr;
     private ResultSet resultado;
     private Jornada j;
-    private ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
 
     /**
      * Constructor de JornadaBD con el objeto de la conexión a la base de datos.
@@ -50,15 +51,32 @@ public class JornadaBD {
      */
     public ArrayList<Jornada> consultarJornadas() throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT COD_JORNADA,FECHA_INICIO,FECHA_FIN,LIGA_COD_LIGA FROM JORNADA;";
-        PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
-        resultado = ps.executeQuery();
+        ArrayList<Jornada> listaJornadas = new ArrayList();
+        Statement sentencia = bdr.getCon().createStatement();
+        resultado = sentencia.executeQuery("SELECT COD_JORNADA,FECHA_INICIO,FECHA_FIN,LIGA_COD_LIGA FROM JORNADA");
         while (resultado.next()) {
-            j = crearObjeto();
-            jornadas.add(j);
+            listaJornadas.add(crearObjeto());
         }
         bdr.cerrarCon();
-        return jornadas;
+        return listaJornadas;
+    }
+
+    /**
+     * Funcion para consultar todas las Jorandas con partidos.
+     *
+     * @return devuelve todas las jornadas
+     * @throws Exception hereda excepciones
+     */
+    public ArrayList<Jornada> consultarJornadasConPartidos() throws Exception {
+        bdr.conectar();
+        ArrayList<Jornada> listaJornadas = new ArrayList();
+        Statement sentencia = bdr.getCon().createStatement();
+        resultado = sentencia.executeQuery("SELECT COD_JORNADA,FECHA_INICIO,FECHA_FIN,LIGA_COD_LIGA FROM JORNADA");
+        while (resultado.next()) {
+            listaJornadas.add(crearObjetoConPartido());
+        }
+        bdr.cerrarCon();
+        return listaJornadas;
     }
 
     /**
@@ -69,14 +87,31 @@ public class JornadaBD {
      * @throws Exception hereda excepciones
      */
     public Jornada crearObjeto() throws Exception {
-        Jornada j = new Jornada();
-        j.setCod_jornada(resultado.getInt("COD_EQUIPO"));
+        j = new Jornada();
+        j.setCod_jornada(resultado.getInt("COD_JORNADA"));
         j.setFecha_fin(resultado.getDate("FECHA_FIN"));
         j.setFecha_inicio(resultado.getDate("FECHA_INICIO"));
-        PartidoBD pBD = new PartidoBD();
-        j.setPartidos(pBD.consultarPartidos());
         LigaBD lBD = new LigaBD();
         j.setLiga(lBD.consultarLiga());
+        return j;
+    }
+
+    /**
+     * Funcion que crea un objeto de clase Jornada con los datos de la base de
+     * datos.
+     *
+     * @return devuelve un objeto Jornada
+     * @throws Exception hereda excepciones
+     */
+    public Jornada crearObjetoConPartido() throws Exception {
+        j = new Jornada();
+        j.setCod_jornada(resultado.getInt("COD_JORNADA"));
+        j.setFecha_fin(resultado.getDate("FECHA_FIN"));
+        j.setFecha_inicio(resultado.getDate("FECHA_INICIO"));
+        LigaBD lBD = new LigaBD();
+        j.setLiga(lBD.consultarLiga());
+        PartidoBD pBD = new PartidoBD();
+        j.setPartidos(pBD.consultarPartidosJornada(resultado.getInt("COD_JORNADA")));
         return j;
     }
 
@@ -89,7 +124,7 @@ public class JornadaBD {
      */
     public Jornada consultarJornada(int codigo) throws Exception {
         bdr.conectar();
-        String plantilla = "SELECT * FROM JORNADA WHERE COD_JORNADA = ?;";
+        String plantilla = "SELECT * FROM JORNADA WHERE COD_JORNADA = ?";
         PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);
         ps.setInt(1, codigo);
         resultado = ps.executeQuery();

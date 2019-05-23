@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
@@ -408,44 +409,37 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
     }//GEN-LAST:event_tfEquipoLocalActionPerformed
 
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
-        if (rbGanadorLocal.isSelected()) {
-            try {
+        try {
+            if (rbGanadorLocal.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoLocal.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (rbGanadorVisitante.isSelected()) {
-            try {
+
+            } else if (rbGanadorVisitante.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoVisitante.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
+
             }
-        }
-        if (rbGanadorLocal2.isSelected()) {
-            try {
+            if (rbGanadorLocal2.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoLocal2.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (rbGanadorVisitante2.isSelected()) {
-            try {
+
+            } else if (rbGanadorVisitante2.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoVisitante2.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
+
             }
-        }
-        if (rbGanadorLocal3.isSelected()) {
-            try {
+            if (rbGanadorLocal3.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoLocal3.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (rbGanadorVisitante3.isSelected()) {
-            try {
+
+            } else if (rbGanadorVisitante3.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoVisitante3.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
+
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+
         }
     }//GEN-LAST:event_bActualizarActionPerformed
 

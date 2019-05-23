@@ -26,85 +26,13 @@ public class V_Jornadas extends javax.swing.JFrame {
      * Creates new form V_Jornadas Funcion que al iniciar la ventana muestra en
      * la pantalla los datos de una jornada para que el usuario pueda
      * visualizarlo
-     * @throws Exception hereda de la clase Exception
+     * @throws Exception hereda excepciones
      */
     public V_Jornadas() throws Exception {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        jornadas = JEMS.consultarJornadas();
-
-        if (cbJornadas.getSelectedIndex() == 0) {
-            tfEquipoLocal.setText(jornadas.get(0).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(0).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 1) {
-            tfEquipoLocal.setText(jornadas.get(1).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(1).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 2) {
-            tfEquipoLocal.setText(jornadas.get(2).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(2).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 3) {
-            tfEquipoLocal.setText(jornadas.get(3).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(3).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 4) {
-            tfEquipoLocal.setText(jornadas.get(4).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(4).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 5) {
-            tfEquipoLocal.setText(jornadas.get(5).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(5).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 6) {
-            tfEquipoLocal.setText(jornadas.get(6).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(6).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 7) {
-            tfEquipoLocal.setText(jornadas.get(7).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(7).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 8) {
-            tfEquipoLocal.setText(jornadas.get(8).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(8).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_visitante().getNombre());
-        } else if (cbJornadas.getSelectedIndex() == 9) {
-            tfEquipoLocal.setText(jornadas.get(9).getPartidos().get(0).getEquipo_local().getNombre());
-            tfEquipoVisitante.setText(jornadas.get(9).getPartidos().get(0).getEquipo_visitante().getNombre());
-            tfEquipoLocal2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_local().getNombre());
-            tfEquipoVisitante2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_visitante().getNombre());
-            tfEquipoLocal3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_local().getNombre());
-            tfEquipoVisitante3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_visitante().getNombre());
-        }
+        jornadas = JEMS.consultarJornadasconPartidos();        
     }
     
     /**
@@ -174,47 +102,45 @@ public class V_Jornadas extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         tfEquipoLocal.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfEquipoLocal.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoLocal.setEnabled(false);
         getContentPane().add(tfEquipoLocal);
         tfEquipoLocal.setBounds(360, 310, 250, 30);
 
         tfEquipoVisitante.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfEquipoVisitante.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoVisitante.setEnabled(false);
         getContentPane().add(tfEquipoVisitante);
         tfEquipoVisitante.setBounds(690, 310, 250, 30);
 
         tfEquipoLocal2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfEquipoLocal2.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoLocal2.setEnabled(false);
         getContentPane().add(tfEquipoLocal2);
         tfEquipoLocal2.setBounds(360, 380, 250, 30);
 
         tfEquipoVisitante2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfEquipoVisitante2.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoVisitante2.setEnabled(false);
         getContentPane().add(tfEquipoVisitante2);
         tfEquipoVisitante2.setBounds(690, 380, 250, 30);
 
         tfEquipoLocal3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfEquipoLocal3.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoLocal3.setEnabled(false);
         getContentPane().add(tfEquipoLocal3);
         tfEquipoLocal3.setBounds(360, 450, 250, 30);
 
         tfEquipoVisitante3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfEquipoVisitante3.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoVisitante3.setEnabled(false);
         getContentPane().add(tfEquipoVisitante3);
         tfEquipoVisitante3.setBounds(690, 450, 250, 30);
 
         cbJornadas.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        cbJornadas.setForeground(new java.awt.Color(0, 0, 0));
         cbJornadas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jornada 1", "Jornada 2", "Jornada 3", "Jornada 4", "Jornada 5", "Jornada 6", "Jornada 7", "Jornada 8", "Jornada 9", "Jornada 10" }));
         cbJornadas.setSelectedIndex(-1);
         cbJornadas.setBorder(null);
         cbJornadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbJornadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbJornadasActionPerformed(evt);
+            }
+        });
         getContentPane().add(cbJornadas);
         cbJornadas.setBounds(510, 250, 280, 30);
 
@@ -310,6 +236,93 @@ public class V_Jornadas extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
+
+    private void cbJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadasActionPerformed
+switch (cbJornadas.getSelectedIndex()) {
+            case 0:
+                tfEquipoLocal.setText(jornadas.get(0).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(0).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 1:
+                tfEquipoLocal.setText(jornadas.get(1).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(1).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 2:
+                tfEquipoLocal.setText(jornadas.get(2).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(2).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 3:
+                tfEquipoLocal.setText(jornadas.get(3).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(3).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 4:
+                tfEquipoLocal.setText(jornadas.get(4).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(4).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 5:
+                tfEquipoLocal.setText(jornadas.get(5).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(5).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 6:
+                tfEquipoLocal.setText(jornadas.get(6).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(6).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 7:
+                tfEquipoLocal.setText(jornadas.get(7).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(7).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 8:
+                tfEquipoLocal.setText(jornadas.get(8).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(8).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            case 9:
+                tfEquipoLocal.setText(jornadas.get(9).getPartidos().get(0).getEquipo_local().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(9).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoLocal2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_local().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoLocal3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_local().getNombre());
+                tfEquipoVisitante3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_visitante().getNombre());
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_cbJornadasActionPerformed
 
     /**
      * @param args the command line arguments
