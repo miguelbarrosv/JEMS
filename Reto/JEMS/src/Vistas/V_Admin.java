@@ -108,7 +108,6 @@ public class V_Admin extends javax.swing.JFrame {
         bAlta = new javax.swing.JButton();
         bModificar = new javax.swing.JButton();
         bBaja = new javax.swing.JButton();
-        bBorrarLiga = new javax.swing.JButton();
         bConsultarUno = new javax.swing.JButton();
         bConsultarMuchos = new javax.swing.JButton();
         bInsertarPartidos = new javax.swing.JButton();
@@ -334,10 +333,6 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bBaja);
         bBaja.setBounds(80, 300, 320, 70);
-
-        bBorrarLiga.setText("ELIMINAR LIGA");
-        getContentPane().add(bBorrarLiga);
-        bBorrarLiga.setBounds(890, 170, 160, 23);
 
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setBorder(null);
@@ -1285,7 +1280,6 @@ public class V_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
-    private javax.swing.JButton bBorrarLiga;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
     private javax.swing.JButton bCrearLiga;

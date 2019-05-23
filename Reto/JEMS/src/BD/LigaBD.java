@@ -51,25 +51,15 @@ public class LigaBD {
      * @return devuelve un string con el mensaje de la creacion de la Liga
      * @throws Exception hereda excepciones
      */
-    public String crearLigaVacia(Date fechaInicioLiga,String nombre) throws Exception {
+    public String crearLigaVacia(Date fechaInicioLiga, String nombre) throws Exception {
         java.sql.Date sDate = convertUtilToSql(fechaInicioLiga);
         bdr.conectar();
-        String mensaje = null;
-        try (CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?,?)}")) {
-            cStmt.setDate(1, sDate);
-            cStmt.setString(2, nombre);
-            cStmt.executeUpdate();
-            mensaje = "";
-            try (ResultSet rs = (ResultSet) cStmt.getResultSet()) {
-                while (rs.next()) {
-                    mensaje = "Liga vacia creada";
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "error");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error");
-        }
+        String mensaje = "";
+        CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?,?)}");
+        cStmt.setDate(1, sDate);
+        cStmt.setString(2, nombre);
+        cStmt.executeUpdate();
+        mensaje = "Liga vacia ha sido creada";
         bdr.cerrarCon();
         return mensaje;
     }

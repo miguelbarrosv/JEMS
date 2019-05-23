@@ -162,16 +162,12 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
     private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
         try {
-
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
-
             Date fecha = formateador.parse(tfFechaInicio.getText());
-     
-            
-            String mensaje = JEMS.crearLigaVacia(fecha,tfNombre.getText());
-            ControladorVistas.abrirVentanaAviso("Liga creada en la fecha " + mensaje);
-        } catch (Exception ex) {
-            Logger.getLogger(V_CrearLiga.class.getName()).log(Level.SEVERE, null, ex);
+            String mensaje = JEMS.crearLigaVacia(fecha, tfNombre.getText());
+            ControladorVistas.abrirVentanaAviso(mensaje+" con el nombre "+tfNombre.getText()+" en la fecha " + tfFechaInicio.getText());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bCrearActionPerformed
 
