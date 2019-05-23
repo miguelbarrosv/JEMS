@@ -125,6 +125,9 @@ public class V_Admin extends javax.swing.JFrame {
      */
     public void mostrarAdministrarMirar() {
         bAdministrarLiga.setVisible(true);
+        lbIntroducirResultadoJornada.setVisible(false);
+        tfIntroducirResultadoJornada.setVisible(false);
+        bIntroducirResultado.setVisible(false);
         bMirarLiga.setVisible(true);
     }
 
