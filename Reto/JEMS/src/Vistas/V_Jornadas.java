@@ -15,6 +15,7 @@ import jems.JEMS;
 /**
  *
  * @author Miguel Barros
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -25,15 +26,19 @@ public class V_Jornadas extends javax.swing.JFrame {
      * Creates new form V_Jornadas Funcion que al iniciar la ventana muestra en
      * la pantalla los datos de una jornada para que el usuario pueda
      * visualizarlo
+     *
      * @throws Exception hereda excepciones
      */
     public V_Jornadas() throws Exception {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        jornadas = JEMS.consultarJornadasconPartidos();        
+        jornadas = JEMS.consultarJornadasconPartidos();
     }
-    
+
+    /**
+     * Formato de la ventana
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -57,7 +62,9 @@ public class V_Jornadas extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    private static Jornada jornada;
+    /**
+     * Creacion de variable.
+     */
     private static ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
 
     /**
@@ -227,9 +234,13 @@ public class V_Jornadas extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
-
+    /**
+     * Combo box para visualizar una de las 10 jornadas.
+     *
+     * @param evt evento al pulsar el cb
+     */
     private void cbJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadasActionPerformed
-switch (cbJornadas.getSelectedIndex()) {
+        switch (cbJornadas.getSelectedIndex()) {
             case 0:
                 tfEquipoLocal.setText(jornadas.get(0).getPartidos().get(0).getEquipo_local().getNombre());
                 tfEquipoVisitante.setText(jornadas.get(0).getPartidos().get(0).getEquipo_visitante().getNombre());

@@ -365,7 +365,7 @@ public class JEMS {
      * existente.
      *
      * @param codDueño (requerido) codigo del dueño
-     * @throws Exception
+     * @throws Exception hereda excepciones
      */
     public static void bajaDueño(int codDueño) throws Exception {
         dBD.borrarDueño(codDueño);

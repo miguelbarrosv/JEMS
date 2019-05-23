@@ -7,15 +7,14 @@ package Vistas;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
+ * Ventana para crear la liga
  *
- * @author migue
+ * @author Miguel Barros
+ * @author Sergio Zulueta
  */
 public class V_CrearLiga extends javax.swing.JFrame {
 
@@ -26,9 +25,12 @@ public class V_CrearLiga extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        tfFechaInicio.setText("  /  /    ");
+        tfFechaInicio.setText("//");
     }
 
+    /**
+     * Para darle formato a la ventana.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -160,6 +162,12 @@ public class V_CrearLiga extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Nos encargamos de llamar a jems para utilizar la funcion de instertar una nueva
+     * liga totalmente vacia
+     * 
+     * @param evt accion de clickar
+     */
     private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
         try {
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
@@ -171,7 +179,11 @@ public class V_CrearLiga extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bCrearActionPerformed
 
-
+/**
+ * Para salir de la ventana
+ * 
+ * @param evt accion de clickar
+ */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

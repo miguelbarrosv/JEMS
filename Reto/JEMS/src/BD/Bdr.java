@@ -7,7 +7,6 @@ package BD;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 
 /**
  * Creacion de la clase bdr para conectarse a la base de datos relacional.
@@ -40,7 +39,6 @@ public class Bdr {
 
             //String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
             //con = DriverManager.getConnection(url, "eqdaw02", "eqdaw02");
-
         } catch (Exception e) {
             System.out.println("Problemas con la base de datos relacional");
             System.exit(0);

@@ -8,6 +8,8 @@ package UML;
 import java.util.ArrayList;
 
 /**
+ * Creacion de la clase java para el Equipo
+ *
  * @author Sergio Zulueta
  * @author Miguel Barros
  * @author Eric Muñoz

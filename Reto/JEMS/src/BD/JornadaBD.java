@@ -6,7 +6,6 @@
 package BD;
 
 import UML.Jornada;
-import UML.Partido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;

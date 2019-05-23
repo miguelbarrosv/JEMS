@@ -56,7 +56,7 @@ public class AdministradorBD {
      * Función para borrar un Administrador.
      *
      * @param cod_admin (requerido) codigo del Administrador
-     * @throws Exception
+     * @throws Exception herada excepciones.
      */
     public void borrarAdministrador(int cod_admin) throws Exception {
         bdr.conectar();

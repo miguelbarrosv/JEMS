@@ -219,8 +219,7 @@ public class EquipoBD {
         cStmt.registerOutParameter(1, OracleTypes.CURSOR);
         cStmt.executeUpdate();
         ResultSet rs = (ResultSet) cStmt.getObject(1);
-        while (rs.next())
-        {
+        while (rs.next()) {
             stringlistaEquipos += "Codigo: " + rs.getInt("COD_EQUIPO");
             stringlistaEquipos += "Nombre: " + rs.getString("NOMBRE");
             stringlistaEquipos += "Nacionalidad: " + rs.getString("NACIONALIDAD");
@@ -270,7 +269,7 @@ public class EquipoBD {
         resultado = sentenciaPre.executeQuery();
         int codigoEquipo;
         if (resultado.next()) {
-            codigoEquipo=resultado.getInt("COD_EQUIPO");
+            codigoEquipo = resultado.getInt("COD_EQUIPO");
         } else {
             codigoEquipo = 0;
         }

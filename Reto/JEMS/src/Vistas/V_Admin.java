@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
- *
+ * Vista que ven los administradores
+ * 
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author SergioZulueta

@@ -7,17 +7,15 @@ package BD;
 
 import UML.Liga;
 import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  * Clase de Liga de base de datos.
  *
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @see Liga
  *
@@ -79,7 +77,7 @@ public class LigaBD {
      * busca en la base de datos la Liga.
      *
      * @return devuelve una
-     * @throws Exception
+     * @throws Exception hereda excepciones
      */
     public Liga consultarLiga() throws Exception {
         bdr.conectar();
