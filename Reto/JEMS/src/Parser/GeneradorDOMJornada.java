@@ -37,10 +37,10 @@ import org.w3c.dom.Text;
  * @since 1.0
  */
 public class GeneradorDOMJornada {
-    
+
     private List<Jornada> jornadas;
     private Document dom;
-    
+
     private ArrayList<Partido> partidos;
 
     public GeneradorDOMJornada() throws Exception {
@@ -52,20 +52,32 @@ public class GeneradorDOMJornada {
         crearDocumento();
     }
 
+    /**
+     * Funcion que comienza el proceso para generar el XML
+     *
+     */
     public void run() {
         System.out.println("Iniciando...");
         crearArbolDOM();
         exportarFichero();
         System.out.println("Fichero generado");
     }
-    
+
+    /**
+     * Funcion que coge los datos necesarios de la BD para poder generar el XML
+     *
+     */
     public void cargarDatos() throws Exception {
         // Cargar ArrayList paartidos
         partidos = JEMS.consultarPartidos();
         //Cargar ArrayList de jornada
         jornadas = JEMS.consultarJornadas();
     }
-    
+
+    /**
+     * Funcion que crea el documento que rellenaremos mas adelante
+     *
+     */
     private void crearDocumento() {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -73,12 +85,16 @@ public class GeneradorDOMJornada {
             dom = db.newDocument();
 
             // REF: No hay esquema o DTD: https://stackoverflow.com/a/8438236
-             dom.setXmlStandalone(true);
+            dom.setXmlStandalone(true);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Funcion que crea el arbol del documento XML
+     *
+     */
     private void crearArbolDOM() {
         // Crear elmento raiz jornadas
         Element raiz = dom.createElement("jornadas");
@@ -90,6 +106,11 @@ public class GeneradorDOMJornada {
         }
     }
 
+    /**
+     * Funcion que crea el elemento jornada y sus subelementos
+     *
+     * @param (requerido) objeto Jornada
+     */
     private Element crearElementoJornada(Jornada jornada) {
         // <jornada>
         Element elementoJornada = dom.createElement("jornada");
@@ -99,7 +120,7 @@ public class GeneradorDOMJornada {
 
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
-        
+
         // <partido>
         // Generar elementos partido y hacer partidos al padre
         for (Partido partido : partidos) {
@@ -108,7 +129,12 @@ public class GeneradorDOMJornada {
         }
         return elementoJornada;
     }
-    
+
+    /**
+     * Funcion que crea el elemento partido y sus subelementos
+     *
+     * @param (requerido) objeto Partido
+     */
     public Element crearElementoPartido(Partido partido) {
         // <partido>
         Element elementoPartido = dom.createElement("partido");
@@ -143,6 +169,9 @@ public class GeneradorDOMJornada {
         return elementoPartido;
     }
 
+    /**
+     * Funcion con la que exportamos el fichero al lugar deseado
+     */
     private void exportarFichero() {
         // REF: Serializar XML: https://www.edureka.co/blog/serialization-of-java-objects-to-xml-using-xmlencoder-decoder/
         try {
@@ -154,7 +183,7 @@ public class GeneradorDOMJornada {
 
             transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
 
-            Result output = new StreamResult(new File("./jornada.xml"));
+            Result output = new StreamResult(new File("../jornada.xml"));
             Source input = new DOMSource(dom);
 
             transformer.transform(input, output);

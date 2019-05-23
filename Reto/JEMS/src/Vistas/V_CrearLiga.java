@@ -107,7 +107,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         lbCodigoDueño.setForeground(new java.awt.Color(255, 255, 255));
         lbCodigoDueño.setText("<html>Selecciona el nombre y <br> la fecha de Inicio de la Liga</html>");
         getContentPane().add(lbCodigoDueño);
-        lbCodigoDueño.setBounds(480, 260, 310, 40);
+        lbCodigoDueño.setBounds(530, 250, 220, 60);
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -164,9 +164,9 @@ public class V_CrearLiga extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Nos encargamos de llamar a jems para utilizar la funcion de instertar una nueva
-     * liga totalmente vacia
-     * 
+     * Nos encargamos de llamar a jems para utilizar la funcion de instertar una
+     * nueva liga totalmente vacia
+     *
      * @param evt accion de clickar
      */
     private void bCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearActionPerformed
@@ -182,17 +182,18 @@ public class V_CrearLiga extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bCrearActionPerformed
 
-/**
- * Para salir de la ventana
- * 
- * @param evt accion de clickar
- */
+    /**
+     * Para salir de la ventana
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaCreacion();
+        ControladorVistas.mostrarAdministrarMirar();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed

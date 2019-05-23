@@ -5,10 +5,16 @@
  */
 package Parser;
 
+import UML.Equipo;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,42 +29,100 @@ import org.xml.sax.SAXException;
  *
  * @author Miguel Barros
  */
-
-
 public class ParserDomClasificacion {
+
     private static Element elementoRaiz;
-    
+    private static ArrayList<Equipo> listaEquipos = new ArrayList<Equipo>();
+    private static Equipo e;
+
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
+        run();
+    }
 
-            File archivo = new File("./liga.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            
-            Document doc = dBuilder.parse(archivo);
-            doc.getDocumentElement().normalize();
-            System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
-            
-            elementoRaiz = doc.getDocumentElement();
-            System.out.println("cod: " + elementoRaiz.getAttribute("estado_liga"));
-            System.out.println("cod: " + elementoRaiz.getAttribute("fecha_fin"));
-            System.out.println("cod: " + elementoRaiz.getAttribute("fecha_inicio"));
-            System.out.println("cod: " + elementoRaiz.getAttribute("cod"));
-            
-            NodeList listaEquipos = doc.getElementsByTagName("equipo");
-            System.out.println("------------------------");
-            
-            for (int i = 0; i < listaEquipos.getLength(); i++) {
-                Node partido = listaEquipos.item(i);
-                
-                System.out.println("Elemento " + partido.getNodeName());
-                
-                if (partido.getNodeType() == Node.ELEMENT_NODE) {
-                    Element element = (Element) partido;
-                    System.out.println("cod: " + element.getAttribute("cod"));
-                    System.out.println("nombre: " + element.getElementsByTagName("nombre").item(0).getTextContent());
-                    System.out.println("puntos: " + element.getElementsByTagName("puntos").item(0).getTextContent());
-                    }
-            }
-    }      
+    /**
+     * Funcion con la que iniciamos el proceso de lectura del documento xml
+     *
+     */
+    public static void run() throws SAXException, IOException, ParserConfigurationException {
+        System.out.println("--- DOM (lectura) ---\n");
+        File archivo = new File("../liga.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+
+        Document doc = dBuilder.parse(archivo);
+        doc.getDocumentElement().normalize();
+
+        System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
+
+        elementoRaiz = doc.getDocumentElement();
+        elementoRaiz.getAttribute("estado_liga");
+        elementoRaiz.getAttribute("fecha_fin");
+        elementoRaiz.getAttribute("fecha_inicio");
+        elementoRaiz.getAttribute("cod");
+
+        System.out.println("Estado liga: " + elementoRaiz.getAttribute("estado_liga"));
+        System.out.println("Fecha fin: " + elementoRaiz.getAttribute("fecha_fin"));
+        System.out.println("Fecha Inicio: " + elementoRaiz.getAttribute("fecha_inicio"));
+        System.out.println("Codigo: " + elementoRaiz.getAttribute("cod"));
+
+        NodeList nodos = doc.getElementsByTagName("equipo");
+        System.out.println("------------------------");
+
+        for (int i = 0; i < nodos.getLength(); i++) {
+            //Guardamos en el array de equipos cada objeto equipo
+            listaEquipos.add(getEquipos(nodos.item(i)));
+
+        }
+        //Mostramos el array de equipos
+        for (Equipo e : listaEquipos) {
+            System.out.println(e.getNombre());
+            System.out.println(e.getPuntuacion());
+        }
+    }
+
+    /**
+     * Funcion con la que cogemos los equipos con atributos y elementos para
+     * añadirlos al arrayList creado anteriormente
+     *
+     */
+    public static Equipo getEquipos(Node partido) {
+        if (partido.getNodeType() == Node.ELEMENT_NODE) {
+            Element element = (Element) partido;
+
+            System.out.println("cod: " + element.getAttribute("cod"));
+            System.out.println("nombre: " + element.getElementsByTagName("nombre").item(0).getTextContent());
+            System.out.println("puntos: " + element.getElementsByTagName("puntos").item(0).getTextContent());
+
+            element.getAttribute("cod");
+            e.setNombre(obtenerValor("nombre", element));
+            e.setPuntuacion(Integer.parseInt(obtenerValor("puntuacion", element)));
+        }
+        return e;
+    }
+
+    /**
+     * Funcion con la que obtenemos el valor de los elementos del arbol XML
+     *
+     * @param tag La etiqueta del elemento
+     * @param element Nodo de partido
+     * @return Texto recuperado
+     */
+    public static String obtenerValor(String tag, Element partido) {
+        NodeList nodos = partido.getElementsByTagName(tag).item(0).getChildNodes();
+        Node nodo = nodos.item(0);
+        System.out.println(tag);
+        return nodo.getNodeValue();
+    }
+
+    /**
+     * Funcion con la que cogemos la ultima vez que se actualizo la
+     * clasificacion
+     */
+    public static Date getFechaActualizado() throws ParseException {
+        NodeList nodes = elementoRaiz.getElementsByTagName("fecha_actualizacion");
+        Node nodo = nodes.item(0);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        Date date = formatter.parse(nodo.getNodeValue());
+        return date;
+    }
 }
-

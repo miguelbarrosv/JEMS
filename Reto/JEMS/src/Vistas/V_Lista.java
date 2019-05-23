@@ -73,7 +73,6 @@ public class V_Lista extends javax.swing.JFrame {
 
         taListaJugadores.setColumns(20);
         taListaJugadores.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        taListaJugadores.setForeground(new java.awt.Color(0, 0, 0));
         taListaJugadores.setRows(5);
         taListaJugadores.setBorder(null);
         taListaJugadores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -81,7 +80,7 @@ public class V_Lista extends javax.swing.JFrame {
         jScrollPane1.setViewportView(taListaJugadores);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(410, 180, 470, 370);
+        jScrollPane1.setBounds(330, 180, 620, 370);
 
         lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         lbSubtitulo.setForeground(new java.awt.Color(86, 88, 149));
@@ -122,7 +121,7 @@ public class V_Lista extends javax.swing.JFrame {
         lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
         lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
         getContentPane().add(lbBorde);
-        lbBorde.setBounds(380, 160, 520, 410);
+        lbBorde.setBounds(300, 150, 680, 430);
 
         lbRiot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/riotLogo.png"))); // NOI18N
         getContentPane().add(lbRiot);
