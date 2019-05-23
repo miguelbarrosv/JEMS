@@ -8,6 +8,7 @@ package BD;
 import UML.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Clase de administrador de base de datos.
@@ -42,8 +43,9 @@ public class AdministradorBD {
      *
      * @param a (requerido) objeto de clase Administrador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void insertarAdministrador(Administrador a) throws Exception {
+    public void insertarAdministrador(Administrador a) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "INSERT INTO ADMINISTRADOR(USUARIO, CONTRASEÑA) VALUES (?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -57,8 +59,9 @@ public class AdministradorBD {
      *
      * @param cod_admin (requerido) codigo del Administrador
      * @throws Exception
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void borrarAdministrador(int cod_admin) throws Exception {
+    public void borrarAdministrador(int cod_admin) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "DELETE FROM ADMINISTRADOR WHERE COD_ADMIN =?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -73,8 +76,9 @@ public class AdministradorBD {
      *
      * @return devuelve un objeto de clase Administrador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Administrador crearObjeto() throws Exception {
+    public Administrador crearObjeto() throws Exception, SQLException {
         Administrador a = new Administrador();
         a.setCod_admin(resultado.getInt("COD_ADMIN"));
         a.setUsuario(resultado.getString("USUARIO"));
@@ -88,8 +92,9 @@ public class AdministradorBD {
      * @param usuario (requerido) usuario del Adminustrador
      * @return devuelve un objeto clase Administrador
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Administrador consultarAdministradorNombre(String usuario) throws Exception {
+    public Administrador consultarAdministradorNombre(String usuario) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_ADMIN,USUARIO,CONTRASEÑA FROM ADMINISTRADOR WHERE USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -113,8 +118,9 @@ public class AdministradorBD {
      * @param contraseña (requerido ) contraseña de Administrador
      * @return devuelve un objeto clase Administrador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Boolean consultarAdministrador(String usuario, String contraseña) throws Exception {
+    public Boolean consultarAdministrador(String usuario, String contraseña) throws Exception, SQLException {
         bdr.conectar();
 
         String plantilla = "SELECT USUARIO,CONTRASEÑA FROM ADMINISTRADOR WHERE USUARIO=? AND CONTRASEÑA=?";

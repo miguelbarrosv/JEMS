@@ -699,5 +699,13 @@ public class JEMS {
         pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
 
     }
+    /**
+     * Funcion para mandar mensaje de error a la ventana de aviso.
+     * 
+     * @param mensaje (requerido) String con el error
+     */
+    public static void errorBdr(String mensaje) {
+        ControladorVistas.abrirVentanaAviso(mensaje);
+    }
 
 }
