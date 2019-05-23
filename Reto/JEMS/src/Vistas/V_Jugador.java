@@ -19,7 +19,6 @@ import jems.JEMS;
  * @author Miguel Barros
  * @author Sergio Zulueta
  * @autor Eric Muñoz
- * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -36,11 +35,6 @@ public class V_Jugador extends javax.swing.JFrame {
         initComponents();
     }
 
-    /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
-     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -71,7 +65,6 @@ public class V_Jugador extends javax.swing.JFrame {
      * Constructor para crear la vantana v_Jugador dependiendo de la operacion.
      *
      * @param operacion tipo de operacion
-     * @throws Exception hereda de la clase Exception
      */
     public V_Jugador(String operacion) throws Exception {
         setUndecorated(true);

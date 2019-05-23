@@ -32,11 +32,6 @@ public class V_Login extends javax.swing.JFrame {
 
     }
 
-    /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
-     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -48,12 +43,6 @@ public class V_Login extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    /**
-     * Metodo que valida si se han introducido datos
-     * @return True Si las validaciones son correctas
-     * @return False Si las validaciones dan error
-     *
-     */
     public boolean validarDatos() {
         if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()))) {
             return true;
@@ -62,47 +51,19 @@ public class V_Login extends javax.swing.JFrame {
         }
     }
 
-    /**
-     * Metodo que valida si se han introducido datos
-     * @param nombre (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
-     *
-     */
     public boolean validarNombre(String nombre) {
         return true;
     }
 
-    /**
-     * Metodo que valida si se han introducido datos
-     * @param contraseña (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
-     *
-     */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
 
-    /**
-     * Metodo que valida si se han introducido datos
-     * @param contraseña (requerido) el parametro a convertir a String
-     * @return contraseñaConvertida que es la contraseña en String
-     * de caracteres
-     *
-     */
     public String convertirContraseña(char[] contraseña) {
         String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
 
-    /**
-     * Metodo que comprueba si el usuario existe en la base
-     * de datos y lo identifica como usuario o administrador
-     * @return comp que es es valor que contiene el numero
-     * 1 si es para usuario o 2 si es para admin
-     * 
-     * @throws Exception hereda de la clase Exception
-     *
-     */
     public int comprobarDatos() throws Exception {
         // Login usuario = 1 | Login admin = 2
         int comp = 0;
@@ -291,7 +252,8 @@ public class V_Login extends javax.swing.JFrame {
 
     private void bCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearCuentaActionPerformed
         ControladorVistas.cerrarVentanaLogin();
-        ControladorVistas.mostrarVentanaRegistrar();        
+        //ControladorVistas.mostrarVentanaRegistrar();        
+        ControladorVistas.mostrarVentanaAdmin();
     }//GEN-LAST:event_bCrearCuentaActionPerformed
 
     private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed

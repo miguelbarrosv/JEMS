@@ -15,8 +15,7 @@ import jems.JEMS;
 
 /**
  *
- * @author Miguel Barros
- * @author Joel Encinas
+ * @author migue
  */
 public class V_IntroducirResultado extends javax.swing.JFrame {
 
@@ -29,10 +28,6 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         myInitComponents();
     }
 
-    /**
-     * Metodo para preformatear la ventana especificando tamaño, localizacion
-     * dentro de la ventana y otras especificaciones como componentes ocultos.
-     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -59,14 +54,6 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    /**
-     * Inicia el constructor con el numero de la jornada y el 
-     * array para mostrar en la ventana los valores de dicha
-     * jornada
-     *
-     * @param jornadas el arraylist con todas las Jornadas dentro
-     * @param numJornada el numero de la jornada
-     */
     public V_IntroducirResultado(ArrayList<Jornada> jornadas, int numJornada) {
         setUndecorated(true);
         initComponents();
@@ -439,7 +426,6 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-
         }
     }//GEN-LAST:event_bActualizarActionPerformed
 
