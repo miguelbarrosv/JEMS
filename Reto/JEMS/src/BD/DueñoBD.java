@@ -8,6 +8,7 @@ package BD;
 import java.sql.ResultSet;
 import UML.*;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -47,8 +48,9 @@ public class DueñoBD {
      *
      * @param d (requerido) objeto de clase Dueño.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void insertarDueño(Dueño d) throws Exception {
+    public void insertarDueño(Dueño d) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "INSERT INTO DUEÑO(NOMBRE,APELLIDO,TELEFONO) VALUES (?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -64,8 +66,9 @@ public class DueñoBD {
      *
      * @return devuelve un objeto de clase Dueño.
      * @throws Exception herada excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Dueño crearObjeto() throws Exception {
+    public Dueño crearObjeto() throws Exception, SQLException {
         Dueño d = new Dueño();
         d.setCod_dueño(resultado.getInt("COD_DUEÑO"));
         d.setNombre(resultado.getString("NOMBRE"));
@@ -80,8 +83,9 @@ public class DueñoBD {
      *
      * @return devuelve un objeto de clase Dueño.
      * @throws Exception herada excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Dueño crearObjetoConListaEquipos() throws Exception {
+    public Dueño crearObjetoConListaEquipos() throws Exception, SQLException {
         Dueño d = new Dueño();
         d.setNombre(resultado.getString("NOMBRE"));
         d.setApellido(resultado.getString("APELLIDO"));
@@ -98,8 +102,9 @@ public class DueñoBD {
      * @param cod_dueño (requerido) codigo del Dueño
      * @return d objeto de clase Dueño
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Dueño consultarDueñoCodigo(int cod_dueño) throws Exception {
+    public Dueño consultarDueñoCodigo(int cod_dueño) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_DUEÑO,NOMBRE,APELLIDO,TELEFONO FROM DUEÑO WHERE COD_DUEÑO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -120,8 +125,9 @@ public class DueñoBD {
      *
      * @return devuelve un ArrayList de Dueño.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Dueño> consultaTodosDueños() throws Exception {
+    public ArrayList<Dueño> consultaTodosDueños() throws Exception, SQLException {
         ArrayList<Dueño> listaDueños = new ArrayList();
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
@@ -138,8 +144,9 @@ public class DueñoBD {
      *
      * @param cod_dueño (requerido) codigo del Dueño
      * @throws Exception hereda de excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void borrarDueño(int cod_dueño) throws Exception {
+    public void borrarDueño(int cod_dueño) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "DELETE FROM DUEÑO WHERE COD_DUEÑO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -153,8 +160,9 @@ public class DueñoBD {
      *
      * @param d (requerido) objeto de clase Dueño
      * @throws Exception hereda de excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void modificarDueño(Dueño d) throws Exception {
+    public void modificarDueño(Dueño d) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "UPDATE DUEÑO SET NOMBRE=?, APELLIDO=?, TELEFONO=? WHERE COD_DUEÑO=? ";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);

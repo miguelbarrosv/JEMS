@@ -9,6 +9,7 @@ import UML.*;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import oracle.jdbc.OracleTypes;
@@ -50,8 +51,9 @@ public class EquipoBD {
      *
      * @param e (requerido) objeto de clase Equipo.
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void insertarEquipo(Equipo e) throws Exception {
+    public void insertarEquipo(Equipo e) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "INSERT INTO EQUIPO (NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_DUEÑO,PUNTUACION)VALUES(?,?,?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -70,8 +72,9 @@ public class EquipoBD {
      *
      * @param cod_equipo (requerido) codigo del Equipo.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void borrarEquipo(int cod_equipo) throws Exception {
+    public void borrarEquipo(int cod_equipo) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "DELETE FROM EQUIPO WHERE COD_EQUIPO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -85,8 +88,9 @@ public class EquipoBD {
      *
      * @param e (requerido) objeto de clase Equipo.
      * @throws Exception heredar excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void modificarEquipo(Equipo e) throws Exception {
+    public void modificarEquipo(Equipo e) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "UPDATE EQUIPO SET NOMBRE=?, NACIONALIDAD=?, PRESUPUESTO=?, DUEÑO_COD_DUEÑO=?, PUNTUACION=? WHERE COD_EQUIPO=?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -106,8 +110,9 @@ public class EquipoBD {
      * @param cod_equipo (requerido)codigo del equipo
      * @return e objeto de clase Equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Equipo consultarEquipoCodigo(int cod_equipo) throws Exception {
+    public Equipo consultarEquipoCodigo(int cod_equipo) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_EQUIPO,NOMBRE,NACIONALIDAD,PRESUPUESTO,DUEÑO_COD_DUEÑO,PUNTUACION FROM EQUIPO WHERE COD_EQUIPO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -128,8 +133,9 @@ public class EquipoBD {
      *
      * @return devuelve un objeto de clase Equipo.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Equipo crearObjeto() throws Exception {
+    public Equipo crearObjeto() throws Exception, SQLException {
         Equipo e = new Equipo();
         e.setCod_equipo(resultado.getInt("COD_EQUIPO"));
         e.setNombre(resultado.getString("NOMBRE"));
@@ -148,8 +154,9 @@ public class EquipoBD {
      *
      * @return devuelve un objeto de clase Equipo.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Equipo crearObjetoConListas() throws Exception {
+    public Equipo crearObjetoConListas() throws Exception, SQLException {
         Equipo e = new Equipo();
         e.setCod_equipo(resultado.getInt("COD_EQUIPO"));
         e.setNombre(resultado.getString("NOMBRE"));
@@ -171,8 +178,9 @@ public class EquipoBD {
      *
      * @return devuelve un ArrayList de Equipo.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Equipo> consultaEquipos() throws Exception {
+    public ArrayList<Equipo> consultaEquipos() throws Exception, SQLException {
         ArrayList<Equipo> listaEquipos = new ArrayList();
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
@@ -191,8 +199,9 @@ public class EquipoBD {
      * @param cod_dueño (reqUerido) codigo del Dueño
      * @return devuelve un ArrayList de Equipo.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Equipo> consultaEquiposCodDueño(int cod_dueño) throws Exception {
+    public ArrayList<Equipo> consultaEquiposCodDueño(int cod_dueño) throws Exception, SQLException {
         ArrayList<Equipo> listaEquipos = new ArrayList();
         bdr.conectar();
         String plantilla = "SELECT * FROM EQUIPO WHERE DUEÑO_COD_DUEÑO=?";
@@ -212,8 +221,9 @@ public class EquipoBD {
      * @return devuelve un string con todos los Equipos con el nombre de su
      * Dueño y la cantidad de Jugadores
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public String consultarTodosEquipos() throws Exception {
+    public String consultarTodosEquipos() throws Exception, SQLException {
         bdr.conectar();
         CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.PROC_REF_EQUIPO(?)}");
         cStmt.registerOutParameter(1, OracleTypes.CURSOR);
@@ -241,8 +251,9 @@ public class EquipoBD {
      *
      * @return devuelve un ArrayList de Equipo.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Equipo> consultarEquipoOrderPuntuacion() throws Exception {
+    public ArrayList<Equipo> consultarEquipoOrderPuntuacion() throws Exception, SQLException {
         ArrayList<Equipo> listaEquipos = new ArrayList();
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
@@ -260,8 +271,9 @@ public class EquipoBD {
      * @param nomEquipo (requerido) nombre del Equipo
      * @return devuelve un codigo del Equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public int buscarCodigoPorNombre(String nomEquipo) throws Exception {
+    public int buscarCodigoPorNombre(String nomEquipo) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_EQUIPO FROM EQUIPO WHERE NOMBRE = ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -282,8 +294,9 @@ public class EquipoBD {
      *
      * @param codigoEquipo (reuqerido) codigo del equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void modificarPuntuacion(int codigoEquipo) throws Exception {
+    public void modificarPuntuacion(int codigoEquipo) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "UPDATE EQUIPO SET PUNTUACION = PUNTUACION + 3 WHERE COD_EQUIPO = ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);

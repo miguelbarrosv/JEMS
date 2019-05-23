@@ -23,6 +23,7 @@ package jems;
 import Vistas.*;
 import BD.*;
 import UML.*;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,8 +80,9 @@ public class JEMS {
      * @param telefono (requerido) telefono del jugador
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
+    public static void altaJugador(String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception, SQLException {
         j = new Jugador();
         j.setNombre(nombre);
         j.setApellido(apellido);
@@ -124,8 +126,9 @@ public class JEMS {
      *
      * @return devuelve la lista de equipos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Equipo> rellenarListaEquipos() throws Exception {
+    public static ArrayList<Equipo> rellenarListaEquipos() throws Exception, SQLException {
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }
@@ -136,8 +139,9 @@ public class JEMS {
      *
      * @return devuelve la lista de dueños
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Dueño> getListaDueños() throws Exception {
+    public static ArrayList<Dueño> getListaDueños() throws Exception, SQLException {
         listaDueños = dBD.consultaTodosDueños();
         return listaDueños;
     }
@@ -148,8 +152,9 @@ public class JEMS {
      *
      * @return devuelve la lista de dueños
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Equipo> getListaEquipos() throws Exception {
+    public static ArrayList<Equipo> getListaEquipos() throws Exception, SQLException {
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }
@@ -170,8 +175,9 @@ public class JEMS {
      * @param telefono (requerido) telefono del jugador
      * @param equipo (requerido) equipo del jugador
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void modificarJugador(int codJugador, String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception {
+    public static void modificarJugador(int codJugador, String nombre, String apellido, String nick, int sueldo, String nacionalidad, String estado, String telefono, Integer equipo) throws Exception, SQLException {
         j = new Jugador();
         j.setCod_jugador(codJugador);
         j.setNombre(nombre);
@@ -193,8 +199,9 @@ public class JEMS {
      *
      * @param codJugador (requerido) codigo del jugador a borrar
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void borrarJugador(int codJugador) throws Exception {
+    public static void borrarJugador(int codJugador) throws Exception, SQLException {
         jBD.borrarJugador(codJugador);
     }
 
@@ -203,8 +210,9 @@ public class JEMS {
      *
      * @return listaJugadores lista de todos los jugadores
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static String crearListaJugadores() throws Exception {
+    public static String crearListaJugadores() throws Exception, SQLException {
         listaJugadores = jBD.consultaTodosJugadores();
         String stringJugadores = "";
         for (int x = 0; x < listaJugadores.size(); x++) {
@@ -223,8 +231,9 @@ public class JEMS {
      * @param cod_jugador (requerido) codigo del jugador
      * @return j objeto de un jugador
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Jugador consultarJugador(int cod_jugador) throws Exception {
+    public static Jugador consultarJugador(int cod_jugador) throws Exception, SQLException {
         j = jBD.consultarJugadorCodigo(cod_jugador);
         return j;
     }
@@ -235,8 +244,9 @@ public class JEMS {
      * @param cod_jugador (requerido) codigo de jugador
      * @return mensaje mensaje con el resultado de la busqueda
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static boolean consultarJugadorLista(int cod_jugador) throws Exception {
+    public static boolean consultarJugadorLista(int cod_jugador) throws Exception, SQLException {
         listaJugadores = jBD.consultaTodosJugadores();
         boolean mensaje;
         mensaje = listaJugadores.indexOf(cod_jugador) != 0;
@@ -255,8 +265,9 @@ public class JEMS {
      * @param puntuacion (requerido) puntuacion del equipo
      * @param dueño (requerido) dueño del equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void modificarEquipo(int codEquipo, String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) throws Exception {
+    public static void modificarEquipo(int codEquipo, String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) throws Exception, SQLException {
         d = dBD.consultarDueñoCodigo(dueño);
         e = new Equipo();
         e.setCod_equipo(codEquipo);
@@ -279,8 +290,9 @@ public class JEMS {
      * @param puntuacion (requerido) puntuacion del equipo
      * @param dueño (requerido) dueño del equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void altaEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) throws Exception {
+    public static void altaEquipo(String nombre, String nacionalidad, int presupuesto, int puntuacion, int dueño) throws Exception, SQLException {
         d = dBD.consultarDueñoCodigo(dueño);
         e = new Equipo(nombre, nacionalidad, presupuesto, puntuacion, d);
         eBD.insertarEquipo(e);
@@ -293,8 +305,9 @@ public class JEMS {
      *
      * @param codEquipo (requerido) codigo equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void bajaEquipo(int codEquipo) throws Exception {
+    public static void bajaEquipo(int codEquipo) throws Exception, SQLException {
         eBD.borrarEquipo(codEquipo);
     }
 
@@ -303,8 +316,9 @@ public class JEMS {
      *
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static String crearListaEquipos() throws Exception {
+    public static String crearListaEquipos() throws Exception, SQLException {
         String stringEquipos = eBD.consultarTodosEquipos();
         return stringEquipos;
     }
@@ -315,8 +329,9 @@ public class JEMS {
      * @param codigoEquipo codigo del equipo
      * @return objeto equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Equipo buscarEquipo(int codigoEquipo) throws Exception {
+    public static Equipo buscarEquipo(int codigoEquipo) throws Exception, SQLException {
         e = eBD.consultarEquipoCodigo(codigoEquipo);
         return e;
     }
@@ -331,8 +346,9 @@ public class JEMS {
      * @param apellido (requerido) apellido del dueño
      * @param telefono (requerido) telefono del dueño
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void modificarDueño(int codigoDueño, String nombre, String apellido, String telefono) throws Exception {
+    public static void modificarDueño(int codigoDueño, String nombre, String apellido, String telefono) throws Exception, SQLException {
         d = new Dueño();
         d.setCod_dueño(codigoDueño);
         d.setNombre(nombre);
@@ -350,8 +366,9 @@ public class JEMS {
      * @param apellido (requerido) apellido del dueño
      * @param telefono (requerido) telefono del dueño
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void altaDueño(String nombre, String apellido, String telefono) throws Exception {
+    public static void altaDueño(String nombre, String apellido, String telefono) throws Exception, SQLException {
         d = new Dueño();
         d.setNombre(nombre);
         d.setApellido(apellido);
@@ -366,8 +383,9 @@ public class JEMS {
      *
      * @param codDueño (requerido) codigo del dueño
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void bajaDueño(int codDueño) throws Exception {
+    public static void bajaDueño(int codDueño) throws Exception, SQLException {
         dBD.borrarDueño(codDueño);
     }
 
@@ -378,8 +396,9 @@ public class JEMS {
      * @param codDueño codigo del dueño
      * @return objeto dueño
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Dueño consultarDueño(int codDueño) throws Exception {
+    public static Dueño consultarDueño(int codDueño) throws Exception, SQLException {
         d = dBD.consultarDueñoCodigo(codDueño);
         return d;
     }
@@ -389,8 +408,9 @@ public class JEMS {
      *
      * @return lista de dueños
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static String crearListaDueños() throws Exception {
+    public static String crearListaDueños() throws Exception, SQLException {
         listaDueños = dBD.consultaTodosDueños();
         String stringDueños = "";
         for (int x = 0; x < listaDueños.size(); x++) {
@@ -413,8 +433,9 @@ public class JEMS {
      * @param usuario (requerido) usuario del usuario
      * @param contraseña (requerido) contraseña del usuario
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void modificarUsuario(int codigoUsuario, String usuario, String contraseña) throws Exception {
+    public static void modificarUsuario(int codigoUsuario, String usuario, String contraseña) throws Exception, SQLException {
         u = new Usuario();
         u.setCod_usuario(codigoUsuario);
         u.setUsuario(usuario);
@@ -430,8 +451,9 @@ public class JEMS {
      * @param usuario (requerido) usuario del usuario
      * @param contraseña (requerido) contraseña del usuario
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void altaUsuario(String usuario, String contraseña) throws Exception {
+    public static void altaUsuario(String usuario, String contraseña) throws Exception, SQLException {
         u = new Usuario();
         u.setUsuario(usuario);
         u.setContraseña(contraseña);
@@ -445,8 +467,9 @@ public class JEMS {
      *
      * @param codUsuario (requerido) codigo del usuario
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void bajaUsuario(int codUsuario) throws Exception {
+    public static void bajaUsuario(int codUsuario) throws Exception, SQLException {
         uBD.borrarUsuario(codUsuario);
     }
 
@@ -457,8 +480,9 @@ public class JEMS {
      * @param codUsuario(requerido) codigo del usuario
      * @return objeto de la clase Usuario
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Usuario consultarUsuario(int codUsuario) throws Exception {
+    public static Usuario consultarUsuario(int codUsuario) throws Exception, SQLException {
         u = uBD.consultarUsuarioCodigo(codUsuario);
         return u;
     }
@@ -470,8 +494,9 @@ public class JEMS {
      * @param usuario(requerido) nombre del usuario
      * @return objeto de la clase Usuario
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Usuario consultarUsuarioPorNombre(String usuario) throws Exception {
+    public static Usuario consultarUsuarioPorNombre(String usuario) throws Exception, SQLException {
         u = uBD.consultarUsuarioNombre(usuario);
         return u;
     }
@@ -483,8 +508,9 @@ public class JEMS {
      * @param usuario(requerido) nombre del administrador
      * @return objeto de la clase Administrador
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Administrador consultarAdministradorPorNombre(String usuario) throws Exception {
+    public static Administrador consultarAdministradorPorNombre(String usuario) throws Exception, SQLException {
         a = aBD.consultarAdministradorNombre(usuario);
         return a;
     }
@@ -494,8 +520,9 @@ public class JEMS {
      *
      * @return devuelve una lista de usuarios
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static String crearListaUsuarios() throws Exception {
+    public static String crearListaUsuarios() throws Exception, SQLException {
         listaUsuarios = uBD.consultaTodosUsuarios();
         String stringUsuarios = "";
         for (int x = 0; x < listaUsuarios.size(); x++) {
@@ -511,8 +538,9 @@ public class JEMS {
      * @param contraseña (requerido ) contraseña de usuario
      * @return boolean si existe o no
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static boolean conseguirDatosUsuarios(String usuario, String contraseña) throws Exception {
+    public static boolean conseguirDatosUsuarios(String usuario, String contraseña) throws Exception, SQLException {
         boolean existir = uBD.consultarUsuario(usuario, contraseña);
         return existir;
     }
@@ -523,8 +551,9 @@ public class JEMS {
      * @param usuario (reuqerido) usuario del usuario
      * @return boolean si existe o no
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static boolean conseguirDatosUsuariosReg(String usuario) throws Exception {
+    public static boolean conseguirDatosUsuariosReg(String usuario) throws Exception, SQLException {
         boolean existir = uBD.consultarUsuario(usuario);
         return existir;
     }
@@ -535,8 +564,9 @@ public class JEMS {
      *
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Equipo> crearListaEquiposOrderPuntuacion() throws Exception {
+    public static ArrayList<Equipo> crearListaEquiposOrderPuntuacion() throws Exception, SQLException {
         listaEquipos = eBD.consultarEquipoOrderPuntuacion();
         return listaEquipos;
     }
@@ -546,8 +576,9 @@ public class JEMS {
      *
      * @return listaequipos lista de todos los equipos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Liga cogerNombreLiga() throws Exception {
+    public static Liga cogerNombreLiga() throws Exception, SQLException {
         l = lBD.consultarLiga();
         return l;
     }
@@ -559,8 +590,9 @@ public class JEMS {
      * @param contraseña (requerido ) contraseña de administrador
      * @return boolean si existe o no
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static boolean conseguirDatosAdministrador(String usuario, String contraseña) throws Exception {
+    public static boolean conseguirDatosAdministrador(String usuario, String contraseña) throws Exception, SQLException {
         boolean existir = aBD.consultarAdministrador(usuario, contraseña);
         return existir;
     }
@@ -573,8 +605,9 @@ public class JEMS {
      * @return String para confirmar que se ha creado la Liga
      * @throws ParseException hereda excepciones
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static String crearLigaVacia(Date fecha, String nombre) throws ParseException, Exception {
+    public static String crearLigaVacia(Date fecha, String nombre) throws ParseException, Exception, SQLException {
 
         String mensaje = lBD.crearLigaVacia(fecha, nombre);
         return mensaje;
@@ -585,8 +618,9 @@ public class JEMS {
      *
      * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void introducirResultado(String nombreEquipo) throws Exception {
+    public static void introducirResultado(String nombreEquipo) throws Exception, SQLException {
         int codigoEquipo = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(codigoEquipo);
     }
@@ -597,8 +631,9 @@ public class JEMS {
      *
      * @return ArrayList del objeto Jornada
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Jornada> consultarJornadas() throws Exception {
+    public static ArrayList<Jornada> consultarJornadas() throws Exception, SQLException {
         listaJornadas = jorBD.consultarJornadas();
         return listaJornadas;
     }
@@ -608,8 +643,9 @@ public class JEMS {
      *
      * @return devuelve las jornadas con los partidos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Jornada> consultarJornadasconPartidos() throws Exception {
+    public static ArrayList<Jornada> consultarJornadasconPartidos() throws Exception, SQLException {
         listaJornadas = jorBD.consultarJornadasConPartidos();
         return listaJornadas;
     }
@@ -619,8 +655,9 @@ public class JEMS {
      *
      * @return devuelve todos los Partidos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Partido> consultarPartidos() throws Exception {
+    public static ArrayList<Partido> consultarPartidos() throws Exception, SQLException {
         listaPartidos = pBD.consultarPartidos();
         return listaPartidos;
     }
@@ -630,8 +667,9 @@ public class JEMS {
      *
      * @return devuelve todos los Equipos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static ArrayList<Equipo> consultarEquipos() throws Exception {
+    public static ArrayList<Equipo> consultarEquipos() throws Exception, SQLException {
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }
@@ -641,8 +679,9 @@ public class JEMS {
      *
      * @return devuelve un objeto de Liga
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static Liga consultarLiga() throws Exception {
+    public static Liga consultarLiga() throws Exception, SQLException {
         l = lBD.consultarLiga();
         return l;
     }
@@ -651,8 +690,9 @@ public class JEMS {
      * Funcion para insertar Equipos en los partidos para la Liga.
      *
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void insertarEquipos() throws Exception {
+    public static void insertarEquipos() throws Exception, SQLException {
         listaEquipos = consultarEquipos();
         Equipo[] EquiposArray = new Equipo[listaEquipos.size()];
         EquiposArray = listaEquipos.toArray(EquiposArray);
@@ -698,6 +738,15 @@ public class JEMS {
         pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
         pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
 
+    }
+
+    /**
+     * Funcion para mandar mensaje de error a la ventana de aviso.
+     *
+     * @param mensaje (requerido) String con el error
+     */
+    public static void errorBdr(String mensaje) {
+        ControladorVistas.abrirVentanaAviso(mensaje);
     }
 
 }

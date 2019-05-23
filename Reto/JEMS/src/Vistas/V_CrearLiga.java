@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.BorderFactory;
@@ -173,7 +174,9 @@ public class V_CrearLiga extends javax.swing.JFrame {
             SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
             Date fecha = formateador.parse(tfFechaInicio.getText());
             String mensaje = JEMS.crearLigaVacia(fecha, tfNombre.getText());
-            ControladorVistas.abrirVentanaAviso(mensaje+" con el nombre "+tfNombre.getText()+" en la fecha " + tfFechaInicio.getText());
+            ControladorVistas.abrirVentanaAviso(mensaje + " con el nombre " + tfNombre.getText() + " en la fecha " + tfFechaInicio.getText());
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }

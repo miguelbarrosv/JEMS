@@ -8,6 +8,7 @@ package BD;
 import UML.Jornada;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -47,8 +48,9 @@ public class JornadaBD {
      *
      * @return devuelve todas las jornadas
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Jornada> consultarJornadas() throws Exception {
+    public ArrayList<Jornada> consultarJornadas() throws Exception, SQLException {
         bdr.conectar();
         ArrayList<Jornada> listaJornadas = new ArrayList();
         Statement sentencia = bdr.getCon().createStatement();
@@ -65,8 +67,9 @@ public class JornadaBD {
      *
      * @return devuelve todas las jornadas
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Jornada> consultarJornadasConPartidos() throws Exception {
+    public ArrayList<Jornada> consultarJornadasConPartidos() throws Exception, SQLException {
         bdr.conectar();
         ArrayList<Jornada> listaJornadas = new ArrayList();
         Statement sentencia = bdr.getCon().createStatement();
@@ -84,8 +87,9 @@ public class JornadaBD {
      *
      * @return devuelve un objeto Jornada
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Jornada crearObjeto() throws Exception {
+    public Jornada crearObjeto() throws Exception, SQLException {
         j = new Jornada();
         j.setCod_jornada(resultado.getInt("COD_JORNADA"));
         j.setFecha_fin(resultado.getDate("FECHA_FIN"));
@@ -101,8 +105,9 @@ public class JornadaBD {
      *
      * @return devuelve un objeto Jornada
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Jornada crearObjetoConPartido() throws Exception {
+    public Jornada crearObjetoConPartido() throws Exception, SQLException {
         j = new Jornada();
         j.setCod_jornada(resultado.getInt("COD_JORNADA"));
         j.setFecha_fin(resultado.getDate("FECHA_FIN"));
@@ -120,8 +125,9 @@ public class JornadaBD {
      * @param codigo (requerido) codigo de la Jornada
      * @return devuelve un objeto Jornada
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Jornada consultarJornada(int codigo) throws Exception {
+    public Jornada consultarJornada(int codigo) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT * FROM JORNADA WHERE COD_JORNADA = ?";
         PreparedStatement ps = bdr.getCon().prepareStatement(plantilla);

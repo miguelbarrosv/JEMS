@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Usuario;
+import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import jems.JEMS;
 
@@ -95,6 +96,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
      * @param usuario
      * @return retornamos true
      */
+
     public boolean validarUsuario(String usuario) {
         return true;
     }
@@ -285,8 +287,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                         break;
                 }
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
@@ -323,8 +327,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                     tfContraseña.setText(usuario.getContraseña());
                     break;
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_tfCodigoUsuarioActionPerformed
 
