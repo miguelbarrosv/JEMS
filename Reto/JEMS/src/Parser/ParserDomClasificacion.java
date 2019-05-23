@@ -73,5 +73,9 @@ public class ParserDomClasificacion {
                 System.out.println("");
             }
     }      
+
+    private static String Euskalmet() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 

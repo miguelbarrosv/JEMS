@@ -19,6 +19,7 @@ import jems.JEMS;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -37,6 +38,11 @@ public class V_Equipo extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Metodo para preformatear la ventana especificando tamaño,
+     * localizacion dentro de la ventana y otras especificaciones como
+     * componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);

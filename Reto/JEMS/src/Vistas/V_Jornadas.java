@@ -15,6 +15,7 @@ import jems.JEMS;
 /**
  *
  * @author Miguel Barros
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -25,6 +26,7 @@ public class V_Jornadas extends javax.swing.JFrame {
      * Creates new form V_Jornadas Funcion que al iniciar la ventana muestra en
      * la pantalla los datos de una jornada para que el usuario pueda
      * visualizarlo
+     * @throws Exception hereda de la clase Exception
      */
     public V_Jornadas() throws Exception {
         setUndecorated(true);
@@ -105,6 +107,11 @@ public class V_Jornadas extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Metodo para preformatear la ventana especificando tamaño,
+     * localizacion dentro de la ventana y otras especificaciones como
+     * componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -128,6 +135,9 @@ public class V_Jornadas extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * Variables para almacenar los datos a mostrar
+     */
     private static Jornada jornada;
     private static ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
 
