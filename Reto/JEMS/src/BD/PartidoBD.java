@@ -8,6 +8,7 @@ package BD;
 import UML.Partido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,6 +18,7 @@ import java.util.Date;
  * @author Joel Encinas
  * @author Eric Muñoz
  * @author Miguel Barros
+ * @author Sergio Zulueta
  *
  * @see Partido
  *
@@ -47,8 +49,9 @@ public class PartidoBD {
      *
      * @return devuelve todos los Partidos
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Partido> consultarPartidos() throws Exception {
+    public ArrayList<Partido> consultarPartidos() throws Exception, SQLException {
         bdr.conectar();
         ArrayList<Partido> listaPartidos = new ArrayList();
         String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO";
@@ -67,8 +70,9 @@ public class PartidoBD {
      * @param cod_jornada (requerido) codigo de la jornada
      * @return devuelve todos los partidos de ese Equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Partido> consultarPartidosJornada(int cod_jornada) throws Exception {
+    public ArrayList<Partido> consultarPartidosJornada(int cod_jornada) throws Exception, SQLException {
         bdr.conectar();
         ArrayList<Partido> listaPartidos = new ArrayList();
         String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE JORNADA_COD_JORNADA=?";
@@ -88,8 +92,9 @@ public class PartidoBD {
      * @param cod_equipo (requerido) codigo del Equipo
      * @return devuelve todos los partidos de ese Equipo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Partido> consultarPartidosEquipo(int cod_equipo) throws Exception {
+    public ArrayList<Partido> consultarPartidosEquipo(int cod_equipo) throws Exception, SQLException {
         bdr.conectar();
         ArrayList<Partido> listaPartidos = new ArrayList();
         String plantilla = "SELECT EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,RESULTADO,FECHA_PARTIDO,EQUIPO_VISITANTE FROM PARTIDO WHERE EQUIPO_COD_EQUIPO=? OR EQUIPO_VISITANTE=?";
@@ -109,8 +114,9 @@ public class PartidoBD {
      *
      * @return devuelve un objeto Partido
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Partido crearObjeto() throws Exception {
+    public Partido crearObjeto() throws Exception, SQLException {
         p = new Partido();
         p.setResultado(resultado.getInt("RESULTADO"));
         p.setFecha_partido(resultado.getDate("FECHA_PARTIDO"));
@@ -122,9 +128,19 @@ public class PartidoBD {
         return p;
     }
 
-    public void insertarPartido(int cod_local, int cod_visitante, Date fecha, int cod_jornada) throws Exception {
+
+    /**
+     * Funcion que inserta un Partido.
+     *
+     * @param cod_local (requerido) codigo del equipo local
+     * @param cod_visitante (requerido) codigo del equipo visitante
+     * @param fecha (requerido) fecha del partido
+     * @param cod_jornada (requerido) codigo de la jornada
+     * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
+     */
+    public void insertarPartido(int cod_local, int cod_visitante, Date fecha, int cod_jornada) throws Exception, SQLException {
         bdr.conectar();
-        ArrayList<Partido> listaPartidos = new ArrayList();
         java.sql.Date sDate = convertUtilToSql(fecha);
         String plantilla = "INSERT INTO PARTIDO (EQUIPO_COD_EQUIPO,JORNADA_COD_JORNADA,FECHA_PARTIDO,EQUIPO_VISITANTE,RESULTADO)VALUES(?,?,?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);

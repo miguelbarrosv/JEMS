@@ -19,14 +19,15 @@ import jems.JEMS;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
- * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
  */
 public class V_Equipo extends javax.swing.JFrame {
 
-    private String dueño;
+    /**
+     * Creacion de atributos.
+     */
     private static String ope;
     private static Equipo equipo;
     private static ArrayList<Dueño> dueños;
@@ -39,9 +40,7 @@ public class V_Equipo extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
+     * Formato de la ventana
      */
     public void myInitComponents() {
         setSize(1280, 720);

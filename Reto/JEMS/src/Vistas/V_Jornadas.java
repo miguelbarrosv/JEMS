@@ -15,7 +15,7 @@ import jems.JEMS;
 /**
  *
  * @author Miguel Barros
- * @author Joel Encinas
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -26,19 +26,18 @@ public class V_Jornadas extends javax.swing.JFrame {
      * Creates new form V_Jornadas Funcion que al iniciar la ventana muestra en
      * la pantalla los datos de una jornada para que el usuario pueda
      * visualizarlo
+     *
      * @throws Exception hereda excepciones
      */
     public V_Jornadas() throws Exception {
         setUndecorated(true);
         initComponents();
         myInitComponents();
-        jornadas = JEMS.consultarJornadasconPartidos();        
+        jornadas = JEMS.consultarJornadasconPartidos();
     }
-    
+
     /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
+     * Formato de la ventana
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -64,9 +63,8 @@ public class V_Jornadas extends javax.swing.JFrame {
     }
 
     /**
-     * Variables para almacenar los datos a mostrar
+     * Creacion de variable.
      */
-    private static Jornada jornada;
     private static ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
 
     /**
@@ -236,9 +234,13 @@ public class V_Jornadas extends javax.swing.JFrame {
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
-
+    /**
+     * Combo box para visualizar una de las 10 jornadas.
+     *
+     * @param evt evento al pulsar el cb
+     */
     private void cbJornadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJornadasActionPerformed
-switch (cbJornadas.getSelectedIndex()) {
+        switch (cbJornadas.getSelectedIndex()) {
             case 0:
                 tfEquipoLocal.setText(jornadas.get(0).getPartidos().get(0).getEquipo_local().getNombre());
                 tfEquipoVisitante.setText(jornadas.get(0).getPartidos().get(0).getEquipo_visitante().getNombre());

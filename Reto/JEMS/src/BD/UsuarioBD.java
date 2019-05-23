@@ -8,6 +8,7 @@ package BD;
 import UML.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -48,8 +49,9 @@ public class UsuarioBD {
      *
      * @param u (requerido) objeto de clase Usuario.
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException
      */
-    public void insertarUsuario(Usuario u) throws Exception {
+    public void insertarUsuario(Usuario u) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "INSERT INTO USUARIO (USUARIO,CONTRASEÑA)VALUES(?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -65,8 +67,9 @@ public class UsuarioBD {
      * @param codUsuario (requerido) codigo del Usuario.
      * @return devuelve un objeto clase Usuario.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public Usuario consultarUsuarioCodigo(int codUsuario) throws Exception {
+    public Usuario consultarUsuarioCodigo(int codUsuario) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_USUARIO,USUARIO,CONTRASEÑA FROM USUARIO WHERE COD_USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -88,8 +91,9 @@ public class UsuarioBD {
      * @param usuario (requerido) usuario del Usuario
      * @return devuelve un objeto clase usuario.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public Usuario consultarUsuarioNombre(String usuario) throws Exception {
+    public Usuario consultarUsuarioNombre(String usuario) throws Exception, SQLException {
         bdr.conectar();
 
         String plantilla = "SELECT COD_USUARIO,USUARIO,CONTRASEÑA FROM USUARIO WHERE USUARIO= ?";
@@ -115,8 +119,9 @@ public class UsuarioBD {
      * @param contraseña (requerido ) contraseña de Usuario
      * @return devuelve un objeto clase Usuario.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public Boolean consultarUsuario(String usuario, String contraseña) throws Exception {
+    public Boolean consultarUsuario(String usuario, String contraseña) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_USUARIO,USUARIO,CONTRASEÑA FROM USUARIO WHERE USUARIO=UPPER(?) AND CONTRASEÑA=UPPER(?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -135,8 +140,9 @@ public class UsuarioBD {
      * @param usuario (requerido) usuario del Usuario
      * @return devuelve un booleano de si existe ese Usuario.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public Boolean consultarUsuario(String usuario) throws Exception {
+    public Boolean consultarUsuario(String usuario) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_USUARIO,USUARIO,CONTRASEÑA FROM USUARIO WHERE USUARIO=UPPER(?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -154,8 +160,9 @@ public class UsuarioBD {
      *
      * @return devuelve un objeto de clase Usuario.
      * @throws Exception herada excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public Usuario crearObjeto() throws Exception {
+    public Usuario crearObjeto() throws Exception, SQLException {
         Usuario u = new Usuario();
         u.setCod_usuario(resultado.getInt("COD_USUARIO"));
         u.setUsuario(resultado.getString("USUARIO"));
@@ -168,8 +175,9 @@ public class UsuarioBD {
      *
      * @return devuelve un ArrayList de Usuario.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public ArrayList<Usuario> consultaTodosUsuarios() throws Exception {
+    public ArrayList<Usuario> consultaTodosUsuarios() throws Exception, SQLException {
         bdr.conectar();
         ArrayList<Usuario> listaUsuarios = new ArrayList();
         Statement sentencia = bdr.getCon().createStatement();
@@ -186,8 +194,9 @@ public class UsuarioBD {
      *
      * @param codUsuario (requerido) codigo del Usuario.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public void borrarUsuario(int codUsuario) throws Exception {
+    public void borrarUsuario(int codUsuario) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "DELETE FROM USUARIO WHERE COD_USUARIO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -201,8 +210,9 @@ public class UsuarioBD {
      *
      * @param u (requerido) objeto de clase Usuario.
      * @throws Exception heredar excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public void modificarUsuario(Usuario u) throws Exception {
+    public void modificarUsuario(Usuario u) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "UPDATE USUARIO SET USUARIO=?, CONTRASEÑA=? WHERE COD_USUARIO=?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);

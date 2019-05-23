@@ -33,9 +33,7 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
+     * Formato de la ventana
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -49,45 +47,39 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @return True Si las validaciones son correctas
-     * @return False Si las validaciones dan error
+     * Validamos los datos de entrada
      *
+     * @return retornamos los datos
      */
     public boolean validarDatos() {
-        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()))) {
-            return true;
-        } else {
-            return false;
-        }
+        return validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()));
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @param nombre (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
+     * Para validar el nombre
      *
+     * @param nombre pasamos el nombre
+     * @return retornamos true
      */
     public boolean validarNombre(String nombre) {
         return true;
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @param contraseña (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
+     * Para validar la contraseña
      *
+     * @param contraseña pasamos la contraseña
+     * @return retornamos true
      */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @param contraseña (requerido) el parametro a convertir a String
-     * @return contraseñaConvertida que es la contraseña en String
-     * de caracteres
+     * Convertimos la contraseña en string
      *
+     * @param contraseña la contraseña introducida
+     * @return contraseña la contraseña convertida
      */
     public String convertirContraseña(char[] contraseña) {
         String contraseñaConvertida = new String(contraseña);
@@ -95,13 +87,10 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo que comprueba si el usuario existe en la base
-     * de datos y lo identifica como usuario o administrador
-     * @return comp que es es valor que contiene el numero
-     * 1 si es para usuario o 2 si es para admin
-     * 
-     * @throws Exception hereda de la clase Exception
+     * Comprobamos que el dato introducido sea correcto
      *
+     * @return retornamos todo
+     * @throws Exception hereda excepciones
      */
     public int comprobarDatos() throws Exception {
         // Login usuario = 1 | Login admin = 2
@@ -260,11 +249,20 @@ public class V_Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Salir del programa
+     *
+     * @param evt evento al pulsar boton salir
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
 
+    /**
+     * Acceder al programa como usuario o administrador
+     *
+     * @param evt
+     */
     private void bAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAccederActionPerformed
         if (validarDatos()) {
             try {
@@ -291,7 +289,7 @@ public class V_Login extends javax.swing.JFrame {
 
     private void bCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearCuentaActionPerformed
         ControladorVistas.cerrarVentanaLogin();
-        ControladorVistas.mostrarVentanaRegistrar();        
+        ControladorVistas.mostrarVentanaRegistrar();
     }//GEN-LAST:event_bCrearCuentaActionPerformed
 
     private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed

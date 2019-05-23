@@ -15,7 +15,6 @@ import jems.JEMS;
 /**
  *
  * @author Miguel Barros
- * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -54,9 +53,7 @@ public class V_Liga extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
+     * Formato de la ventana.
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -103,7 +100,7 @@ public class V_Liga extends javax.swing.JFrame {
     }
 
     /**
-     * Variables para almacenar los datos a mostrar
+     * Creacion de variables
      */
     private static ArrayList<Equipo> equipos;
     private static Liga liga;
@@ -347,10 +344,20 @@ public class V_Liga extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Volver a la ventana anterior
+     * 
+     * @param evt evento al pulsar volver
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaLiga();
     }//GEN-LAST:event_bVolverActionPerformed
 
+    /**
+     * Salir de la pantalla
+     * 
+     * @param evt evento al pulsar salir
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

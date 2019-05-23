@@ -17,7 +17,6 @@ import jems.JEMS;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
- * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -34,9 +33,7 @@ public class V_Dueño extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
+     * Formato de la ventana
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -190,7 +187,7 @@ public class V_Dueño extends javax.swing.JFrame {
         Pattern pat = Pattern.compile("^[6-9][0-9]{8}$");
         Matcher mat = pat.matcher(tfTelefono.getText());
         if (!mat.matches()) {
-            throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7, 8 o 9.");
+            throw new DatoNoValido("El numero de telefono solo puede empezar por 6, 7, 8 o 9 y no puede contener letras");
         }
     }
 

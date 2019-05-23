@@ -24,9 +24,9 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Constructor V_aviso que imprime un mensaje que recibe como parametro
+     * Funciones de la ventana.
      *
-     * @param mensaje (requerido) establece el mensaje a imprimir
+     * @param mensaje el mensaje que mostramos
      */
     public V_Aviso(String mensaje) {
         setUndecorated(true);
@@ -37,8 +37,7 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para preformatear la ventana especificando tamaño, localizacion
-     * dentro de la ventana y otras especificaciones como componentes ocultos.
+     * Formato de la ventana
      */
     public void myInitComponents() {
         setSize(400, 220);
@@ -49,12 +48,13 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Es un Get que devuelve el codigo del administrador.
+     * Funcion para hacer un salto de linea
      *
-     * @param mensaje (requerido) es el mensaje que recibe la ventana como parametro
-     * @param espacio (requerido) el espacio a intercalar
-     * @param index (requerido) el numero de caracter en el que se inserta el espacio
-     * @return temp devuelve el String formateado
+     * @param mensaje (requerido) Mensaje personalizado
+     * @param espacio (requerido) limite de espacios
+     * @param index (requerido) limite de caracteres
+     *
+     * @return retornamos el mensaje
      */
     public String formatearString(String mensaje, String espacio, int index) {
         String temp = new String();
@@ -127,6 +127,11 @@ public class V_Aviso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Cerramos la ventana de aviso personalizada
+     *
+     * @param evt evento al pulsar boton
+     */
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         ControladorVistas.cerrarVentanaAviso();
     }//GEN-LAST:event_bAceptarActionPerformed

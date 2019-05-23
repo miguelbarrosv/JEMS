@@ -7,17 +7,16 @@ package BD;
 
 import UML.Liga;
 import java.sql.CallableStatement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  * Clase de Liga de base de datos.
  *
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @see Liga
  *
@@ -50,26 +49,16 @@ public class LigaBD {
      * @param nombre (requerido) nombre de la liga
      * @return devuelve un string con el mensaje de la creacion de la Liga
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public String crearLigaVacia(Date fechaInicioLiga,String nombre) throws Exception {
+    public String crearLigaVacia(Date fechaInicioLiga, String nombre) throws Exception, SQLException {
         java.sql.Date sDate = convertUtilToSql(fechaInicioLiga);
         bdr.conectar();
-        String mensaje = null;
-        try (CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?,?)}")) {
-            cStmt.setDate(1, sDate);
-            cStmt.setString(2, nombre);
-            cStmt.executeUpdate();
-            mensaje = "";
-            try (ResultSet rs = (ResultSet) cStmt.getResultSet()) {
-                while (rs.next()) {
-                    mensaje = "Liga vacia creada";
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "error");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "error");
-        }
+        CallableStatement cStmt = bdr.getCon().prepareCall("{call PAQ_PROC_FUN.GENERAR_CALENDARIO(?,?)}");
+        cStmt.setDate(1, sDate);
+        cStmt.setString(2, nombre);
+        cStmt.executeUpdate();
+        String mensaje = "Liga vacia ha sido creada";
         bdr.cerrarCon();
         return mensaje;
     }
@@ -88,10 +77,11 @@ public class LigaBD {
     /**
      * busca en la base de datos la Liga.
      *
-     * @return devuelve una
-     * @throws Exception
+     * @return devuelve un objeto Liga
+     * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Liga consultarLiga() throws Exception {
+    public Liga consultarLiga() throws Exception, SQLException {
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
         resultado = sentencia.executeQuery("SELECT COD_LIGA,NOMBRE,FECHA_INICIO,FECHA_FIN,ESTADO FROM LIGA");
@@ -107,8 +97,9 @@ public class LigaBD {
      *
      * @return devuelve un objeto Liga
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Liga crearObjeto() throws Exception {
+    public Liga crearObjeto() throws Exception, SQLException {
         l = new Liga();
         l.setCod_liga(resultado.getInt("COD_LIGA"));
         l.setNombre(resultado.getString("NOMBRE"));

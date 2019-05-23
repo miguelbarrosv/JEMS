@@ -29,25 +29,28 @@ import org.w3c.dom.Text;
 /**
  *
  * @author Joel Encinas
- * @ author Miguel Barros
- * 
+ * @author Miguel Barros
+ *
  * @version %I%, %G%
  * @since 1.0
  */
 public class GeneradorDOMClasificacion {
 
-    
     private List<Equipo> equipos;
     private Document dom;
     private static Liga liga;
-    
-    public GeneradorDOMClasificacion() throws Exception {        
+
+    public GeneradorDOMClasificacion() throws Exception {
         //cargarDatos
         cargarDatos();
         // Construir un documento DOM vacio
         crearDocumento();
     }
 
+    /**
+     * Funcion que comienza el proceso para generar el XML
+     *
+     */
     public void run() {
         System.out.println("Iniciando...");
         crearArbolDOM();
@@ -55,6 +58,10 @@ public class GeneradorDOMClasificacion {
         System.out.println("Fichero generado");
     }
 
+    /**
+     * Funcion que crea el documento que rellenaremos mas adelante
+     *
+     */
     private void crearDocumento() {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
@@ -67,14 +74,24 @@ public class GeneradorDOMClasificacion {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Funcion que coge los datos necesarios de la BD para poder generar el XML
+     *
+     */
     public void cargarDatos() throws Exception {
         // cargar ArrayList equipos
         equipos = JEMS.consultarEquipos();
         // cargar Objeto Liga
         liga = JEMS.consultarLiga();
     }
+
+    /**
+     * Funcion que crea el arbol del documento XML
+     *
+     */
     private void crearArbolDOM() {
-        
+
         // Elemento raiz liga
         Element raiz = dom.createElement("liga");
         dom.appendChild(raiz);
@@ -90,7 +107,7 @@ public class GeneradorDOMClasificacion {
         //Elemento partidos
         Element elementoEquipos = dom.createElement("equipos");
         raiz.appendChild(elementoEquipos);
-        
+
         // Generar elementos equipo y hacer equipos el padre
         for (Equipo equipo : equipos) {
             Element elemento = crearElementoEquipo(equipo);
@@ -98,6 +115,11 @@ public class GeneradorDOMClasificacion {
         }
     }
 
+    /**
+     * Funcion que crea el elemento Equipo y sus subelementos
+     *
+     * @param (requerido) objeto Equipo
+     */
     private Element crearElementoEquipo(Equipo equipo) {
         // <equipo cod="">
         Element elementoEquipo = dom.createElement("equipo");
@@ -126,6 +148,9 @@ public class GeneradorDOMClasificacion {
         return elementoEquipo;
     }
 
+    /**
+     * Funcion con la que exportamos el fichero al lugar deseado
+     */
     private void exportarFichero() {
         // REF: Serializar XML: https://www.edureka.co/blog/serialization-of-java-objects-to-xml-using-xmlencoder-decoder/
         try {
@@ -137,7 +162,7 @@ public class GeneradorDOMClasificacion {
 
             transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
 
-            Result output = new StreamResult(new File("./liga.xml"));
+            Result output = new StreamResult(new File("../liga.xml"));
             Source input = new DOMSource(dom);
 
             transformer.transform(input, output);

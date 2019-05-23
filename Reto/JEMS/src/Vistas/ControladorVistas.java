@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
- * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -80,6 +79,13 @@ public class ControladorVistas {
      *
      * @param operacion tipo de operacion
      */
+    /**
+     * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o
+     * dar de alta a un jugador.
+     *
+     * @param operacion tipo de operacion
+     * @throws Exception hereda excepciones
+     */
     public static void mostrarVentanaJugador(String operacion) throws Exception {
         vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
@@ -101,6 +107,7 @@ public class ControladorVistas {
      * de alta a un equipo.
      *
      * @param operacion tipo de operacion
+     * @throws Exception hereda excepciones
      */
     public static void mostrarVentanaEquipo(String operacion) throws Exception {
         vEquipo = new V_Equipo(operacion);
@@ -133,6 +140,7 @@ public class ControladorVistas {
     /**
      * Funcion que muestra la ventana V_Liga.
      *
+     * @throws Exception hereda excepciones
      */
     public static void mostrarVentanaLiga() throws Exception {
         vLiga = new V_Liga();
@@ -142,8 +150,9 @@ public class ControladorVistas {
     /**
      * Funcion que muestra la ventana V_Jornadas.
      *
+     * @throws Exception hereda excepciones     
      */
-    public static void mostrarVentanaJornadas()throws Exception {
+    public static void mostrarVentanaJornadas() throws Exception {
         vJornadas = new V_Jornadas();
         vJornadas.setVisible(true);
     }
@@ -202,8 +211,8 @@ public class ControladorVistas {
      * Funcion que abre la ventana V_Liga para mostrar la clasificacion de la
      * liga.
      *
-     * @param liga (requerido) la liga
-     * @param equipos (requerido) lista de equipos
+     * @throws Exception hereda excepciones
+     * 
      */
     public static void abrirVentanaLiga() throws Exception {
         vLiga = new V_Liga();
@@ -252,7 +261,7 @@ public class ControladorVistas {
         vCrearLiga = new V_CrearLiga();
         vCrearLiga.setVisible(true);
     }
-    
+
     /**
      * Funcion que cierra la ventana V_CrearLiga
      *
@@ -282,6 +291,8 @@ public class ControladorVistas {
 
     /**
      * Funcion que abre la ventana V_Aviso
+     * 
+     * @param mensaje devuelve un mensaje
      *
      */
     public static void abrirVentanaAviso(String mensaje) {
@@ -297,10 +308,6 @@ public class ControladorVistas {
         vAviso.dispose();
     }
 
-    /**
-     * Funcion que cierra la ventana V_Lista
-     *
-     */
     static void cerrarVentanaLista() {
         vLista.dispose();
     }

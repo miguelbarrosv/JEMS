@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Usuario;
+import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import jems.JEMS;
 
@@ -13,8 +14,6 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
- * @author Joel Encinas
- *
  *
  * @version %I%, %G%
  * @since 1.0
@@ -31,8 +30,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo para preformatear la ventana especificando tamaño, localizacion
-     * dentro de la ventana y otras especificaciones como componentes ocultos.
+     * Para darle formato a la ventana.
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -49,10 +47,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo que valida si se han introducido datos
+     * Independientemente de lo que pulsemos, iremos a modificar, eliminar
+     * consultar o dar de alta un usuario
      *
-     * @param operacion (requerido) establece la operacion que ha de hacerse:
-     * Alta/baja/consulta/modificar
+     * @param operacion operacion para ver que ventana abrir
      */
     public V_Admin_Usuario(String operacion) {
         setUndecorated(true);
@@ -84,63 +82,36 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @return True Si las validaciones son correctas
-     * @return False Si las validaciones dan error
+     * Validamos los datos para crear un usuario
      *
+     * @return retorna los datos del usuario
      */
     public boolean validarDatos() {
-        if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText())) {
-            return true;
-        } else {
-            return false;
-        }
+        return validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText());
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @param nombre (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
+     * Para validar la contraseña
      *
+     * @param usuario
+     * @return retornamos true
      */
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
 
-    /**
-     * Metodo que valida si se han introducido datos
-     * @param apellido (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
-     * 
-     */
-    public boolean validarApellido(String apellido) {
-        return true;
-    }
-
-    /**
-     * Metodo que valida si se han introducido datos
-     * @param usuario (requerido) el parametro a validar 
-     * @return True Si las validaciones son correctas
-     * 
-     */
     public boolean validarUsuario(String usuario) {
         return true;
     }
 
     /**
-     * Metodo que valida si se han introducido datos
-     * @param contraseña (requerido) el parametro a validar
-     * @return True Si las validaciones son correctas
-     * 
+     * Para validar la contraseña
+     *
+     * @param contraseña pasamos la contraseña
+     * @return retornamos true
      */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
-    
     /**
-     * Creacion de la variable para definir la operacion
-     * a realizar
-     *
+     * Creacion de la variable ope
      */
     private static String ope;
 
@@ -293,6 +264,11 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Validamos datos y hacemos la operacion necesaria para cada evento
+     *
+     * @param evt evento al pulsar el boton
+     */
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try {
             if (validarDatos()) {
@@ -311,12 +287,19 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                         break;
                 }
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
 
+    /**
+     * para consultar el usuario
+     *
+     * @param evt evento al pulsar el boton
+     */
     private void tfCodigoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodigoUsuarioActionPerformed
         try {
             Usuario usuario = JEMS.consultarUsuario(Integer.parseInt(tfCodigoUsuario.getText()));
@@ -344,8 +327,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                     tfContraseña.setText(usuario.getContraseña());
                     break;
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_tfCodigoUsuarioActionPerformed
 
@@ -353,6 +338,11 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         ControladorVistas.cerrarVentanaAdminUsuario();
     }//GEN-LAST:event_bVolverActionPerformed
 
+    /**
+     * Para salir de la ventana
+     *
+     * @param evt evento al pulsar el boton
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

@@ -8,7 +8,6 @@ package Vistas;
 /**
  *
  * @author Eric Muñoz
- * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -26,9 +25,7 @@ public class V_Lista extends javax.swing.JFrame {
     }
     
     /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
+     * Formato de la ventana
      */
     public void myInitComponents() {
         setSize(1280, 720);
