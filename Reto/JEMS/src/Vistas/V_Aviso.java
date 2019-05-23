@@ -23,14 +23,23 @@ public class V_Aviso extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Constructor V_aviso que imprime un mensaje que recibe como parametro
+     *
+     * @param mensaje (requerido) establece el mensaje a imprimir
+     */
     public V_Aviso(String mensaje) {
         setUndecorated(true);
         initComponents();
-        myInitComponents();    
+        myInitComponents();
         String espacio = "<br>";
         lbMensaje.setText(formatearString(formatearString("<html>" + mensaje + "</html>", espacio, 30), espacio, 62));
     }
 
+    /**
+     * Metodo para preformatear la ventana especificando tamaño, localizacion
+     * dentro de la ventana y otras especificaciones como componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(400, 220);
         setLocationRelativeTo(this);
@@ -39,11 +48,19 @@ public class V_Aviso extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    public String formatearString (String mensaje, String espacio, int index) {
+    /**
+     * Es un Get que devuelve el codigo del administrador.
+     *
+     * @param mensaje (requerido) es el mensaje que recibe la ventana como parametro
+     * @param espacio (requerido) el espacio a intercalar
+     * @param index (requerido) el numero de caracter en el que se inserta el espacio
+     * @return temp devuelve el String formateado
+     */
+    public String formatearString(String mensaje, String espacio, int index) {
         String temp = new String();
         for (int i = 0; i < mensaje.length(); i++) {
             temp += mensaje.charAt(i);
-            if (i == index) {                 
+            if (i == index) {
                 temp += espacio;
             }
         }

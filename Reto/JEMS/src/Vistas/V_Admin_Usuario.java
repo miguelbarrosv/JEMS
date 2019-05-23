@@ -13,6 +13,8 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author Joel Encinas
+ *
  *
  * @version %I%, %G%
  * @since 1.0
@@ -27,7 +29,11 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
+    /**
+     * Metodo para preformatear la ventana especificando tamaño, localizacion
+     * dentro de la ventana y otras especificaciones como componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -42,6 +48,12 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     *
+     * @param operacion (requerido) establece la operacion que ha de hacerse:
+     * Alta/baja/consulta/modificar
+     */
     public V_Admin_Usuario(String operacion) {
         setUndecorated(true);
         initComponents();
@@ -71,6 +83,12 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     * @return True Si las validaciones son correctas
+     * @return False Si las validaciones dan error
+     *
+     */
     public boolean validarDatos() {
         if (validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText())) {
             return true;
@@ -79,21 +97,51 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     * @param nombre (requerido) el parametro a validar 
+     * @return True Si las validaciones son correctas
+     *
+     */
     public boolean validarNombre(String nombre) {
         return true;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     * @param apellido (requerido) el parametro a validar 
+     * @return True Si las validaciones son correctas
+     * 
+     */
     public boolean validarApellido(String apellido) {
         return true;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     * @param usuario (requerido) el parametro a validar 
+     * @return True Si las validaciones son correctas
+     * 
+     */
     public boolean validarUsuario(String usuario) {
         return true;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     * @param contraseña (requerido) el parametro a validar
+     * @return True Si las validaciones son correctas
+     * 
+     */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
+    
+    /**
+     * Creacion de la variable para definir la operacion
+     * a realizar
+     *
+     */
     private static String ope;
 
     /**
@@ -250,7 +298,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
             if (validarDatos()) {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarUsuario(Integer.parseInt(tfCodigoUsuario.getText()),tfUsuario.getText(), tfContraseña.getText());
+                        JEMS.modificarUsuario(Integer.parseInt(tfCodigoUsuario.getText()), tfUsuario.getText(), tfContraseña.getText());
                         ControladorVistas.abrirVentanaAviso("Usuario modificado con exito!");
                         break;
                     case "alta":
