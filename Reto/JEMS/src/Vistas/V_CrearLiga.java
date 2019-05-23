@@ -107,7 +107,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         lbCodigoDueño.setForeground(new java.awt.Color(255, 255, 255));
         lbCodigoDueño.setText("<html>Selecciona el nombre y <br> la fecha de Inicio de la Liga</html>");
         getContentPane().add(lbCodigoDueño);
-        lbCodigoDueño.setBounds(480, 260, 310, 40);
+        lbCodigoDueño.setBounds(530, 250, 220, 60);
 
         bVolver.setBackground(new java.awt.Color(86, 88, 149));
         bVolver.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
