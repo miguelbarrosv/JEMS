@@ -15,6 +15,7 @@ import jems.JEMS;
 /**
  *
  * @author Miguel Barros
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -52,6 +53,11 @@ public class V_Liga extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo para preformatear la ventana especificando tamaño,
+     * localizacion dentro de la ventana y otras especificaciones como
+     * componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -96,6 +102,9 @@ public class V_Liga extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * Variables para almacenar los datos a mostrar
+     */
     private static ArrayList<Equipo> equipos;
     private static Liga liga;
 

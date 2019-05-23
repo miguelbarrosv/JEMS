@@ -32,6 +32,10 @@ public class V_Registrar extends javax.swing.JFrame {
         myInitComponents();
     }
 
+    /**
+     * Metodo para preformatear la ventana especificando tamaño, localizacion
+     * dentro de la ventana y otras especificaciones como componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -54,27 +58,62 @@ public class V_Registrar extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     *
+     * @param nombre (requerido) el parametro a validar
+     * @return True Si las validaciones son correctas
+     *
+     */
     public boolean validarNombre(String nombre) {
         return true;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     *
+     * @param contraseña (requerido) el parametro a validar
+     * @return True Si las validaciones son correctas
+     *
+     */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     *
+     * @param contraseña (requerido) el parametro a validar
+     * @return True Si las validaciones son correctas
+     *
+     */
     public boolean validarContraseñaRepetida(String contraseña) {
         return true;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     *
+     * @param contraseña (requerido) el parametro a convertir a String
+     * @return contraseñaConvertida que es la contraseña en String de caracteres
+     *
+     */
     public String convertirContraseña(char[] contraseña) {
         String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
 
+    /**
+     * Metodo que valida si se han introducido datos
+     *
+     * @return flag indicando si los datos son validos o no
+     * @throws Exception hereda de la clase Exception
+     *
+     */
     public boolean comprobarDatos() throws Exception {
         boolean flag = true;
         try {
-//forma Joel
+
             usuario = JEMS.consultarUsuarioPorNombre(tfUsuarioRegistrase.getText());
             if (tfUsuarioRegistrase.getText().equals(usuario.getUsuario())) {
                 tfUsuarioRegistrase.setForeground(Color.red);
@@ -89,7 +128,7 @@ public class V_Registrar extends javax.swing.JFrame {
                 ControladorVistas.abrirVentanaAviso("Ambas contraseñas han de coincidir!");
             }
         } catch (Exception e) {
-/* forma Eric
+            /* forma Eric
                 if(JEMS.conseguirDatosUsuariosReg(lbUsuarioRegistrase.getText())){                    
                     tfUsuarioRegistrase.setForeground(Color.red);  
                     flag = false;
@@ -102,13 +141,16 @@ public class V_Registrar extends javax.swing.JFrame {
                     flag = false;
                     // mensaje de que la contraseña no es la misma en ambos campos
                 }
-        } catch (Exception e) { */    
+        } catch (Exception e) { */
 
             ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
         return flag;
     }
-    
+
+    /**
+     * Variable para almacenar el objeto usuario
+     */
     private static Usuario usuario;
 
     /**

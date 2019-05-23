@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -296,6 +297,10 @@ public class ControladorVistas {
         vAviso.dispose();
     }
 
+    /**
+     * Funcion que cierra la ventana V_Lista
+     *
+     */
     static void cerrarVentanaLista() {
         vLista.dispose();
     }

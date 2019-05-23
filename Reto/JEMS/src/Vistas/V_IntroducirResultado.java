@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
+ * @author Joel Encinas
  */
 public class V_IntroducirResultado extends javax.swing.JFrame {
 
@@ -26,7 +28,11 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
+    /**
+     * Metodo para preformatear la ventana especificando tamaño, localizacion
+     * dentro de la ventana y otras especificaciones como componentes ocultos.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -52,8 +58,16 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 tfEquipoVisitante3.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
-    
-    public V_IntroducirResultado( ArrayList<Jornada>jornadas, int numJornada) {
+
+    /**
+     * Inicia el constructor con el numero de la jornada y el 
+     * array para mostrar en la ventana los valores de dicha
+     * jornada
+     *
+     * @param jornadas el arraylist con todas las Jornadas dentro
+     * @param numJornada el numero de la jornada
+     */
+    public V_IntroducirResultado(ArrayList<Jornada> jornadas, int numJornada) {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -148,9 +162,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 tfEquipoLocal3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_visitante().getNombre());
                 break;
-                        
+
         }
-        
+
     }
 
     /**
@@ -395,48 +409,38 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
     }//GEN-LAST:event_tfEquipoLocalActionPerformed
 
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
-        if (rbGanadorLocal.isSelected()) {
-            try {
+        try {
+            if (rbGanadorLocal.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoLocal.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else if (rbGanadorVisitante.isSelected()) {
-            try {
+
+            } else if (rbGanadorVisitante.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoVisitante.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
+
             }
-        }
-        if (rbGanadorLocal2.isSelected()) {
-            try {
+            if (rbGanadorLocal2.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoLocal2.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else if(rbGanadorVisitante2.isSelected()) {
-            try {
+
+            } else if (rbGanadorVisitante2.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoVisitante2.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
+
             }
-        }
-        if (rbGanadorLocal3.isSelected()) {
-            try {
+            if (rbGanadorLocal3.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoLocal3.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else if (rbGanadorVisitante3.isSelected()) {
-            try {
+
+            } else if (rbGanadorVisitante3.isSelected()) {
+
                 JEMS.introducirResultado(tfEquipoVisitante3.getText());
-            } catch (Exception ex) {
-                Logger.getLogger(V_IntroducirResultado.class.getName()).log(Level.SEVERE, null, ex);
+
             }
-        }                   
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+
+        }
     }//GEN-LAST:event_bActualizarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
