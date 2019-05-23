@@ -15,8 +15,7 @@ import jems.JEMS;
 
 /**
  *
- * @author Miguel Barros
- * @author Joel Encinas
+ * @author migue
  */
 public class V_CrearLiga extends javax.swing.JFrame {
 
@@ -30,11 +29,6 @@ public class V_CrearLiga extends javax.swing.JFrame {
         tfFechaInicio.setText("  /  /    ");
     }
 
-    /**
-     * Metodo para preformatear la ventana especificando tamaño,
-     * localizacion dentro de la ventana y otras especificaciones como
-     * componentes ocultos.
-     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
