@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Jornada;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,9 +14,11 @@ import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
- *
+ * Vista que ven los administradores
+ * 
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author SergioZulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -107,7 +110,6 @@ public class V_Admin extends javax.swing.JFrame {
         bAlta = new javax.swing.JButton();
         bModificar = new javax.swing.JButton();
         bBaja = new javax.swing.JButton();
-        bBorrarLiga = new javax.swing.JButton();
         bConsultarUno = new javax.swing.JButton();
         bConsultarMuchos = new javax.swing.JButton();
         bInsertarPartidos = new javax.swing.JButton();
@@ -333,10 +335,6 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bBaja);
         bBaja.setBounds(80, 300, 320, 70);
-
-        bBorrarLiga.setText("ELIMINAR LIGA");
-        getContentPane().add(bBorrarLiga);
-        bBorrarLiga.setBounds(890, 170, 160, 23);
 
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setBorder(null);
@@ -812,9 +810,12 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "modificar";
             ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
+
     }//GEN-LAST:event_miModificarJugadorActionPerformed
     /**
      * Funcion que nos dirije a la clase mostrarVentanaJugador pasandole el
@@ -826,8 +827,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "baja";
             ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miBajaJugadorActionPerformed
     /**
@@ -850,8 +853,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "alta";
             ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miAltaJugadorActionPerformed
     /**
@@ -864,8 +869,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "modificar";
             ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miModificarEquipoActionPerformed
     /**
@@ -878,8 +885,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "alta";
             ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miAltaEquipoActionPerformed
     /**
@@ -892,8 +901,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "baja";
             ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miBajaEquipoActionPerformed
 
@@ -945,8 +956,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "consulta";
             ControladorVistas.mostrarVentanaJugador(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miConsultarJugadorActionPerformed
     /**
@@ -959,8 +972,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             String listaJugadores = JEMS.crearListaJugadores();
             ControladorVistas.mostrarVentanaLista(listaJugadores);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miConsultarJugadoresActionPerformed
 
@@ -968,8 +983,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             operacion = "consulta";
             ControladorVistas.mostrarVentanaEquipo(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miConsultarEquipoActionPerformed
 
@@ -984,8 +1001,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             String listaEquipos = JEMS.crearListaEquipos();
             ControladorVistas.mostrarVentanaLista(listaEquipos);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miConsultarEquiposActionPerformed
     /**
@@ -1008,8 +1027,10 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             String listaDueños = JEMS.crearListaDueños();
             ControladorVistas.mostrarVentanaLista(listaDueños);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miConsultarDueñosActionPerformed
     /**
@@ -1032,24 +1053,30 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             String listaUsuarios = JEMS.crearListaUsuarios();
             ControladorVistas.mostrarVentanaLista(listaUsuarios);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }        // TODO add your handling code here:
     }//GEN-LAST:event_miConsultarUsuariosActionPerformed
 
     private void miVisualizarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarLigaActionPerformed
         try {
             ControladorVistas.mostrarVentanaJornadas();
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miVisualizarLigaActionPerformed
 
     private void miVisualizarClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miVisualizarClasificacionActionPerformed
         try {
             ControladorVistas.mostrarVentanaLiga();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miVisualizarClasificacionActionPerformed
 
@@ -1064,110 +1091,130 @@ public class V_Admin extends javax.swing.JFrame {
     private void miJornada10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada10ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 10;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada10ActionPerformed
 
     private void miJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada1ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 1;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada1ActionPerformed
 
     private void miJornada2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada2ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 2;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada2ActionPerformed
 
     private void miJornada3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada3ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 3;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada3ActionPerformed
 
     private void miJornada4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada4ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 4;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada4ActionPerformed
 
     private void miJornada5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada5ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 5;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada5ActionPerformed
 
     private void miJornada6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada6ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 6;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada6ActionPerformed
 
     private void miJornada7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada7ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 7;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada7ActionPerformed
 
     private void miJornada8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada8ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 8;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada8ActionPerformed
 
     private void miJornada9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJornada9ActionPerformed
         try {
             jornadas = new ArrayList<>();
-            jornadas = JEMS.buscarJornadas();
+            jornadas = JEMS.consultarJornadasconPartidos();
             numJornada = 9;
             ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_miJornada9ActionPerformed
 
@@ -1197,28 +1244,27 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
-        if (lbTituloAdmin.getText().equalsIgnoreCase("USUARIO")) {
-            operacion = "alta";
-            ControladorVistas.mostrarVentanaAdminUsuario(operacion);
-        } else if (lbTituloAdmin.getText().equalsIgnoreCase("JUGADOR")) {
-            try {
+        try {
+            if (lbTituloAdmin.getText().equalsIgnoreCase("USUARIO")) {
+                operacion = "alta";
+                ControladorVistas.mostrarVentanaAdminUsuario(operacion);
+            } else if (lbTituloAdmin.getText().equalsIgnoreCase("JUGADOR")) {
+
                 operacion = "alta";
                 ControladorVistas.mostrarVentanaJugador(operacion);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
-            }
-        } else if (lbTituloAdmin.getText().equalsIgnoreCase("EQUIPO")) {
-            try {
+
+            } else if (lbTituloAdmin.getText().equalsIgnoreCase("EQUIPO")) {
                 operacion = "alta";
                 ControladorVistas.mostrarVentanaEquipo(operacion);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            } else if (lbTituloAdmin.getText().equalsIgnoreCase("DUEÑO")) {
+                operacion = "alta";
+                ControladorVistas.mostrarVentanaDueño(operacion);
             }
-        } else if (lbTituloAdmin.getText().equalsIgnoreCase("DUEÑO")) {
-            operacion = "alta";
-            ControladorVistas.mostrarVentanaDueño(operacion);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
-
     }//GEN-LAST:event_bAltaActionPerformed
 
     private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
@@ -1240,8 +1286,10 @@ public class V_Admin extends javax.swing.JFrame {
     private void bInsertarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarPartidosActionPerformed
         try {
             JEMS.insertarEquipos();
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bInsertarPartidosActionPerformed
 
@@ -1284,7 +1332,6 @@ public class V_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
-    private javax.swing.JButton bBorrarLiga;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
     private javax.swing.JButton bCrearLiga;

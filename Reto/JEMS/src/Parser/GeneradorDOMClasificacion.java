@@ -29,7 +29,7 @@ import org.w3c.dom.Text;
 /**
  *
  * @author Joel Encinas
- * @ author Miguel Barros
+ * @author Miguel Barros
  *
  * @version %I%, %G%
  * @since 1.0

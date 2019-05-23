@@ -8,6 +8,8 @@ package UML;
 import java.util.Date;
 
 /**
+ * Creacion de la clase java para el Partido
+ *
  * @author Sergio Zulueta
  * @author Eric Muñoz
  *

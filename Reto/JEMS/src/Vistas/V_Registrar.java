@@ -17,6 +17,7 @@ import jems.JEMS;
  *
  * @author Joel Encinas
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -47,11 +48,8 @@ public class V_Registrar extends javax.swing.JFrame {
     }
 
     public boolean validarDatos() {
-        if (validarNombre(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword())) && validarContraseñaRepetida(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) && cbTerminos.isSelected()) {
-            return true;
-        } else {
-            return false;
-        }
+        return validarNombre(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword()))
+                && validarContraseñaRepetida(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) && cbTerminos.isSelected();
     }
 
     public boolean validarNombre(String nombre) {
@@ -74,7 +72,7 @@ public class V_Registrar extends javax.swing.JFrame {
     public boolean comprobarDatos() throws Exception {
         boolean flag = true;
         try {
-//forma Joel
+            /*//forma Joel
             usuario = JEMS.consultarUsuarioPorNombre(tfUsuarioRegistrase.getText());
             if (tfUsuarioRegistrase.getText().equals(usuario.getUsuario())) {
                 tfUsuarioRegistrase.setForeground(Color.red);
@@ -89,26 +87,25 @@ public class V_Registrar extends javax.swing.JFrame {
                 ControladorVistas.abrirVentanaAviso("Ambas contraseñas han de coincidir!");
             }
         } catch (Exception e) {
-/* forma Eric
-                if(JEMS.conseguirDatosUsuariosReg(lbUsuarioRegistrase.getText())){                    
-                    tfUsuarioRegistrase.setForeground(Color.red);  
-                    flag = false;
-                    // mensaje de que el usuario ya esta cogido
-                }             
-            
-            if(convertirContraseña(pfContraseñaRegistrase.getPassword()).compareToIgnoreCase(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword()))!=0) {
-                    pfContraseñaRegistrase.setForeground(Color.red);                    
-                    pfContraseñaRepetidaRegistrase.setForeground(Color.red);
-                    flag = false;
-                    // mensaje de que la contraseña no es la misma en ambos campos
-                }
-        } catch (Exception e) { */    
+             */// forma Eric
+            if (JEMS.conseguirDatosUsuariosReg(lbUsuarioRegistrase.getText())) {
+                tfUsuarioRegistrase.setForeground(Color.red);
+                flag = false;
+                // mensaje de que el usuario ya esta cogido
+            }
 
+            if (convertirContraseña(pfContraseñaRegistrase.getPassword()).compareToIgnoreCase(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) != 0) {
+                pfContraseñaRegistrase.setForeground(Color.red);
+                pfContraseñaRepetidaRegistrase.setForeground(Color.red);
+                flag = false;
+                // mensaje de que la contraseña no es la misma en ambos campos
+            }
+        } catch (Exception e) {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
         return flag;
     }
-    
+
     private static Usuario usuario;
 
     /**

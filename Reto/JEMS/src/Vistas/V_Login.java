@@ -32,6 +32,9 @@ public class V_Login extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Formato de la ventana
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -43,27 +46,52 @@ public class V_Login extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * Validamos los datos de entrada
+     *
+     * @return retornamos los datos
+     */
     public boolean validarDatos() {
-        if (validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()))) {
-            return true;
-        } else {
-            return false;
-        }
+        return validarNombre(tfUsuario.getText()) && validarContraseña(convertirContraseña(pfContraseña.getPassword()));
     }
 
+    /**
+     * Para validar el nombre
+     *
+     * @param nombre pasamos el nombre
+     * @return retornamos true
+     */
     public boolean validarNombre(String nombre) {
         return true;
     }
 
+    /**
+     * Para validar la contraseña
+     *
+     * @param contraseña pasamos la contraseña
+     * @return retornamos true
+     */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
 
+    /**
+     * Convertimos la contraseña en string
+     *
+     * @param contraseña la contraseña introducida
+     * @return contraseña la contraseña convertida
+     */
     public String convertirContraseña(char[] contraseña) {
         String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
 
+    /**
+     * Comprobamos que el dato introducido sea correcto
+     *
+     * @return retornamos todo
+     * @throws Exception hereda excepciones
+     */
     public int comprobarDatos() throws Exception {
         // Login usuario = 1 | Login admin = 2
         int comp = 0;
@@ -221,11 +249,20 @@ public class V_Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Salir del programa
+     *
+     * @param evt evento al pulsar boton salir
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
 
+    /**
+     * Acceder al programa como usuario o administrador
+     *
+     * @param evt
+     */
     private void bAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAccederActionPerformed
         if (validarDatos()) {
             try {
@@ -252,8 +289,7 @@ public class V_Login extends javax.swing.JFrame {
 
     private void bCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearCuentaActionPerformed
         ControladorVistas.cerrarVentanaLogin();
-        //ControladorVistas.mostrarVentanaRegistrar();        
-        ControladorVistas.mostrarVentanaAdmin();
+        ControladorVistas.mostrarVentanaRegistrar();
     }//GEN-LAST:event_bCrearCuentaActionPerformed
 
     private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed

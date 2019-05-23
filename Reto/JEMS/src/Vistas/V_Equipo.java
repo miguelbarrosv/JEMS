@@ -25,7 +25,9 @@ import jems.JEMS;
  */
 public class V_Equipo extends javax.swing.JFrame {
 
-    private String dueño;
+    /**
+     * Creacion de atributos.
+     */
     private static String ope;
     private static Equipo equipo;
     private static ArrayList<Dueño> dueños;
@@ -37,6 +39,9 @@ public class V_Equipo extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Formato de la ventana
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 /**
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -157,6 +158,11 @@ public class V_Usuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bJornadaActionPerformed
 
+    /**
+     * Funcion para salir de la ventana
+     *
+     * @param evt pulsar enter
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

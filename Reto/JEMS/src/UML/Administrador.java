@@ -6,6 +6,8 @@
 package UML;
 
 /**
+ * Creacion de la clase java para el Administrador
+ *
  * @author Sergio Zulueta
  * @author Eric Muñoz
  *

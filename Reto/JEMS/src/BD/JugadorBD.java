@@ -9,6 +9,7 @@ import UML.Equipo;
 import UML.Jugador;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -47,8 +48,9 @@ public class JugadorBD {
      *
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void insertarJugador(Jugador j) throws Exception {
+    public void insertarJugador(Jugador j) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "INSERT INTO JUGADOR(NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO,EQUIPO_COD_EQUIPO) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -69,8 +71,9 @@ public class JugadorBD {
      *
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void insertarJugadorSinEquipo(Jugador j) throws Exception {
+    public void insertarJugadorSinEquipo(Jugador j) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "INSERT INTO JUGADOR(NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO) VALUES (?,?,?,?,?,?,?,)";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -91,8 +94,9 @@ public class JugadorBD {
      * @param cod_jugador (requerido) codigo de clase Jugador.
      * @return devuelve un objeto clase Jugador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Jugador consultarJugadorCodigo(int cod_jugador) throws Exception {
+    public Jugador consultarJugadorCodigo(int cod_jugador) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "SELECT COD_JUGADOR,NOMBRE,APELLIDO,NICKNAME,SUELDO,NACIONALIDAD,ESTADO,TELEFONO,EQUIPO_COD_EQUIPO FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -114,8 +118,9 @@ public class JugadorBD {
      *
      * @return devuelve un objeto de clase Jugador.
      * @throws Exception herada excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public Jugador crearObjeto() throws Exception {
+    public Jugador crearObjeto() throws Exception, SQLException {
         Jugador j = new Jugador();
         j.setCod_jugador(resultado.getInt("COD_JUGADOR"));
         j.setNombre(resultado.getString("NOMBRE"));
@@ -137,8 +142,9 @@ public class JugadorBD {
      *
      * @return devuelve un ArrayList de Jugador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Jugador> consultaTodosJugadores() throws Exception {
+    public ArrayList<Jugador> consultaTodosJugadores() throws Exception, SQLException {
         ArrayList<Jugador> listaJugadores = new ArrayList();
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
@@ -157,8 +163,9 @@ public class JugadorBD {
      * @param cod_equipo (requerido) codigo del Equipo
      * @return devuelve un ArrayList de Jugador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public ArrayList<Jugador> consultaTodosJugadoresEquipo(int cod_equipo) throws Exception {
+    public ArrayList<Jugador> consultaTodosJugadoresEquipo(int cod_equipo) throws Exception, SQLException {
         ArrayList<Jugador> listaJugadoresEquipo = new ArrayList();
         bdr.conectar();
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
@@ -177,8 +184,9 @@ public class JugadorBD {
      *
      * @param codJugador (requerido) codigo del Jugador.
      * @throws Exception hereda excepciones.
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void borrarJugador(int codJugador) throws Exception {
+    public void borrarJugador(int codJugador) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "DELETE FROM JUGADOR WHERE COD_JUGADOR= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
@@ -192,8 +200,9 @@ public class JugadorBD {
      *
      * @param j (requerido) objeto de clase Jugador.
      * @throws Exception heredar excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public void modificarJugador(Jugador j) throws Exception {
+    public void modificarJugador(Jugador j) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "UPDATE JUGADOR SET NOMBRE=?, APELLIDO=?, NICKNAME=?, SUELDO=?, NACIONALIDAD=?, ESTADO=?, TELEFONO=?, EQUIPO_COD_EQUIPO=? WHERE COD_JUGADOR=?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);

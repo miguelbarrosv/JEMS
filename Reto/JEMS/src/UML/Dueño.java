@@ -8,6 +8,8 @@ package UML;
 import java.util.ArrayList;
 
 /**
+ * Creacion de la clase java para el Dueño
+ *
  * @author Sergio Zulueta
  * @author Eric Muñoz
  *
@@ -146,6 +148,7 @@ public class Dueño {
     public ArrayList<Equipo> getLista_equipos() {
         return lista_equipos;
     }
+
     /**
      * Es un Set que establece la lista de equipos del dueño.
      *

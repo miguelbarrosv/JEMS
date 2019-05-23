@@ -52,6 +52,9 @@ public class V_Liga extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Formato de la ventana.
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -96,6 +99,9 @@ public class V_Liga extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * Creacion de variables
+     */
     private static ArrayList<Equipo> equipos;
     private static Liga liga;
 
@@ -338,10 +344,20 @@ public class V_Liga extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Volver a la ventana anterior
+     * 
+     * @param evt evento al pulsar volver
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaLiga();
     }//GEN-LAST:event_bVolverActionPerformed
 
+    /**
+     * Salir de la pantalla
+     * 
+     * @param evt evento al pulsar salir
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
