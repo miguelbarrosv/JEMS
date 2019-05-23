@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Usuario;
+import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import jems.JEMS;
 
@@ -27,7 +28,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         initComponents();
         myInitComponents();
     }
-    
+
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -77,14 +78,6 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         } else {
             return false;
         }
-    }
-
-    public boolean validarNombre(String nombre) {
-        return true;
-    }
-
-    public boolean validarApellido(String apellido) {
-        return true;
     }
 
     public boolean validarUsuario(String usuario) {
@@ -250,7 +243,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
             if (validarDatos()) {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarUsuario(Integer.parseInt(tfCodigoUsuario.getText()),tfUsuario.getText(), tfContraseña.getText());
+                        JEMS.modificarUsuario(Integer.parseInt(tfCodigoUsuario.getText()), tfUsuario.getText(), tfContraseña.getText());
                         ControladorVistas.abrirVentanaAviso("Usuario modificado con exito!");
                         break;
                     case "alta":
@@ -263,8 +256,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                         break;
                 }
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }//GEN-LAST:event_bAceptarActionPerformed
@@ -296,8 +291,10 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
                     tfContraseña.setText(usuario.getContraseña());
                     break;
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_tfCodigoUsuarioActionPerformed
 

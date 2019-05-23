@@ -74,7 +74,7 @@ public class V_Registrar extends javax.swing.JFrame {
     public boolean comprobarDatos() throws Exception {
         boolean flag = true;
         try {
-//forma Joel
+/*//forma Joel
             usuario = JEMS.consultarUsuarioPorNombre(tfUsuarioRegistrase.getText());
             if (tfUsuarioRegistrase.getText().equals(usuario.getUsuario())) {
                 tfUsuarioRegistrase.setForeground(Color.red);
@@ -89,7 +89,7 @@ public class V_Registrar extends javax.swing.JFrame {
                 ControladorVistas.abrirVentanaAviso("Ambas contraseñas han de coincidir!");
             }
         } catch (Exception e) {
-/* forma Eric
+*/// forma Eric
                 if(JEMS.conseguirDatosUsuariosReg(lbUsuarioRegistrase.getText())){                    
                     tfUsuarioRegistrase.setForeground(Color.red);  
                     flag = false;
@@ -102,7 +102,7 @@ public class V_Registrar extends javax.swing.JFrame {
                     flag = false;
                     // mensaje de que la contraseña no es la misma en ambos campos
                 }
-        } catch (Exception e) { */    
+        } catch (Exception e) {     
 
             ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
         }
