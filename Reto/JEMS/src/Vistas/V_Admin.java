@@ -607,7 +607,7 @@ public class V_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     /**
+    /**
      * Salir del programa
      *
      * @param evt
@@ -617,13 +617,15 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
-     * Inserta los equipos 
+     * Inserta los equipos
      *
      * @param evt
      */
     private void bInsertarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarPartidosActionPerformed
         try {
             JEMS.insertarEquipos();
+            mostrarIntroducirJornada();
+            bInsertarPartidos.setVisible(false);
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
@@ -632,8 +634,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bInsertarPartidosActionPerformed
 
     /**
-     * Vuelve a mostrar las opciones del menu de
-     * administracion de BBDD
+     * Vuelve a mostrar las opciones del menu de administracion de BBDD
      *
      * @param evt
      */
@@ -657,9 +658,8 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bJugadorActionPerformed
 
     /**
-     * Consulta todos los objetos en la BBDD dependiendo de en que
-     * menu se este haciendo. Funciona para: Dueño, Jugador, Equipo, 
-     * Usuario
+     * Consulta todos los objetos en la BBDD dependiendo de en que menu se este
+     * haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
      *
      * @param evt
      */
@@ -686,9 +686,8 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bConsultarMuchosActionPerformed
 
     /**
-     * Consulta un objeto por codigo en la BBDD dependiendo de en que
-     * menu se este haciendo. Funciona para: Dueño, Jugador, Equipo, 
-     * Usuario
+     * Consulta un objeto por codigo en la BBDD dependiendo de en que menu se
+     * este haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
      *
      * @param evt
      */
@@ -727,9 +726,8 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bDueñoActionPerformed
 
     /**
-     * Da de baja un objeto en la BBDD dependiendo de en que
-     * menu se este haciendo. Funciona para: Dueño, Jugador, Equipo, 
-     * Usuario
+     * Da de baja un objeto en la BBDD dependiendo de en que menu se este
+     * haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
      *
      * @param evt
      */
@@ -772,9 +770,8 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bEquipoActionPerformed
 
     /**
-     * Modifica un objeto en la BBDD dependiendo de en que
-     * menu se este haciendo. Funciona para: Dueño, Jugador, Equipo, 
-     * Usuario
+     * Modifica un objeto en la BBDD dependiendo de en que menu se este
+     * haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
      *
      * @param evt
      */
@@ -817,9 +814,8 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bUsuarioActionPerformed
 
     /**
-     * Inserta un objeto en la BBDD dependiendo de en que
-     * menu se este haciendo. Funciona para: Dueño, Jugador, Equipo, 
-     * Usuario
+     * Inserta un objeto en la BBDD dependiendo de en que menu se este haciendo.
+     * Funciona para: Dueño, Jugador, Equipo, Usuario
      *
      * @param evt
      */
@@ -861,8 +857,7 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bJornadaActionPerformed
 
     /**
-     * Boton que vuelve a mostrar los botones de administracion
-     * de la liga
+     * Boton que vuelve a mostrar los botones de administracion de la liga
      *
      * @param evt
      */
@@ -881,20 +876,36 @@ public class V_Admin extends javax.swing.JFrame {
      * @param evt
      */
     private void bAdministrarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdministrarLigaActionPerformed
-        ocultarAdministrarMirar();
-        bVolverLiga.setVisible(true);
-        bCrearLiga.setVisible(true);
+        try {
+            ocultarAdministrarMirar();
+            if (JEMS.consultarLiga() == null) {
+                bVolverLiga.setVisible(true);
+                bCrearLiga.setVisible(true);
+            } else {
+                if (JEMS.consultarPartidos().isEmpty()) {
+                    bCrearLiga.setVisible(true);
+                    bVolverLiga.setVisible(true);
+                    bInsertarPartidos.setVisible(true);
+                } else {
+                    mostrarIntroducirJornada();
+                    bCrearLiga.setVisible(true);
+                    bVolverLiga.setVisible(true);
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bAdministrarLigaActionPerformed
 
     /**
-     * Permite introducir resultados en la liga en base a el numero
-     * de jornada que se le es pedido al usuario por medio de 
+     * Permite introducir resultados en la liga en base a el numero de jornada
+     * que se le es pedido al usuario por medio de
      * "tfIntroducirResultadoJornada"
      *
      * @param evt
      */
     private void bIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIntroducirResultadoActionPerformed
-        String valorJornada = tfIntroducirResultadoJornada.getText().toString();
+        String valorJornada = tfIntroducirResultadoJornada.getText();
         switch (valorJornada) {
             case "1":
                 try {
@@ -1031,8 +1042,6 @@ public class V_Admin extends javax.swing.JFrame {
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
         ControladorVistas.mostrarVentanaCreacion();
         bCrearLiga.setVisible(false);
-        mostrarIntroducirJornada();
-        bInsertarPartidos.setVisible(true);
     }//GEN-LAST:event_bCrearLigaActionPerformed
 
     /**
