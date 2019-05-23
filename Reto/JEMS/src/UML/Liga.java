@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ * Creacion de la clase java para la Liga
+ *
  * @author Sergio Zulueta
  * @author Eric Muñoz
  *

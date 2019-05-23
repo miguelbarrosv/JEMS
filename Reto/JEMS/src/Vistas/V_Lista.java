@@ -24,6 +24,9 @@ public class V_Lista extends javax.swing.JFrame {
         taListaJugadores.setEditable(false);
     }
     
+    /**
+     * Formato de la ventana
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);

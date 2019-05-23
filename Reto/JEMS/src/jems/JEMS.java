@@ -382,7 +382,7 @@ public class JEMS {
      * existente.
      *
      * @param codDueño (requerido) codigo del dueño
-     * @throws Exception
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static void bajaDueño(int codDueño) throws Exception, SQLException {

@@ -23,14 +23,22 @@ public class V_Aviso extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Funciones de la ventana.
+     *
+     * @param mensaje el mensaje que mostramos
+     */
     public V_Aviso(String mensaje) {
         setUndecorated(true);
         initComponents();
-        myInitComponents();    
+        myInitComponents();
         String espacio = "<br>";
         lbMensaje.setText(formatearString(formatearString("<html>" + mensaje + "</html>", espacio, 30), espacio, 62));
     }
 
+    /**
+     * Formato de la ventana
+     */
     public void myInitComponents() {
         setSize(400, 220);
         setLocationRelativeTo(this);
@@ -39,11 +47,20 @@ public class V_Aviso extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
-    public String formatearString (String mensaje, String espacio, int index) {
+    /**
+     * Funcion para hacer un salto de linea
+     *
+     * @param mensaje (requerido) Mensaje personalizado
+     * @param espacio (requerido) limite de espacios
+     * @param index (requerido) limite de caracteres
+     *
+     * @return retornamos el mensaje
+     */
+    public String formatearString(String mensaje, String espacio, int index) {
         String temp = new String();
         for (int i = 0; i < mensaje.length(); i++) {
             temp += mensaje.charAt(i);
-            if (i == index) {                 
+            if (i == index) {
                 temp += espacio;
             }
         }
@@ -110,6 +127,11 @@ public class V_Aviso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Cerramos la ventana de aviso personalizada
+     *
+     * @param evt evento al pulsar boton
+     */
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         ControladorVistas.cerrarVentanaAviso();
     }//GEN-LAST:event_bAceptarActionPerformed
