@@ -38,13 +38,30 @@ public class V_Lista extends javax.swing.JFrame {
     /**
      * Crea una ventana con el textArea lleno.
      *
-     * @param lista lista de los jugadores, equipos, dueños o usuarios
+     * @param lista (requerido)lista de los jugadores, equipos, dueños o
+     * usuarios
+     * @param sujeto (requerido) titulo
      */
-    public V_Lista(String lista) {
+    public V_Lista(String lista, String sujeto) {
         setUndecorated(true);
         initComponents();
         myInitComponents();
         taListaJugadores.setEditable(false);
+        switch (sujeto) {
+            case "EQUIPOS":
+                lbSubtitulo.setText(sujeto);
+                break;
+            case "JUGADORES":
+                lbSubtitulo.setText(sujeto);
+                break;
+            case "USUARIOS":
+                lbSubtitulo.setText(sujeto);
+                break;
+            case "DUEÑOS":
+                lbSubtitulo.setText(sujeto);
+                break;
+
+        }
         taListaJugadores.setText(lista);
     }
 
