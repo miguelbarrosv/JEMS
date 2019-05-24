@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Creacion de la clase java para la Jornada
+ * Creacion de la clase java para la Jornada.
  *
  * @author Sergio Zulueta
  * @author Eric Muñoz

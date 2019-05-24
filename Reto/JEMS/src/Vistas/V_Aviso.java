@@ -8,8 +8,10 @@ package Vistas;
 import javax.swing.BorderFactory;
 
 /**
+ * Ventana de avisos.
  *
  * @author Joel Encinas
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -17,14 +19,15 @@ import javax.swing.BorderFactory;
 public class V_Aviso extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Aviso
+     * Constructor de la ventana de avisos.
+     *
      */
     public V_Aviso() {
         initComponents();
     }
 
     /**
-     * Funciones de la ventana.
+     * Construcotr de la ventana avisos.
      *
      * @param mensaje el mensaje que mostramos
      */
@@ -37,7 +40,8 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(400, 220);
@@ -48,7 +52,7 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Funcion para hacer un salto de linea
+     * Funcion para hacer un salto de linea.
      *
      * @param mensaje (requerido) Mensaje personalizado
      * @param espacio (requerido) limite de espacios
@@ -76,19 +80,27 @@ public class V_Aviso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbBackgroundAdmin = new javax.swing.JLabel();
         bAceptar = new javax.swing.JButton();
         lbAviso = new javax.swing.JLabel();
         lbMensaje = new javax.swing.JLabel();
         lbBorde = new javax.swing.JLabel();
-        lbFiller = new javax.swing.JLabel();
         lbBackgroundAviso = new javax.swing.JLabel();
+        lbBackgroundAviso1 = new javax.swing.JLabel();
+        lbBackgroundAviso2 = new javax.swing.JLabel();
+        lbBackgroundAviso3 = new javax.swing.JLabel();
+        lbFiller = new javax.swing.JLabel();
+
+        lbBackgroundAdmin.setBackground(new java.awt.Color(51, 153, 255));
+        lbBackgroundAdmin.setForeground(new java.awt.Color(13, 9, 32));
+        lbBackgroundAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        bAceptar.setBackground(new java.awt.Color(86, 88, 149));
+        bAceptar.setBackground(new java.awt.Color(255, 204, 0));
         bAceptar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        bAceptar.setForeground(new java.awt.Color(0, 0, 0));
         bAceptar.setText("ACEPTAR");
         bAceptar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bAceptar.setBorderPainted(false);
@@ -104,31 +116,51 @@ public class V_Aviso extends javax.swing.JFrame {
 
         lbAviso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/warning.png"))); // NOI18N
         getContentPane().add(lbAviso);
-        lbAviso.setBounds(180, 20, 50, 40);
+        lbAviso.setBounds(180, 10, 50, 40);
 
         lbMensaje.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        lbMensaje.setForeground(new java.awt.Color(255, 255, 255));
+        lbMensaje.setForeground(new java.awt.Color(255, 204, 0));
         getContentPane().add(lbMensaje);
-        lbMensaje.setBounds(80, 80, 240, 60);
+        lbMensaje.setBounds(100, 80, 220, 60);
 
         lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
         lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
         getContentPane().add(lbBorde);
-        lbBorde.setBounds(70, 70, 260, 80);
+        lbBorde.setBounds(60, 60, 280, 100);
+
+        lbBackgroundAviso.setBackground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso.setForeground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_aviso.png"))); // NOI18N
+        getContentPane().add(lbBackgroundAviso);
+        lbBackgroundAviso.setBounds(0, 215, 400, 5);
+
+        lbBackgroundAviso1.setBackground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso1.setForeground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_aviso.png"))); // NOI18N
+        getContentPane().add(lbBackgroundAviso1);
+        lbBackgroundAviso1.setBounds(0, 0, 400, 5);
+
+        lbBackgroundAviso2.setBackground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso2.setForeground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_aviso.png"))); // NOI18N
+        getContentPane().add(lbBackgroundAviso2);
+        lbBackgroundAviso2.setBounds(395, 0, 5, 220);
+
+        lbBackgroundAviso3.setBackground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso3.setForeground(new java.awt.Color(255, 204, 0));
+        lbBackgroundAviso3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_aviso.png"))); // NOI18N
+        getContentPane().add(lbBackgroundAviso3);
+        lbBackgroundAviso3.setBounds(0, 0, 5, 220);
 
         lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ventana_aviso_morado.jpg"))); // NOI18N
         getContentPane().add(lbFiller);
         lbFiller.setBounds(0, 0, 400, 220);
 
-        lbBackgroundAviso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/background_main_color.png"))); // NOI18N
-        getContentPane().add(lbBackgroundAviso);
-        lbBackgroundAviso.setBounds(0, 0, 400, 220);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Cerramos la ventana de aviso personalizada
+     * Cerramos la ventana de aviso personalizada.
      *
      * @param evt evento al pulsar boton
      */
@@ -174,7 +206,11 @@ public class V_Aviso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAceptar;
     private javax.swing.JLabel lbAviso;
+    private javax.swing.JLabel lbBackgroundAdmin;
     private javax.swing.JLabel lbBackgroundAviso;
+    private javax.swing.JLabel lbBackgroundAviso1;
+    private javax.swing.JLabel lbBackgroundAviso2;
+    private javax.swing.JLabel lbBackgroundAviso3;
     private javax.swing.JLabel lbBorde;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbMensaje;

@@ -6,6 +6,7 @@
 package Vistas;
 
 /**
+ * Ventana de la lista de los equipos, jugadores, dueños o usuarios.
  *
  * @author Eric Muñoz
  *
@@ -15,7 +16,8 @@ package Vistas;
 public class V_Lista extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_ListaJugadores
+     * Constructor de lista.
+     *
      */
     public V_Lista() {
         setUndecorated(true);
@@ -23,9 +25,10 @@ public class V_Lista extends javax.swing.JFrame {
         myInitComponents();
         taListaJugadores.setEditable(false);
     }
-    
+
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -145,11 +148,19 @@ public class V_Lista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * volver a la ventana administrador.
+     *
+     * @param evt accion de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        ControladorVistas.cerrarVentanaLista(); 
+        ControladorVistas.cerrarVentanaLista();
     }//GEN-LAST:event_bVolverActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

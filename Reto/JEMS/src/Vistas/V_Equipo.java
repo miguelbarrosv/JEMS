@@ -8,6 +8,7 @@ package Vistas;
 import Excepciones.*;
 import UML.Dueño;
 import UML.Equipo;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,6 +16,7 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
+ * Ventana modificacion equipos.
  *
  * @author Miguel Barros
  * @author Eric Muñoz
@@ -33,14 +35,16 @@ public class V_Equipo extends javax.swing.JFrame {
     private static ArrayList<Dueño> dueños;
 
     /**
-     * Creates new form V_Equipo
+     * Constructor de ventan equipo.
+     *
      */
     public V_Equipo() {
         initComponents();
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -67,8 +71,9 @@ public class V_Equipo extends javax.swing.JFrame {
      *
      * @param operacion (requerido) tipo de operacion
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public V_Equipo(String operacion) throws Exception {
+    public V_Equipo(String operacion) throws Exception, SQLException {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -115,7 +120,7 @@ public class V_Equipo extends javax.swing.JFrame {
     }
 
     /**
-     * Funcion para validar los datos del jugador
+     * Funcion para validar los datos del jugador.
      *
      * @return True Si las validaciones son correctas
      * @return False Si las validaciones dan error
@@ -413,16 +418,23 @@ public class V_Equipo extends javax.swing.JFrame {
                 } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
                     ControladorVistas.abrirVentanaAviso("Equipo dado de alta con exito!");
-                } else if (ope.compareToIgnoreCase("baja") == 0) {
-                    JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
-                    ControladorVistas.abrirVentanaAviso("Equipo dado de baja con exito!");
                 }
             }
+            if (ope.compareToIgnoreCase("baja") == 0) {
+                JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
+                ControladorVistas.abrirVentanaAviso("Equipo dado de baja con exito!");
+            }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
-
+    /**
+     * volver a la ventana administrador.
+     *
+     * @param evt accion de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaEquipo();
     }//GEN-LAST:event_bVolverActionPerformed
@@ -475,8 +487,10 @@ public class V_Equipo extends javax.swing.JFrame {
                     cbDueño.setSelectedItem(equipo.getDueño().getNombre());
                     break;
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }//GEN-LAST:event_tfCodigoEquipoActionPerformed
@@ -484,7 +498,11 @@ public class V_Equipo extends javax.swing.JFrame {
     private void cbDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDueñoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDueñoActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

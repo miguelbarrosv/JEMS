@@ -110,6 +110,14 @@ public class LigaBD {
         return l;
     }
 
+    /**
+     * Funcion para cambiar el estado de la liga.
+     *
+     * @param codigoLiga (requerido) codigo de la liga
+     * @return devuelve un mensaje
+     * @throws Exception hereda excepciones
+     * @throws SQLException hereda excepciones SQL
+     */
     public String cambiarEstado(int codigoLiga) throws Exception, SQLException {
         bdr.conectar();
         String plantilla = "UPDATE LIGA SET ESTADO=? WHERE COD_LIGA=?";
@@ -118,7 +126,7 @@ public class LigaBD {
         sentenciaPre.setInt(2, codigoLiga);
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
-        String mensaje="liga abierta";
+        String mensaje = "liga abierta";
         return mensaje;
     }
 }

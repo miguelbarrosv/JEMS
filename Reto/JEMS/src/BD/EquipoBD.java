@@ -49,7 +49,7 @@ public class EquipoBD {
     /**
      * Funcion para insertar un Equipo en la base de datos.
      *
-     * @param e (requerido) objeto de clase Equipo.
+     * @param e (requerido) objeto de clase Equipo
      * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
@@ -70,12 +70,14 @@ public class EquipoBD {
     /**
      * Función que borra un Equipo de la base de datos.
      *
-     * @param cod_equipo (requerido) codigo del Equipo.
-     * @throws Exception hereda excepciones.
+     * @param cod_equipo (requerido) codigo del Equipo
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void borrarEquipo(int cod_equipo) throws Exception, SQLException {
         bdr.conectar();
+        JugadorBD jBD = new JugadorBD();
+        jBD.borrarJugadorEquipo(cod_equipo);
         String plantilla = "DELETE FROM EQUIPO WHERE COD_EQUIPO= ?";
         PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
         sentenciaPre.setInt(1, cod_equipo);
@@ -84,9 +86,30 @@ public class EquipoBD {
     }
 
     /**
+     * Función que borra un Equipo de la base de datos.
+     *
+     * @param codDueño (requerido) codigo del Dueño
+     * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda excepciones SQL
+     */
+    public void borrarEquipoDueño(int codDueño) throws Exception, SQLException {
+        bdr.conectar();
+        ArrayList<Equipo> listaEquipos = consultaEquiposCodDueño(codDueño);
+        JugadorBD jBD = new JugadorBD();
+        for (int x = 0; x < listaEquipos.size(); x++) {
+            jBD.borrarJugadorEquipo(listaEquipos.get(x).getCod_equipo());
+        }
+        String plantilla = "DELETE FROM EQUIPO WHERE DUEÑO_COD_DUEÑO= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, codDueño);
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+    }
+
+    /**
      * Función para modificar un Equipo.
      *
-     * @param e (requerido) objeto de clase Equipo.
+     * @param e (requerido) objeto de clase Equipo
      * @throws Exception heredar excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
@@ -131,8 +154,8 @@ public class EquipoBD {
     /**
      * Función que rellena un objeto Equipo desde los datos de la base de datos.
      *
-     * @return devuelve un objeto de clase Equipo.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un objeto de clase Equipo
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Equipo crearObjeto() throws Exception, SQLException {
@@ -152,8 +175,8 @@ public class EquipoBD {
      * Función que rellena un objeto Equipo desde los datos de la base de datos
      * y añade jugadores y partidos.
      *
-     * @return devuelve un objeto de clase Equipo.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un objeto de clase Equipo
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Equipo crearObjetoConListas() throws Exception, SQLException {
@@ -176,8 +199,8 @@ public class EquipoBD {
     /**
      * Función que crea un ArrayList con todos los Equipos de la base de datos.
      *
-     * @return devuelve un ArrayList de Equipo.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Equipo
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public ArrayList<Equipo> consultaEquipos() throws Exception, SQLException {
@@ -197,8 +220,8 @@ public class EquipoBD {
      * base de datos.
      *
      * @param cod_dueño (reqUerido) codigo del Dueño
-     * @return devuelve un ArrayList de Equipo.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Equipo
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public ArrayList<Equipo> consultaEquiposCodDueño(int cod_dueño) throws Exception, SQLException {
@@ -237,7 +260,7 @@ public class EquipoBD {
             stringlistaEquipos += "Puntuacion: " + rs.getInt("PUNTUACION");
             stringlistaEquipos += "Codigo dueño: " + rs.getInt("CODIGO_DUEÑO");
             stringlistaEquipos += "Nombre dueño: " + rs.getString("NOMBRE_DUEÑO");
-            stringlistaEquipos += "Numero jugadores " + rs.getInt("NUM_JUGADORES") + "\n";
+            stringlistaEquipos += "Numero jugadores " + rs.getInt("NUM_JUGADORES") + "\n\n";
         }
         rs.close();
         cStmt.close();
@@ -249,8 +272,8 @@ public class EquipoBD {
      * Función que crea un ArrayList con todos los Equipos de la base de datos
      * ordenador por puntuacion.
      *
-     * @return devuelve un ArrayList de Equipo.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Equipo
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public ArrayList<Equipo> consultarEquipoOrderPuntuacion() throws Exception, SQLException {

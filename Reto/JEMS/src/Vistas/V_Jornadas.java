@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,9 +14,11 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
+ * Ventana para ver las jornadas.
  *
  * @author Miguel Barros
  * @author Sergio Zulueta
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -23,13 +26,18 @@ import jems.JEMS;
 public class V_Jornadas extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Jornadas Funcion que al iniciar la ventana muestra en
-     * la pantalla los datos de una jornada para que el usuario pueda
-     * visualizarlo
+     * Creacion del atributo jornadas.
+     */
+    private static ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
+
+    /**
+     * Constructor V_Jornadas Funcion que al iniciar la ventana muestra en la
+     * pantalla los datos de una jornada para que el usuario pueda visualizarlo.
      *
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public V_Jornadas() throws Exception {
+    public V_Jornadas() throws Exception, SQLException {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -37,7 +45,8 @@ public class V_Jornadas extends javax.swing.JFrame {
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -61,11 +70,6 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante3.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
-
-    /**
-     * Creacion de variable.
-     */
-    private static ArrayList<Jornada> jornadas = new ArrayList<Jornada>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -226,11 +230,19 @@ public class V_Jornadas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * volver a la ventana administrador.
+     *
+     * @param evt accion de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaJornadas();
     }//GEN-LAST:event_bVolverActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

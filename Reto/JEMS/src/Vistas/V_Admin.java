@@ -6,31 +6,35 @@
 package Vistas;
 
 import UML.Jornada;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
- * Vista que ven los administradores
+ * Vista que ven los administradores.
  *
  * @author Miguel Barros
  * @author Eric Muñoz
- * @author Sergio Zulueta
+ * @author SergioZulueta
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
  */
 public class V_Admin extends javax.swing.JFrame {
 
+    /**
+     * Creacion de los atributos numJornada, jornadas y operacion.
+     */
     private int numJornada;
     private ArrayList<Jornada> jornadas;
+    private static String operacion;
 
     /**
-     * Creates new form V_Inicio
+     * Constructor ventana admin.
+     *
      */
     public V_Admin() {
         setUndecorated(true);
@@ -39,24 +43,64 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Formatea la ventana
+     * Formatea la ventana.
+     *
      */
     public void myInitComponents() {
-        setSize(1280, 720);
-        setLocationRelativeTo(null);
-        tfIntroducirResultadoJornada.setBorder(BorderFactory.createCompoundBorder(
-                tfIntroducirResultadoJornada.getBorder(),
-                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        ocultarOpcionesAltaBajaModificarConsultar();
-        ocultarCrearEliminar();
-        ocultarJornadaClasificacion();
-        ocultarIntroducirJornada();
-        bInsertarPartidos.setVisible(false);
-        bVolverLiga.setVisible(false);
+        try {
+            setSize(1280, 720);
+            setLocationRelativeTo(null);
+            tfIntroducirResultadoJornada.setBorder(BorderFactory.createCompoundBorder(
+                    tfIntroducirResultadoJornada.getBorder(),
+                    BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+            ocultarOpcionesAltaBajaModificarConsultar();
+            ocultarCrearEliminar();
+            ocultarJornadaClasificacion();
+            ocultarIntroducirJornada();
+            bInsertarPartidos.setVisible(false);
+            bVolverLiga.setVisible(false);
+            if (JEMS.consultarLiga() == null) {
+                setLigaOffline();
+            } else {
+                if (JEMS.consultarLiga().getEstado() == true) {
+                    setLigaOnline();
+                } else {
+                    setLigaOffline();
+                }
+            }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
+        }
     }
 
     /**
-     * Muestra componentes en la ventana
+     * Cuando esta Offline.
+     *
+     */
+    public void setLigaOffline() {
+        lbEstadoliga.setText("Offline");
+        lbEstadoliga.setForeground(Color.RED);
+        bEquipo.setVisible(true);
+        bJugador.setVisible(true);
+        bDueño.setVisible(true);
+    }
+
+    /**
+     * Cuando estaOnline.
+     *
+     */
+    public void setLigaOnline() {
+        lbEstadoliga.setText("Online");
+        lbEstadoliga.setForeground(Color.GREEN);
+        bEquipo.setVisible(false);
+        bJugador.setVisible(false);
+        bDueño.setVisible(false);
+    }
+
+    /**
+     * Muestra componentes alta, baja, modificar y consultas en la ventana.
      *
      */
     public void mostrarOpcionesAltaBajaModificarConsultar() {
@@ -69,7 +113,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Oculta componentes en la ventana
+     * Oculta componentes alta, baja, modificar y consultas en la ventana.
      *
      */
     public void ocultarOpcionesAltaBajaModificarConsultar() {
@@ -82,7 +126,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Muestra componentes en la ventana
+     * Mostrar componentes jugador, equipo, dueño y usuario en la ventana.
      *
      */
     public void mostrarOpcionesUsuarioDueñoJugadorEquipo() {
@@ -93,7 +137,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Ocultar componentes en la ventana
+     * Ocultar componentes jugador, equipo, dueño y usuario en la ventana.
      *
      */
     public void ocultarOpcionesUsuarioDueñoJugadorEquipo() {
@@ -104,7 +148,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Muestra componentes en la ventana
+     * Muestra componentes en la ventana crear liga.
      *
      */
     public void mostrarCrearEliminar() {
@@ -112,7 +156,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Ocultar componentes en la ventana
+     * Ocultar componentes en la ventana crear liga.
      *
      */
     public void ocultarCrearEliminar() {
@@ -120,7 +164,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Muestra componentes en la ventana
+     * Muestra componentes en la ventana admin.
      *
      */
     public void mostrarAdministrarMirar() {
@@ -129,10 +173,11 @@ public class V_Admin extends javax.swing.JFrame {
         tfIntroducirResultadoJornada.setVisible(false);
         bIntroducirResultado.setVisible(false);
         bMirarLiga.setVisible(true);
+        bVolverLiga.setVisible(false);
     }
 
     /**
-     * Ocultar componentes en la ventana
+     * Ocultar componentes en la ventana admin.
      *
      */
     public void ocultarAdministrarMirar() {
@@ -141,26 +186,33 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Muestra componentes en la ventana
+     * Muestra componentes en la clasificacion.
      *
      */
     public void mostrarJornadaClasificacion() {
         try {
-            if (JEMS.cogerNombreLiga() == null) {
+            if (JEMS.consultarLiga() == null) {
                 bJornada.setVisible(false);
                 bClasificacion.setVisible(false);
             } else {
-                bJornada.setVisible(true);
-                bClasificacion.setVisible(true);
+                if (JEMS.consultarLiga().getEstado() == true) {
+                    bJornada.setVisible(true);
+                    bClasificacion.setVisible(true);
+                } else {
+                    bJornada.setVisible(false);
+                    bClasificacion.setVisible(false);
+                }
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }
 
     /**
-     * Ocultar componentes en la ventana
+     * Ocultar componentes en la clasificacion.
      *
      */
     public void ocultarJornadaClasificacion() {
@@ -169,7 +221,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Muestra componentes en la ventana
+     * Muestra componentes en la jornada.
      *
      */
     public void mostrarIntroducirJornada() {
@@ -179,7 +231,7 @@ public class V_Admin extends javax.swing.JFrame {
     }
 
     /**
-     * Ocultar componentes en la ventana
+     * Ocultar componentes en la jornada.
      *
      */
     public void ocultarIntroducirJornada() {
@@ -187,8 +239,6 @@ public class V_Admin extends javax.swing.JFrame {
         tfIntroducirResultadoJornada.setVisible(false);
         lbIntroducirResultadoJornada.setVisible(false);
     }
-
-    private static String operacion;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -225,6 +275,9 @@ public class V_Admin extends javax.swing.JFrame {
         bClasificacion = new javax.swing.JButton();
         bMirarLiga = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
+        bCerrarSesion = new javax.swing.JButton();
+        lbEstadoLigaTitulo = new javax.swing.JLabel();
+        lbEstadoliga = new javax.swing.JLabel();
         lbBorde = new javax.swing.JLabel();
         lbTituloAdmin2 = new javax.swing.JLabel();
         lbTituloAdmin = new javax.swing.JLabel();
@@ -298,7 +351,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bJugador.setBackground(new java.awt.Color(86, 88, 149));
         bJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bJugador.setForeground(new java.awt.Color(0, 0, 0));
         bJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/jugador.png"))); // NOI18N
         bJugador.setText("JUGADOR");
         bJugador.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -316,7 +368,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bConsultarMuchos.setBackground(new java.awt.Color(86, 88, 149));
         bConsultarMuchos.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bConsultarMuchos.setForeground(new java.awt.Color(0, 0, 0));
         bConsultarMuchos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_todos.png"))); // NOI18N
         bConsultarMuchos.setText("CONSULTAR TODOS");
         bConsultarMuchos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -334,7 +385,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bConsultarUno.setBackground(new java.awt.Color(86, 88, 149));
         bConsultarUno.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bConsultarUno.setForeground(new java.awt.Color(0, 0, 0));
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setText("CONSULTAR UNO");
         bConsultarUno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -352,7 +402,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bDueño.setBackground(new java.awt.Color(86, 88, 149));
         bDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bDueño.setForeground(new java.awt.Color(0, 0, 0));
         bDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dueño.png"))); // NOI18N
         bDueño.setText("DUEÑO");
         bDueño.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -370,7 +419,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bBaja.setBackground(new java.awt.Color(86, 88, 149));
         bBaja.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bBaja.setForeground(new java.awt.Color(0, 0, 0));
         bBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/eliminar.png"))); // NOI18N
         bBaja.setText("BORRAR");
         bBaja.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -388,7 +436,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bEquipo.setBackground(new java.awt.Color(86, 88, 149));
         bEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bEquipo.setForeground(new java.awt.Color(0, 0, 0));
         bEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/equipo.png"))); // NOI18N
         bEquipo.setText("EQUIPO");
         bEquipo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -406,7 +453,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bModificar.setBackground(new java.awt.Color(86, 88, 149));
         bModificar.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bModificar.setForeground(new java.awt.Color(0, 0, 0));
         bModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/editar.png"))); // NOI18N
         bModificar.setText("EDITAR");
         bModificar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -424,7 +470,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bUsuario.setBackground(new java.awt.Color(86, 88, 149));
         bUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bUsuario.setForeground(new java.awt.Color(0, 0, 0));
         bUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/usuario.png"))); // NOI18N
         bUsuario.setText("USUARIO");
         bUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -442,7 +487,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bAlta.setBackground(new java.awt.Color(86, 88, 149));
         bAlta.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bAlta.setForeground(new java.awt.Color(0, 0, 0));
         bAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/añadir.png"))); // NOI18N
         bAlta.setText("AÑADIR");
         bAlta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -522,16 +566,15 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bIntroducirResultado);
-        bIntroducirResultado.setBounds(750, 400, 250, 30);
+        bIntroducirResultado.setBounds(800, 400, 150, 30);
 
         lbIntroducirResultadoJornada.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbIntroducirResultadoJornada.setForeground(new java.awt.Color(255, 255, 255));
-        lbIntroducirResultadoJornada.setText("<html>Introducir Resultado en<br> la Jornada: [0-10]</html>");
+        lbIntroducirResultadoJornada.setText("<html>Introducir Resultado en<br> la Jornada: [1-10]</html>");
         getContentPane().add(lbIntroducirResultadoJornada);
         lbIntroducirResultadoJornada.setBounds(760, 350, 190, 40);
 
         tfIntroducirResultadoJornada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfIntroducirResultadoJornada.setForeground(new java.awt.Color(0, 0, 0));
         tfIntroducirResultadoJornada.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfIntroducirResultadoJornada.setBorder(null);
         getContentPane().add(tfIntroducirResultadoJornada);
@@ -587,6 +630,39 @@ public class V_Admin extends javax.swing.JFrame {
         getContentPane().add(bCrearLiga);
         bCrearLiga.setBounds(740, 200, 270, 60);
 
+        bCerrarSesion.setBackground(new java.awt.Color(252, 124, 0));
+        bCerrarSesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
+        bCerrarSesion.setText("CERRAR SESION");
+        bCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bCerrarSesion.setBorderPainted(false);
+        bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCerrarSesion.setFocusPainted(false);
+        bCerrarSesion.setIconTextGap(20);
+        bCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bCerrarSesion);
+        bCerrarSesion.setBounds(970, 13, 220, 35);
+
+        lbEstadoLigaTitulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        lbEstadoLigaTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbEstadoLigaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEstadoLigaTitulo.setText("Estado de la liga");
+        lbEstadoLigaTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbEstadoLigaTitulo);
+        lbEstadoLigaTitulo.setBounds(560, 560, 130, 30);
+
+        lbEstadoliga.setFont(new java.awt.Font("Bahnschrift", 3, 14)); // NOI18N
+        lbEstadoliga.setForeground(new java.awt.Color(51, 255, 51));
+        lbEstadoliga.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEstadoliga.setText("Online");
+        lbEstadoliga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbEstadoliga);
+        lbEstadoliga.setBounds(680, 560, 70, 30);
+
         lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
         lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
         getContentPane().add(lbBorde);
@@ -621,24 +697,29 @@ public class V_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Salir del programa
+     * Salir del programa.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
-     * Inserta los equipos
+     * Inserta los equipos.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bInsertarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarPartidosActionPerformed
         try {
-            JEMS.insertarEquipos();
-            mostrarIntroducirJornada();
-            bInsertarPartidos.setVisible(false);
+            if (JEMS.consultarEquipos().size() == 6) {
+                JEMS.insertarEquipos();
+                mostrarIntroducirJornada();
+                bInsertarPartidos.setVisible(false);
+                setLigaOnline();
+            } else {
+                ControladorVistas.abrirVentanaAviso("Tienen que ser 6 equipos");
+            }
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
@@ -647,9 +728,9 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bInsertarPartidosActionPerformed
 
     /**
-     * Vuelve a mostrar las opciones del menu de administracion de BBDD
+     * Vuelve a mostrar las opciones del menu de administracion de BBDD.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bVolverBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverBaseActionPerformed
         mostrarOpcionesUsuarioDueñoJugadorEquipo();
@@ -659,9 +740,9 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverBaseActionPerformed
 
     /**
-     * Muestra las opciones de BBDD de jugador
+     * Muestra las opciones de BBDD de jugador.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJugadorActionPerformed
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
@@ -672,9 +753,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     /**
      * Consulta todos los objetos en la BBDD dependiendo de en que menu se este
-     * haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
+     * haciendo, funciona para: Dueño, Jugador, Equipo, Usuario.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bConsultarMuchosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarMuchosActionPerformed
         try {
@@ -700,9 +781,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     /**
      * Consulta un objeto por codigo en la BBDD dependiendo de en que menu se
-     * este haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
+     * este haciendo, funciona para: Dueño, Jugador, Equipo, Usuario.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bConsultarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarUnoActionPerformed
         try {
@@ -727,9 +808,9 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bConsultarUnoActionPerformed
 
     /**
-     * Muestra las opciones de BBDD de jugador
+     * Muestra las opciones de BBDD de jugador.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDueñoActionPerformed
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
@@ -740,9 +821,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     /**
      * Da de baja un objeto en la BBDD dependiendo de en que menu se este
-     * haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
+     * haciendo, funciona para: Dueño, Jugador, Equipo, Usuario.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBajaActionPerformed
         try {
@@ -771,9 +852,9 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bBajaActionPerformed
 
     /**
-     * Muestra las opciones de BBDD de jugador
+     * Muestra las opciones de BBDD de jugador.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquipoActionPerformed
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
@@ -784,9 +865,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     /**
      * Modifica un objeto en la BBDD dependiendo de en que menu se este
-     * haciendo. Funciona para: Dueño, Jugador, Equipo, Usuario
+     * haciendo, funciona para: Dueño, Jugador, Equipo, Usuario.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarActionPerformed
         try {
@@ -815,9 +896,9 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bModificarActionPerformed
 
     /**
-     * Muestra las opciones de BBDD de jugador
+     * Muestra las opciones de BBDD de jugador.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUsuarioActionPerformed
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
@@ -828,9 +909,9 @@ public class V_Admin extends javax.swing.JFrame {
 
     /**
      * Inserta un objeto en la BBDD dependiendo de en que menu se este haciendo.
-     * Funciona para: Dueño, Jugador, Equipo, Usuario
+     * Funciona para: Dueño, Jugador, Equipo, Usuario.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAltaActionPerformed
         try {
@@ -841,10 +922,8 @@ public class V_Admin extends javax.swing.JFrame {
                 operacion = "alta";
                 ControladorVistas.mostrarVentanaJugador(operacion);
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("EQUIPO")) {
-
                 operacion = "alta";
                 ControladorVistas.mostrarVentanaEquipo(operacion);
-
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("DUEÑO")) {
                 operacion = "alta";
                 ControladorVistas.mostrarVentanaDueño(operacion);
@@ -857,22 +936,24 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bAltaActionPerformed
 
     /**
-     * Muestra la ventana de las jornadas
+     * Muestra la ventana de las jornadas.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         try {
             ControladorVistas.mostrarVentanaJornadas();
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bJornadaActionPerformed
 
     /**
-     * Boton que vuelve a mostrar los botones de administracion de la liga
+     * Boton que vuelve a mostrar los botones de administracion de la liga.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bVolverLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverLigaActionPerformed
         mostrarAdministrarMirar();
@@ -884,9 +965,9 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverLigaActionPerformed
 
     /**
-     * Muestra las opciones de administracion de la liga
+     * Muestra las opciones de administracion de la liga.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bAdministrarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAdministrarLigaActionPerformed
         try {
@@ -905,141 +986,111 @@ public class V_Admin extends javax.swing.JFrame {
                     bVolverLiga.setVisible(true);
                 }
             }
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bAdministrarLigaActionPerformed
 
     /**
      * Permite introducir resultados en la liga en base a el numero de jornada
      * que se le es pedido al usuario por medio de
-     * "tfIntroducirResultadoJornada"
+     * "tfIntroducirResultadoJornada".
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIntroducirResultadoActionPerformed
         String valorJornada = tfIntroducirResultadoJornada.getText();
-        switch (valorJornada) {
-            case "1":
-                try {
+        try {
+            switch (valorJornada) {
+                case "1":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 1;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "2":
-                try {
+                    break;
+                case "2":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 2;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "3":
-                try {
+                    break;
+                case "3":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 3;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "4":
-                try {
+                    break;
+                case "4":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 4;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "5":
-                try {
+                    break;
+                case "5":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 5;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "6":
-                try {
+                    break;
+                case "6":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 6;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "7":
-                try {
+                    break;
+                case "7":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 7;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "8":
-                try {
+                    break;
+                case "8":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 8;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "9":
-                try {
+                    break;
+                case "9":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 9;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "10":
-                try {
+                    break;
+                case "10":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 10;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
+                    break;
+            }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bIntroducirResultadoActionPerformed
 
     /**
-     * Muestra la ventana en la que se muestra la clasificacion
+     * Muestra la ventana en la que se muestra la clasificacion.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClasificacionActionPerformed
         try {
             ControladorVistas.mostrarVentanaLiga();
-        } catch (Exception ex) {
-            ControladorVistas.abrirVentanaAviso("Error: " + ex.getClass());
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bClasificacionActionPerformed
 
     /**
-     * Muestra las opciones de administracion de la liga
+     * Muestra las opciones de administracion de la liga.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bMirarLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMirarLigaActionPerformed
         ocultarAdministrarMirar();
@@ -1048,14 +1099,25 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bMirarLigaActionPerformed
 
     /**
-     * Genera la liga en la BBDD
+     * Genera la liga en la BBDD.
      *
-     * @param evt
+     * @param evt evento accionar
      */
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
         ControladorVistas.mostrarVentanaCreacion();
         bCrearLiga.setVisible(false);
+        bInsertarPartidos.setVisible(false);
     }//GEN-LAST:event_bCrearLigaActionPerformed
+
+    /**
+     * Sale de la sesion actual y vuelve al login.
+     *
+     * @param evt evento accionar
+     */
+    private void bCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionActionPerformed
+        ControladorVistas.cerrarVentanaAdmin();
+        ControladorVistas.mostrarVentanaLogin();
+    }//GEN-LAST:event_bCerrarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1097,6 +1159,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JButton bAdministrarLiga;
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
+    private javax.swing.JButton bCerrarSesion;
     private javax.swing.JButton bClasificacion;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
@@ -1119,6 +1182,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JLabel lbBackgroundAdmin;
     private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbEstadoLigaTitulo;
+    private javax.swing.JLabel lbEstadoliga;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbIntroducirResultadoJornada;
     private javax.swing.JLabel lbRiot;

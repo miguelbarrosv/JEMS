@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,8 +14,10 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
+ * Ventana mostrar clasificacion de la liga.
  *
  * @author Miguel Barros
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -22,12 +25,20 @@ import jems.JEMS;
 public class V_Liga extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Liga y mostrar en pantalla los datos recogidos desde
-     * la base de datos
+     * Creacion de los atributos equipos y liga.
+     *
+     */
+    private static ArrayList<Equipo> equipos;
+    private static Liga liga;
+
+    /**
+     * Constructor V_Liga y mostrar en pantalla los datos recogidos desde la
+     * base de datos.
      *
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public V_Liga() throws Exception {
+    public V_Liga() throws Exception, SQLException {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -54,6 +65,7 @@ public class V_Liga extends javax.swing.JFrame {
 
     /**
      * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -98,12 +110,6 @@ public class V_Liga extends javax.swing.JFrame {
                 tfPuntuacion6.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
-
-    /**
-     * Creacion de variables
-     */
-    private static ArrayList<Equipo> equipos;
-    private static Liga liga;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -345,8 +351,8 @@ public class V_Liga extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Volver a la ventana anterior
-     * 
+     * Volver a la ventana anterior.
+     *
      * @param evt evento al pulsar volver
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
@@ -354,8 +360,8 @@ public class V_Liga extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**
-     * Salir de la pantalla
-     * 
+     * Salir de la pantalla.
+     *
      * @param evt evento al pulsar salir
      */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed

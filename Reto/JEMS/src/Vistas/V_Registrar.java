@@ -5,15 +5,14 @@
  */
 package Vistas;
 
-import UML.Usuario;
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.SQLException;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
+ * Ventana para registrarse.
  *
  * @author Joel Encinas
  * @author Eric Muñoz
@@ -25,7 +24,8 @@ import jems.JEMS;
 public class V_Registrar extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Registrar
+     * Creacion de registrar.
+     *
      */
     public V_Registrar() {
         setUndecorated(true);
@@ -33,6 +33,10 @@ public class V_Registrar extends javax.swing.JFrame {
         myInitComponents();
     }
 
+    /**
+     * Formato de la ventana.
+     *
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -47,47 +51,68 @@ public class V_Registrar extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * validacion de los datos.
+     *
+     * @return si los datos don correctos o no
+     */
     public boolean validarDatos() {
-        return validarNombre(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword()))
+        return validarUsuario(tfUsuarioRegistrase.getText()) && validarContraseña(convertirContraseña(pfContraseñaRegistrase.getPassword()))
                 && validarContraseñaRepetida(convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) && cbTerminos.isSelected();
     }
 
-    public boolean validarNombre(String nombre) {
+    /**
+     * Validar el usuario es correcto.
+     *
+     * @param usuario (requerido) usuario
+     * @return si es correcto o no
+     */
+    public boolean validarUsuario(String usuario) {
         return true;
     }
 
+    /**
+     * Validar si la contraseña es correcta.
+     *
+     * @param contraseña (requerido) contraseña
+     * @return si es correcto o no
+     */
     public boolean validarContraseña(String contraseña) {
         return true;
     }
 
+    /**
+     * Validar si la Contraseña repetida es la correcta.
+     *
+     * @param contraseña (requerido) contraseña
+     * @return si es correcto o no
+     */
     public boolean validarContraseñaRepetida(String contraseña) {
         return true;
     }
 
+    /**
+     * Convertir los caracteres de la contraseña en una palabra.
+     *
+     * @param contraseña (requerido) contraseña
+     * @return si es correcto o no
+     */
     public String convertirContraseña(char[] contraseña) {
         String contraseñaConvertida = new String(contraseña);
         return contraseñaConvertida;
     }
 
-    public boolean comprobarDatos() throws Exception {
+    /**
+     * Comprovar si el usuario y la contraseña ya estan eleguidos y si las
+     * contraseñas son iguales.
+     *
+     * @return si esta todo correcto o no
+     * @throws Exception hereda Excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
+     */
+    public boolean comprobarDatos() throws Exception, SQLException {
         boolean flag = true;
         try {
-            /*//forma Joel
-            usuario = JEMS.consultarUsuarioPorNombre(tfUsuarioRegistrase.getText());
-            if (tfUsuarioRegistrase.getText().equals(usuario.getUsuario())) {
-                tfUsuarioRegistrase.setForeground(Color.red);
-                flag = false;
-                ControladorVistas.abrirVentanaAviso("Este usuario ya esta en uso!");
-            }
-
-            if (convertirContraseña(pfContraseñaRegistrase.getPassword()) != convertirContraseña(pfContraseñaRepetidaRegistrase.getPassword())) {
-                pfContraseñaRegistrase.setForeground(Color.red);
-                pfContraseñaRepetidaRegistrase.setForeground(Color.red);
-                flag = false;
-                ControladorVistas.abrirVentanaAviso("Ambas contraseñas han de coincidir!");
-            }
-        } catch (Exception e) {
-             */// forma Eric
             if (JEMS.conseguirDatosUsuariosReg(lbUsuarioRegistrase.getText())) {
                 tfUsuarioRegistrase.setForeground(Color.red);
                 flag = false;
@@ -100,13 +125,13 @@ public class V_Registrar extends javax.swing.JFrame {
                 flag = false;
                 // mensaje de que la contraseña no es la misma en ambos campos
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
         return flag;
     }
-
-    private static Usuario usuario;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -282,16 +307,28 @@ public class V_Registrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
-
+    /**
+     * Volver a la ventana login.
+     *
+     * @param evt accion de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaRegistrar();
         ControladorVistas.mostrarVentanaLogin();
     }//GEN-LAST:event_bVolverActionPerformed
-
+    /**
+     * boton para Registrarse.
+     *
+     * @param evt accion de clickar
+     */
     private void bRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarseActionPerformed
         if (validarDatos()) {
             try {
@@ -301,8 +338,10 @@ public class V_Registrar extends javax.swing.JFrame {
                     ControladorVistas.cerrarVentanaRegistrar();
                     ControladorVistas.mostrarVentanaLogin();
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(V_Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+            } catch (Exception e) {
+                ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
             }
         }
     }//GEN-LAST:event_bRegistrarseActionPerformed

@@ -8,7 +8,7 @@ package UML;
 import java.util.Date;
 
 /**
- * Creacion de la clase java para el Partido
+ * Creacion de la clase java para el Partido.
  *
  * @author Sergio Zulueta
  * @author Eric Muñoz
@@ -74,7 +74,7 @@ public class Partido {
     }
 
     /**
-     * Es un Set que establece el resultado del partido
+     * Es un Set que establece el resultado del partido.
      *
      * @param resultado establece el resultado del partido
      */
@@ -83,7 +83,7 @@ public class Partido {
     }
 
     /**
-     * Es un Get que devuelve la fecha del partido
+     * Es un Get que devuelve la fecha del partido.
      *
      * @return fecha_partido devuelve la fecha del partido
      */
@@ -92,7 +92,7 @@ public class Partido {
     }
 
     /**
-     * Es un Set que establece la fecha del partido
+     * Es un Set que establece la fecha del partido.
      *
      * @param fecha_partido establece la decha del partido
      */
@@ -101,7 +101,7 @@ public class Partido {
     }
 
     /**
-     * Es un Get que devuelve el codigo del equipo local
+     * Es un Get que devuelve el codigo del equipo local.
      *
      * @return equipo_local devuelve el codigo del equipo local
      */
@@ -110,7 +110,7 @@ public class Partido {
     }
 
     /**
-     * Es un Set que establece el codigo del equipo local
+     * Es un Set que establece el codigo del equipo local.
      *
      * @param equipo_local establece el codigo del equipo local
      */
@@ -119,7 +119,7 @@ public class Partido {
     }
 
     /**
-     * Es un Get que devuelve el codigo del equipo visitante
+     * Es un Get que devuelve el codigo del equipo visitante.
      *
      * @return equipo_visitante devuelve el codigo del equipo visitante
      */
@@ -128,7 +128,7 @@ public class Partido {
     }
 
     /**
-     * Es un Set que devuleve el codigo del equipo visitante
+     * Es un Set que devuleve el codigo del equipo visitante.
      *
      * @param equipo_visitante establece el codigo del equipo visitante
      */
@@ -137,7 +137,7 @@ public class Partido {
     }
 
     /**
-     * Es un Get que devulve la jornada jugada
+     * Es un Get que devulve la jornada jugada.
      *
      * @return jornada devuelve en la jornada que juegan
      */
@@ -146,7 +146,7 @@ public class Partido {
     }
 
     /**
-     * Es un Set que establece la jornada jugada
+     * Es un Set que establece la jornada jugada.
      *
      * @param jornada establece la jornada en la que juegan
      */

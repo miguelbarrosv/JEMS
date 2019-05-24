@@ -30,6 +30,12 @@ import java.util.Date;
 
 public class JEMS {
 
+    /**
+     * Creacion de los atributos listaPartidos, listaJugadores, listaEquipos,
+     * listaDueños, listaUsiarios, listaJornadas, dBD, JBD, eBD, uBD, aBD, lBD,
+     * pBD, jorBD, d, e, j, u, a y l.
+     *
+     */
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
@@ -43,14 +49,13 @@ public class JEMS {
     private static AdministradorBD aBD;
     private static LigaBD lBD;
     private static PartidoBD pBD;
+    private static JornadaBD jorBD;
     private static Dueño d;
     private static Equipo e;
     private static Jugador j;
     private static Usuario u;
     private static Administrador a;
     private static Liga l;
-    private static Jornada jor;
-    private static JornadaBD jorBD;
 
     /**
      * @param args the command line arguments
@@ -110,7 +115,7 @@ public class JEMS {
     }
 
     /**
-     * un Get de el nombre del equipo de la posicion x
+     * un Get de el nombre del equipo de la posicion x.
      *
      * @param x (requerido) numero del equipo en el ArrayList
      * @return devuelve el nombre del equipo
@@ -217,9 +222,9 @@ public class JEMS {
         String stringJugadores = "";
         for (int x = 0; x < listaJugadores.size(); x++) {
             if (listaJugadores.get(x).getEquipo() == null) {
-                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + "\n";
+                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + "\n\n";
             } else {
-                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + " equipo: " + listaJugadores.get(x).getEquipo().getNombre() + "\n";
+                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + " equipo: " + listaJugadores.get(x).getEquipo().getNombre() + "\n\n";
             }
         }
         return stringJugadores;
@@ -236,21 +241,6 @@ public class JEMS {
     public static Jugador consultarJugador(int cod_jugador) throws Exception, SQLException {
         j = jBD.consultarJugadorCodigo(cod_jugador);
         return j;
-    }
-
-    /**
-     * Funcion para consultar si existe este codigo de jugador.
-     *
-     * @param cod_jugador (requerido) codigo de jugador
-     * @return mensaje mensaje con el resultado de la busqueda
-     * @throws Exception hereda excepciones
-     * @throws java.sql.SQLException hereda excepciones SQL
-     */
-    public static boolean consultarJugadorLista(int cod_jugador) throws Exception, SQLException {
-        listaJugadores = jBD.consultaTodosJugadores();
-        boolean mensaje;
-        mensaje = listaJugadores.indexOf(cod_jugador) != 0;
-        return mensaje;
     }
 
     /**
@@ -419,7 +409,7 @@ public class JEMS {
             for (int y = 0; y < listaEquipos.size(); y++) {
                 stringEquipos += listaEquipos.get(y).getNombre() + ", ";
             }
-            stringDueños += "codigo: " + listaDueños.get(x).getCod_dueño() + " nombre: " + listaDueños.get(x).getNombre() + " apellido: " + listaDueños.get(x).getApellido() + " telefono: " + listaDueños.get(x).getTelefono() + " equipos: " + stringEquipos + "\n";
+            stringDueños += "codigo: " + listaDueños.get(x).getCod_dueño() + " nombre: " + listaDueños.get(x).getNombre() + " apellido: " + listaDueños.get(x).getApellido() + " telefono: " + listaDueños.get(x).getTelefono() + " equipos: " + stringEquipos + "\n\n";
         }
         return stringDueños;
     }
@@ -608,7 +598,6 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static String crearLigaVacia(Date fecha, String nombre) throws ParseException, Exception, SQLException {
-
         String mensaje = lBD.crearLigaVacia(fecha, nombre);
         return mensaje;
     }
@@ -617,12 +606,14 @@ public class JEMS {
      * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido.
      *
      * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
+     * @return devuelve el codigo del equipo
      * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void introducirResultado(String nombreEquipo) throws Exception, SQLException {
+    public static int introducirResultado(String nombreEquipo) throws Exception, SQLException {
         int codigoEquipo = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(codigoEquipo);
+        return codigoEquipo;
     }
 
     /**
@@ -634,6 +625,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Jornada> consultarJornadas() throws Exception, SQLException {
+        jorBD = new JornadaBD();
         listaJornadas = jorBD.consultarJornadas();
         return listaJornadas;
     }
@@ -658,6 +650,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Partido> consultarPartidos() throws Exception, SQLException {
+        PartidoBD pBD = new PartidoBD();
         listaPartidos = pBD.consultarPartidos();
         return listaPartidos;
     }
@@ -670,6 +663,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Equipo> consultarEquipos() throws Exception, SQLException {
+        EquipoBD eBD = new EquipoBD();
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }
@@ -682,6 +676,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static Liga consultarLiga() throws Exception, SQLException {
+        lBD = new LigaBD();
         l = lBD.consultarLiga();
         return l;
     }
@@ -747,6 +742,19 @@ public class JEMS {
      */
     public static void errorBdr(String mensaje) {
         ControladorVistas.abrirVentanaAviso(mensaje);
+    }
+
+    /**
+     * Funcion que rellena el resultado del partido.
+     *
+     * @param codEquipo(requerido) codigo del ganador
+     * @param codJornada (requerido) codigo de la joranda
+     * @param codEquipoLocal (requerido) codigo del equipo local
+     * @throws Exception hereda excepciones
+     * @throws SQLException hereda excepciones SQL
+     */
+    public static void resultadoEnPartido(int codEquipo, int codJornada, int codEquipoLocal) throws Exception, SQLException {
+        pBD.rellenarResultado(codEquipo, codJornada, codEquipoLocal);
     }
 
 }

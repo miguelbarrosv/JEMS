@@ -34,21 +34,12 @@ public class ParserDomClasificacion {
     private static Element elementoRaiz;
     private static ArrayList<Equipo> listaEquipos = new ArrayList<Equipo>();
     private static Equipo e;
+    private static Document doc;
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
         run();
     }
 
-    /**
-     * Funcion con la que iniciamos el proceso de lectura del documento xml
-     *
-     */
-    /**
-     *
-     * @throws SAXException
-     * @throws IOException
-     * @throws ParserConfigurationException
-     */
     /**
      * Funcion con la que iniciamos el proceso de lectura del documento xml
      *
@@ -62,7 +53,7 @@ public class ParserDomClasificacion {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-        Document doc = dBuilder.parse(archivo);
+        doc = dBuilder.parse(archivo);
         doc.getDocumentElement().normalize();
 
         System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
@@ -78,6 +69,16 @@ public class ParserDomClasificacion {
         System.out.println("Fecha Inicio: " + elementoRaiz.getAttribute("fecha_inicio"));
         System.out.println("Codigo: " + elementoRaiz.getAttribute("cod"));
 
+        NodeList nodes = doc.getElementsByTagName("fecha_actualizacion");
+        Node fechaActualizacion = nodes.item(0);
+        for (int i = 0; i < nodes.getLength(); i++) {
+            if (fechaActualizacion.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) fechaActualizacion;
+
+                System.out.println("Fecha actualizacion: " + element.getElementsByTagName("fecha_actualizacion").item(0).getTextContent());
+            }
+        }
+
         NodeList nodos = doc.getElementsByTagName("equipo");
         System.out.println("------------------------");
 
@@ -92,12 +93,6 @@ public class ParserDomClasificacion {
             System.out.println(e.getPuntuacion());
         }
     }
-
-    /**
-     * Funcion con la que cogemos los equipos con atributos y elementos para
-     * añadirlos al arrayList creado anteriormente
-     *
-     */
     /**
      * Funcion con la que cogemos los equipos con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
@@ -133,11 +128,11 @@ public class ParserDomClasificacion {
         System.out.println(tag);
         return nodo.getNodeValue();
     }
-    
+
     /**
      * Funcion con la que cogemos la ultima vez que se actualizo la
      * clasificacion
-     * 
+     *
      * @return devuelve la ultima actualizacion de la clasificacion
      * @throws ParseException hereda excepciones
      */
