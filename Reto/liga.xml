@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<liga cod="1" estado_liga="true" fecha_fin="2019-07-30" fecha_inicio="2019-05-25">
+    <fecha_actualizacion>2019-05-24</fecha_actualizacion>
+    <equipos>
+        <equipo cod="1">
+            <nombre>FNATIC</nombre>
+            <puntos>0</puntos>
+        </equipo>
+        <equipo cod="2">
+            <nombre>G2 ESPORTS</nombre>
+            <puntos>0</puntos>
+        </equipo>
+        <equipo cod="3">
+            <nombre>ORIGEN</nombre>
+            <puntos>0</puntos>
+        </equipo>
+        <equipo cod="4">
+            <nombre>SK GAMING</nombre>
+            <puntos>0</puntos>
+        </equipo>
+        <equipo cod="5">
+            <nombre>SPLYCE</nombre>
+            <puntos>0</puntos>
+        </equipo>
+        <equipo cod="6">
+            <nombre>TEAM VITALITY</nombre>
+            <puntos>0</puntos>
+        </equipo>
+    </equipos>
+</liga>

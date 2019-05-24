@@ -5,12 +5,11 @@
  */
 package Parser;
 
-import BD.EquipoBD;
-import BD.PartidoBD;
 import UML.Equipo;
 import UML.Liga;
 import java.io.File;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -77,10 +76,9 @@ public class GeneradorDOMClasificacion {
         }
     }
 
-
     /**
      * Funcion que coge los datos necesarios de la BD para poder generar el XML
-     * 
+     *
      * @throws Exception hereda excepciones
      */
     public void cargarDatos() throws Exception {
@@ -107,6 +105,10 @@ public class GeneradorDOMClasificacion {
         // Elemento fecha_actualizacion
         Element elementoFechaActualizacion = dom.createElement("fecha_actualizacion");
         raiz.appendChild(elementoFechaActualizacion);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        LocalDate d = LocalDate.now();
+        Text nombre = dom.createTextNode(d.toString());
+        elementoFechaActualizacion.appendChild(nombre);
 
         //Elemento partidos
         Element elementoEquipos = dom.createElement("equipos");
