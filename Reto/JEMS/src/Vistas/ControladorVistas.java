@@ -311,4 +311,8 @@ public class ControladorVistas {
     static void cerrarVentanaLista() {
         vLista.dispose();
     }
+
+    static void mostrarAdministrarMirar() {
+        vAdmin.mostrarAdministrarMirar();
+    }
 }
