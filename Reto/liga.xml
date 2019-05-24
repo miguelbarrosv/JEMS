@@ -4,11 +4,11 @@
     <equipos>
         <equipo cod="1">
             <nombre>FNATIC</nombre>
-            <puntos>0</puntos>
+            <puntos>3</puntos>
         </equipo>
         <equipo cod="2">
             <nombre>G2 ESPORTS</nombre>
-            <puntos>3</puntos>
+            <puntos>0</puntos>
         </equipo>
         <equipo cod="3">
             <nombre>ORIGEN</nombre>
