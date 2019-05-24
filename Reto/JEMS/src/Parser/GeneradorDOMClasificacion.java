@@ -28,9 +28,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 /**
+ * Generador de XML estilo DOM para las Clasificacion.
  *
  * @author Joel Encinas
  * @author Miguel Barros
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -41,6 +43,11 @@ public class GeneradorDOMClasificacion {
     private Document dom;
     private static Liga liga;
 
+    /**
+     * Construcotr de generador.
+     *
+     * @throws Exception hereda excepciones
+     */
     public GeneradorDOMClasificacion() throws Exception {
         //cargarDatos
         cargarDatos();
@@ -49,7 +56,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que comienza el proceso para generar el XML
+     * Funcion que comienza el proceso para generar el XML.
      *
      */
     public void run() {
@@ -60,7 +67,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que crea el documento que rellenaremos mas adelante
+     * Funcion que crea el documento que rellenaremos mas adelante.
      *
      */
     private void crearDocumento() {
@@ -77,7 +84,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que coge los datos necesarios de la BD para poder generar el XML
+     * Funcion que coge los datos necesarios de la BD para poder generar el XML.
      *
      * @throws Exception hereda excepciones
      */
@@ -89,7 +96,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que crea el arbol del documento XML
+     * Funcion que crea el arbol del documento XML.
      *
      */
     private void crearArbolDOM() {
@@ -122,7 +129,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que crea el elemento Equipo y sus subelementos
+     * Funcion que crea el elemento Equipo y sus subelementos.
      *
      * @param (requerido) objeto Equipo
      */
@@ -155,7 +162,8 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion con la que exportamos el fichero al lugar deseado
+     * Funcion con la que exportamos el fichero al lugar deseado.
+     *
      */
     private void exportarFichero() {
         // REF: Serializar XML: https://www.edureka.co/blog/serialization-of-java-objects-to-xml-using-xmlencoder-decoder/
@@ -178,6 +186,12 @@ public class GeneradorDOMClasificacion {
         }
     }
 
+    /**
+     * Funcion principal del generador.
+     *
+     * @param args parametro inicial
+     * @throws Exception hereda excepciones
+     */
     public static void main(String args[]) throws Exception {
         System.out.println("--- DOM (escritura) ---\n");
         new GeneradorDOMClasificacion().run();

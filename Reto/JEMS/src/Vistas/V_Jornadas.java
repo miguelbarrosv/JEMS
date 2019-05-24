@@ -51,6 +51,12 @@ public class V_Jornadas extends javax.swing.JFrame {
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
+        rbGanadorLocal.setEnabled(false);
+        rbGanadorVisitante.setEnabled(false);
+        rbGanadorLocal2.setEnabled(false);
+        rbGanadorVisitante2.setEnabled(false);
+        rbGanadorLocal3.setEnabled(false);
+        rbGanadorVisitante3.setEnabled(false);
         tfEquipoLocal.setBorder(BorderFactory.createCompoundBorder(
                 tfEquipoLocal.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
@@ -80,12 +86,21 @@ public class V_Jornadas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rbgPartido1 = new javax.swing.ButtonGroup();
+        rbgPartido2 = new javax.swing.ButtonGroup();
+        rbgPartido3 = new javax.swing.ButtonGroup();
         tfEquipoLocal = new javax.swing.JTextField();
         tfEquipoVisitante = new javax.swing.JTextField();
         tfEquipoLocal2 = new javax.swing.JTextField();
         tfEquipoVisitante2 = new javax.swing.JTextField();
         tfEquipoLocal3 = new javax.swing.JTextField();
         tfEquipoVisitante3 = new javax.swing.JTextField();
+        rbGanadorLocal = new javax.swing.JRadioButton();
+        rbGanadorVisitante = new javax.swing.JRadioButton();
+        rbGanadorVisitante2 = new javax.swing.JRadioButton();
+        rbGanadorLocal2 = new javax.swing.JRadioButton();
+        rbGanadorLocal3 = new javax.swing.JRadioButton();
+        rbGanadorVisitante3 = new javax.swing.JRadioButton();
         cbJornadas = new javax.swing.JComboBox<>();
         bVolver = new javax.swing.JButton();
         lbVS = new javax.swing.JLabel();
@@ -132,6 +147,40 @@ public class V_Jornadas extends javax.swing.JFrame {
         tfEquipoVisitante3.setEnabled(false);
         getContentPane().add(tfEquipoVisitante3);
         tfEquipoVisitante3.setBounds(690, 450, 250, 30);
+
+        rbGanadorLocal.setText("Ganador");
+        rbGanadorLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbGanadorLocalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbGanadorLocal);
+        rbGanadorLocal.setBounds(240, 310, 100, 30);
+
+        rbGanadorVisitante.setText("Ganador");
+        getContentPane().add(rbGanadorVisitante);
+        rbGanadorVisitante.setBounds(950, 310, 110, 30);
+
+        rbGanadorVisitante2.setText("Ganador");
+        rbGanadorVisitante2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbGanadorVisitante2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbGanadorVisitante2);
+        rbGanadorVisitante2.setBounds(950, 380, 110, 30);
+
+        rbGanadorLocal2.setText("Ganador");
+        getContentPane().add(rbGanadorLocal2);
+        rbGanadorLocal2.setBounds(240, 383, 100, 30);
+
+        rbGanadorLocal3.setText("Ganador");
+        getContentPane().add(rbGanadorLocal3);
+        rbGanadorLocal3.setBounds(240, 450, 100, 30);
+
+        rbGanadorVisitante3.setText("Ganador");
+        getContentPane().add(rbGanadorVisitante3);
+        rbGanadorVisitante3.setBounds(950, 450, 110, 30);
 
         cbJornadas.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         cbJornadas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jornada 1", "Jornada 2", "Jornada 3", "Jornada 4", "Jornada 5", "Jornada 6", "Jornada 7", "Jornada 8", "Jornada 9", "Jornada 10" }));
@@ -216,7 +265,7 @@ public class V_Jornadas extends javax.swing.JFrame {
         lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
         lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
         getContentPane().add(lbBorde);
-        lbBorde.setBounds(320, 190, 680, 330);
+        lbBorde.setBounds(220, 190, 860, 330);
 
         lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/jornada_background.jpg"))); // NOI18N
         getContentPane().add(lbFiller);
@@ -260,6 +309,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(0).getPartidos().size(); x++) {
+                    if (jornadas.get(0).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(0).getPartidos().get(x).getResultado() == jornadas.get(0).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(0).getPartidos().get(x).getResultado() == jornadas.get(0).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(0).getPartidos().get(x).getResultado() == jornadas.get(0).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 1:
                 tfEquipoLocal.setText(jornadas.get(1).getPartidos().get(0).getEquipo_local().getNombre());
@@ -268,6 +344,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(1).getPartidos().size(); x++) {
+                    if (jornadas.get(1).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(1).getPartidos().get(x).getResultado() == jornadas.get(1).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(1).getPartidos().get(x).getResultado() == jornadas.get(1).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(1).getPartidos().get(x).getResultado() == jornadas.get(1).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 2:
                 tfEquipoLocal.setText(jornadas.get(2).getPartidos().get(0).getEquipo_local().getNombre());
@@ -276,6 +379,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(2).getPartidos().size(); x++) {
+                    if (jornadas.get(2).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(2).getPartidos().get(x).getResultado() == jornadas.get(2).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(2).getPartidos().get(x).getResultado() == jornadas.get(2).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(2).getPartidos().get(x).getResultado() == jornadas.get(2).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 3:
                 tfEquipoLocal.setText(jornadas.get(3).getPartidos().get(0).getEquipo_local().getNombre());
@@ -284,6 +414,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(3).getPartidos().size(); x++) {
+                    if (jornadas.get(3).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(3).getPartidos().get(x).getResultado() == jornadas.get(3).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(3).getPartidos().get(x).getResultado() == jornadas.get(3).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(3).getPartidos().get(x).getResultado() == jornadas.get(3).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 4:
                 tfEquipoLocal.setText(jornadas.get(4).getPartidos().get(0).getEquipo_local().getNombre());
@@ -292,6 +449,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(4).getPartidos().size(); x++) {
+                    if (jornadas.get(4).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(4).getPartidos().get(x).getResultado() == jornadas.get(4).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(4).getPartidos().get(x).getResultado() == jornadas.get(4).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(4).getPartidos().get(x).getResultado() == jornadas.get(4).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 5:
                 tfEquipoLocal.setText(jornadas.get(5).getPartidos().get(0).getEquipo_local().getNombre());
@@ -300,6 +484,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(5).getPartidos().size(); x++) {
+                    if (jornadas.get(5).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(5).getPartidos().get(x).getResultado() == jornadas.get(5).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(5).getPartidos().get(x).getResultado() == jornadas.get(5).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(5).getPartidos().get(x).getResultado() == jornadas.get(5).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 6:
                 tfEquipoLocal.setText(jornadas.get(6).getPartidos().get(0).getEquipo_local().getNombre());
@@ -308,6 +519,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(6).getPartidos().size(); x++) {
+                    if (jornadas.get(6).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(6).getPartidos().get(x).getResultado() == jornadas.get(6).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(6).getPartidos().get(x).getResultado() == jornadas.get(6).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(6).getPartidos().get(x).getResultado() == jornadas.get(6).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 7:
                 tfEquipoLocal.setText(jornadas.get(7).getPartidos().get(0).getEquipo_local().getNombre());
@@ -316,6 +554,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(7).getPartidos().size(); x++) {
+                    if (jornadas.get(7).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(7).getPartidos().get(x).getResultado() == jornadas.get(7).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(7).getPartidos().get(x).getResultado() == jornadas.get(7).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(7).getPartidos().get(x).getResultado() == jornadas.get(7).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 8:
                 tfEquipoLocal.setText(jornadas.get(8).getPartidos().get(0).getEquipo_local().getNombre());
@@ -324,6 +589,33 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(8).getPartidos().size(); x++) {
+                    if (jornadas.get(8).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(8).getPartidos().get(x).getResultado() == jornadas.get(8).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(8).getPartidos().get(x).getResultado() == jornadas.get(8).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(8).getPartidos().get(x).getResultado() == jornadas.get(8).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             case 9:
                 tfEquipoLocal.setText(jornadas.get(9).getPartidos().get(0).getEquipo_local().getNombre());
@@ -332,11 +624,46 @@ public class V_Jornadas extends javax.swing.JFrame {
                 tfEquipoVisitante2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_visitante().getNombre());
+                for (int x = 0; x < jornadas.get(9).getPartidos().size(); x++) {
+                    if (jornadas.get(9).getPartidos().get(x).getResultado() != 0) {
+                        switch (x) {
+                            case 0:
+                                if (jornadas.get(9).getPartidos().get(x).getResultado() == jornadas.get(9).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante.setSelected(true);
+                                }
+                                break;
+                            case 1:
+                                if (jornadas.get(9).getPartidos().get(x).getResultado() == jornadas.get(9).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal2.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante2.setSelected(true);
+                                }
+                                break;
+                            case 2:
+                                if (jornadas.get(9).getPartidos().get(x).getResultado() == jornadas.get(9).getPartidos().get(x).getEquipo_local().getCod_equipo()) {
+                                    rbGanadorLocal3.setSelected(true);
+                                } else {
+                                    rbGanadorVisitante3.setSelected(true);
+                                }
+                                break;
+                        }
+                    }
+                }
                 break;
             default:
                 break;
         }
     }//GEN-LAST:event_cbJornadasActionPerformed
+
+    private void rbGanadorVisitante2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbGanadorVisitante2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbGanadorVisitante2ActionPerformed
+
+    private void rbGanadorLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbGanadorLocalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbGanadorLocalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,6 +718,15 @@ public class V_Jornadas extends javax.swing.JFrame {
     private javax.swing.JLabel lbVS2;
     private javax.swing.JLabel lbVS3;
     private javax.swing.JLabel lbVersion;
+    private javax.swing.JRadioButton rbGanadorLocal;
+    private javax.swing.JRadioButton rbGanadorLocal2;
+    private javax.swing.JRadioButton rbGanadorLocal3;
+    private javax.swing.JRadioButton rbGanadorVisitante;
+    private javax.swing.JRadioButton rbGanadorVisitante2;
+    private javax.swing.JRadioButton rbGanadorVisitante3;
+    private javax.swing.ButtonGroup rbgPartido1;
+    private javax.swing.ButtonGroup rbgPartido2;
+    private javax.swing.ButtonGroup rbgPartido3;
     private javax.swing.JTextField tfEquipoLocal;
     private javax.swing.JTextField tfEquipoLocal2;
     private javax.swing.JTextField tfEquipoLocal3;

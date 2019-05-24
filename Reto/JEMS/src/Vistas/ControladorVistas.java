@@ -92,10 +92,12 @@ public class ControladorVistas {
      * Funcion para mostrar ventana con la lista de los jugadores,equipos,dueños
      * o usuarios.
      *
-     * @param lista lista de todos los jugadores, equipos, dueños o usuarios
+     * @param lista (requerido) lista de todos los jugadores, equipos, dueños o
+     * usuarios
+     * @param sujeto (requerido) opcion del titulo
      */
-    public static void mostrarVentanaLista(String lista) {
-        vLista = new V_Lista(lista);
+    public static void mostrarVentanaLista(String lista, String sujeto) {
+        vLista = new V_Lista(lista, sujeto);
         vLista.setVisible(true);
     }
 

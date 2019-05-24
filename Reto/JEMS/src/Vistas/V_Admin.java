@@ -759,18 +759,23 @@ public class V_Admin extends javax.swing.JFrame {
      */
     private void bConsultarMuchosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bConsultarMuchosActionPerformed
         try {
+            String sujeto;
             if (lbTituloAdmin.getText().equalsIgnoreCase("USUARIO")) {
                 String listaUsuarios = JEMS.crearListaUsuarios();
-                ControladorVistas.mostrarVentanaLista(listaUsuarios);
+                sujeto = "USUARIOS";
+                ControladorVistas.mostrarVentanaLista(listaUsuarios, sujeto);
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("JUGADOR")) {
                 String listaJugadores = JEMS.crearListaJugadores();
-                ControladorVistas.mostrarVentanaLista(listaJugadores);
+                sujeto = "JUGADORES";
+                ControladorVistas.mostrarVentanaLista(listaJugadores, sujeto);
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("EQUIPO")) {
                 String listaEquipos = JEMS.crearListaEquipos();
-                ControladorVistas.mostrarVentanaLista(listaEquipos);
+                sujeto = "EQUIPOS";
+                ControladorVistas.mostrarVentanaLista(listaEquipos, sujeto);
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("DUEÑO")) {
                 String listaDueños = JEMS.crearListaDueños();
-                ControladorVistas.mostrarVentanaLista(listaDueños);
+                sujeto = "DUEÑOS";
+                ControladorVistas.mostrarVentanaLista(listaDueños, sujeto);
             }
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
