@@ -6,7 +6,7 @@
 package UML;
 
 /**
- * Creacion de la clase java para el Jugador
+ * Creacion de la clase java para el Jugador.
  *
  * @author Sergio Zulueta
  * @author Eric Muñoz

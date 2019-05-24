@@ -128,7 +128,6 @@ public class PartidoBD {
         return p;
     }
 
-
     /**
      * Funcion que inserta un Partido.
      *

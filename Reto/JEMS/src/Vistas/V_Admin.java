@@ -713,10 +713,14 @@ public class V_Admin extends javax.swing.JFrame {
      */
     private void bInsertarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInsertarPartidosActionPerformed
         try {
-            JEMS.insertarEquipos();
-            mostrarIntroducirJornada();
-            bInsertarPartidos.setVisible(false);
-            setLigaOnline();
+            if (JEMS.consultarEquipos().size() == 6) {
+                JEMS.insertarEquipos();
+                mostrarIntroducirJornada();
+                bInsertarPartidos.setVisible(false);
+                setLigaOnline();
+            } else {
+                ControladorVistas.abrirVentanaAviso("Tienen que ser 6 equipos");
+            }
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {

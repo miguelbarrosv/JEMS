@@ -30,6 +30,12 @@ import java.util.Date;
 
 public class JEMS {
 
+    /**
+     * Creacion de los atributos listaPartidos, listaJugadores, listaEquipos,
+     * listaDueños, listaUsiarios, listaJornadas, dBD, JBD, eBD, uBD, aBD, lBD,
+     * pBD, jorBD, d, e, j, u, a y l.
+     *
+     */
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
@@ -43,14 +49,13 @@ public class JEMS {
     private static AdministradorBD aBD;
     private static LigaBD lBD;
     private static PartidoBD pBD;
+    private static JornadaBD jorBD;
     private static Dueño d;
     private static Equipo e;
     private static Jugador j;
     private static Usuario u;
     private static Administrador a;
     private static Liga l;
-    private static Jornada jor;
-    private static JornadaBD jorBD;
 
     /**
      * @param args the command line arguments
@@ -110,7 +115,7 @@ public class JEMS {
     }
 
     /**
-     * un Get de el nombre del equipo de la posicion x
+     * un Get de el nombre del equipo de la posicion x.
      *
      * @param x (requerido) numero del equipo en el ArrayList
      * @return devuelve el nombre del equipo
@@ -593,7 +598,6 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static String crearLigaVacia(Date fecha, String nombre) throws ParseException, Exception, SQLException {
-
         String mensaje = lBD.crearLigaVacia(fecha, nombre);
         return mensaje;
     }

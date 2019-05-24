@@ -418,10 +418,11 @@ public class V_Equipo extends javax.swing.JFrame {
                 } else if (ope.compareToIgnoreCase("alta") == 0) {
                     JEMS.altaEquipo(tfNombre.getText(), tfNacionalidad.getText(), Integer.parseInt(tfPresupuesto.getText()), Integer.parseInt(tfPuntuacion.getText()), dueños.get(cbDueño.getSelectedIndex()).getCod_dueño());
                     ControladorVistas.abrirVentanaAviso("Equipo dado de alta con exito!");
-                } else if (ope.compareToIgnoreCase("baja") == 0) {
-                    JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
-                    ControladorVistas.abrirVentanaAviso("Equipo dado de baja con exito!");
                 }
+            }
+            if (ope.compareToIgnoreCase("baja") == 0) {
+                JEMS.bajaEquipo(Integer.parseInt(tfCodigoEquipo.getText()));
+                ControladorVistas.abrirVentanaAviso("Equipo dado de baja con exito!");
             }
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
