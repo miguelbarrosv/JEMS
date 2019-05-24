@@ -5,6 +5,8 @@
  */
 package Parser;
 
+import BD.EquipoBD;
+import BD.PartidoBD;
 import UML.Equipo;
 import UML.Liga;
 import java.io.File;
@@ -78,6 +80,7 @@ public class GeneradorDOMClasificacion {
     /**
      * Funcion que coge los datos necesarios de la BD para poder generar el XML
      *
+     * @throws java.lang.Exception
      */
     public void cargarDatos() throws Exception {
         // cargar ArrayList equipos

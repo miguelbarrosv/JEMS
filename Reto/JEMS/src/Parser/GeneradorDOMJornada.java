@@ -5,6 +5,8 @@
  */
 package Parser;
 
+import BD.JornadaBD;
+import BD.PartidoBD;
 import UML.Partido;
 import UML.Jornada;
 import java.io.File;
