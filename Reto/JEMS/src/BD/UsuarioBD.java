@@ -49,7 +49,7 @@ public class UsuarioBD {
      *
      * @param u (requerido) objeto de clase Usuario.
      * @throws Exception hereda excepciones
-     * @throws java.sql.SQLException
+     * @throws SQLException hereda excepciones de sql
      */
     public void insertarUsuario(Usuario u) throws Exception, SQLException {
         bdr.conectar();
