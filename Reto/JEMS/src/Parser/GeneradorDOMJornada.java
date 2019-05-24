@@ -125,7 +125,7 @@ public class GeneradorDOMJornada {
 
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
-
+        elementoJornada.appendChild(elementoPartidos);
         // <partido>
         // Generar elementos partido y hacer partidos al padre
         for (Partido partido : partidos) {
