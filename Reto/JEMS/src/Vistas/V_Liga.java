@@ -346,7 +346,7 @@ public class V_Liga extends javax.swing.JFrame {
 
     /**
      * Volver a la ventana anterior
-     * 
+     *
      * @param evt evento al pulsar volver
      */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
@@ -355,7 +355,7 @@ public class V_Liga extends javax.swing.JFrame {
 
     /**
      * Salir de la pantalla
-     * 
+     *
      * @param evt evento al pulsar salir
      */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed

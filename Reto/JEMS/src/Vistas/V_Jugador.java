@@ -9,6 +9,7 @@ import Excepciones.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import UML.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
@@ -313,8 +314,10 @@ public class V_Jugador extends javax.swing.JFrame {
                 jugador = JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
             }
             JOptionPane.showMessageDialog(this, mensaje);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }
     private static String ope;
@@ -635,12 +638,13 @@ public class V_Jugador extends javax.swing.JFrame {
                             JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
                             break;
                     }
+                } catch (SQLException ex) {
+                    ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
                 } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+                    ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
                 }
             }
         }
-
     }//GEN-LAST:event_bAceptarActionPerformed
     /**
      * Funcion para sabes que pasa a la hora de pulsar el boton volver.

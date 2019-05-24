@@ -5,9 +5,12 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import jems.JEMS;
 
 /**
  * @author Miguel Barros
@@ -23,14 +26,49 @@ public class V_Usuario extends javax.swing.JFrame {
      * Creates new form V_Usuario
      */
     public V_Usuario() {
+
         setUndecorated(true);
         initComponents();
         myInitComponents();
     }
 
+    /**
+     * Formato de la ventana
+     */
     public void myInitComponents() {
-        setSize(1280, 720);
-        setLocationRelativeTo(null);
+        try {
+            setSize(1280, 720);
+            setLocationRelativeTo(null);
+            if (JEMS.consultarLiga() == null) {
+                setLigaOffline();
+            } else {
+                setLigaOnline();
+            }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Cambia el texto de la liga a "offline" y lo pone de color rojo
+     */
+    public void setLigaOffline() {
+        lbEstadoliga.setText("Offline");
+        lbEstadoliga.setForeground(Color.RED);
+        bLiga.setVisible(false);
+        bJornada.setVisible(false);
+    }
+
+    /**
+     * Cambia el texto de la liga a "online" y lo pone de color verde
+     */
+    public void setLigaOnline() {
+        lbEstadoliga.setText("Online");
+        lbEstadoliga.setForeground(Color.GREEN);
+        bLiga.setVisible(true);
+        bJornada.setVisible(true);
     }
 
     /**
@@ -47,6 +85,8 @@ public class V_Usuario extends javax.swing.JFrame {
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
         bSalir = new javax.swing.JButton();
+        lbEstadoliga = new javax.swing.JLabel();
+        lbEstadoLigaTitulo = new javax.swing.JLabel();
         lbSubtitulo = new javax.swing.JLabel();
         lbFiller = new javax.swing.JLabel();
         lbBackgroundUsuario = new javax.swing.JLabel();
@@ -68,7 +108,7 @@ public class V_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bLiga);
-        bLiga.setBounds(460, 330, 410, 80);
+        bLiga.setBounds(460, 340, 410, 80);
 
         bJornada.setBackground(new java.awt.Color(252, 124, 0));
         bJornada.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -109,13 +149,29 @@ public class V_Usuario extends javax.swing.JFrame {
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
 
+        lbEstadoliga.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
+        lbEstadoliga.setForeground(new java.awt.Color(51, 255, 51));
+        lbEstadoliga.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEstadoliga.setText("Online");
+        lbEstadoliga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbEstadoliga);
+        lbEstadoliga.setBounds(200, 10, 100, 50);
+
+        lbEstadoLigaTitulo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        lbEstadoLigaTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbEstadoLigaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEstadoLigaTitulo.setText("Estado de la liga");
+        lbEstadoLigaTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbEstadoLigaTitulo);
+        lbEstadoLigaTitulo.setBounds(10, 10, 200, 50);
+
         lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         lbSubtitulo.setForeground(new java.awt.Color(255, 255, 255));
         lbSubtitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbSubtitulo.setText("<html>BIENVENIDO A LA <br> APLICACIÓN OFICIAL <br> DE JEMS E-SPORTS");
         lbSubtitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lbSubtitulo);
-        lbSubtitulo.setBounds(410, 80, 520, 170);
+        lbSubtitulo.setBounds(410, 120, 520, 170);
 
         lbFiller.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user_background.jpg"))); // NOI18N
         getContentPane().add(lbFiller);
@@ -136,13 +192,13 @@ public class V_Usuario extends javax.swing.JFrame {
      * @param evt pulsar enter
      */
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
-
         try {
             ControladorVistas.mostrarVentanaLiga();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
-
     }//GEN-LAST:event_bLigaActionPerformed
     /**
      * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el
@@ -153,8 +209,10 @@ public class V_Usuario extends javax.swing.JFrame {
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         try {
             ControladorVistas.mostrarVentanaJornadas();
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bJornadaActionPerformed
 
@@ -207,6 +265,8 @@ public class V_Usuario extends javax.swing.JFrame {
     private javax.swing.JButton bLiga;
     private javax.swing.JButton bSalir;
     private javax.swing.JLabel lbBackgroundUsuario;
+    private javax.swing.JLabel lbEstadoLigaTitulo;
+    private javax.swing.JLabel lbEstadoliga;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbSubtitulo;

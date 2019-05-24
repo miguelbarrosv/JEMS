@@ -77,10 +77,11 @@ public class GeneradorDOMClasificacion {
         }
     }
 
+
     /**
      * Funcion que coge los datos necesarios de la BD para poder generar el XML
-     *
-     * @throws java.lang.Exception
+     * 
+     * @throws Exception hereda excepciones
      */
     public void cargarDatos() throws Exception {
         // cargar ArrayList equipos

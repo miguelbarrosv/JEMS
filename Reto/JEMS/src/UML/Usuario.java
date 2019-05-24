@@ -104,7 +104,7 @@ public class Usuario {
      */
     @Override
     public String toString() {
-        String mensaje = "codigo: " + cod_usuario + " usuario: " + usuario + " contraseña: " + contraseña + "\n";
+        String mensaje = "codigo: " + cod_usuario + " usuario: " + usuario + " contraseña: " + contraseña + "\n\n";
         return mensaje;
     }
 }

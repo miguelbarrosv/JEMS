@@ -43,6 +43,19 @@ public class ParserDomClasificacion {
      * Funcion con la que iniciamos el proceso de lectura del documento xml
      *
      */
+    /**
+     *
+     * @throws SAXException
+     * @throws IOException
+     * @throws ParserConfigurationException
+     */
+    /**
+     * Funcion con la que iniciamos el proceso de lectura del documento xml
+     *
+     * @throws SAXException hereda de excepciones
+     * @throws IOException hereda de excepciones
+     * @throws ParserConfigurationException hereda de excepciones
+     */
     public static void run() throws SAXException, IOException, ParserConfigurationException {
         System.out.println("--- DOM (lectura) ---\n");
         File archivo = new File("../liga.xml");
@@ -85,6 +98,13 @@ public class ParserDomClasificacion {
      * añadirlos al arrayList creado anteriormente
      *
      */
+    /**
+     * Funcion con la que cogemos los equipos con atributos y elementos para
+     * añadirlos al arrayList creado anteriormente
+     *
+     * @param partido establecemos el partido con sus atributos
+     * @return partido devuelve el partido
+     */
     public static Equipo getEquipos(Node partido) {
         if (partido.getNodeType() == Node.ELEMENT_NODE) {
             Element element = (Element) partido;
@@ -104,7 +124,7 @@ public class ParserDomClasificacion {
      * Funcion con la que obtenemos el valor de los elementos del arbol XML
      *
      * @param tag La etiqueta del elemento
-     * @param element Nodo de partido
+     * @param partido Nodo de partido
      * @return Texto recuperado
      */
     public static String obtenerValor(String tag, Element partido) {
@@ -113,10 +133,13 @@ public class ParserDomClasificacion {
         System.out.println(tag);
         return nodo.getNodeValue();
     }
-
+    
     /**
      * Funcion con la que cogemos la ultima vez que se actualizo la
      * clasificacion
+     * 
+     * @return devuelve la ultima actualizacion de la clasificacion
+     * @throws ParseException hereda excepciones
      */
     public static Date getFechaActualizado() throws ParseException {
         NodeList nodes = elementoRaiz.getElementsByTagName("fecha_actualizacion");

@@ -7,6 +7,7 @@ package Vistas;
 
 import javax.swing.BorderFactory;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jems.JEMS;
@@ -281,8 +282,10 @@ public class V_Login extends javax.swing.JFrame {
                         ControladorVistas.mostrarVentanaAdmin();
                         break;
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(V_Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+            } catch (Exception e) {
+                ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
             }
         }
     }//GEN-LAST:event_bAccederActionPerformed
