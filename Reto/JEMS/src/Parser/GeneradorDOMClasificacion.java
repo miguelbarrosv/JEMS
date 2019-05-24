@@ -5,6 +5,8 @@
  */
 package Parser;
 
+import BD.EquipoBD;
+import BD.PartidoBD;
 import UML.Equipo;
 import UML.Liga;
 import java.io.File;

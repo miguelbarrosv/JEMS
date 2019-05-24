@@ -658,6 +658,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Partido> consultarPartidos() throws Exception, SQLException {
+        PartidoBD pBD = new PartidoBD();
         listaPartidos = pBD.consultarPartidos();
         return listaPartidos;
     }
@@ -670,6 +671,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Equipo> consultarEquipos() throws Exception, SQLException {
+        EquipoBD eBD = new EquipoBD();
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }
