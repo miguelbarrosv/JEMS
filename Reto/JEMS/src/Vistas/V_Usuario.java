@@ -29,6 +29,7 @@ public class V_Usuario extends javax.swing.JFrame {
         setUndecorated(true);
         initComponents();
         myInitComponents();
+        bCerrarSesion.setVisible(true);
     }
 
     /**

@@ -734,16 +734,16 @@ public class V_Admin extends javax.swing.JFrame {
         try {
             if (lbTituloAdmin.getText().equalsIgnoreCase("USUARIO")) {
                 String listaUsuarios = JEMS.crearListaUsuarios();
-                ControladorVistas.mostrarVentanaLista(listaUsuarios);
+                ControladorVistas.mostrarVentanaLista(listaUsuarios, "USUARIO");
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("JUGADOR")) {
                 String listaJugadores = JEMS.crearListaJugadores();
-                ControladorVistas.mostrarVentanaLista(listaJugadores);
+                ControladorVistas.mostrarVentanaLista(listaJugadores, "JUGADOR");
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("EQUIPO")) {
                 String listaEquipos = JEMS.crearListaEquipos();
-                ControladorVistas.mostrarVentanaLista(listaEquipos);
+                ControladorVistas.mostrarVentanaLista(listaEquipos, "EQUIPO");
             } else if (lbTituloAdmin.getText().equalsIgnoreCase("DUEÑO")) {
                 String listaDueños = JEMS.crearListaDueños();
-                ControladorVistas.mostrarVentanaLista(listaDueños);
+                ControladorVistas.mostrarVentanaLista(listaDueños, "DUEÑO");
             }
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());

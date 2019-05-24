@@ -96,8 +96,9 @@ public class ControladorVistas {
      * o usuarios.
      *
      * @param lista lista de todos los jugadores, equipos, dueños o usuarios
+     * @param opcion opcion a ver: dueño/jugador/equipo/usuario
      */
-    public static void mostrarVentanaLista(String lista) {
+    public static void mostrarVentanaLista(String lista, String opcion) {
         vLista = new V_Lista(lista);
         vLista.setVisible(true);
     }

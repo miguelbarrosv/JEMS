@@ -23,6 +23,10 @@ public class V_Lista extends javax.swing.JFrame {
         myInitComponents();
         taListaJugadores.setEditable(false);
     }
+
+    V_Lista(String lista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     /**
      * Formato de la ventana
@@ -36,13 +40,15 @@ public class V_Lista extends javax.swing.JFrame {
      * Crea una ventana con el textArea lleno.
      *
      * @param lista lista de los jugadores, equipos, dueños o usuarios
+     * @param opcion opcion a visualizar : dueño/jugador/equipo/usuario
      */
-    public V_Lista(String lista) {
+    public V_Lista(String lista, String opcion) {
         setUndecorated(true);
         initComponents();
         myInitComponents();
         taListaJugadores.setEditable(false);
         taListaJugadores.setText(lista);
+        lbSubtitulo.setText(opcion);
     }
 
     /**
