@@ -28,6 +28,10 @@ import org.xml.sax.SAXException;
 /**
  *
  * @author Miguel Barros
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class ParserDomClasificacion {
 
@@ -93,6 +97,7 @@ public class ParserDomClasificacion {
             System.out.println(e.getPuntuacion());
         }
     }
+
     /**
      * Funcion con la que cogemos los equipos con atributos y elementos para
      * añadirlos al arrayList creado anteriormente

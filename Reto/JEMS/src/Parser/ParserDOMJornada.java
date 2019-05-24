@@ -5,6 +5,7 @@
  */
 package Parser;
 
+import static Parser.ParserDomClasificacion.getEquipos;
 import UML.Equipo;
 import UML.Jornada;
 import UML.Partido;
@@ -23,12 +24,19 @@ import org.xml.sax.SAXException;
 /**
  *
  * @author Miguel Barros
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class ParserDOMJornada {
 
     private static Element elementoRaiz;
+    private static ArrayList<Jornada> listaJornadas = new ArrayList<Jornada>();
     private static Jornada j;
+    private static ArrayList<Partido> listaPartidos = new ArrayList<Partido>();
     private static Partido p;
+    private static Document doc;
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
         run();
@@ -51,19 +59,19 @@ public class ParserDOMJornada {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-        Document doc = dBuilder.parse(archivo);
+        doc = dBuilder.parse(archivo);
         doc.getDocumentElement().normalize();
-
         System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
 
         elementoRaiz = doc.getDocumentElement();
 
         NodeList nodes = doc.getElementsByTagName("jornada");
         System.out.println("------------------------");
-        ArrayList<Jornada> listaJornadas = new ArrayList<>();
+
         for (int i = 0; i < nodes.getLength(); i++) {
             //Guardamos en el array de jornadas con cada objeto jornada
             listaJornadas.add(getJornada(nodes.item(i)));
+
             NodeList listaPartidos = doc.getElementsByTagName("partido");
             System.out.println("-----------------------");
         }
@@ -95,8 +103,8 @@ public class ParserDOMJornada {
             System.out.println("Fecha Inicio: " + element.getAttribute("fecha_inicio"));
             System.out.println("cod: " + element.getAttribute("cod"));
             System.out.println("partidos: " + element.getElementsByTagName("partidos").item(0).getTextContent());
-            ArrayList<Partido> listaPartidos = new ArrayList<>();
-            NodeList nodosPartido = elementoRaiz.getElementsByTagName("partido");
+
+            NodeList nodosPartido = doc.getElementsByTagName("partido");
             for (int x = 0; x < nodosPartido.getLength(); x++) {
                 //Guardamos el array de partidos
                 listaPartidos.add(getPartido(nodosPartido.item(x)));
