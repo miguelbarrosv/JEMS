@@ -864,8 +864,10 @@ public class V_Admin extends javax.swing.JFrame {
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         try {
             ControladorVistas.mostrarVentanaJornadas();
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bJornadaActionPerformed
 
@@ -905,8 +907,10 @@ public class V_Admin extends javax.swing.JFrame {
                     bVolverLiga.setVisible(true);
                 }
             }
-        } catch (Exception ex) {
-            Logger.getLogger(V_Admin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bAdministrarLigaActionPerformed
 
@@ -919,107 +923,73 @@ public class V_Admin extends javax.swing.JFrame {
      */
     private void bIntroducirResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIntroducirResultadoActionPerformed
         String valorJornada = tfIntroducirResultadoJornada.getText();
-        switch (valorJornada) {
-            case "1":
-                try {
+        try {
+            switch (valorJornada) {
+                case "1":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 1;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "2":
-                try {
+                    break;
+                case "2":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 2;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "3":
-                try {
+                    break;
+                case "3":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 3;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "4":
-                try {
+                    break;
+                case "4":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 4;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "5":
-                try {
+                    break;
+                case "5":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 5;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "6":
-                try {
+                    break;
+                case "6":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 6;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "7":
-                try {
+                    break;
+                case "7":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 7;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "8":
-                try {
+                    break;
+                case "8":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 8;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "9":
-                try {
+                    break;
+                case "9":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 9;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
-            case "10":
-                try {
+                    break;
+                case "10":
                     jornadas = new ArrayList<>();
                     jornadas = JEMS.consultarJornadasconPartidos();
                     numJornada = 10;
                     ControladorVistas.mostrarVentanaResultado(jornadas, numJornada);
-                } catch (Exception e) {
-                    ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
-                }
-                break;
+                    break;
+            }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bIntroducirResultadoActionPerformed
 
@@ -1031,8 +1001,10 @@ public class V_Admin extends javax.swing.JFrame {
     private void bClasificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClasificacionActionPerformed
         try {
             ControladorVistas.mostrarVentanaLiga();
-        } catch (Exception ex) {
-            ControladorVistas.abrirVentanaAviso("Error: " + ex.getClass());
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bClasificacionActionPerformed
 

@@ -96,7 +96,6 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
      * @param usuario
      * @return retornamos true
      */
-
     public boolean validarUsuario(String usuario) {
         return true;
     }

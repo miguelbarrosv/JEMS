@@ -150,7 +150,7 @@ public class ControladorVistas {
     /**
      * Funcion que muestra la ventana V_Jornadas.
      *
-     * @throws Exception hereda excepciones     
+     * @throws Exception hereda excepciones
      */
     public static void mostrarVentanaJornadas() throws Exception {
         vJornadas = new V_Jornadas();
@@ -212,7 +212,7 @@ public class ControladorVistas {
      * liga.
      *
      * @throws Exception hereda excepciones
-     * 
+     *
      */
     public static void abrirVentanaLiga() throws Exception {
         vLiga = new V_Liga();
@@ -291,7 +291,7 @@ public class ControladorVistas {
 
     /**
      * Funcion que abre la ventana V_Aviso
-     * 
+     *
      * @param mensaje devuelve un mensaje
      *
      */
