@@ -54,11 +54,11 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         tfEquipoLocal3.setBorder(BorderFactory.createCompoundBorder(
                 tfEquipoLocal3.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        tfEquipoVisitante.setBorder(BorderFactory.createCompoundBorder(
-                tfEquipoVisitante.getBorder(),
-                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         tfEquipoVisitante2.setBorder(BorderFactory.createCompoundBorder(
                 tfEquipoVisitante2.getBorder(),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        tfEquipoVisitante.setBorder(BorderFactory.createCompoundBorder(
+                tfEquipoVisitante.getBorder(),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         tfEquipoVisitante3.setBorder(BorderFactory.createCompoundBorder(
                 tfEquipoVisitante3.getBorder(),
@@ -87,9 +87,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 1:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(0).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(0).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(0).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(0).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(0).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(0).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -129,9 +129,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 2:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(1).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(1).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(1).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(1).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(1).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(1).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -172,9 +172,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 3:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(2).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(2).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(2).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(2).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(2).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(2).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -214,9 +214,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 4:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(3).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(3).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(3).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(3).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(3).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(3).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -256,9 +256,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 5:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(4).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(4).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(4).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(4).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(4).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(4).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -298,9 +298,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 6:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(5).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(5).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(5).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(5).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(5).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(5).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -340,9 +340,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 7:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(6).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(6).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(6).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(6).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(6).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(6).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -382,9 +382,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 8:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(7).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(7).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(7).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(7).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(7).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(7).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -424,9 +424,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 9:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(8).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(8).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(8).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(8).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(8).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(8).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -466,9 +466,9 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             case 10:
                 tfNumJornada.setText(String.valueOf(numJornada));
                 tfEquipoLocal.setText(jornadas.get(9).getPartidos().get(0).getEquipo_local().getNombre());
-                tfEquipoVisitante.setText(jornadas.get(9).getPartidos().get(0).getEquipo_visitante().getNombre());
+                tfEquipoVisitante2.setText(jornadas.get(9).getPartidos().get(0).getEquipo_visitante().getNombre());
                 tfEquipoLocal2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_local().getNombre());
-                tfEquipoVisitante2.setText(jornadas.get(9).getPartidos().get(1).getEquipo_visitante().getNombre());
+                tfEquipoVisitante.setText(jornadas.get(9).getPartidos().get(1).getEquipo_visitante().getNombre());
                 tfEquipoLocal3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_local().getNombre());
                 tfEquipoVisitante3.setText(jornadas.get(9).getPartidos().get(2).getEquipo_visitante().getNombre());
                 for (int x = 0; x < jornadas.get(num).getPartidos().size(); x++) {
@@ -759,7 +759,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 rbGanadorLocal.setEnabled(false);
                 rbGanadorVisitante.setEnabled(false);
             } else if (rbGanadorVisitante.isSelected()) {
-                codEquipo = JEMS.introducirResultado(tfEquipoVisitante.getText());
+                codEquipo = JEMS.introducirResultado(tfEquipoVisitante2.getText());
                 JEMS.resultadoEnPartido(codEquipo, listaJornadas.get(num).getCod_jornada(), listaJornadas.get(num).getPartidos().get(0).getEquipo_local().getCod_equipo());
                 rbGanadorLocal.setEnabled(false);
                 rbGanadorVisitante.setEnabled(false);
@@ -770,7 +770,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 rbGanadorLocal2.setEnabled(false);
                 rbGanadorVisitante2.setEnabled(false);
             } else if (rbGanadorVisitante2.isSelected()) {
-                codEquipo = JEMS.introducirResultado(tfEquipoVisitante2.getText());
+                codEquipo = JEMS.introducirResultado(tfEquipoVisitante.getText());
                 JEMS.resultadoEnPartido(codEquipo, listaJornadas.get(num).getCod_jornada(), listaJornadas.get(num).getPartidos().get(1).getEquipo_local().getCod_equipo());
                 rbGanadorLocal2.setEnabled(false);
                 rbGanadorVisitante2.setEnabled(false);
