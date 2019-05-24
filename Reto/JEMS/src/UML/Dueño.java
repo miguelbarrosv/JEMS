@@ -8,7 +8,7 @@ package UML;
 import java.util.ArrayList;
 
 /**
- * Creacion de la clase java para el Dueño
+ * Creacion de la clase java para el Dueño.
  *
  * @author Sergio Zulueta
  * @author Eric Muñoz
@@ -20,7 +20,8 @@ public class Dueño {
 
     /**
      * Creacion de los atributos cod_dueño, nombre, apellido, telefono,
-     * lista_equipos y equipos
+     * lista_equipos y equipos.
+     *
      */
     private int cod_dueño;
     private String nombre;
@@ -52,7 +53,7 @@ public class Dueño {
     }
 
     /**
-     * Constructo lleno, incluyendo relaciones
+     * Constructo lleno, incluyendo relaciones.
      *
      * @param cod_dueño (requerido) El codigo del dueño.
      * @param nombre (requerido) El nombre del dueño.
@@ -107,7 +108,7 @@ public class Dueño {
     /**
      * Es un Get que devuelve el apellido del dueño.
      *
-     * @return apellido devuelve el apellido del dueño.
+     * @return apellido devuelve el apellido del dueño
      */
     public String getApellido() {
         return apellido;

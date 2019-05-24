@@ -6,9 +6,11 @@
 package Vistas;
 
 import UML.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
+ * Controlador de las vistas.
  *
  * @author Miguel Barros
  * @author Eric Muñoz
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class ControladorVistas {
 
     /**
-     * Creacion de los atributos
+     * Creacion de los atributos.
      *
      */
     private static V_Login vLogin;
@@ -39,7 +41,7 @@ public class ControladorVistas {
     private static V_Aviso vAviso;
 
     /**
-     * Funcion que nos dirije a la ventana V_Login para acceder al sistema
+     * Funcion que nos dirije a la ventana V_Login para acceder al sistema.
      *
      */
     public static void mostrarVentanaLogin() {
@@ -78,15 +80,10 @@ public class ControladorVistas {
      * dar de alta a un jugador.
      *
      * @param operacion tipo de operacion
-     */
-    /**
-     * Funcion que nos dirije a la ventana V_Jugador para modificar, borrar o
-     * dar de alta a un jugador.
-     *
-     * @param operacion tipo de operacion
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public static void mostrarVentanaJugador(String operacion) throws Exception {
+    public static void mostrarVentanaJugador(String operacion) throws Exception, SQLException {
         vJugador = new V_Jugador(operacion);
         vJugador.setVisible(true);
     }
@@ -95,10 +92,12 @@ public class ControladorVistas {
      * Funcion para mostrar ventana con la lista de los jugadores,equipos,dueños
      * o usuarios.
      *
-     * @param lista lista de todos los jugadores, equipos, dueños o usuarios
+     * @param lista (requerido) lista de todos los jugadores, equipos, dueños o
+     * usuarios
+     * @param sujeto (requerido) opcion del titulo
      */
-    public static void mostrarVentanaLista(String lista) {
-        vLista = new V_Lista(lista);
+    public static void mostrarVentanaLista(String lista, String sujeto) {
+        vLista = new V_Lista(lista, sujeto);
         vLista.setVisible(true);
     }
 
@@ -108,8 +107,10 @@ public class ControladorVistas {
      *
      * @param operacion tipo de operacion
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
+     *
      */
-    public static void mostrarVentanaEquipo(String operacion) throws Exception {
+    public static void mostrarVentanaEquipo(String operacion) throws Exception, SQLException {
         vEquipo = new V_Equipo(operacion);
         vEquipo.setVisible(true);
     }
@@ -141,8 +142,9 @@ public class ControladorVistas {
      * Funcion que muestra la ventana V_Liga.
      *
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public static void mostrarVentanaLiga() throws Exception {
+    public static void mostrarVentanaLiga() throws Exception, SQLException {
         vLiga = new V_Liga();
         vLiga.setVisible(true);
     }
@@ -151,8 +153,9 @@ public class ControladorVistas {
      * Funcion que muestra la ventana V_Jornadas.
      *
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public static void mostrarVentanaJornadas() throws Exception {
+    public static void mostrarVentanaJornadas() throws Exception, SQLException {
         vJornadas = new V_Jornadas();
         vJornadas.setVisible(true);
     }
@@ -198,8 +201,7 @@ public class ControladorVistas {
     }
 
     /**
-     *
-     * Funcion que cierra la ventana vAdminUsuario
+     * Funcion que cierra la ventana vAdminUsuario.
      *
      */
     public static void cerrarVentanaAdminUsuario() {
@@ -212,15 +214,16 @@ public class ControladorVistas {
      * liga.
      *
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      *
      */
-    public static void abrirVentanaLiga() throws Exception {
+    public static void abrirVentanaLiga() throws Exception, SQLException {
         vLiga = new V_Liga();
         vLiga.setVisible(true);
     }
 
     /**
-     * Funcion que muestra la ventana V_Admin
+     * Funcion que muestra la ventana V_Admin.
      *
      */
     public static void mostrarVentanaAdmin() {
@@ -229,7 +232,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que cierra la ventana v_Admin
+     * Funcion que cierra la ventana v_Admin.
      *
      */
     public static void cerrarVentanaAdmin() {
@@ -237,7 +240,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que abre la ventana V_Usuario
+     * Funcion que abre la ventana V_Usuario.
      *
      */
     public static void mostrarVentanaUsuario() {
@@ -246,7 +249,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que cierra la ventana V_Login
+     * Funcion que cierra la ventana V_Login.
      *
      */
     public static void cerrarVentanaUsuario() {
@@ -254,7 +257,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que abre la ventana V_CrearLiga
+     * Funcion que abre la ventana V_CrearLiga.
      *
      */
     public static void mostrarVentanaCreacion() {
@@ -263,7 +266,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que cierra la ventana V_CrearLiga
+     * Funcion que cierra la ventana V_CrearLiga.
      *
      */
     public static void cerrarVentanaCreacion() {
@@ -271,7 +274,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que abre la ventana V_IntroducirResultado
+     * Funcion que abre la ventana V_IntroducirResultado.
      *
      * @param jornadas(requerido) todas las jornadas
      * @param numJornada (requerido) numero de la jornada
@@ -282,7 +285,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que abre cierra la ventana vIntroducirResultado
+     * Funcion que abre cierra la ventana vIntroducirResultado.
      *
      */
     public static void cerrarVentanaResultado() {
@@ -290,7 +293,7 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que abre la ventana V_Aviso
+     * Funcion que abre la ventana V_Aviso.
      *
      * @param mensaje devuelve un mensaje
      *
@@ -301,18 +304,34 @@ public class ControladorVistas {
     }
 
     /**
-     * Funcion que abre la ventana V_Aviso
+     * Funcion que abre la ventana V_Aviso.
      *
      */
     public static void cerrarVentanaAviso() {
         vAviso.dispose();
     }
 
+    /**
+     * Funcion para cerrar la ventana Lista.
+     *
+     */
     static void cerrarVentanaLista() {
         vLista.dispose();
     }
 
+    /**
+     * Funcion para ejecutar la funcion para ver la ventana admin personalizada.
+     *
+     */
     static void mostrarAdministrarMirar() {
         vAdmin.mostrarAdministrarMirar();
+    }
+
+    /**
+     * Funcon para poner el estado de la liga en offline.
+     *
+     */
+    static void setLigaOffline() {
+        vAdmin.setLigaOffline();
     }
 }

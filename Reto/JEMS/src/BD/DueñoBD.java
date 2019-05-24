@@ -46,8 +46,8 @@ public class DueñoBD {
     /**
      * Función para insertar un Dueño.
      *
-     * @param d (requerido) objeto de clase Dueño.
-     * @throws Exception hereda excepciones.
+     * @param d (requerido) objeto de clase Dueño
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void insertarDueño(Dueño d) throws Exception, SQLException {
@@ -64,8 +64,8 @@ public class DueñoBD {
     /**
      * Función que rellena un objeto dueño desde los datos de la base de datos.
      *
-     * @return devuelve un objeto de clase Dueño.
-     * @throws Exception herada excepciones.
+     * @return devuelve un objeto de clase Dueño
+     * @throws Exception herada excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Dueño crearObjeto() throws Exception, SQLException {
@@ -81,8 +81,8 @@ public class DueñoBD {
      * Función que rellena un objeto dueño desde los datos de la base de datos y
      * los equipos que es dueño.
      *
-     * @return devuelve un objeto de clase Dueño.
-     * @throws Exception herada excepciones.
+     * @return devuelve un objeto de clase Dueño
+     * @throws Exception herada excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Dueño crearObjetoConListaEquipos() throws Exception, SQLException {
@@ -123,8 +123,8 @@ public class DueñoBD {
     /**
      * Función que crea un ArrayList con todos los Dueños de la base de datos.
      *
-     * @return devuelve un ArrayList de Dueño.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Dueño
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public ArrayList<Dueño> consultaTodosDueños() throws Exception, SQLException {

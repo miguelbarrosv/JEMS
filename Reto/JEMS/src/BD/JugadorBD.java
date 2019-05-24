@@ -46,8 +46,8 @@ public class JugadorBD {
     /**
      * Función para insertar Jugador.
      *
-     * @param j (requerido) objeto de clase Jugador.
-     * @throws Exception hereda excepciones.
+     * @param j (requerido) objeto de clase Jugador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void insertarJugador(Jugador j) throws Exception, SQLException {
@@ -69,8 +69,8 @@ public class JugadorBD {
     /**
      * Función para insertar Jugador sin equipo.
      *
-     * @param j (requerido) objeto de clase Jugador.
-     * @throws Exception hereda excepciones.
+     * @param j (requerido) objeto de clase Jugador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void insertarJugadorSinEquipo(Jugador j) throws Exception, SQLException {
@@ -91,9 +91,9 @@ public class JugadorBD {
     /**
      * Función que busca un Jugador en la base de datos mediante su codigo.
      *
-     * @param cod_jugador (requerido) codigo de clase Jugador.
-     * @return devuelve un objeto clase Jugador.
-     * @throws Exception hereda excepciones.
+     * @param cod_jugador (requerido) codigo de clase Jugador
+     * @return devuelve un objeto clase Jugador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Jugador consultarJugadorCodigo(int cod_jugador) throws Exception, SQLException {
@@ -116,8 +116,8 @@ public class JugadorBD {
      * Función que rellena un objeto Jugador desde los datos de la base de
      * datos.
      *
-     * @return devuelve un objeto de clase Jugador.
-     * @throws Exception herada excepciones.
+     * @return devuelve un objeto de clase Jugador
+     * @throws Exception herada excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Jugador crearObjeto() throws Exception, SQLException {
@@ -140,8 +140,8 @@ public class JugadorBD {
      * Función que crea un ArrayList con todos los Jugadores de la base de
      * datos.
      *
-     * @return devuelve un ArrayList de Jugador.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Jugador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public ArrayList<Jugador> consultaTodosJugadores() throws Exception, SQLException {
@@ -161,8 +161,8 @@ public class JugadorBD {
      * base de datos.
      *
      * @param cod_equipo (requerido) codigo del Equipo
-     * @return devuelve un ArrayList de Jugador.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Jugador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public ArrayList<Jugador> consultaTodosJugadoresEquipo(int cod_equipo) throws Exception, SQLException {
@@ -182,8 +182,8 @@ public class JugadorBD {
     /**
      * Función que borra un Jugador de la base de datos.
      *
-     * @param codJugador (requerido) codigo del Jugador.
-     * @throws Exception hereda excepciones.
+     * @param codJugador (requerido) codigo del Jugador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void borrarJugador(int codJugador) throws Exception, SQLException {
@@ -198,7 +198,7 @@ public class JugadorBD {
     /**
      * Función para modificar un Jugador.
      *
-     * @param j (requerido) objeto de clase Jugador.
+     * @param j (requerido) objeto de clase Jugador
      * @throws Exception heredar excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
@@ -215,6 +215,22 @@ public class JugadorBD {
         sentenciaPre.setString(7, j.getTelefono());
         sentenciaPre.setInt(8, j.getEquipo().getCod_equipo());
         sentenciaPre.setInt(9, j.getCod_jugador());
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+    }
+
+    /**
+     * Funcion que borra jugadores de un equipo.
+     *
+     * @param codEquipo(requerido) codigo del equipo.
+     * @throws Exception hereda excepciones
+     * @throws SQLException hereda excepciones SQL
+     */
+    public void borrarJugadorEquipo(int codEquipo) throws Exception, SQLException {
+        bdr.conectar();
+        String plantilla = "DELETE FROM JUGADOR WHERE EQUIPO_COD_EQUIPO= ?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, codEquipo);
         sentenciaPre.executeUpdate();
         bdr.cerrarCon();
     }
