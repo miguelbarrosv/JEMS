@@ -49,8 +49,8 @@ public class V_CrearLiga extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfFechaInicio = new javax.swing.JTextField();
         tfNombre = new javax.swing.JTextField();
+        tfFechaInicio = new javax.swing.JFormattedTextField();
         bCrear = new javax.swing.JButton();
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
@@ -65,10 +65,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        tfFechaInicio.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        getContentPane().add(tfFechaInicio);
-        tfFechaInicio.setBounds(510, 400, 250, 30);
-
+        tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombreActionPerformed(evt);
@@ -76,6 +73,14 @@ public class V_CrearLiga extends javax.swing.JFrame {
         });
         getContentPane().add(tfNombre);
         tfNombre.setBounds(510, 340, 250, 30);
+
+        try {
+            tfFechaInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(tfFechaInicio);
+        tfFechaInicio.setBounds(510, 400, 250, 30);
 
         bCrear.setBackground(new java.awt.Color(252, 124, 0));
         bCrear.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -194,6 +199,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaCreacion();
         ControladorVistas.mostrarAdministrarMirar();
+        ControladorVistas.setLigaOffline();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
@@ -247,7 +253,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbSubtitulo;
     private javax.swing.JLabel lbVersion;
-    private javax.swing.JTextField tfFechaInicio;
+    private javax.swing.JFormattedTextField tfFechaInicio;
     private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -59,7 +59,11 @@ public class V_Admin extends javax.swing.JFrame {
             if (JEMS.consultarLiga() == null) {
                 setLigaOffline();
             } else {
-                setLigaOnline();
+                if (JEMS.consultarLiga().getEstado() == true) {
+                    setLigaOnline();
+                } else {
+                    setLigaOffline();
+                }
             }
         } catch (Exception ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
@@ -72,6 +76,9 @@ public class V_Admin extends javax.swing.JFrame {
     public void setLigaOffline() {
         lbEstadoliga.setText("Offline");
         lbEstadoliga.setForeground(Color.RED);
+        bEquipo.setVisible(true);
+        bJugador.setVisible(true);
+        bDueño.setVisible(true);
     }
 
     /**
@@ -80,6 +87,9 @@ public class V_Admin extends javax.swing.JFrame {
     public void setLigaOnline() {
         lbEstadoliga.setText("Online");
         lbEstadoliga.setForeground(Color.GREEN);
+        bEquipo.setVisible(false);
+        bJugador.setVisible(false);
+        bDueño.setVisible(false);
     }
 
     /**
@@ -156,6 +166,7 @@ public class V_Admin extends javax.swing.JFrame {
         tfIntroducirResultadoJornada.setVisible(false);
         bIntroducirResultado.setVisible(false);
         bMirarLiga.setVisible(true);
+        bVolverLiga.setVisible(false);
     }
 
     /**
@@ -173,15 +184,22 @@ public class V_Admin extends javax.swing.JFrame {
      */
     public void mostrarJornadaClasificacion() {
         try {
-            if (JEMS.cogerNombreLiga() == null) {
+            if (JEMS.consultarLiga() == null) {
                 bJornada.setVisible(false);
                 bClasificacion.setVisible(false);
             } else {
-                bJornada.setVisible(true);
-                bClasificacion.setVisible(true);
+                if (JEMS.consultarLiga().getEstado() == true) {
+                    bJornada.setVisible(true);
+                    bClasificacion.setVisible(true);
+                } else {
+                    bJornada.setVisible(false);
+                    bClasificacion.setVisible(false);
+                }
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }
@@ -693,6 +711,7 @@ public class V_Admin extends javax.swing.JFrame {
             JEMS.insertarEquipos();
             mostrarIntroducirJornada();
             bInsertarPartidos.setVisible(false);
+            setLigaOnline();
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
@@ -1081,12 +1100,13 @@ public class V_Admin extends javax.swing.JFrame {
     private void bCrearLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearLigaActionPerformed
         ControladorVistas.mostrarVentanaCreacion();
         bCrearLiga.setVisible(false);
+        bInsertarPartidos.setVisible(false);
     }//GEN-LAST:event_bCrearLigaActionPerformed
 
     /**
      * Sale de la sesion actual y vuelve al login
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void bCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionActionPerformed
         ControladorVistas.cerrarVentanaAdmin();

@@ -42,7 +42,11 @@ public class V_Usuario extends javax.swing.JFrame {
             if (JEMS.consultarLiga() == null) {
                 setLigaOffline();
             } else {
-                setLigaOnline();
+                if (JEMS.consultarLiga().getEstado() == true) {
+                    setLigaOnline();
+                } else {
+                    setLigaOffline();
+                }
             }
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
@@ -246,8 +250,8 @@ public class V_Usuario extends javax.swing.JFrame {
 
     /**
      * Cierra la sesion y vuelve al login
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void bCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionActionPerformed
         ControladorVistas.cerrarVentanaUsuario();

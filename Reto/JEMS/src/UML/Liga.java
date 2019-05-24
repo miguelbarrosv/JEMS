@@ -151,7 +151,7 @@ public class Liga {
      *
      * @return estado devuelve el estado de la liga
      */
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 

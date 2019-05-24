@@ -308,11 +308,27 @@ public class ControladorVistas {
         vAviso.dispose();
     }
 
+    /**
+     * Funcion para cerrar la ventana Lista.
+     *
+     */
     static void cerrarVentanaLista() {
         vLista.dispose();
     }
 
+    /**
+     * Funcion para ejecutar la funcion para ver la ventana admin personalizada.
+     *
+     */
     static void mostrarAdministrarMirar() {
         vAdmin.mostrarAdministrarMirar();
+    }
+
+    /**
+     * Funcon para poner el estado de la liga en offline.
+     *
+     */
+    static void setLigaOffline() {
+        vAdmin.setLigaOffline();
     }
 }
