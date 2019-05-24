@@ -32,6 +32,8 @@ public class ParserDOMJornada {
     private static Jornada j;
     private static ArrayList<Partido> listaPartidos = new ArrayList<Partido>();
     private static Partido p;
+    private static Document doc;
+    private static Equipo e;
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
         run();
@@ -54,7 +56,7 @@ public class ParserDOMJornada {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-        Document doc = dBuilder.parse(archivo);
+        doc = dBuilder.parse(archivo);
         doc.getDocumentElement().normalize();
         System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
 
@@ -98,37 +100,15 @@ public class ParserDOMJornada {
             System.out.println("cod: " + element.getAttribute("cod"));
             System.out.println("partidos: " + element.getElementsByTagName("partidos").item(0).getTextContent());
 
-            j.setPartidos(obtenerValor("partidos", element));
+            NodeList nodosPartido = doc.getElementsByTagName("partido");
+            for (int i = 0; i < nodosPartido.getLength(); i++ ) {
+                listaPartidos.add(getPartido(nodosPartido.item(i)));
+            }
+            j.setPartidos(listaPartidos);
         }
         return j;
     }
 
-    /**
-     * Funcion con la que obtenemos el valor de los elementos del arbol XML
-     *
-     * @param tag La etiqueta del elemento
-     * @param jornada nodo de la jornada
-     * @return Texto recuperado
-     */
-    public static ArrayList<Partido> obtenerValor(String tag, Element jornada) {
-        NodeList nodos = jornada.getElementsByTagName(tag).item(0).getChildNodes();
-
-        for (int z = 0; z < nodos.getLength(); z++) {
-            //Guardamos el array de partidos con cada objeto partido
-            listaPartidos.add(getPartido(nodos.item(z)));
-        }
-        //Sacamos por pantalla el arrayList de partidos
-        for (Partido p : listaPartidos) {
-            System.out.println(p.getResultado());
-        }
-        return listaPartidos;
-    }
-
-    /**
-     * Funcion con la que cogemos los partidos con atributos y elementos para
-     * añadirlos al arrayList creado anteriormente
-     *
-     */
     /**
      * Funcion con la que cogemos los partidos con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
@@ -151,6 +131,10 @@ public class ParserDOMJornada {
             System.out.println("Resultado: " + element.getElementsByTagName("resultado").item(0).getTextContent());
 
             p.setResultado(Integer.parseInt(obtenerSubelemento("resultado", element)));
+            e.setNombre(obtenerSubelemento("equipo_local",element));
+            e.setNombre(obtenerSubelemento("equipo_visitante",element));
+            p.setEquipo_local(e);
+            p.setEquipo_visitante(e);
         }
         return p;
     }
