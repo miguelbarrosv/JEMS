@@ -5,7 +5,6 @@
  */
 package Parser;
 
-import static Parser.ParserDomClasificacion.getEquipos;
 import UML.Equipo;
 import UML.Jornada;
 import UML.Partido;
@@ -28,11 +27,8 @@ import org.xml.sax.SAXException;
 public class ParserDOMJornada {
 
     private static Element elementoRaiz;
-    private static ArrayList<Jornada> listaJornadas = new ArrayList<Jornada>();
     private static Jornada j;
-    private static ArrayList<Partido> listaPartidos = new ArrayList<Partido>();
     private static Partido p;
-    private static Document doc;
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
         run();
@@ -44,7 +40,7 @@ public class ParserDOMJornada {
      */
     /**
      * Funcion con la que iniciamos el proceso de lectura del documento xml
-     * 
+     *
      * @throws ParserConfigurationException hereda de excepciones
      * @throws SAXException hereda de excepciones
      * @throws IOException hereda de excepciones
@@ -55,19 +51,19 @@ public class ParserDOMJornada {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 
-        doc = dBuilder.parse(archivo);
+        Document doc = dBuilder.parse(archivo);
         doc.getDocumentElement().normalize();
+
         System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
 
         elementoRaiz = doc.getDocumentElement();
 
         NodeList nodes = doc.getElementsByTagName("jornada");
         System.out.println("------------------------");
-
+        ArrayList<Jornada> listaJornadas = new ArrayList<>();
         for (int i = 0; i < nodes.getLength(); i++) {
             //Guardamos en el array de jornadas con cada objeto jornada
             listaJornadas.add(getJornada(nodes.item(i)));
-
             NodeList listaPartidos = doc.getElementsByTagName("partido");
             System.out.println("-----------------------");
         }
@@ -79,11 +75,10 @@ public class ParserDOMJornada {
         }
     }
 
-
     /**
      * Funcion con la que cogemos las jornadas con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
-     * 
+     *
      * @param jornada las jornadas con sus atributos
      * @return jornada devuelve la jornada
      */
@@ -100,9 +95,9 @@ public class ParserDOMJornada {
             System.out.println("Fecha Inicio: " + element.getAttribute("fecha_inicio"));
             System.out.println("cod: " + element.getAttribute("cod"));
             System.out.println("partidos: " + element.getElementsByTagName("partidos").item(0).getTextContent());
-
-            NodeList nodosPartido = doc.getElementsByTagName("partido");
-            for (int x = 0; x < nodosPartido.getLength(); x++ ) {
+            ArrayList<Partido> listaPartidos = new ArrayList<>();
+            NodeList nodosPartido = elementoRaiz.getElementsByTagName("partido");
+            for (int x = 0; x < nodosPartido.getLength(); x++) {
                 //Guardamos el array de partidos
                 listaPartidos.add(getPartido(nodosPartido.item(x)));
             }
@@ -115,7 +110,7 @@ public class ParserDOMJornada {
     /**
      * Funcion con la que cogemos los partidos con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
-     * 
+     *
      * @param partido establecemos el partido con sus atributos y elementos
      * @return partido devuelve el partido
      */
@@ -134,13 +129,13 @@ public class ParserDOMJornada {
             System.out.println("Resultado: " + element.getElementsByTagName("resultado").item(0).getTextContent());
 
             p.setResultado(Integer.parseInt(obtenerSubelemento("resultado", element)));
-            
+
             Equipo equipoVisitante = new Equipo();
-            equipoVisitante.setNombre(obtenerSubelemento("equipo_visitante",element));
+            equipoVisitante.setNombre(obtenerSubelemento("equipo_visitante", element));
             p.setEquipo_visitante(equipoVisitante);
-            
+
             Equipo equipoLocal = new Equipo();
-            equipoLocal.setNombre(obtenerSubelemento("equipo_local",element));
+            equipoLocal.setNombre(obtenerSubelemento("equipo_local", element));
             p.setEquipo_local(equipoLocal);
         }
         return p;
