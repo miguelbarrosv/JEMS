@@ -102,7 +102,7 @@ public class GeneradorDOMClasificacion {
         raiz.setAttribute("cod", String.valueOf(liga.getCod_liga()));
         raiz.setAttribute("fecha_inicio", String.valueOf(liga.getFecha_inicio()));
         raiz.setAttribute("fecha_fin", String.valueOf(liga.getFecha_fin()));
-        raiz.setAttribute("estado_liga", String.valueOf(liga.isEstado()));
+        raiz.setAttribute("estado_liga", String.valueOf(liga.getEstado()));
 
         // Elemento fecha_actualizacion
         Element elementoFechaActualizacion = dom.createElement("fecha_actualizacion");
