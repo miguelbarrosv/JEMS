@@ -237,7 +237,7 @@ public class EquipoBD {
             stringlistaEquipos += "Puntuacion: " + rs.getInt("PUNTUACION");
             stringlistaEquipos += "Codigo dueño: " + rs.getInt("CODIGO_DUEÑO");
             stringlistaEquipos += "Nombre dueño: " + rs.getString("NOMBRE_DUEÑO");
-            stringlistaEquipos += "Numero jugadores " + rs.getInt("NUM_JUGADORES") + "\n";
+            stringlistaEquipos += "Numero jugadores " + rs.getInt("NUM_JUGADORES") + "\n\n";
         }
         rs.close();
         cStmt.close();

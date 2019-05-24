@@ -7,6 +7,7 @@ package Vistas;
 
 import UML.Usuario;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -100,8 +101,10 @@ public class V_Registrar extends javax.swing.JFrame {
                 flag = false;
                 // mensaje de que la contraseña no es la misma en ambos campos
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
         return flag;
     }
@@ -301,8 +304,10 @@ public class V_Registrar extends javax.swing.JFrame {
                     ControladorVistas.cerrarVentanaRegistrar();
                     ControladorVistas.mostrarVentanaLogin();
                 }
-            } catch (Exception ex) {
-                Logger.getLogger(V_Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+            } catch (Exception e) {
+                ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
             }
         }
     }//GEN-LAST:event_bRegistrarseActionPerformed

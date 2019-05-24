@@ -8,6 +8,7 @@ package Vistas;
 import Excepciones.*;
 import UML.Dueño;
 import UML.Equipo;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -418,8 +419,10 @@ public class V_Equipo extends javax.swing.JFrame {
                     ControladorVistas.abrirVentanaAviso("Equipo dado de baja con exito!");
                 }
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
 
@@ -475,8 +478,10 @@ public class V_Equipo extends javax.swing.JFrame {
                     cbDueño.setSelectedItem(equipo.getDueño().getNombre());
                     break;
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
 
     }//GEN-LAST:event_tfCodigoEquipoActionPerformed

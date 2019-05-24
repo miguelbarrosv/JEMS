@@ -7,6 +7,7 @@ package Vistas;
 
 import Excepciones.*;
 import UML.Dueño;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
@@ -367,7 +368,7 @@ public class V_Dueño extends javax.swing.JFrame {
             if (validarDatos()) {
                 switch (ope) {
                     case "modificar":
-                        JEMS.modificarDueño(Integer.parseInt(tfCodigoDueño.getText()),tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
+                        JEMS.modificarDueño(Integer.parseInt(tfCodigoDueño.getText()), tfNombre.getText(), tfApellido.getText(), tfTelefono.getText());
                         ControladorVistas.abrirVentanaAviso("Dueño modificado con exito!");
                         break;
                     case "alta":
@@ -380,8 +381,10 @@ public class V_Dueño extends javax.swing.JFrame {
                         break;
                 }
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
     /**
@@ -435,8 +438,10 @@ public class V_Dueño extends javax.swing.JFrame {
                     tfTelefono.setText(dueño.getTelefono());
                     break;
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            ControladorVistas.abrirVentanaAviso("Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_tfCodigoDueñoActionPerformed
 

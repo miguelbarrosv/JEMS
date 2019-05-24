@@ -5,6 +5,8 @@
  */
 package Parser;
 
+import BD.JornadaBD;
+import BD.PartidoBD;
 import UML.Partido;
 import UML.Jornada;
 import java.io.File;
@@ -32,6 +34,7 @@ import org.w3c.dom.Text;
  *
  * @author Joel Encinas
  * @author Miguel Barros
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -63,9 +66,11 @@ public class GeneradorDOMJornada {
         System.out.println("Fichero generado");
     }
 
+
     /**
      * Funcion que coge los datos necesarios de la BD para poder generar el XML
      *
+     * @throws Exception hereda de excepcones
      */
     public void cargarDatos() throws Exception {
         // Cargar ArrayList paartidos
@@ -133,7 +138,8 @@ public class GeneradorDOMJornada {
     /**
      * Funcion que crea el elemento partido y sus subelementos
      *
-     * @param (requerido) objeto Partido
+     * @param partido (requerido) objeto Partido
+     * @return devuelve el objeto partido
      */
     public Element crearElementoPartido(Partido partido) {
         // <partido>

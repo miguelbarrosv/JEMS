@@ -14,6 +14,7 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0
@@ -90,13 +91,13 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         return validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText());
     }
 
-    /**
-     * Para validar la contraseña
-     *
-     * @param usuario
-     * @return retornamos true
-     */
 
+    /**
+     * para validar el usuario
+     *
+     * @param usuario usuario introducido
+     * @return usuario devuelto
+     */
     public boolean validarUsuario(String usuario) {
         return true;
     }

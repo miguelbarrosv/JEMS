@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Jornada;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +16,8 @@ import jems.JEMS;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
+ * @author Sergio Zulueta
  */
 public class V_IntroducirResultado extends javax.swing.JFrame {
 
@@ -424,8 +426,10 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 JEMS.introducirResultado(tfEquipoVisitante3.getText());
 
             }
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bActualizarActionPerformed
 

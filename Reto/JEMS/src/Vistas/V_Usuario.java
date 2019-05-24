@@ -6,6 +6,7 @@
 package Vistas;
 
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -43,8 +44,10 @@ public class V_Usuario extends javax.swing.JFrame {
             } else {
                 setLigaOnline();
             }
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }
 
@@ -208,13 +211,13 @@ public class V_Usuario extends javax.swing.JFrame {
      * @param evt pulsar enter
      */
     private void bLigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLigaActionPerformed
-
         try {
             ControladorVistas.mostrarVentanaLiga();
-        } catch (Exception ex) {
-            Logger.getLogger(V_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
-
     }//GEN-LAST:event_bLigaActionPerformed
     /**
      * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el
@@ -225,8 +228,10 @@ public class V_Usuario extends javax.swing.JFrame {
     private void bJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJornadaActionPerformed
         try {
             ControladorVistas.mostrarVentanaJornadas();
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getClass());
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bJornadaActionPerformed
 

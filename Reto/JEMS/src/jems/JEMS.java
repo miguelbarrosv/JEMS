@@ -217,9 +217,9 @@ public class JEMS {
         String stringJugadores = "";
         for (int x = 0; x < listaJugadores.size(); x++) {
             if (listaJugadores.get(x).getEquipo() == null) {
-                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + "\n";
+                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + "\n\n";
             } else {
-                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + " equipo: " + listaJugadores.get(x).getEquipo().getNombre() + "\n";
+                stringJugadores += "codigo: " + listaJugadores.get(x).getCod_jugador() + " nombre: " + listaJugadores.get(x).getNombre() + " apellido: " + listaJugadores.get(x).getApellido() + " nickname: " + listaJugadores.get(x).getNickname() + " sueldo: " + listaJugadores.get(x).getSueldo() + " nacionalidad: " + listaJugadores.get(x).getNacionalidad() + " estado: " + listaJugadores.get(x).getEstado() + " telefono: " + listaJugadores.get(x).getTelefono() + " equipo: " + listaJugadores.get(x).getEquipo().getNombre() + "\n\n";
             }
         }
         return stringJugadores;
@@ -419,7 +419,7 @@ public class JEMS {
             for (int y = 0; y < listaEquipos.size(); y++) {
                 stringEquipos += listaEquipos.get(y).getNombre() + ", ";
             }
-            stringDueños += "codigo: " + listaDueños.get(x).getCod_dueño() + " nombre: " + listaDueños.get(x).getNombre() + " apellido: " + listaDueños.get(x).getApellido() + " telefono: " + listaDueños.get(x).getTelefono() + " equipos: " + stringEquipos + "\n";
+            stringDueños += "codigo: " + listaDueños.get(x).getCod_dueño() + " nombre: " + listaDueños.get(x).getNombre() + " apellido: " + listaDueños.get(x).getApellido() + " telefono: " + listaDueños.get(x).getTelefono() + " equipos: " + stringEquipos + "\n\n";
         }
         return stringDueños;
     }
@@ -658,6 +658,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Partido> consultarPartidos() throws Exception, SQLException {
+        PartidoBD pBD = new PartidoBD();
         listaPartidos = pBD.consultarPartidos();
         return listaPartidos;
     }
@@ -670,6 +671,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Equipo> consultarEquipos() throws Exception, SQLException {
+        EquipoBD eBD = new EquipoBD();
         listaEquipos = eBD.consultaEquipos();
         return listaEquipos;
     }

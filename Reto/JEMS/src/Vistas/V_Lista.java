@@ -23,7 +23,7 @@ public class V_Lista extends javax.swing.JFrame {
         myInitComponents();
         taListaJugadores.setEditable(false);
     }
-    
+
     /**
      * Formato de la ventana
      */
@@ -147,7 +147,7 @@ public class V_Lista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        ControladorVistas.cerrarVentanaLista(); 
+        ControladorVistas.cerrarVentanaLista();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
