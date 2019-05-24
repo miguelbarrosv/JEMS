@@ -93,12 +93,6 @@ public class ParserDomClasificacion {
             System.out.println(e.getPuntuacion());
         }
     }
-
-    /**
-     * Funcion con la que cogemos los equipos con atributos y elementos para
-     * añadirlos al arrayList creado anteriormente
-     *
-     */
     /**
      * Funcion con la que cogemos los equipos con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
