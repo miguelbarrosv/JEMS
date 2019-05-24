@@ -41,6 +41,13 @@ public class ParserDOMJornada {
      * Funcion con la que iniciamos el proceso de lectura del documento xml
      *
      */
+    /**
+     * Funcion con la que iniciamos el proceso de lectura del documento xml
+     * 
+     * @throws ParserConfigurationException hereda de excepciones
+     * @throws SAXException hereda de excepciones
+     * @throws IOException hereda de excepciones
+     */
     public static void run() throws ParserConfigurationException, SAXException, IOException {
 
         File archivo = new File("../jornada.xml");
@@ -69,10 +76,13 @@ public class ParserDOMJornada {
         }
     }
 
+
     /**
-     * Funcion con la que cogemos llas jornadas con atributos y elementos para
+     * Funcion con la que cogemos las jornadas con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
-     *
+     * 
+     * @param jornada las jornadas con sus atributos
+     * @return jornada devuelve la jornada
      */
     public static Jornada getJornada(Node jornada) {
         if (jornada.getNodeType() == Node.ELEMENT_NODE) {
@@ -97,7 +107,7 @@ public class ParserDOMJornada {
      * Funcion con la que obtenemos el valor de los elementos del arbol XML
      *
      * @param tag La etiqueta del elemento
-     * @param element Nodo de jornada
+     * @param jornada nodo de la jornada
      * @return Texto recuperado
      */
     public static ArrayList<Partido> obtenerValor(String tag, Element jornada) {
@@ -118,6 +128,13 @@ public class ParserDOMJornada {
      * Funcion con la que cogemos los partidos con atributos y elementos para
      * añadirlos al arrayList creado anteriormente
      *
+     */
+    /**
+     * Funcion con la que cogemos los partidos con atributos y elementos para
+     * añadirlos al arrayList creado anteriormente
+     * 
+     * @param partido establecemos el partido con sus atributos y elementos
+     * @return partido devuelve el partido
      */
     public static Partido getPartido(Node partido) {
         if (partido.getNodeType() == Node.ELEMENT_NODE) {

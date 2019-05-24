@@ -19,7 +19,7 @@ import jems.JEMS;
  *
  * @author Miguel Barros
  * @author Eric Muñoz
- * @author SergioZulueta
+ * @author Sergio Zulueta
  *
  * @version %I%, %G%
  * @since 1.0

@@ -15,7 +15,8 @@ import jems.JEMS;
 
 /**
  *
- * @author migue
+ * @author Miguel Barros
+ * @author Sergio Zulueta
  */
 public class V_IntroducirResultado extends javax.swing.JFrame {
 
