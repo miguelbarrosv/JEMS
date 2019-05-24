@@ -6,6 +6,7 @@
 package Vistas;
 
 import UML.Jornada;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -20,6 +21,7 @@ import jems.JEMS;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author SergioZulueta
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -42,17 +44,42 @@ public class V_Admin extends javax.swing.JFrame {
      * Formatea la ventana
      */
     public void myInitComponents() {
-        setSize(1280, 720);
-        setLocationRelativeTo(null);
-        tfIntroducirResultadoJornada.setBorder(BorderFactory.createCompoundBorder(
-                tfIntroducirResultadoJornada.getBorder(),
-                BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        ocultarOpcionesAltaBajaModificarConsultar();
-        ocultarCrearEliminar();
-        ocultarJornadaClasificacion();
-        ocultarIntroducirJornada();
-        bInsertarPartidos.setVisible(false);
-        bVolverLiga.setVisible(false);
+        try {
+            setSize(1280, 720);
+            setLocationRelativeTo(null);
+            tfIntroducirResultadoJornada.setBorder(BorderFactory.createCompoundBorder(
+                    tfIntroducirResultadoJornada.getBorder(),
+                    BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+            ocultarOpcionesAltaBajaModificarConsultar();
+            ocultarCrearEliminar();
+            ocultarJornadaClasificacion();
+            ocultarIntroducirJornada();
+            bInsertarPartidos.setVisible(false);
+            bVolverLiga.setVisible(false);
+            if (JEMS.consultarLiga() == null) {
+                setLigaOffline();
+            } else {
+                setLigaOnline();
+            }
+        } catch (Exception ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Cambia el texto de la liga a "offline" y lo pone de color rojo
+     */
+    public void setLigaOffline() {
+        lbEstadoliga.setText("Offline");
+        lbEstadoliga.setForeground(Color.RED);
+    }
+
+    /**
+     * Cambia el texto de la liga a "online" y lo pone de color verde
+     */
+    public void setLigaOnline() {
+        lbEstadoliga.setText("Online");
+        lbEstadoliga.setForeground(Color.GREEN);
     }
 
     /**
@@ -225,6 +252,9 @@ public class V_Admin extends javax.swing.JFrame {
         bClasificacion = new javax.swing.JButton();
         bMirarLiga = new javax.swing.JButton();
         bCrearLiga = new javax.swing.JButton();
+        bCerrarSesion = new javax.swing.JButton();
+        lbEstadoLigaTitulo = new javax.swing.JLabel();
+        lbEstadoliga = new javax.swing.JLabel();
         lbBorde = new javax.swing.JLabel();
         lbTituloAdmin2 = new javax.swing.JLabel();
         lbTituloAdmin = new javax.swing.JLabel();
@@ -298,7 +328,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bJugador.setBackground(new java.awt.Color(86, 88, 149));
         bJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bJugador.setForeground(new java.awt.Color(0, 0, 0));
         bJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/jugador.png"))); // NOI18N
         bJugador.setText("JUGADOR");
         bJugador.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -316,7 +345,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bConsultarMuchos.setBackground(new java.awt.Color(86, 88, 149));
         bConsultarMuchos.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bConsultarMuchos.setForeground(new java.awt.Color(0, 0, 0));
         bConsultarMuchos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_todos.png"))); // NOI18N
         bConsultarMuchos.setText("CONSULTAR TODOS");
         bConsultarMuchos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -334,7 +362,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bConsultarUno.setBackground(new java.awt.Color(86, 88, 149));
         bConsultarUno.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bConsultarUno.setForeground(new java.awt.Color(0, 0, 0));
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setText("CONSULTAR UNO");
         bConsultarUno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -352,7 +379,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bDueño.setBackground(new java.awt.Color(86, 88, 149));
         bDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bDueño.setForeground(new java.awt.Color(0, 0, 0));
         bDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dueño.png"))); // NOI18N
         bDueño.setText("DUEÑO");
         bDueño.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -370,7 +396,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bBaja.setBackground(new java.awt.Color(86, 88, 149));
         bBaja.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bBaja.setForeground(new java.awt.Color(0, 0, 0));
         bBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/eliminar.png"))); // NOI18N
         bBaja.setText("BORRAR");
         bBaja.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -388,7 +413,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bEquipo.setBackground(new java.awt.Color(86, 88, 149));
         bEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bEquipo.setForeground(new java.awt.Color(0, 0, 0));
         bEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/equipo.png"))); // NOI18N
         bEquipo.setText("EQUIPO");
         bEquipo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -406,7 +430,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bModificar.setBackground(new java.awt.Color(86, 88, 149));
         bModificar.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bModificar.setForeground(new java.awt.Color(0, 0, 0));
         bModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/editar.png"))); // NOI18N
         bModificar.setText("EDITAR");
         bModificar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -424,7 +447,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bUsuario.setBackground(new java.awt.Color(86, 88, 149));
         bUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bUsuario.setForeground(new java.awt.Color(0, 0, 0));
         bUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/usuario.png"))); // NOI18N
         bUsuario.setText("USUARIO");
         bUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -442,7 +464,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bAlta.setBackground(new java.awt.Color(86, 88, 149));
         bAlta.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        bAlta.setForeground(new java.awt.Color(0, 0, 0));
         bAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/añadir.png"))); // NOI18N
         bAlta.setText("AÑADIR");
         bAlta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -522,7 +543,7 @@ public class V_Admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bIntroducirResultado);
-        bIntroducirResultado.setBounds(750, 400, 250, 30);
+        bIntroducirResultado.setBounds(800, 400, 150, 30);
 
         lbIntroducirResultadoJornada.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbIntroducirResultadoJornada.setForeground(new java.awt.Color(255, 255, 255));
@@ -531,7 +552,6 @@ public class V_Admin extends javax.swing.JFrame {
         lbIntroducirResultadoJornada.setBounds(760, 350, 190, 40);
 
         tfIntroducirResultadoJornada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        tfIntroducirResultadoJornada.setForeground(new java.awt.Color(0, 0, 0));
         tfIntroducirResultadoJornada.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfIntroducirResultadoJornada.setBorder(null);
         getContentPane().add(tfIntroducirResultadoJornada);
@@ -586,6 +606,40 @@ public class V_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(bCrearLiga);
         bCrearLiga.setBounds(740, 200, 270, 60);
+
+        bCerrarSesion.setBackground(new java.awt.Color(252, 124, 0));
+        bCerrarSesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bCerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
+        bCerrarSesion.setText("CERRAR SESION");
+        bCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bCerrarSesion.setBorderPainted(false);
+        bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCerrarSesion.setFocusPainted(false);
+        bCerrarSesion.setIconTextGap(20);
+        bCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bCerrarSesion);
+        bCerrarSesion.setBounds(970, 13, 220, 35);
+
+        lbEstadoLigaTitulo.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        lbEstadoLigaTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbEstadoLigaTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEstadoLigaTitulo.setText("Estado de la liga");
+        lbEstadoLigaTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbEstadoLigaTitulo);
+        lbEstadoLigaTitulo.setBounds(560, 560, 130, 30);
+
+        lbEstadoliga.setFont(new java.awt.Font("Bahnschrift", 3, 14)); // NOI18N
+        lbEstadoliga.setForeground(new java.awt.Color(51, 255, 51));
+        lbEstadoliga.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbEstadoliga.setText("Online");
+        lbEstadoliga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lbEstadoliga);
+        lbEstadoliga.setBounds(680, 560, 70, 30);
 
         lbBorde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/blur.png"))); // NOI18N
         lbBorde.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(86, 88, 149), 1, true));
@@ -1058,6 +1112,16 @@ public class V_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_bCrearLigaActionPerformed
 
     /**
+     * Sale de la sesion actual y vuelve al login
+     * 
+     * @param evt 
+     */
+    private void bCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionActionPerformed
+        ControladorVistas.cerrarVentanaAdmin();
+        ControladorVistas.mostrarVentanaLogin();
+    }//GEN-LAST:event_bCerrarSesionActionPerformed
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -1097,6 +1161,7 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JButton bAdministrarLiga;
     private javax.swing.JButton bAlta;
     private javax.swing.JButton bBaja;
+    private javax.swing.JButton bCerrarSesion;
     private javax.swing.JButton bClasificacion;
     private javax.swing.JButton bConsultarMuchos;
     private javax.swing.JButton bConsultarUno;
@@ -1119,6 +1184,8 @@ public class V_Admin extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JLabel lbBackgroundAdmin;
     private javax.swing.JLabel lbBorde;
+    private javax.swing.JLabel lbEstadoLigaTitulo;
+    private javax.swing.JLabel lbEstadoliga;
     private javax.swing.JLabel lbFiller;
     private javax.swing.JLabel lbIntroducirResultadoJornada;
     private javax.swing.JLabel lbRiot;
