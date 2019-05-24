@@ -131,7 +131,7 @@ public class DueñoBD {
         ArrayList<Dueño> listaDueños = new ArrayList();
         bdr.conectar();
         Statement sentencia = bdr.getCon().createStatement();
-        resultado = sentencia.executeQuery("SELECT * FROM DUEÑO");
+        resultado = sentencia.executeQuery("SELECT COD_DUEÑO,NOMBRE,APELLIDO,TELEFONO FROM DUEÑO");
         while (resultado.next()) {
             listaDueños.add(crearObjeto());
         }

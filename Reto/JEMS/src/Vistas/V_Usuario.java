@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import jems.JEMS;
 
 /**
  * @author Miguel Barros
@@ -24,6 +25,7 @@ public class V_Usuario extends javax.swing.JFrame {
      * Creates new form V_Usuario
      */
     public V_Usuario() {
+
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -33,26 +35,37 @@ public class V_Usuario extends javax.swing.JFrame {
      * Formato de la ventana
      */
     public void myInitComponents() {
-        setSize(1280, 720);
-        setLocationRelativeTo(null);
+        try {
+            setSize(1280, 720);
+            setLocationRelativeTo(null);
+            if (JEMS.consultarLiga() == null) {
+                setLigaOffline();
+            } else {
+                setLigaOnline();
+            }
+        } catch (Exception ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        }
     }
-    
+
     /**
-     * Cambia el texto de la liga a "offline" y lo
-     * pone de color rojo
+     * Cambia el texto de la liga a "offline" y lo pone de color rojo
      */
     public void setLigaOffline() {
         lbEstadoliga.setText("Offline");
         lbEstadoliga.setForeground(Color.RED);
+        bLiga.setVisible(false);
+        bJornada.setVisible(false);
     }
-    
+
     /**
-     * Cambia el texto de la liga a "online" y lo
-     * pone de color verde
+     * Cambia el texto de la liga a "online" y lo pone de color verde
      */
     public void setLigaOnline() {
         lbEstadoliga.setText("Online");
         lbEstadoliga.setForeground(Color.GREEN);
+        bLiga.setVisible(true);
+        bJornada.setVisible(true);
     }
 
     /**

@@ -145,8 +145,18 @@ public class V_Admin extends javax.swing.JFrame {
      *
      */
     public void mostrarJornadaClasificacion() {
-        bJornada.setVisible(true);
-        bClasificacion.setVisible(true);
+        try {
+            if (JEMS.cogerNombreLiga() == null) {
+                bJornada.setVisible(false);
+                bClasificacion.setVisible(false);
+            } else {
+                bJornada.setVisible(true);
+                bClasificacion.setVisible(true);
+            }
+        } catch (Exception ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        }
+
     }
 
     /**

@@ -737,7 +737,7 @@ public class JEMS {
         pBD.insertarPartido(EquiposArray[5].getCod_equipo(), EquiposArray[0].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
         pBD.insertarPartido(EquiposArray[2].getCod_equipo(), EquiposArray[1].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
         pBD.insertarPartido(EquiposArray[4].getCod_equipo(), EquiposArray[3].getCod_equipo(), listaJornadas.get(9).getFecha_inicio(), listaJornadas.get(9).getCod_jornada());
-
+        ControladorVistas.abrirVentanaAviso(lBD.cambiarEstado(JEMS.consultarLiga().getCod_liga()));
     }
 
     /**
