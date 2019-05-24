@@ -16,6 +16,7 @@ import jems.JEMS;
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
+ * @author Joel Encinas
  *
  * @version %I%, %G%
  * @since 1.0
@@ -26,7 +27,6 @@ public class V_Usuario extends javax.swing.JFrame {
      * Creates new form V_Usuario
      */
     public V_Usuario() {
-
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -85,6 +85,7 @@ public class V_Usuario extends javax.swing.JFrame {
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
         bSalir = new javax.swing.JButton();
+        bCerrarSesion = new javax.swing.JButton();
         lbEstadoliga = new javax.swing.JLabel();
         lbEstadoLigaTitulo = new javax.swing.JLabel();
         lbSubtitulo = new javax.swing.JLabel();
@@ -149,13 +150,31 @@ public class V_Usuario extends javax.swing.JFrame {
         getContentPane().add(bSalir);
         bSalir.setBounds(1230, 10, 40, 40);
 
+        bCerrarSesion.setBackground(new java.awt.Color(252, 124, 0));
+        bCerrarSesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bCerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
+        bCerrarSesion.setText("CERRAR SESION");
+        bCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        bCerrarSesion.setBorderPainted(false);
+        bCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bCerrarSesion.setFocusPainted(false);
+        bCerrarSesion.setIconTextGap(20);
+        bCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCerrarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bCerrarSesion);
+        bCerrarSesion.setBounds(970, 13, 220, 35);
+
         lbEstadoliga.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
         lbEstadoliga.setForeground(new java.awt.Color(51, 255, 51));
         lbEstadoliga.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbEstadoliga.setText("Online");
         lbEstadoliga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lbEstadoliga);
-        lbEstadoliga.setBounds(200, 10, 100, 50);
+        lbEstadoliga.setBounds(200, 0, 100, 50);
 
         lbEstadoLigaTitulo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         lbEstadoLigaTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +182,7 @@ public class V_Usuario extends javax.swing.JFrame {
         lbEstadoLigaTitulo.setText("Estado de la liga");
         lbEstadoLigaTitulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lbEstadoLigaTitulo);
-        lbEstadoLigaTitulo.setBounds(10, 10, 200, 50);
+        lbEstadoLigaTitulo.setBounds(10, 0, 200, 50);
 
         lbSubtitulo.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         lbSubtitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,6 +245,16 @@ public class V_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
+     * Cierra la sesion y vuelve al login
+     * 
+     * @param evt 
+     */
+    private void bCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionActionPerformed
+        ControladorVistas.cerrarVentanaUsuario();
+        ControladorVistas.mostrarVentanaLogin();
+    }//GEN-LAST:event_bCerrarSesionActionPerformed
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -261,6 +290,7 @@ public class V_Usuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bCerrarSesion;
     private javax.swing.JButton bJornada;
     private javax.swing.JButton bLiga;
     private javax.swing.JButton bSalir;
