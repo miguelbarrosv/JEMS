@@ -7,6 +7,7 @@ package BD;
 
 import UML.Liga;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -107,5 +108,17 @@ public class LigaBD {
         l.setFecha_fin(resultado.getDate("FECHA_FIN"));
         l.setEstado(resultado.getBoolean("ESTADO"));
         return l;
+    }
+
+    public String cambiarEstado(int codigoLiga) throws Exception, SQLException {
+        bdr.conectar();
+        String plantilla = "UPDATE LIGA SET ESTADO=? WHERE COD_LIGA=?";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, 1);
+        sentenciaPre.setInt(2, codigoLiga);
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+        String mensaje="liga abierta";
+        return mensaje;
     }
 }
