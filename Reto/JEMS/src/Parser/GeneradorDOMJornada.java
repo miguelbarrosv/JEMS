@@ -5,14 +5,10 @@
  */
 package Parser;
 
-import BD.JornadaBD;
-import BD.PartidoBD;
 import UML.Partido;
 import UML.Jornada;
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -65,7 +61,6 @@ public class GeneradorDOMJornada {
         exportarFichero();
         System.out.println("Fichero generado");
     }
-
 
     /**
      * Funcion que coge los datos necesarios de la BD para poder generar el XML
@@ -148,6 +143,7 @@ public class GeneradorDOMJornada {
 
         // <equipo_local>
         Element elementoEquipoLocal = dom.createElement("equipo_local");
+        elementoEquipoLocal.setAttribute("codigo", String.valueOf(partido.getEquipo_local().getCod_equipo()));
 
         // #PCDATA
         Text textoEquipoLocal = dom.createTextNode(partido.getEquipo_local().getNombre());
@@ -158,16 +154,19 @@ public class GeneradorDOMJornada {
 
         // <equipo_visitante>
         Element elementoEquipoVisitante = dom.createElement("equipo_visitante");
+        elementoEquipoVisitante.setAttribute("codigo", String.valueOf(partido.getEquipo_visitante().getCod_equipo()));
 
         // #PCDATA
         Text textoEquipoVisitante = dom.createTextNode(partido.getEquipo_visitante().getNombre());
-        elementoPartido.appendChild(textoEquipoVisitante);
+        elementoEquipoVisitante.appendChild(textoEquipoVisitante);
 
         // </equipo_visitante>
         elementoPartido.appendChild(elementoEquipoVisitante);
 
         // <resultado>
         Element elementoResultado = dom.createElement("resultado");
+        Text textoresultado = dom.createTextNode(partido.getResultado() + "");
+        elementoResultado.appendChild(textoresultado);
 
         // </partido>
         elementoPartido.appendChild(elementoResultado);
