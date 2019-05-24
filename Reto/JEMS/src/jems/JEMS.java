@@ -239,21 +239,6 @@ public class JEMS {
     }
 
     /**
-     * Funcion para consultar si existe este codigo de jugador.
-     *
-     * @param cod_jugador (requerido) codigo de jugador
-     * @return mensaje mensaje con el resultado de la busqueda
-     * @throws Exception hereda excepciones
-     * @throws java.sql.SQLException hereda excepciones SQL
-     */
-    public static boolean consultarJugadorLista(int cod_jugador) throws Exception, SQLException {
-        listaJugadores = jBD.consultaTodosJugadores();
-        boolean mensaje;
-        mensaje = listaJugadores.indexOf(cod_jugador) != 0;
-        return mensaje;
-    }
-
-    /**
      * Funcion que nos dirije a la clase modificacicarEquipo situado en EquipoBD
      * para pasarle los parametros de la ventana V_Equipo y asi modificar un
      * equipo.

@@ -8,8 +8,10 @@ package Vistas;
 import javax.swing.BorderFactory;
 
 /**
+ * Ventana de avisos.
  *
  * @author Joel Encinas
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -17,14 +19,15 @@ import javax.swing.BorderFactory;
 public class V_Aviso extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Aviso
+     * Constructor de la ventana de avisos.
+     *
      */
     public V_Aviso() {
         initComponents();
     }
 
     /**
-     * Funciones de la ventana.
+     * Construcotr de la ventana avisos.
      *
      * @param mensaje el mensaje que mostramos
      */
@@ -37,7 +40,8 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(400, 220);
@@ -48,7 +52,7 @@ public class V_Aviso extends javax.swing.JFrame {
     }
 
     /**
-     * Funcion para hacer un salto de linea
+     * Funcion para hacer un salto de linea.
      *
      * @param mensaje (requerido) Mensaje personalizado
      * @param espacio (requerido) limite de espacios
@@ -156,7 +160,7 @@ public class V_Aviso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Cerramos la ventana de aviso personalizada
+     * Cerramos la ventana de aviso personalizada.
      *
      * @param evt evento al pulsar boton
      */

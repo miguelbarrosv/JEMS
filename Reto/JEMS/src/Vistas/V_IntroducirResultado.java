@@ -8,21 +8,22 @@ package Vistas;
 import UML.Jornada;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
+ * Ventana para introducir el resultado de los partidos.
  *
  * @author Miguel Barros
  * @author Sergio Zulueta
+ * @author Eric Muñoz * @version %I%, %G%
+ * @since 1.0
  */
 public class V_IntroducirResultado extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_IntroducirResultado
+     * Coonstructor introducir resultado.
+     *
      */
     public V_IntroducirResultado() {
         setUndecorated(true);
@@ -30,6 +31,10 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         myInitComponents();
     }
 
+    /**
+     * Funciones personalizadas.
+     *
+     */
     public void myInitComponents() {
         setSize(1280, 720);
         setLocationRelativeTo(null);
@@ -56,6 +61,12 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)));
     }
 
+    /**
+     * Constructor personalizado.
+     *
+     * @param jornadas (requerido) todas las jornadas
+     * @param numJornada (requerido) numero de jornada
+     */
     public V_IntroducirResultado(ArrayList<Jornada> jornadas, int numJornada) {
         setUndecorated(true);
         initComponents();
@@ -396,7 +407,11 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
     private void tfEquipoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEquipoLocalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEquipoLocalActionPerformed
-
+    /**
+     * Actualizar los partidos.
+     *
+     * @param evt accion de clickar
+     */
     private void bActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActualizarActionPerformed
         try {
             if (rbGanadorLocal.isSelected()) {
@@ -432,11 +447,19 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bActualizarActionPerformed
-
+    /**
+     * Volver a la ventana administrador.
+     *
+     * @param evt accionde clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaResultado();
     }//GEN-LAST:event_bVolverActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

@@ -16,6 +16,7 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
+ * Ventana modificacion equipos.
  *
  * @author Miguel Barros
  * @author Eric Muñoz
@@ -34,14 +35,16 @@ public class V_Equipo extends javax.swing.JFrame {
     private static ArrayList<Dueño> dueños;
 
     /**
-     * Creates new form V_Equipo
+     * Constructor de ventan equipo.
+     *
      */
     public V_Equipo() {
         initComponents();
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -68,8 +71,9 @@ public class V_Equipo extends javax.swing.JFrame {
      *
      * @param operacion (requerido) tipo de operacion
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public V_Equipo(String operacion) throws Exception {
+    public V_Equipo(String operacion) throws Exception, SQLException {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -116,7 +120,7 @@ public class V_Equipo extends javax.swing.JFrame {
     }
 
     /**
-     * Funcion para validar los datos del jugador
+     * Funcion para validar los datos del jugador.
      *
      * @return True Si las validaciones son correctas
      * @return False Si las validaciones dan error
@@ -425,7 +429,11 @@ public class V_Equipo extends javax.swing.JFrame {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_bAceptarActionPerformed
-
+    /**
+     * volver a la ventana administrador.
+     *
+     * @param evt accion de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaEquipo();
     }//GEN-LAST:event_bVolverActionPerformed
@@ -489,7 +497,11 @@ public class V_Equipo extends javax.swing.JFrame {
     private void cbDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDueñoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbDueñoActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed

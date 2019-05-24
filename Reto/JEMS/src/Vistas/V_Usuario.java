@@ -7,12 +7,11 @@ package Vistas;
 
 import java.awt.Color;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
+ * Ventana de modificacion del usuario.
+ *
  * @author Miguel Barros
  * @author Eric Muñoz
  * @author Sergio Zulueta
@@ -24,7 +23,8 @@ import jems.JEMS;
 public class V_Usuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Usuario
+     * Construcotr de usuario.
+     *
      */
     public V_Usuario() {
         setUndecorated(true);
@@ -33,7 +33,8 @@ public class V_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         try {
@@ -56,7 +57,8 @@ public class V_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Cambia el texto de la liga a "offline" y lo pone de color rojo
+     * cuando se esta Ofline.
+     *
      */
     public void setLigaOffline() {
         lbEstadoliga.setText("Offline");
@@ -66,7 +68,8 @@ public class V_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Cambia el texto de la liga a "online" y lo pone de color verde
+     * Cuando se esta Online.
+     *
      */
     public void setLigaOnline() {
         lbEstadoliga.setText("Online");
@@ -210,7 +213,7 @@ public class V_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 /**
      * Funcion que nos dirijira a la clase mostrarVentanaLiga situada en el
-     * controlador de vistas
+     * controlador de vistas.
      *
      * @param evt pulsar enter
      */
@@ -225,7 +228,7 @@ public class V_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bLigaActionPerformed
     /**
      * Funcion que nos dirijira a la clase mostrarVentanaJornadas situada en el
-     * controlador de vistas
+     * controlador de vistas.
      *
      * @param evt pulsar enter
      */
@@ -240,7 +243,7 @@ public class V_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bJornadaActionPerformed
 
     /**
-     * Funcion para salir de la ventana
+     * Funcion para salir de la ventana.
      *
      * @param evt pulsar enter
      */
@@ -249,7 +252,7 @@ public class V_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
-     * Cierra la sesion y vuelve al login
+     * Cierra la sesion y vuelve al login.
      *
      * @param evt
      */

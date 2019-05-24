@@ -12,15 +12,20 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
- * Ventana para crear la liga
+ * Ventana para crear la liga.
  *
  * @author Miguel Barros
  * @author Sergio Zulueta
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_CrearLiga extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_CraerLiga
+     * Constructor ventana crear liga.
+     *
      */
     public V_CrearLiga() {
         setUndecorated(true);
@@ -31,6 +36,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
     /**
      * Para darle formato a la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -79,6 +85,11 @@ public class V_CrearLiga extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfFechaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFechaInicioActionPerformed(evt);
+            }
+        });
         getContentPane().add(tfFechaInicio);
         tfFechaInicio.setBounds(510, 400, 250, 30);
 
@@ -170,7 +181,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
     /**
      * Nos encargamos de llamar a jems para utilizar la funcion de instertar una
-     * nueva liga totalmente vacia
+     * nueva liga totalmente vacia.
      *
      * @param evt accion de clickar
      */
@@ -188,14 +199,18 @@ public class V_CrearLiga extends javax.swing.JFrame {
     }//GEN-LAST:event_bCrearActionPerformed
 
     /**
-     * Para salir de la ventana
+     * Para salir de la ventana.
      *
      * @param evt accion de clickar
      */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
-
+    /**
+     * Vlover a la ventana administrador.
+     *
+     * @param evt acciond de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaCreacion();
         ControladorVistas.mostrarAdministrarMirar();
@@ -205,6 +220,14 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNombreActionPerformed
+    /**
+     * Hacer lo mismo que crear liga pero al darle enter a la fecha.
+     *
+     * @param evt accion de clickar
+     */
+    private void tfFechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaInicioActionPerformed
+        bCrear.doClick();
+    }//GEN-LAST:event_tfFechaInicioActionPerformed
 
     /**
      * @param args the command line arguments
