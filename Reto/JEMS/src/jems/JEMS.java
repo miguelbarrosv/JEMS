@@ -5,8 +5,17 @@
  */
 package jems;
 
+import Vistas.*;
+import BD.*;
+import UML.*;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Controladora de nuestro proyecto JEMS.
+ *
  * https://www.oracle.com/technetwork/articles/java/index-137868.html
  *
  * @author Sergio Zulueta
@@ -20,14 +29,6 @@ package jems;
  * @since 1.0
  *
  */
-import Vistas.*;
-import BD.*;
-import UML.*;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-
 public class JEMS {
 
     /**
