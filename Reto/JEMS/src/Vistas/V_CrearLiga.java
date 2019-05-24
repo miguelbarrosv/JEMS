@@ -221,12 +221,13 @@ public class V_CrearLiga extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNombreActionPerformed
     /**
-     * Hacer lo mismo que crear liga pero al darle enter a la fecha.
+     * Hacer lo mismo que crear liga pero al darle enter a la fecha y luego cierra la ventana crear liga.
      *
      * @param evt accion de clickar
      */
     private void tfFechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaInicioActionPerformed
         bCrear.doClick();
+        bVolver.doClick();
     }//GEN-LAST:event_tfFechaInicioActionPerformed
 
     /**

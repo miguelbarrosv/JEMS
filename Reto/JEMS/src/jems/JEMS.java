@@ -606,12 +606,14 @@ public class JEMS {
      * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido.
      *
      * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
+     * @return devuelve el codigo del equipo
      * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void introducirResultado(String nombreEquipo) throws Exception, SQLException {
+    public static int introducirResultado(String nombreEquipo) throws Exception, SQLException {
         int codigoEquipo = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(codigoEquipo);
+        return codigoEquipo;
     }
 
     /**
@@ -740,6 +742,19 @@ public class JEMS {
      */
     public static void errorBdr(String mensaje) {
         ControladorVistas.abrirVentanaAviso(mensaje);
+    }
+
+    /**
+     * Funcion que rellena el resultado del partido.
+     *
+     * @param codEquipo(requerido) codigo del ganador
+     * @param codJornada (requerido) codigo de la joranda
+     * @param codEquipoLocal (requerido) codigo del equipo local
+     * @throws Exception hereda excepciones
+     * @throws SQLException hereda excepciones SQL
+     */
+    public static void resultadoEnPartido(int codEquipo, int codJornada, int codEquipoLocal) throws Exception, SQLException {
+        pBD.rellenarResultado(codEquipo, codJornada, codEquipoLocal);
     }
 
 }

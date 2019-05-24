@@ -570,7 +570,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         lbIntroducirResultadoJornada.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         lbIntroducirResultadoJornada.setForeground(new java.awt.Color(255, 255, 255));
-        lbIntroducirResultadoJornada.setText("<html>Introducir Resultado en<br> la Jornada: [0-10]</html>");
+        lbIntroducirResultadoJornada.setText("<html>Introducir Resultado en<br> la Jornada: [1-10]</html>");
         getContentPane().add(lbIntroducirResultadoJornada);
         lbIntroducirResultadoJornada.setBounds(760, 350, 190, 40);
 
@@ -632,7 +632,6 @@ public class V_Admin extends javax.swing.JFrame {
 
         bCerrarSesion.setBackground(new java.awt.Color(252, 124, 0));
         bCerrarSesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bCerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
         bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
         bCerrarSesion.setText("CERRAR SESION");
         bCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

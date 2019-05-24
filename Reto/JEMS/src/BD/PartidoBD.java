@@ -162,4 +162,24 @@ public class PartidoBD {
         java.sql.Date sDate = new java.sql.Date(fechaInicioLiga.getTime());
         return sDate;
     }
+
+    /**
+     * Funcion que rellena el resultado de un partido.
+     *
+     * @param codEquipo(requerido) codigo del ganador
+     * @param codJornada (requerido) codigo de la joranda
+     * @param codEquipoLocal (requerido) codigo del equipo local
+     * @throws Exception hereda excepciones
+     * @throws SQLException hereda excepciones SQL
+     */
+    public void rellenarResultado(int codEquipo, int codJornada, int codEquipoLocal) throws Exception, SQLException {
+        bdr.conectar();
+        String plantilla = "UPDATE PARTIDO SET RESULTADO=? WHERE JORNADA_COD_JORNADA=? AND EQUIPO_COD_EQUIPO=? ";
+        PreparedStatement sentenciaPre = bdr.getCon().prepareStatement(plantilla);
+        sentenciaPre.setInt(1, codEquipo);
+        sentenciaPre.setInt(2, codJornada);
+        sentenciaPre.setInt(3, codEquipoLocal);
+        sentenciaPre.executeUpdate();
+        bdr.cerrarCon();
+    }
 }
