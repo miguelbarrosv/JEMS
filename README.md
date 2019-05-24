@@ -13,6 +13,6 @@ Egibide DAW 2019
 				  metodologia del tipo SCRUM
 	Reto		: NetBeans. Carpeta que contendra la codificacion de nuestro
 				  programa.
-	XML			: Guardaremos los XML, DTD y XSD base y cuando se actualicen
+	XML		: Guardaremos los XML, DTD y XSD base y cuando se actualicen
 				  una copia aparte. Tambien almacenara una copia del DOM y SAX.
   
