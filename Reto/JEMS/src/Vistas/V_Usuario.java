@@ -160,7 +160,7 @@ public class V_Usuario extends javax.swing.JFrame {
 
         bCerrarSesion.setBackground(new java.awt.Color(252, 124, 0));
         bCerrarSesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        bCerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        bCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
         bCerrarSesion.setText("CERRAR SESION");
         bCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

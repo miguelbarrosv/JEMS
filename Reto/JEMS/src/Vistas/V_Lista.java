@@ -63,7 +63,7 @@ public class V_Lista extends javax.swing.JFrame {
 
         }
         taListaJugadores.setText(lista);
-        lbSubtitulo.setText(opcion);
+        lbSubtitulo.setText(sujeto);
     }
 
     /**
@@ -94,6 +94,7 @@ public class V_Lista extends javax.swing.JFrame {
 
         taListaJugadores.setColumns(20);
         taListaJugadores.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        taListaJugadores.setForeground(new java.awt.Color(0, 0, 0));
         taListaJugadores.setRows(5);
         taListaJugadores.setBorder(null);
         taListaJugadores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

@@ -351,6 +351,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bJugador.setBackground(new java.awt.Color(86, 88, 149));
         bJugador.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bJugador.setForeground(new java.awt.Color(0, 0, 0));
         bJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/jugador.png"))); // NOI18N
         bJugador.setText("JUGADOR");
         bJugador.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -368,6 +369,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bConsultarMuchos.setBackground(new java.awt.Color(86, 88, 149));
         bConsultarMuchos.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bConsultarMuchos.setForeground(new java.awt.Color(0, 0, 0));
         bConsultarMuchos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_todos.png"))); // NOI18N
         bConsultarMuchos.setText("CONSULTAR TODOS");
         bConsultarMuchos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -385,6 +387,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bConsultarUno.setBackground(new java.awt.Color(86, 88, 149));
         bConsultarUno.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bConsultarUno.setForeground(new java.awt.Color(0, 0, 0));
         bConsultarUno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buscar_uno.png"))); // NOI18N
         bConsultarUno.setText("CONSULTAR UNO");
         bConsultarUno.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -402,6 +405,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bDueño.setBackground(new java.awt.Color(86, 88, 149));
         bDueño.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bDueño.setForeground(new java.awt.Color(0, 0, 0));
         bDueño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/dueño.png"))); // NOI18N
         bDueño.setText("DUEÑO");
         bDueño.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -419,6 +423,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bBaja.setBackground(new java.awt.Color(86, 88, 149));
         bBaja.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bBaja.setForeground(new java.awt.Color(0, 0, 0));
         bBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/eliminar.png"))); // NOI18N
         bBaja.setText("BORRAR");
         bBaja.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -436,6 +441,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bEquipo.setBackground(new java.awt.Color(86, 88, 149));
         bEquipo.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bEquipo.setForeground(new java.awt.Color(0, 0, 0));
         bEquipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/equipo.png"))); // NOI18N
         bEquipo.setText("EQUIPO");
         bEquipo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -453,6 +459,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bModificar.setBackground(new java.awt.Color(86, 88, 149));
         bModificar.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bModificar.setForeground(new java.awt.Color(0, 0, 0));
         bModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/editar.png"))); // NOI18N
         bModificar.setText("EDITAR");
         bModificar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -470,6 +477,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bUsuario.setBackground(new java.awt.Color(86, 88, 149));
         bUsuario.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bUsuario.setForeground(new java.awt.Color(0, 0, 0));
         bUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/usuario.png"))); // NOI18N
         bUsuario.setText("USUARIO");
         bUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -487,6 +495,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bAlta.setBackground(new java.awt.Color(86, 88, 149));
         bAlta.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        bAlta.setForeground(new java.awt.Color(0, 0, 0));
         bAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/añadir.png"))); // NOI18N
         bAlta.setText("AÑADIR");
         bAlta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -575,6 +584,7 @@ public class V_Admin extends javax.swing.JFrame {
         lbIntroducirResultadoJornada.setBounds(760, 350, 190, 40);
 
         tfIntroducirResultadoJornada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfIntroducirResultadoJornada.setForeground(new java.awt.Color(0, 0, 0));
         tfIntroducirResultadoJornada.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tfIntroducirResultadoJornada.setBorder(null);
         getContentPane().add(tfIntroducirResultadoJornada);
@@ -632,6 +642,7 @@ public class V_Admin extends javax.swing.JFrame {
 
         bCerrarSesion.setBackground(new java.awt.Color(252, 124, 0));
         bCerrarSesion.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
+        bCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         bCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
         bCerrarSesion.setText("CERRAR SESION");
         bCerrarSesion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

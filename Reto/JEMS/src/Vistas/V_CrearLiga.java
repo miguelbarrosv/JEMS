@@ -72,6 +72,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNombre.setForeground(new java.awt.Color(0, 0, 0));
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombreActionPerformed(evt);
@@ -80,11 +81,13 @@ public class V_CrearLiga extends javax.swing.JFrame {
         getContentPane().add(tfNombre);
         tfNombre.setBounds(510, 340, 250, 30);
 
+        tfFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
         try {
             tfFechaInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfFechaInicio.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         tfFechaInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfFechaInicioActionPerformed(evt);
