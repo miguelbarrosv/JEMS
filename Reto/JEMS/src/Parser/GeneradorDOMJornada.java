@@ -8,9 +8,7 @@ package Parser;
 import UML.Partido;
 import UML.Jornada;
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,20 +27,31 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 /**
+ * Generador de XML estilo DOM para las jornadas.
  *
  * @author Joel Encinas
  * @author Miguel Barros
+ * @author Sergio Zulueta
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
  */
 public class GeneradorDOMJornada {
 
+    /**
+     * Creacion de los atributos jornadas, dom y partidos.
+     *
+     */
     private List<Jornada> jornadas;
     private Document dom;
-
     private ArrayList<Partido> partidos;
 
+    /**
+     * Constructor del generador.
+     *
+     * @throws Exception hereda excepciones
+     */
     public GeneradorDOMJornada() throws Exception {
         // Lista para almacenar los objetos
         jornadas = new ArrayList<>();
@@ -53,7 +62,7 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion que comienza el proceso para generar el XML
+     * Funcion que comienza el proceso para generar el XML.
      *
      */
     public void run() {
@@ -64,8 +73,9 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion que coge los datos necesarios de la BD para poder generar el XML
+     * Funcion que coge los datos necesarios de la BD para poder generar el XML.
      *
+     * @throws Exception hereda de excepcones
      */
     public void cargarDatos() throws Exception {
         // Cargar ArrayList paartidos
@@ -75,7 +85,7 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion que crea el documento que rellenaremos mas adelante
+     * Funcion que crea el documento que rellenaremos mas adelante.
      *
      */
     private void crearDocumento() {
@@ -92,7 +102,7 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion que crea el arbol del documento XML
+     * Funcion que crea el arbol del documento XML.
      *
      */
     private void crearArbolDOM() {
@@ -107,7 +117,7 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion que crea el elemento jornada y sus subelementos
+     * Funcion que crea el elemento jornada y sus subelementos.
      *
      * @param (requerido) objeto Jornada
      */
@@ -120,7 +130,7 @@ public class GeneradorDOMJornada {
 
         // <partidos>
         Element elementoPartidos = dom.createElement("partidos");
-
+        elementoJornada.appendChild(elementoPartidos);
         // <partido>
         // Generar elementos partido y hacer partidos al padre
         for (Partido partido : partidos) {
@@ -131,9 +141,10 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion que crea el elemento partido y sus subelementos
+     * Funcion que crea el elemento partido y sus subelementos.
      *
-     * @param (requerido) objeto Partido
+     * @param partido (requerido) objeto Partido
+     * @return devuelve el objeto partido
      */
     public Element crearElementoPartido(Partido partido) {
         // <partido>
@@ -142,6 +153,7 @@ public class GeneradorDOMJornada {
 
         // <equipo_local>
         Element elementoEquipoLocal = dom.createElement("equipo_local");
+        elementoEquipoLocal.setAttribute("codigo", String.valueOf(partido.getEquipo_local().getCod_equipo()));
 
         // #PCDATA
         Text textoEquipoLocal = dom.createTextNode(partido.getEquipo_local().getNombre());
@@ -152,16 +164,19 @@ public class GeneradorDOMJornada {
 
         // <equipo_visitante>
         Element elementoEquipoVisitante = dom.createElement("equipo_visitante");
+        elementoEquipoVisitante.setAttribute("codigo", String.valueOf(partido.getEquipo_visitante().getCod_equipo()));
 
         // #PCDATA
         Text textoEquipoVisitante = dom.createTextNode(partido.getEquipo_visitante().getNombre());
-        elementoPartido.appendChild(textoEquipoVisitante);
+        elementoEquipoVisitante.appendChild(textoEquipoVisitante);
 
         // </equipo_visitante>
         elementoPartido.appendChild(elementoEquipoVisitante);
 
         // <resultado>
         Element elementoResultado = dom.createElement("resultado");
+        Text textoresultado = dom.createTextNode(partido.getResultado() + "");
+        elementoResultado.appendChild(textoresultado);
 
         // </partido>
         elementoPartido.appendChild(elementoResultado);
@@ -170,7 +185,8 @@ public class GeneradorDOMJornada {
     }
 
     /**
-     * Funcion con la que exportamos el fichero al lugar deseado
+     * Funcion con la que exportamos el fichero al lugar deseado.
+     *
      */
     private void exportarFichero() {
         // REF: Serializar XML: https://www.edureka.co/blog/serialization-of-java-objects-to-xml-using-xmlencoder-decoder/
@@ -193,6 +209,12 @@ public class GeneradorDOMJornada {
         }
     }
 
+    /**
+     * Funcion Principal de generador.
+     *
+     * @param args parametro inicial
+     * @throws Exception hereda excepciones
+     */
     public static void main(String args[]) throws Exception {
         System.out.println("--- DOM (escritura) ---\n");
         new GeneradorDOMJornada().run();

@@ -1,7 +1,7 @@
 package Excepciones;
 
 /**
- * Creacion de la excepcion CampoVacio
+ * Creacion de la excepcion CampoVacio.
  *
  * @author Sergio Zulueta
  *
@@ -12,11 +12,12 @@ public class CampoVacio extends Exception {
 
     /**
      * Creacion del atributo mensaje.
+     *
      */
     private String mensaje;
 
     /**
-     * Funcion para establecer un mensaje personalizado
+     * Funcion para establecer un mensaje personalizado.
      *
      * @param mensaje (requerido) mensaje personalizado de error
      */
@@ -25,7 +26,7 @@ public class CampoVacio extends Exception {
     }
 
     /**
-     * Funcion para retornar un mensaje personalizado
+     * Funcion para retornar un mensaje personalizado.
      *
      * @return mensaje (requerido) mensaje personalizado de error
      */

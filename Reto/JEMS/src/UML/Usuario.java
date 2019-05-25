@@ -6,7 +6,7 @@
 package UML;
 
 /**
- * Creacion de la clase java para el Usuario
+ * Creacion de la clase java para el Usuario.
  *
  * @author Sergio Zulueta
  * @author Eric Muñoz
@@ -98,13 +98,13 @@ public class Usuario {
     }
 
     /**
-     * Para mostrar datos del usuario por pantalla
-     * 
+     * Para mostrar datos del usuario por pantalla.
+     *
      * @return String muestra el mensaje
      */
     @Override
     public String toString() {
-        String mensaje = "codigo: " + cod_usuario + " usuario: " + usuario + " contraseña: " + contraseña + "\n";
+        String mensaje = "codigo: " + cod_usuario + " usuario: " + usuario + " contraseña: " + contraseña + "\n\n";
         return mensaje;
     }
 }

@@ -8,7 +8,8 @@ package Parser;
 import UML.Equipo;
 import UML.Liga;
 import java.io.File;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -27,9 +28,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Text;
 
 /**
+ * Generador de XML estilo DOM para las Clasificacion.
  *
  * @author Joel Encinas
  * @author Miguel Barros
+ * @author Eric Muñoz
  *
  * @version %I%, %G%
  * @since 1.0
@@ -40,6 +43,11 @@ public class GeneradorDOMClasificacion {
     private Document dom;
     private static Liga liga;
 
+    /**
+     * Construcotr de generador.
+     *
+     * @throws Exception hereda excepciones
+     */
     public GeneradorDOMClasificacion() throws Exception {
         //cargarDatos
         cargarDatos();
@@ -48,7 +56,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que comienza el proceso para generar el XML
+     * Funcion que comienza el proceso para generar el XML.
      *
      */
     public void run() {
@@ -59,7 +67,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que crea el documento que rellenaremos mas adelante
+     * Funcion que crea el documento que rellenaremos mas adelante.
      *
      */
     private void crearDocumento() {
@@ -76,8 +84,9 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que coge los datos necesarios de la BD para poder generar el XML
+     * Funcion que coge los datos necesarios de la BD para poder generar el XML.
      *
+     * @throws Exception hereda excepciones
      */
     public void cargarDatos() throws Exception {
         // cargar ArrayList equipos
@@ -87,7 +96,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que crea el arbol del documento XML
+     * Funcion que crea el arbol del documento XML.
      *
      */
     private void crearArbolDOM() {
@@ -98,11 +107,15 @@ public class GeneradorDOMClasificacion {
         raiz.setAttribute("cod", String.valueOf(liga.getCod_liga()));
         raiz.setAttribute("fecha_inicio", String.valueOf(liga.getFecha_inicio()));
         raiz.setAttribute("fecha_fin", String.valueOf(liga.getFecha_fin()));
-        raiz.setAttribute("estado_liga", String.valueOf(liga.isEstado()));
+        raiz.setAttribute("estado_liga", String.valueOf(liga.getEstado()));
 
         // Elemento fecha_actualizacion
         Element elementoFechaActualizacion = dom.createElement("fecha_actualizacion");
         raiz.appendChild(elementoFechaActualizacion);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        LocalDate d = LocalDate.now();
+        Text nombre = dom.createTextNode(d.toString());
+        elementoFechaActualizacion.appendChild(nombre);
 
         //Elemento partidos
         Element elementoEquipos = dom.createElement("equipos");
@@ -116,7 +129,7 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion que crea el elemento Equipo y sus subelementos
+     * Funcion que crea el elemento Equipo y sus subelementos.
      *
      * @param (requerido) objeto Equipo
      */
@@ -149,7 +162,8 @@ public class GeneradorDOMClasificacion {
     }
 
     /**
-     * Funcion con la que exportamos el fichero al lugar deseado
+     * Funcion con la que exportamos el fichero al lugar deseado.
+     *
      */
     private void exportarFichero() {
         // REF: Serializar XML: https://www.edureka.co/blog/serialization-of-java-objects-to-xml-using-xmlencoder-decoder/
@@ -172,6 +186,12 @@ public class GeneradorDOMClasificacion {
         }
     }
 
+    /**
+     * Funcion principal del generador.
+     *
+     * @param args parametro inicial
+     * @throws Exception hereda excepciones
+     */
     public static void main(String args[]) throws Exception {
         System.out.println("--- DOM (escritura) ---\n");
         new GeneradorDOMClasificacion().run();

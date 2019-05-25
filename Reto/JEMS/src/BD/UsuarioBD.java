@@ -47,9 +47,9 @@ public class UsuarioBD {
     /**
      * Funcion que inserta un Usuario en la base de datos.
      *
-     * @param u (requerido) objeto de clase Usuario.
+     * @param u (requerido) objeto de clase Usuario
      * @throws Exception hereda excepciones
-     * @throws java.sql.SQLException
+     * @throws SQLException hereda excepciones de sql
      */
     public void insertarUsuario(Usuario u) throws Exception, SQLException {
         bdr.conectar();
@@ -64,9 +64,9 @@ public class UsuarioBD {
     /**
      * Función que busca un Usuario en la base de datos mediante su codigo.
      *
-     * @param codUsuario (requerido) codigo del Usuario.
-     * @return devuelve un objeto clase Usuario.
-     * @throws Exception hereda excepciones.
+     * @param codUsuario (requerido) codigo del Usuario
+     * @return devuelve un objeto clase Usuario
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda Excepciones SQL
      */
     public Usuario consultarUsuarioCodigo(int codUsuario) throws Exception, SQLException {
@@ -89,8 +89,8 @@ public class UsuarioBD {
      * Función que busca un usuario especifico en la base de datos.
      *
      * @param usuario (requerido) usuario del Usuario
-     * @return devuelve un objeto clase usuario.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un objeto clase usuario
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda Excepciones SQL
      */
     public Usuario consultarUsuarioNombre(String usuario) throws Exception, SQLException {
@@ -117,8 +117,8 @@ public class UsuarioBD {
      *
      * @param usuario (requerido) usuario del Usuario
      * @param contraseña (requerido ) contraseña de Usuario
-     * @return devuelve un objeto clase Usuario.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un objeto clase Usuario
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda Excepciones SQL
      */
     public Boolean consultarUsuario(String usuario, String contraseña) throws Exception, SQLException {
@@ -138,8 +138,8 @@ public class UsuarioBD {
      * Función que busca un Usuario en la base de datos por usuario.
      *
      * @param usuario (requerido) usuario del Usuario
-     * @return devuelve un booleano de si existe ese Usuario.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un booleano de si existe ese Usuario
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda Excepciones SQL
      */
     public Boolean consultarUsuario(String usuario) throws Exception, SQLException {
@@ -158,8 +158,8 @@ public class UsuarioBD {
      * Función que rellena un objeto Usuario desde los datos de la base de
      * datos.
      *
-     * @return devuelve un objeto de clase Usuario.
-     * @throws Exception herada excepciones.
+     * @return devuelve un objeto de clase Usuario
+     * @throws Exception herada excepciones
      * @throws java.sql.SQLException hereda Excepciones SQL
      */
     public Usuario crearObjeto() throws Exception, SQLException {
@@ -173,8 +173,8 @@ public class UsuarioBD {
     /**
      * Función que crea un ArrayList con todos los Usuarios de la base de datos.
      *
-     * @return devuelve un ArrayList de Usuario.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un ArrayList de Usuario
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda Excepciones SQL
      */
     public ArrayList<Usuario> consultaTodosUsuarios() throws Exception, SQLException {

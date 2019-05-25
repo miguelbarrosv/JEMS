@@ -6,7 +6,7 @@
 package UML;
 
 /**
- * Creacion de la clase java para el Administrador
+ * Creacion de la clase java para el Administrador.
  *
  * @author Sergio Zulueta
  * @author Eric Muñoz
@@ -33,9 +33,9 @@ public class Administrador {
     /**
      * Constructor lleno con todos atributos del administrador.
      *
-     * @param cod_admin (requerido) El codigo del administrador.
-     * @param usuario (requerido) El usuario del administrador.
-     * @param contraseña (requerido) La contraseña del administrador.
+     * @param cod_admin (requerido) El codigo del administrador
+     * @param usuario (requerido) El usuario del administrador
+     * @param contraseña (requerido) La contraseña del administrador
      */
     public Administrador(int cod_admin, String usuario, String contraseña) {
         this.cod_admin = cod_admin;
