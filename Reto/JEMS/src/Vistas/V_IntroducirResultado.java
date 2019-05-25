@@ -551,11 +551,13 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         tfNumJornada.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfNumJornada.setForeground(new java.awt.Color(0, 0, 0));
         tfNumJornada.setEnabled(false);
         getContentPane().add(tfNumJornada);
         tfNumJornada.setBounds(640, 250, 40, 30);
 
         tfEquipoLocal.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipoLocal.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoLocal.setEnabled(false);
         tfEquipoLocal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -566,26 +568,31 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         tfEquipoLocal.setBounds(370, 310, 250, 30);
 
         tfEquipoLocal2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipoLocal2.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoLocal2.setEnabled(false);
         getContentPane().add(tfEquipoLocal2);
         tfEquipoLocal2.setBounds(370, 360, 250, 30);
 
         tfEquipoLocal3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipoLocal3.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoLocal3.setEnabled(false);
         getContentPane().add(tfEquipoLocal3);
         tfEquipoLocal3.setBounds(370, 410, 250, 30);
 
         tfEquipoVisitante3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipoVisitante3.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoVisitante3.setEnabled(false);
         getContentPane().add(tfEquipoVisitante3);
         tfEquipoVisitante3.setBounds(700, 410, 250, 30);
 
         tfEquipoVisitante2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipoVisitante2.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoVisitante2.setEnabled(false);
         getContentPane().add(tfEquipoVisitante2);
         tfEquipoVisitante2.setBounds(700, 310, 250, 30);
 
         tfEquipoVisitante.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        tfEquipoVisitante.setForeground(new java.awt.Color(0, 0, 0));
         tfEquipoVisitante.setEnabled(false);
         getContentPane().add(tfEquipoVisitante);
         tfEquipoVisitante.setBounds(700, 360, 250, 30);
@@ -611,7 +618,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         rbGanadorVisitante.setText("Ganador");
         rbGanadorVisitante.setContentAreaFilled(false);
         getContentPane().add(rbGanadorVisitante);
-        rbGanadorVisitante.setBounds(960, 310, 110, 25);
+        rbGanadorVisitante.setBounds(960, 310, 110, 28);
 
         buttonGroup2.add(rbGanadorVisitante2);
         rbGanadorVisitante2.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
@@ -619,7 +626,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         rbGanadorVisitante2.setText("Ganador");
         rbGanadorVisitante2.setContentAreaFilled(false);
         getContentPane().add(rbGanadorVisitante2);
-        rbGanadorVisitante2.setBounds(960, 360, 100, 25);
+        rbGanadorVisitante2.setBounds(960, 360, 100, 28);
 
         buttonGroup3.add(rbGanadorVisitante3);
         rbGanadorVisitante3.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
@@ -627,7 +634,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         rbGanadorVisitante3.setText("Ganador");
         rbGanadorVisitante3.setContentAreaFilled(false);
         getContentPane().add(rbGanadorVisitante3);
-        rbGanadorVisitante3.setBounds(960, 410, 90, 25);
+        rbGanadorVisitante3.setBounds(960, 410, 90, 28);
 
         buttonGroup1.add(rbGanadorLocal);
         rbGanadorLocal.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
@@ -640,7 +647,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
             }
         });
         getContentPane().add(rbGanadorLocal);
-        rbGanadorLocal.setBounds(270, 310, 90, 25);
+        rbGanadorLocal.setBounds(270, 310, 90, 28);
 
         buttonGroup2.add(rbGanadorLocal2);
         rbGanadorLocal2.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
@@ -648,7 +655,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         rbGanadorLocal2.setText("Ganador");
         rbGanadorLocal2.setContentAreaFilled(false);
         getContentPane().add(rbGanadorLocal2);
-        rbGanadorLocal2.setBounds(270, 360, 100, 25);
+        rbGanadorLocal2.setBounds(270, 360, 100, 28);
 
         buttonGroup3.add(rbGanadorLocal3);
         rbGanadorLocal3.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
@@ -656,7 +663,7 @@ public class V_IntroducirResultado extends javax.swing.JFrame {
         rbGanadorLocal3.setText("Ganador");
         rbGanadorLocal3.setContentAreaFilled(false);
         getContentPane().add(rbGanadorLocal3);
-        rbGanadorLocal3.setBounds(270, 410, 90, 25);
+        rbGanadorLocal3.setBounds(270, 410, 90, 28);
 
         bActualizar.setBackground(new java.awt.Color(252, 124, 0));
         bActualizar.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
