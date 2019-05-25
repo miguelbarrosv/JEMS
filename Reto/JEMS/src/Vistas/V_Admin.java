@@ -9,6 +9,8 @@ import UML.Jornada;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import jems.JEMS;
 
@@ -31,6 +33,7 @@ public class V_Admin extends javax.swing.JFrame {
     private int numJornada;
     private ArrayList<Jornada> jornadas;
     private static String operacion;
+    private String opcion;
 
     /**
      * Constructor ventana admin.
@@ -82,9 +85,6 @@ public class V_Admin extends javax.swing.JFrame {
     public void setLigaOffline() {
         lbEstadoliga.setText("Offline");
         lbEstadoliga.setForeground(Color.RED);
-        bEquipo.setVisible(true);
-        bJugador.setVisible(true);
-        bDueño.setVisible(true);
     }
 
     /**
@@ -94,22 +94,44 @@ public class V_Admin extends javax.swing.JFrame {
     public void setLigaOnline() {
         lbEstadoliga.setText("Online");
         lbEstadoliga.setForeground(Color.GREEN);
-        bEquipo.setVisible(false);
-        bJugador.setVisible(false);
-        bDueño.setVisible(false);
     }
 
     /**
      * Muestra componentes alta, baja, modificar y consultas en la ventana.
      *
+     * @param opcion(requerido) opcion al clickar
      */
-    public void mostrarOpcionesAltaBajaModificarConsultar() {
-        bVolverBase.setVisible(true);
-        bAlta.setVisible(true);
-        bModificar.setVisible(true);
-        bBaja.setVisible(true);
-        bConsultarUno.setVisible(true);
-        bConsultarMuchos.setVisible(true);
+    public void mostrarOpcionesAltaBajaModificarConsultar(String opcion) {
+        try {
+            if (opcion.compareToIgnoreCase("u") == 0) {
+                bAlta.setVisible(true);
+                bModificar.setVisible(true);
+                bBaja.setVisible(true);
+            } else {
+                if (JEMS.consultarLiga() == null) {
+                    bAlta.setVisible(true);
+                    bModificar.setVisible(true);
+                    bBaja.setVisible(true);
+                } else {
+                    if (JEMS.consultarLiga().getEstado() == true) {
+                        bAlta.setVisible(false);
+                        bModificar.setVisible(false);
+                        bBaja.setVisible(false);
+                    } else {
+                        bAlta.setVisible(true);
+                        bModificar.setVisible(true);
+                        bBaja.setVisible(true);
+                    }
+                }
+            }
+            bVolverBase.setVisible(true);
+            bConsultarUno.setVisible(true);
+            bConsultarMuchos.setVisible(true);
+        } catch (SQLException ex) {
+            ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
+        } catch (Exception e) {
+            ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
+        }
     }
 
     /**
@@ -756,8 +778,9 @@ public class V_Admin extends javax.swing.JFrame {
      * @param evt evento accionar
      */
     private void bJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bJugadorActionPerformed
+        opcion = "j";
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
-        mostrarOpcionesAltaBajaModificarConsultar();
+        mostrarOpcionesAltaBajaModificarConsultar(opcion);
         bVolverBase.setVisible(true);
         lbTituloAdmin.setText("JUGADOR");
     }//GEN-LAST:event_bJugadorActionPerformed
@@ -829,8 +852,9 @@ public class V_Admin extends javax.swing.JFrame {
      * @param evt evento accionar
      */
     private void bDueñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDueñoActionPerformed
+        opcion = "d";
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
-        mostrarOpcionesAltaBajaModificarConsultar();
+        mostrarOpcionesAltaBajaModificarConsultar(opcion);
         bVolverBase.setVisible(true);
         lbTituloAdmin.setText("DUEÑO");
     }//GEN-LAST:event_bDueñoActionPerformed
@@ -873,8 +897,9 @@ public class V_Admin extends javax.swing.JFrame {
      * @param evt evento accionar
      */
     private void bEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEquipoActionPerformed
+        opcion = "e";
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
-        mostrarOpcionesAltaBajaModificarConsultar();
+        mostrarOpcionesAltaBajaModificarConsultar(opcion);
         bVolverBase.setVisible(true);
         lbTituloAdmin.setText("EQUIPO");
     }//GEN-LAST:event_bEquipoActionPerformed
@@ -917,8 +942,9 @@ public class V_Admin extends javax.swing.JFrame {
      * @param evt evento accionar
      */
     private void bUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUsuarioActionPerformed
+        opcion = "u";
         ocultarOpcionesUsuarioDueñoJugadorEquipo();
-        mostrarOpcionesAltaBajaModificarConsultar();
+        mostrarOpcionesAltaBajaModificarConsultar(opcion);
         bVolverBase.setVisible(true);
         lbTituloAdmin.setText("USUARIO");
     }//GEN-LAST:event_bUsuarioActionPerformed
