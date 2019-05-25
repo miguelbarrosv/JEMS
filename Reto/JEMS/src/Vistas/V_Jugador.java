@@ -12,10 +12,10 @@ import UML.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import jems.JEMS;
 
 /**
+ * Ventana de modificacion de jugador.
  *
  * @author Miguel Barros
  * @author Sergio Zulueta
@@ -27,17 +27,25 @@ import jems.JEMS;
  */
 public class V_Jugador extends javax.swing.JFrame {
 
+    /**
+     * creacion de los atributos equipos, ope, estado y jugador.
+     *
+     */
     private static ArrayList<Equipo> equipos;
+    private static String ope;
+    private static String estado;
+    private static Jugador jugador;
 
     /**
-     * Creates new form V_Jugador
+     * Constructor de jugador.
+     *
      */
     public V_Jugador() {
         initComponents();
     }
 
     /**
-     * formato de la ventana
+     * Formato de la ventana.
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -70,8 +78,9 @@ public class V_Jugador extends javax.swing.JFrame {
      *
      * @param operacion tipo de operacion
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
      */
-    public V_Jugador(String operacion) throws Exception {
+    public V_Jugador(String operacion) throws Exception, SQLException {
         setUndecorated(true);
         initComponents();
         myInitComponents();
@@ -128,7 +137,7 @@ public class V_Jugador extends javax.swing.JFrame {
     }
 
     /**
-     * Funcion para validar los datos del jugador
+     * Funcion para validar los datos del jugador.
      *
      * @return True Si las validaciones son correctas
      * @return False Si las validaciones dan error
@@ -305,24 +314,22 @@ public class V_Jugador extends javax.swing.JFrame {
 
     }
 
+    /**
+     * validar Existencia del jugador.
+     */
     public void validarJugador() {
         try {
-            boolean mensaje = JEMS.consultarJugadorLista(Integer.parseInt(tfCodigoJugador.getText()));
-            if (mensaje = false) {
+            if (JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText())) == null) {
                 ControladorVistas.abrirVentanaAviso("El jugador no existe!");
             } else {
                 jugador = JEMS.consultarJugador(Integer.parseInt(tfCodigoJugador.getText()));
             }
-            JOptionPane.showMessageDialog(this, mensaje);
         } catch (SQLException ex) {
             ControladorVistas.abrirVentanaAviso("Error: " + ex.getMessage());
         } catch (Exception e) {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }
-    private static String ope;
-    private static String estado;
-    private static Jugador jugador;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -655,7 +662,7 @@ public class V_Jugador extends javax.swing.JFrame {
         ControladorVistas.cerrarVentanaJugador();
     }//GEN-LAST:event_bVolverActionPerformed
     /**
-     * Funcion para saber que pasa cuando se pulsa enter en codigo jugador
+     * Funcion para saber que pasa cuando se pulsa enter en codigo jugador.
      *
      * @param evt accion de pulsar enter
      */
@@ -719,17 +726,29 @@ public class V_Jugador extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_tfCodigoJugadorActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
-
+    /**
+     * Si vacante es pulsado.
+     *
+     * @param evt accion de clickar
+     */
     private void rbVacanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVacanteActionPerformed
         lbEquipo.setVisible(false);
         cbEquipo.setVisible(false);
         cbEquipo.setSelectedIndex(-1);
     }//GEN-LAST:event_rbVacanteActionPerformed
-
+    /**
+     * Si ocupado es pulsado.
+     *
+     * @param evt accion de clickar
+     */
     private void rbOcupadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbOcupadoActionPerformed
         lbEquipo.setVisible(true);
         cbEquipo.setVisible(true);

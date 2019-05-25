@@ -5,8 +5,17 @@
  */
 package jems;
 
+import Vistas.*;
+import BD.*;
+import UML.*;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
- * Controladora de nuestro proyecto JEMS
+ * Controladora de nuestro proyecto JEMS.
+ *
  * https://www.oracle.com/technetwork/articles/java/index-137868.html
  *
  * @author Sergio Zulueta
@@ -20,16 +29,14 @@ package jems;
  * @since 1.0
  *
  */
-import Vistas.*;
-import BD.*;
-import UML.*;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-
 public class JEMS {
 
+    /**
+     * Creacion de los atributos listaPartidos, listaJugadores, listaEquipos,
+     * listaDueños, listaUsiarios, listaJornadas, dBD, JBD, eBD, uBD, aBD, lBD,
+     * pBD, jorBD, d, e, j, u, a y l.
+     *
+     */
     private static ArrayList<Partido> listaPartidos;
     private static ArrayList<Jugador> listaJugadores;
     private static ArrayList<Equipo> listaEquipos;
@@ -43,14 +50,13 @@ public class JEMS {
     private static AdministradorBD aBD;
     private static LigaBD lBD;
     private static PartidoBD pBD;
+    private static JornadaBD jorBD;
     private static Dueño d;
     private static Equipo e;
     private static Jugador j;
     private static Usuario u;
     private static Administrador a;
     private static Liga l;
-    private static Jornada jor;
-    private static JornadaBD jorBD;
 
     /**
      * @param args the command line arguments
@@ -110,7 +116,7 @@ public class JEMS {
     }
 
     /**
-     * un Get de el nombre del equipo de la posicion x
+     * un Get de el nombre del equipo de la posicion x.
      *
      * @param x (requerido) numero del equipo en el ArrayList
      * @return devuelve el nombre del equipo
@@ -236,21 +242,6 @@ public class JEMS {
     public static Jugador consultarJugador(int cod_jugador) throws Exception, SQLException {
         j = jBD.consultarJugadorCodigo(cod_jugador);
         return j;
-    }
-
-    /**
-     * Funcion para consultar si existe este codigo de jugador.
-     *
-     * @param cod_jugador (requerido) codigo de jugador
-     * @return mensaje mensaje con el resultado de la busqueda
-     * @throws Exception hereda excepciones
-     * @throws java.sql.SQLException hereda excepciones SQL
-     */
-    public static boolean consultarJugadorLista(int cod_jugador) throws Exception, SQLException {
-        listaJugadores = jBD.consultaTodosJugadores();
-        boolean mensaje;
-        mensaje = listaJugadores.indexOf(cod_jugador) != 0;
-        return mensaje;
     }
 
     /**
@@ -608,7 +599,6 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static String crearLigaVacia(Date fecha, String nombre) throws ParseException, Exception, SQLException {
-
         String mensaje = lBD.crearLigaVacia(fecha, nombre);
         return mensaje;
     }
@@ -617,12 +607,14 @@ public class JEMS {
      * Funcion para sumar 3 puntos la puntuacion del equipo ganador del partido.
      *
      * @param nombreEquipo (requerido) nombre del equipo al que sumar 3 puntos
+     * @return devuelve el codigo del equipo
      * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
-    public static void introducirResultado(String nombreEquipo) throws Exception, SQLException {
+    public static int introducirResultado(String nombreEquipo) throws Exception, SQLException {
         int codigoEquipo = eBD.buscarCodigoPorNombre(nombreEquipo);
         eBD.modificarPuntuacion(codigoEquipo);
+        return codigoEquipo;
     }
 
     /**
@@ -634,6 +626,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static ArrayList<Jornada> consultarJornadas() throws Exception, SQLException {
+        jorBD = new JornadaBD();
         listaJornadas = jorBD.consultarJornadas();
         return listaJornadas;
     }
@@ -684,6 +677,7 @@ public class JEMS {
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public static Liga consultarLiga() throws Exception, SQLException {
+        lBD = new LigaBD();
         l = lBD.consultarLiga();
         return l;
     }
@@ -749,6 +743,19 @@ public class JEMS {
      */
     public static void errorBdr(String mensaje) {
         ControladorVistas.abrirVentanaAviso(mensaje);
+    }
+
+    /**
+     * Funcion que rellena el resultado del partido.
+     *
+     * @param codEquipo(requerido) codigo del ganador
+     * @param codJornada (requerido) codigo de la joranda
+     * @param codEquipoLocal (requerido) codigo del equipo local
+     * @throws Exception hereda excepciones
+     * @throws SQLException hereda excepciones SQL
+     */
+    public static void resultadoEnPartido(int codEquipo, int codJornada, int codEquipoLocal) throws Exception, SQLException {
+        pBD.rellenarResultado(codEquipo, codJornada, codEquipoLocal);
     }
 
 }

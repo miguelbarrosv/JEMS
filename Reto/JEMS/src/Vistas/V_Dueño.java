@@ -14,6 +14,7 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
+ * Ventana de modificacion de dueño.
  *
  * @author Miguel Barros
  * @author Eric Muñoz
@@ -25,7 +26,8 @@ import jems.JEMS;
 public class V_Dueño extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Dueño
+     * Constructor ventan dueño.
+     *
      */
     public V_Dueño() {
         setUndecorated(true);
@@ -34,7 +36,8 @@ public class V_Dueño extends javax.swing.JFrame {
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -55,7 +58,7 @@ public class V_Dueño extends javax.swing.JFrame {
 
     /**
      * Funcion que al iniciar la ventana recoge el parametro operacion para
-     * saber que tipo de operaciones y realizar los cambios necesarios
+     * saber que tipo de operaciones y realizar los cambios necesarios.
      *
      *
      * @param operacion (requerido) operacion a realizar
@@ -92,7 +95,7 @@ public class V_Dueño extends javax.swing.JFrame {
     }
 
     /**
-     * Funcion para validar los datos del dueño
+     * Funcion para validar los datos del dueño.
      *
      * @return True Si las validaciones son correctas
      * @return False Si las validaciones dan error
@@ -389,7 +392,7 @@ public class V_Dueño extends javax.swing.JFrame {
     }//GEN-LAST:event_bAceptarActionPerformed
     /**
      * Funcion que al insertar el codigo dueño nos vamos a buscar los datos del
-     * dueño introducido para despues mostrar al cliente los datos de este
+     * dueño introducido para despues mostrar al cliente los datos de este.
      *
      *
      * @param evt pulsar enter
@@ -399,7 +402,7 @@ public class V_Dueño extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
     /**
      * Funcion que al insertar el codigo dueño nos vamos a buscar los datos del
-     * dueño introducido para despues mostrar al cliente los datos de este
+     * dueño introducido para despues mostrar al cliente los datos de este.
      *
      *
      * @param evt pulsar enter
@@ -444,7 +447,11 @@ public class V_Dueño extends javax.swing.JFrame {
             ControladorVistas.abrirVentanaAviso("Error: " + e.getMessage());
         }
     }//GEN-LAST:event_tfCodigoDueñoActionPerformed
-
+    /**
+     * Salir del programa.
+     *
+     * @param evt accion de clickar
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed

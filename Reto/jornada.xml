@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jornadas>
+    <jornada cod="1" fecha_fin="2019-05-28" fecha_inicio="2019-05-25">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="2" fecha_fin="2019-06-04" fecha_inicio="2019-06-01">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="3" fecha_fin="2019-06-11" fecha_inicio="2019-06-08">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="4" fecha_fin="2019-06-18" fecha_inicio="2019-06-15">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="5" fecha_fin="2019-06-25" fecha_inicio="2019-06-22">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="6" fecha_fin="2019-07-02" fecha_inicio="2019-06-29">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="7" fecha_fin="2019-07-09" fecha_inicio="2019-07-06">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="8" fecha_fin="2019-07-16" fecha_inicio="2019-07-13">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="9" fecha_fin="2019-07-23" fecha_inicio="2019-07-20">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+    <jornada cod="10" fecha_fin="2019-07-30" fecha_inicio="2019-07-27">
+        <partidos>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>1</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>3</resultado>
+            </partido>
+            <partido fecha_partido="2019-05-25">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>5</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-01">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-08">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-15">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="1">FNATIC</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-22">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-06-29">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-06">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="5">SPLYCE</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-13">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="2">G2 ESPORTS</equipo_local>
+                <equipo_visitante codigo="6">TEAM VITALITY</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-20">
+                <equipo_local codigo="4">SK GAMING</equipo_local>
+                <equipo_visitante codigo="3">ORIGEN</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="6">TEAM VITALITY</equipo_local>
+                <equipo_visitante codigo="1">FNATIC</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="3">ORIGEN</equipo_local>
+                <equipo_visitante codigo="2">G2 ESPORTS</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+            <partido fecha_partido="2019-07-27">
+                <equipo_local codigo="5">SPLYCE</equipo_local>
+                <equipo_visitante codigo="4">SK GAMING</equipo_visitante>
+                <resultado>0</resultado>
+            </partido>
+        </partidos>
+    </jornada>
+</jornadas>

@@ -33,6 +33,7 @@ public class AdministradorBD {
 
     /**
      * Constructor de DueñoBD con el objeto de la conexión a la base de datos.
+     *
      */
     public AdministradorBD() {
         bdr = new Bdr();
@@ -41,8 +42,8 @@ public class AdministradorBD {
     /**
      * Función para insertar un Administrador.
      *
-     * @param a (requerido) objeto de clase Administrador.
-     * @throws Exception hereda excepciones.
+     * @param a (requerido) objeto de clase Administrador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void insertarAdministrador(Administrador a) throws Exception, SQLException {
@@ -55,10 +56,10 @@ public class AdministradorBD {
     }
 
     /**
-     * Función para borrar un Administrador.
+     * Función para borrar un Administrador
      *
      * @param cod_admin (requerido) codigo del Administrador
-     * @throws Exception herada excepciones.
+     * @throws Exception herada excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public void borrarAdministrador(int cod_admin) throws Exception, SQLException {
@@ -74,8 +75,8 @@ public class AdministradorBD {
      * Función que rellena un objeto administrador desde los datos de la base de
      * datos.
      *
-     * @return devuelve un objeto de clase Administrador.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un objeto de clase Administrador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Administrador crearObjeto() throws Exception, SQLException {
@@ -91,7 +92,7 @@ public class AdministradorBD {
      *
      * @param usuario (requerido) usuario del Adminustrador
      * @return devuelve un objeto clase Administrador
-     * @throws Exception hereda excepciones.
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Administrador consultarAdministradorNombre(String usuario) throws Exception, SQLException {
@@ -116,8 +117,8 @@ public class AdministradorBD {
      *
      * @param usuario (reuqerido) usuario del Administrador
      * @param contraseña (requerido ) contraseña de Administrador
-     * @return devuelve un objeto clase Administrador.
-     * @throws Exception hereda excepciones.
+     * @return devuelve un objeto clase Administrador
+     * @throws Exception hereda excepciones
      * @throws java.sql.SQLException hereda excepciones SQL
      */
     public Boolean consultarAdministrador(String usuario, String contraseña) throws Exception, SQLException {

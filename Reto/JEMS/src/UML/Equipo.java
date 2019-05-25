@@ -8,7 +8,7 @@ package UML;
 import java.util.ArrayList;
 
 /**
- * Creacion de la clase java para el Equipo
+ * Creacion de la clase java para el Equipo.
  *
  * @author Sergio Zulueta
  * @author Miguel Barros
@@ -21,7 +21,8 @@ public class Equipo {
 
     /**
      * Creacion de los atributos cod_equipo, nombre, nacionalidad, presupuesto,
-     * puntuacion, lista_partidos, lista_jugadores, dueño
+     * puntuacion, lista_partidos, lista_jugadores, dueño.
+     *
      */
     private int cod_equipo;
     private String nombre;
@@ -51,6 +52,7 @@ public class Equipo {
 
     /**
      * Constructor vacio.
+     *
      */
     public Equipo() {
     }
@@ -73,7 +75,7 @@ public class Equipo {
     }
 
     /**
-     * Constructo lleno, incluyendo relaciones
+     * Constructo lleno, incluyendo relaciones.
      *
      * @param cod_equipo (requerido) El codigo del equipo.
      * @param nombre (requerido) El nombre del jugador.

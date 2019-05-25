@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
+ * Ventana para modificar los usuarios.
  *
  * @author Miguel Barros
  * @author Eric Muñoz
@@ -22,7 +23,13 @@ import jems.JEMS;
 public class V_Admin_Usuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_Usuario
+     * Creacion de la variable ope.
+     *
+     */
+    private static String ope;
+
+    /**
+     * Constructor de la ventana admin usuario.
      */
     public V_Admin_Usuario() {
         setUndecorated(true);
@@ -32,6 +39,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
 
     /**
      * Para darle formato a la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -48,8 +56,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Independientemente de lo que pulsemos, iremos a modificar, eliminar
-     * consultar o dar de alta un usuario
+     * Constructor personalizador de la ventana.
      *
      * @param operacion operacion para ver que ventana abrir
      */
@@ -83,7 +90,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Validamos los datos para crear un usuario
+     * Validamos los datos para crear un usuario.
      *
      * @return retorna los datos del usuario
      */
@@ -91,9 +98,8 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
         return validarUsuario(tfUsuario.getText()) && validarContraseña(tfContraseña.getText());
     }
 
-
     /**
-     * para validar el usuario
+     * para validar el usuario.
      *
      * @param usuario usuario introducido
      * @return usuario devuelto
@@ -103,7 +109,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }
 
     /**
-     * Para validar la contraseña
+     * Para validar la contraseña.
      *
      * @param contraseña pasamos la contraseña
      * @return retornamos true
@@ -111,10 +117,6 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     public boolean validarContraseña(String contraseña) {
         return true;
     }
-    /**
-     * Creacion de la variable ope
-     */
-    private static String ope;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -266,7 +268,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Validamos datos y hacemos la operacion necesaria para cada evento
+     * Validamos datos y hacemos la operacion necesaria para cada evento.
      *
      * @param evt evento al pulsar el boton
      */
@@ -297,7 +299,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
-     * para consultar el usuario
+     * Para consultar el usuario.
      *
      * @param evt evento al pulsar el boton
      */
@@ -340,7 +342,7 @@ public class V_Admin_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**
-     * Para salir de la ventana
+     * Para salir de la ventana.
      *
      * @param evt evento al pulsar el boton
      */

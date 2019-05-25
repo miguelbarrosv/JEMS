@@ -8,14 +8,14 @@ package Vistas;
 import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import jems.JEMS;
 
 /**
+ * Ventana de login.
  *
  * @author Joel Encinas
  * @author Sergio Zulueta
+ * @author Eric Muñoz
  *
  *
  * @version %I%, %G%
@@ -24,7 +24,8 @@ import jems.JEMS;
 public class V_Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form VLogin
+     * Constructor de login.
+     *
      */
     public V_Login() {
         setUndecorated(true);
@@ -34,7 +35,8 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Formato de la ventana
+     * Formato de la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -48,7 +50,7 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Validamos los datos de entrada
+     * Validamos los datos de entrada.
      *
      * @return retornamos los datos
      */
@@ -57,7 +59,7 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Para validar el nombre
+     * Para validar el nombre.
      *
      * @param nombre pasamos el nombre
      * @return retornamos true
@@ -67,7 +69,7 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Para validar la contraseña
+     * Para validar la contraseña.
      *
      * @param contraseña pasamos la contraseña
      * @return retornamos true
@@ -77,7 +79,7 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Convertimos la contraseña en string
+     * Convertimos la contraseña en string.
      *
      * @param contraseña la contraseña introducida
      * @return contraseña la contraseña convertida
@@ -88,12 +90,14 @@ public class V_Login extends javax.swing.JFrame {
     }
 
     /**
-     * Comprobamos que el dato introducido sea correcto
+     * Comprobamos que el dato introducido sea correcto.
      *
      * @return retornamos todo
      * @throws Exception hereda excepciones
+     * @throws java.sql.SQLException hereda Excepciones SQL
+     *
      */
-    public int comprobarDatos() throws Exception {
+    public int comprobarDatos() throws Exception, SQLException {
         // Login usuario = 1 | Login admin = 2
         int comp = 0;
         if (JEMS.conseguirDatosUsuarios(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword())) || JEMS.conseguirDatosAdministrador(tfUsuario.getText(), convertirContraseña(pfContraseña.getPassword()))) {
@@ -251,7 +255,7 @@ public class V_Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
-     * Salir del programa
+     * Salir del programa.
      *
      * @param evt evento al pulsar boton salir
      */
@@ -260,9 +264,9 @@ public class V_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirActionPerformed
 
     /**
-     * Acceder al programa como usuario o administrador
+     * Acceder al programa como usuario o administrador.
      *
-     * @param evt
+     * @param evt accion de clickar
      */
     private void bAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAccederActionPerformed
         if (validarDatos()) {
@@ -289,13 +293,20 @@ public class V_Login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_bAccederActionPerformed
-
+    /**
+     * Creacion de una cuenta usuario.
+     *
+     * @param evt accion de clickar
+     */
     private void bCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCrearCuentaActionPerformed
         ControladorVistas.cerrarVentanaLogin();
         ControladorVistas.mostrarVentanaRegistrar();
-        ControladorVistas.abrirVentanaAviso("asdasdassd asd asdas dadas dasd asd asdasd asdas da");
     }//GEN-LAST:event_bCrearCuentaActionPerformed
-
+    /**
+     * Hacer lo mismo que pulsar acceder a la hora de darle enter a contraseña.
+     *
+     * @param evt accion de clickar
+     */
     private void pfContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfContraseñaActionPerformed
         bAcceder.doClick();
     }//GEN-LAST:event_pfContraseñaActionPerformed

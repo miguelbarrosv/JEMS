@@ -12,15 +12,20 @@ import javax.swing.BorderFactory;
 import jems.JEMS;
 
 /**
- * Ventana para crear la liga
+ * Ventana para crear la liga.
  *
  * @author Miguel Barros
  * @author Sergio Zulueta
+ * @author Eric Muñoz
+ *
+ * @version %I%, %G%
+ * @since 1.0
  */
 public class V_CrearLiga extends javax.swing.JFrame {
 
     /**
-     * Creates new form V_CraerLiga
+     * Constructor ventana crear liga.
+     *
      */
     public V_CrearLiga() {
         setUndecorated(true);
@@ -31,6 +36,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
     /**
      * Para darle formato a la ventana.
+     *
      */
     public void myInitComponents() {
         setSize(1280, 720);
@@ -49,8 +55,8 @@ public class V_CrearLiga extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfFechaInicio = new javax.swing.JTextField();
         tfNombre = new javax.swing.JTextField();
+        tfFechaInicio = new javax.swing.JFormattedTextField();
         bCrear = new javax.swing.JButton();
         lbRiot = new javax.swing.JLabel();
         lbVersion = new javax.swing.JLabel();
@@ -65,10 +71,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        tfFechaInicio.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        getContentPane().add(tfFechaInicio);
-        tfFechaInicio.setBounds(510, 400, 250, 30);
-
+        tfNombre.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         tfNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNombreActionPerformed(evt);
@@ -76,6 +79,19 @@ public class V_CrearLiga extends javax.swing.JFrame {
         });
         getContentPane().add(tfNombre);
         tfNombre.setBounds(510, 340, 250, 30);
+
+        try {
+            tfFechaInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfFechaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFechaInicioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfFechaInicio);
+        tfFechaInicio.setBounds(510, 400, 250, 30);
 
         bCrear.setBackground(new java.awt.Color(252, 124, 0));
         bCrear.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
@@ -165,7 +181,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
 
     /**
      * Nos encargamos de llamar a jems para utilizar la funcion de instertar una
-     * nueva liga totalmente vacia
+     * nueva liga totalmente vacia.
      *
      * @param evt accion de clickar
      */
@@ -183,22 +199,36 @@ public class V_CrearLiga extends javax.swing.JFrame {
     }//GEN-LAST:event_bCrearActionPerformed
 
     /**
-     * Para salir de la ventana
+     * Para salir de la ventana.
      *
      * @param evt accion de clickar
      */
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
-
+    /**
+     * Vlover a la ventana administrador.
+     *
+     * @param evt acciond de clickar
+     */
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
         ControladorVistas.cerrarVentanaCreacion();
         ControladorVistas.mostrarAdministrarMirar();
+        ControladorVistas.setLigaOffline();
     }//GEN-LAST:event_bVolverActionPerformed
 
     private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNombreActionPerformed
+    /**
+     * Hacer lo mismo que crear liga pero al darle enter a la fecha y luego cierra la ventana crear liga.
+     *
+     * @param evt accion de clickar
+     */
+    private void tfFechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFechaInicioActionPerformed
+        bCrear.doClick();
+        bVolver.doClick();
+    }//GEN-LAST:event_tfFechaInicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +277,7 @@ public class V_CrearLiga extends javax.swing.JFrame {
     private javax.swing.JLabel lbRiot;
     private javax.swing.JLabel lbSubtitulo;
     private javax.swing.JLabel lbVersion;
-    private javax.swing.JTextField tfFechaInicio;
+    private javax.swing.JFormattedTextField tfFechaInicio;
     private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables
 }
